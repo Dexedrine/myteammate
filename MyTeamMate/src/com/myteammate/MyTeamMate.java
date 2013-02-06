@@ -19,7 +19,6 @@
 
 package com.myteammate;
 
-import android.app.Activity;
 import android.os.Bundle;
 import org.apache.cordova.*;
 

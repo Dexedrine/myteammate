@@ -1,0 +1,85 @@
+@CHARSET "UTF-8";
+
+/* body */
+body{
+	background-color: #03426A;
+	font-family: 'Pontano Sans', Arial, sans-serif; 
+	width:100%;
+	margin: 0px;
+	padding: 0px;
+	color: white;
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+
+/* header */
+.header{
+	min-heigth:50px;
+	position: relative;
+	background-color: #FFDA73;
+	text-align:center;
+	margin-bottom: 5px;
+	width:100%;
+	height: 30px;
+	vertical-align: middle;
+	line-height: 30px;
+}
+.header div{
+	float: left;
+}
+
+.left_button, .right_button{
+	width: 30px;
+	border-left:1px;
+	border-right:1px;
+}
+.right_button{
+	margin-right:-30px;/*NON*/
+	}
+.title{	
+	color: #03426A;
+	font-weight: bold;
+}
+
+/* Personnal information */
+.account_info{
+	width:100%;
+}
+
+.personnal_info{
+	float: left;
+	width: 80%;
+}
+.name, .first_name{
+	font-weight: bold;
+}
+.description{
+	font-style: italic;
+	font-size:12px;
+}
+
+.profile_picture{	
+	max-width:20%;
+	float: left;
+}
+.profile_picture img{
+	width:100%;
+}
+
+/* tiles */
+.tiles{
+}
+.base_tile{
+	width:70px;
+	height:70px;
+	color: black;
+	background-color: #FFDA73;
+	border: 4px solid #03426A;
+	border-
+	
+	
+}
+/* General */
+.clear {
+  clear: both;
+  }

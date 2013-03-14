@@ -5,6 +5,7 @@ body{
 	background-color: white;
 	font-family: 'Pontano Sans', Arial, sans-serif; 
 	width:100%;
+	height:100%:
 	margin: 0px;
 	padding: 0px;
 	color: white;
@@ -74,7 +75,10 @@ body{
 
 /* tiles */
 .tiles{
+	width:100%;
+	height:100%;
 }
+
 .base_tile{
 	width:70px;
 	height:70px;
@@ -84,6 +88,15 @@ body{
 	border-
 	
 	
+}
+
+.base_tile_sport{
+	width:100%;
+	height:40%;
+	color: black;
+	background-color: #FFDA73;
+	border: 4px solid #03426A;
+	border-
 }
 /* General */
 .clear {

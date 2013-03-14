@@ -5,17 +5,67 @@ body {
 	background-color: white;
 	font-family: 'Pontano Sans', Arial, sans-serif;
 	width: 100%;
+	height:100%:
 	margin: 0px;
 	padding: 0px;
 	color: white;
 	overflow-x: hidden;
 	overflow-y: hidden;
 }
+/*Page Login*/
+body.login{
+	background-color: #00AAF4;
+}
 
 /*Logo MyTeamMate*/
 .logo {
 	color: #3E97D1;
+	color: white;
+	font-size: 40px;
+	text-align: center;
+	margin-bottom: 10px;
 }
+
+.authentification{
+	color: black;
+	text-align: center;
+	margin: 0 auto; 
+	width: 25%;            
+}
+
+#login{
+	margin-bottom:5px;
+}
+
+#mdp{
+	margin-bottom:5px;
+}
+
+#connect{
+	margin-bottom:5px;
+}
+
+.createAccount{
+	border-top: solid 1px #CCCCCC;
+	text-align: center;
+	margin: 0 auto; 
+	width: 30%	;
+	padding-top: 18px;
+}
+
+.linkMdp{
+	font-size: 12px;
+	color: black;
+}
+
+.linkCreateAccount{
+	font-size: 16px;
+	text-decoration: none;
+	color: white;
+	color: black;
+}
+
+
 
 /* header */
 .header {
@@ -80,11 +130,23 @@ body {
 /* tiles */
 .tiles {
 	
+	width:100%;
+	height:100%;
 }
+
 
 .baseTile {
 	width: 70px;
 	height: 70px;
+	color: black;
+	background-color: #FFDA73;
+	border: 4px solid #03426A;
+	
+}
+
+.base_tile_sport{
+	width:100%;
+	height:40%;
 	color: black;
 	background-color: #FFDA73;
 	border: 4px solid #03426A;

@@ -2,7 +2,7 @@
 
 /* body */
 body{
-	background-color: #03426A;
+	background-color: white;
 	font-family: 'Pontano Sans', Arial, sans-serif; 
 	width:100%;
 	margin: 0px;
@@ -10,6 +10,12 @@ body{
 	color: white;
 	overflow-x: hidden;
 	overflow-y: hidden;
+}
+
+/*Logo MyTeamMate*/
+.logo{
+	color: #3E97D1;
+	
 }
 
 /* header */

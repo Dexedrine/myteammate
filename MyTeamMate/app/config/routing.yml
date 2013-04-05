@@ -1,0 +1,5 @@
+acme_mtm:
+    resource: "@AcmeMtmBundle/Controller/"
+    type:     annotation
+    prefix:   /
+

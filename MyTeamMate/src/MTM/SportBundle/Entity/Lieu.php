@@ -1,6 +1,6 @@
 <?php
 
-namespace Acme\MtmBundle\Entity;
+namespace MTM\SportBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 

@@ -3,6 +3,8 @@
 namespace MTM\SportBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use MTM\LoginBundle\Entity\Utilisateur ;
+
 
 /**
  * Pratique
@@ -39,7 +41,7 @@ class Pratique
      *
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="Utilisateur")
+     * @ORM\OneToOne(targetEntity="MTM\LoginBundle\Entity\Utilisateur")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="idutilisateur", referencedColumnName="idutilisateur")
      * })

@@ -14,8 +14,16 @@ _main:
     resource: routing.yml
    
 profile:
-    pattern: /profile/{name}
+    pattern: /profile
     defaults: { _controller: MTMProfileBundle:Profile:profile }
+
+add_profile:
+    pattern: /add_profile
+    defaults: { _controller: MTMProfileBundle:Profile:add }
+    
+registration:
+    pattern: /registration
+    defaults: { _controller: MTMRegistrationBundle:Registration:registration }
  
 login:
     pattern:   /login

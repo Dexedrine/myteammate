@@ -19,11 +19,14 @@ class AppKernel extends Kernel
             new JMS\AopBundle\JMSAopBundle(),
             new JMS\DiExtraBundle\JMSDiExtraBundle($this),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
-            new Acme\MtmBundle\AcmeMtmBundle(),
+            new MTM\LoginBundle\MTMLoginBundle(),
+            new MTM\ProfileBundle\MTMProfileBundle(),
+            new MTM\CommentBundle\MTMCommentBundle(),
+            new MTM\MessageBundle\MTMMessageBundle(),
+            new MTM\SportBundle\MTMSportBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
-//            $bundles[] = new Acme\DemoBundle\AcmeDemoBundle();
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();

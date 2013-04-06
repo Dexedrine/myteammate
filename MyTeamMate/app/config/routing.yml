@@ -1,5 +1,22 @@
-acme_mtm:
-    resource: "@AcmeMtmBundle/Controller/"
-    type:     annotation
+mtm_sport:
+    resource: "@MTMSportBundle/Resources/config/routing.yml"
     prefix:   /
+
+mtm_message:
+    resource: "@MTMMessageBundle/Resources/config/routing.yml"
+    prefix:   /
+
+mtm_comment:
+    resource: "@MTMCommentBundle/Resources/config/routing.yml"
+    prefix:   /
+
+mtm_profile:
+    resource: "@MTMProfileBundle/Resources/config/routing.yml"
+    prefix:   /
+
+mtm_login:
+    resource: "@MTMLoginBundle/Resources/config/routing.yml"
+    prefix:   /
+
+
 

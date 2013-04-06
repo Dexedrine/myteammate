@@ -1,0 +1,3 @@
+mtm_profile_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: MTMProfileBundle:Default:index }

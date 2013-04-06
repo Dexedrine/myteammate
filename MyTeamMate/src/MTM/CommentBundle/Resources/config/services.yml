@@ -1,0 +1,7 @@
+parameters:
+#    mtm_comment.example.class: MTM\CommentBundle\Example
+
+services:
+#    mtm_comment.example:
+#        class: %mtm_comment.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

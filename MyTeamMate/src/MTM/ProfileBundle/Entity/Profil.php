@@ -4,6 +4,8 @@ namespace MTM\ProfileBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+use MTM\LoginBundle\Entity\Utilisateur;
+
 /**
  * Profil
  *
@@ -60,7 +62,7 @@ class Profil
     /**
      * @var \Utilisateur
      *
-     * @ORM\ManyToOne(targetEntity="Utilisateur")
+     * @ORM\ManyToOne(targetEntity="MTM\LoginBundle\Entity\Utilisateur")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="idutilisateur", referencedColumnName="idutilisateur")
      * })
@@ -197,10 +199,10 @@ class Profil
     /**
      * Set idutilisateur
      *
-     * @param \MTM\LoginBundle\Entity\Utilisateur $idutilisateur
+     * @param Utilisateur $idutilisateur
      * @return Profil
      */
-    public function setIdutilisateur(MTM\LoginBundle\Entity\Utilisateur $idutilisateur = null)
+    public function setIdutilisateur(Utilisateur $idutilisateur = null)
     {
         $this->idutilisateur = $idutilisateur;
     
@@ -210,7 +212,7 @@ class Profil
     /**
      * Get idutilisateur
      *
-     * @return \MTM\LoginBundle\Entity\Utilisateur 
+     * @return Utilisateur 
      */
     public function getIdutilisateur()
     {

@@ -4,6 +4,8 @@ namespace MTM\ProfileBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+use MTM\LoginBundle\Entity\Utilisateur ;
+
 /**
  * Favori
  *
@@ -32,7 +34,7 @@ class Favori
     /**
      * @var \Utilisateur
      *
-     * @ORM\ManyToOne(targetEntity="Utilisateur")
+     * @ORM\ManyToOne(targetEntity="MTM\LoginBundle\Entity\Utilisateur")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="idcreateur", referencedColumnName="idutilisateur")
      * })
@@ -42,7 +44,7 @@ class Favori
     /**
      * @var \Utilisateur
      *
-     * @ORM\ManyToOne(targetEntity="Utilisateur")
+     * @ORM\ManyToOne(targetEntity="MTM\LoginBundle\Entity\Utilisateur")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="idcible", referencedColumnName="idutilisateur")
      * })

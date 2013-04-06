@@ -4,6 +4,8 @@ namespace MTM\ProfileBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+use MTM\LoginBundle\Entity\Utilisateur;
+
 /**
  * Note
  *
@@ -39,7 +41,7 @@ class Note
     /**
      * @var \Utilisateur
      *
-     * @ORM\ManyToOne(targetEntity="Utilisateur")
+     * @ORM\ManyToOne(targetEntity="MTM\LoginBundle\Entity\Utilisateur")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="idutilisateur", referencedColumnName="idutilisateur")
      * })
@@ -49,7 +51,7 @@ class Note
     /**
      * @var \Utilisateur
      *
-     * @ORM\ManyToOne(targetEntity="Utilisateur")
+     * @ORM\ManyToOne(targetEntity="MTM\LoginBundle\Entity\Utilisateur")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="idutilisateur_donnenote", referencedColumnName="idutilisateur")
      * })

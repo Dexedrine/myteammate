@@ -17,6 +17,20 @@ mtm_profile:
 mtm_login:
     resource: "@MTMLoginBundle/Resources/config/routing.yml"
     prefix:   /
+    
+profile:
+    pattern: /profile/{name}
+    defaults: { _controller: MTMProfileBundle:Profile:profile }
+ 
+login:
+    pattern:   /login
+    defaults:  { _controller: MTMLoginBundle:Login:login }
+    
+login_check:
+    pattern:   /login_check
+    
+logout:
+    path:   /logout
 
 
 

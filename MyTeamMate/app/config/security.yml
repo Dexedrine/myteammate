@@ -4,7 +4,7 @@ jms_security_extra:
 
 security:
     encoders:
-        MTM\LoginBundle\Entity\Utilisateur:  
+        MTM\LoginBundle\Entity\TeamMate: 
             algorithm:   sha1
             iterations: 1
             encode_as_base64: false
@@ -38,7 +38,7 @@ security:
 
     providers:
         administrators:
-            entity: { class: "MTMLoginBundle:Utilisateur", property: mail }
+            entity: { class: "MTMLoginBundle:TeamMate", property: email }
         in_memory:
             memory:
                 users:

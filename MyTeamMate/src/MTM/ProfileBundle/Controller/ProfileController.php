@@ -4,37 +4,37 @@ namespace MTM\ProfileBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Core\SecurityContext;
-use MTM\ProfileBundle\Entity\Profil;
+use MTM\ProfileBundle\Entity\Profile;
 use Symfony\Component\HttpFoundation\Request;
 
 class ProfileController extends Controller
 {
     public function profileAction()
     {
-    	$idUser = $this->get('security.context')->getToken()->getUser()->getIdutilisateur() ;
+    	$idTeamMate = $this->get('security.context')->getToken()->getUser()->getIdteammate() ;
     	
     	$em = $this->getDoctrine()->getManager();
-    	$repository = $em->getRepository('MTMProfileBundle:Profil');
+    	$repository = $em->getRepository('MTMProfileBundle:Profile');
     	
-    	$profile = $repository->findOneBy(array('idutilisateur' => $idUser));
+    	$profile = $repository->findOneBy(array('idteammate' => $idTeamMate));
     	if (!$profile) {
     		return $this->render('MTMProfileBundle:Profile:no_profile.html.twig');
     	}
     	
         return $this->render('MTMProfileBundle:Profile:profile.html.twig', 
-        		array('nom' => $profile->getNom(), 'prenom' => $profile->getPrenom() ));
+        		array('name' => $profile->getName(), 'firstname' => $profile->getFirstName() ));
     }
     
     public function addAction(Request $request)
     {
-    	$profile = new Profil();
+    	$profile = new Profile();
     	
-    	$user = $this->get('security.context')->getToken()->getUser() ;
+    	$teamate = $this->get('security.context')->getToken()->getUser() ;
     	
-    	$form = $this->createFormBuilder($profile)->add('nom', 'text')
-    	->add('prenom', 'text')
-    	->add('login','text')
-    	->add('sexe', 'integer')
+    	$form = $this->createFormBuilder($profile)->add('name', 'text')
+    	->add('firstname', 'text')
+    	->add('username','text')
+    	->add('sexe', 'text')
     	->add('urlphoto','text')
     	->getForm();
     	
@@ -43,7 +43,7 @@ class ProfileController extends Controller
     	
     		if ($form->isValid()) {
     			$em = $this->getDoctrine()->getManager();
-    			$em->persist($profile->setIdutilisateur($user))	;
+    			$em->persist($profile->setIdteammate($teamate))	;
     			$em->flush();
     	
     			return $this->redirect($this->generateUrl('profile'));

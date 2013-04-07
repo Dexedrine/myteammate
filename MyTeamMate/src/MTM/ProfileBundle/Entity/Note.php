@@ -4,59 +4,65 @@ namespace MTM\ProfileBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
-use MTM\LoginBundle\Entity\Utilisateur;
+use MTM\LoginBundle\Entity\TeamMate;
 
 /**
  * Note
  *
  * @ORM\Table(name="note")
  * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks
  */
 class Note
 {
     /**
      * @var integer
      *
-     * @ORM\Column(name="idnote", type="integer", nullable=false)
+     * @ORM\Column( type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="SEQUENCE")
-     * @ORM\SequenceGenerator(sequenceName="note_idnote_seq", allocationSize=1, initialValue=1)
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $idnote;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="valeur", type="integer", nullable=true)
+     * @ORM\Column(name="value", type="integer", nullable=true)
      */
-    private $valeur;
+    private $value;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="datenotation", type="datetime", nullable=true)
+     * @ORM\Column( type="datetime", nullable=true)
      */
-    private $datenotation;
+    private $datenote;
 
     /**
-     * @var \Utilisateur
+     * @var \TeamMate
      *
-     * @ORM\ManyToOne(targetEntity="MTM\LoginBundle\Entity\Utilisateur")
+     * @ORM\ManyToOne(targetEntity="MTM\LoginBundle\Entity\TeamMate")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idutilisateur", referencedColumnName="idutilisateur")
+     *   @ORM\JoinColumn(name="idrater", referencedColumnName="idteammate")
      * })
      */
-    private $idutilisateur;
+    private $idrater;
 
     /**
-     * @var \Utilisateur
+     * @var \User
      *
-     * @ORM\ManyToOne(targetEntity="MTM\LoginBundle\Entity\Utilisateur")
+     * @ORM\ManyToOne(targetEntity="MTM\LoginBundle\Entity\TeamMate")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idutilisateur_donnenote", referencedColumnName="idutilisateur")
+     *   @ORM\JoinColumn(name="idnoted", referencedColumnName="idteammate")
      * })
      */
-    private $idutilisateurDonnenote;
+    private $idnoted;
+    
+    /**  @ORM\PrePersist */
+    function onPersist()
+    {
+    	$this->datenote = new \DateTime('now');
+    }
 
 
 
@@ -71,94 +77,94 @@ class Note
     }
 
     /**
-     * Set valeur
+     * Set value
      *
-     * @param integer $valeur
+     * @param integer $value
      * @return Note
      */
-    public function setValeur($valeur)
+    public function setValue($value)
     {
-        $this->valeur = $valeur;
+        $this->value = $value;
     
         return $this;
     }
 
     /**
-     * Get valeur
+     * Get value
      *
      * @return integer 
      */
-    public function getValeur()
+    public function getValue()
     {
-        return $this->valeur;
+        return $this->value;
     }
 
     /**
-     * Set datenotation
+     * Set datenote
      *
-     * @param \DateTime $datenotation
+     * @param \DateTime $datenote
      * @return Note
      */
-    public function setDatenotation($datenotation)
+    public function setDatenote($datenote)
     {
-        $this->datenotation = $datenotation;
+        $this->datenote = $datenote;
     
         return $this;
     }
 
     /**
-     * Get datenotation
+     * Get datenote
      *
      * @return \DateTime 
      */
-    public function getDatenotation()
+    public function getDatenote()
     {
-        return $this->datenotation;
+        return $this->datenote;
     }
 
     /**
-     * Set idutilisateur
+     * Set idrater
      *
-     * @param Utilisateur $idutilisateur
+     * @param \MTM\LoginBundle\Entity\TeamMate $idrater
      * @return Note
      */
-    public function setIdutilisateur(Utilisateur $idutilisateur = null)
+    public function setIdrater(\MTM\LoginBundle\Entity\TeamMate $idrater = null)
     {
-        $this->idutilisateur = $idutilisateur;
+        $this->idrater = $idrater;
     
         return $this;
     }
 
     /**
-     * Get idutilisateur
+     * Get idrater
      *
-     * @return Utilisateur 
+     * @return \MTM\LoginBundle\Entity\TeamMate 
      */
-    public function getIdutilisateur()
+    public function getIdrater()
     {
-        return $this->idutilisateur;
+        return $this->idrater;
     }
 
     /**
-     * Set idutilisateurDonnenote
+     * Set idnoted
      *
-     * @param Utilisateur $idutilisateurDonnenote
+     * @param \MTM\LoginBundle\Entity\TeamMate $idnoted
      * @return Note
      */
-    public function setIdutilisateurDonnenote(Utilisateur $idutilisateurDonnenote = null)
+    public function setIdnoted(\MTM\LoginBundle\Entity\TeamMate $idnoted = null)
     {
-        $this->idutilisateurDonnenote = $idutilisateurDonnenote;
+        $this->idnoted = $idnoted;
     
         return $this;
     }
 
     /**
-     * Get idutilisateurDonnenote
+     * Get idnoted
      *
-     * @return Utilisateur 
+     * @return \MTM\LoginBundle\Entity\TeamMate 
      */
-    public function getIdutilisateurDonnenote()
+    public function getIdnoted()
     {
-        return $this->idutilisateurDonnenote;
+        return $this->idnoted;
     }
 }

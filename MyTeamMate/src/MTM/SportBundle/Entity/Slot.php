@@ -5,27 +5,40 @@ namespace MTM\SportBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Creneau
+ * Slot
+ *
+ * @ORM\Table(name="slot")
+ * @ORM\Entity
  */
-class Creneau
+class Slot
 {
     /**
      * @var integer
+     *
+     * @ORM\Column(type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $idslot;
 
     /**
-     * @var \DateTime
+     * @var integer
+     *
+     * @ORM\Column(type="time", nullable=true)
      */
     private $starthour;
 
     /**
-     * @var \DateTime
+     * @var integer
+     *
+     * @ORM\Column(type="time", nullable=true)
      */
     private $endhour;
 
     /**
      * @var string
+     *
+     * @ORM\Column(type="string", length=8, nullable=false)
      */
     private $day;
 
@@ -44,7 +57,7 @@ class Creneau
      * Set starthour
      *
      * @param \DateTime $starthour
-     * @return Creneau
+     * @return Slot
      */
     public function setStarthour($starthour)
     {
@@ -67,7 +80,7 @@ class Creneau
      * Set endhour
      *
      * @param \DateTime $endhour
-     * @return Creneau
+     * @return Slot
      */
     public function setEndhour($endhour)
     {
@@ -90,7 +103,7 @@ class Creneau
      * Set day
      *
      * @param string $day
-     * @return Creneau
+     * @return Slot
      */
     public function setDay($day)
     {

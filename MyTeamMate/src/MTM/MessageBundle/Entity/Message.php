@@ -3,81 +3,79 @@
 namespace MTM\MessageBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use MTM\LoginBundle\Entity\Utilisateur ; 
+use MTM\LoginBundle\Entity\TeamMate ; 
 
 /**
  * Message
  *
  * @ORM\Table(name="message")
  * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks
  */
 class Message
 {
     /**
      * @var integer
      *
-     * @ORM\Column(name="idmessage", type="integer", nullable=false)
+     * @ORM\Column(type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="SEQUENCE")
-     * @ORM\SequenceGenerator(sequenceName="message_idmessage_seq", allocationSize=1, initialValue=1)
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $idmessage;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="contenumessage", type="text", nullable=true)
+     * @ORM\Column(type="text", nullable=true)
      */
-    private $contenumessage;
+    private $body;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="datemessage", type="datetime", nullable=true)
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $datemessage;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="estlu", type="integer", nullable=true)
+     * @ORM\Column(type="boolean", nullable=true)
      */
-    private $estlu;
+    private $isread;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="MTM\LoginBundle\Entity\Utilisateur", mappedBy="idmessage")
+     * @ORM\ManyToMany(targetEntity="MTM\LoginBundle\Entity\TeamMate", mappedBy="idmessage")
      */
-    private $idutilisateur;
+    private $idreceivers;
+
 
     /**
-     * @var \Utilisateur
+     * @var \User
      *
-     * @ORM\ManyToOne(targetEntity="MTM\LoginBundle\Entity\Utilisateur")
+     * @ORM\ManyToOne(targetEntity="MTM\LoginBundle\Entity\TeamMate")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="iddestinataire", referencedColumnName="idutilisateur")
+     *   @ORM\JoinColumn(name="idsender", referencedColumnName="idteammate")
      * })
      */
-    private $iddestinataire;
-
-    /**
-     * @var \Utilisateur
-     *
-     * @ORM\ManyToOne(targetEntity="MTM\LoginBundle\Entity\Utilisateur")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idexpediteur", referencedColumnName="idutilisateur")
-     * })
-     */
-    private $idexpediteur;
+    private $idsender;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->idutilisateur = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->idreceivers = new \Doctrine\Common\Collections\ArrayCollection();
     }
+    
+    /** @ORM\PrePersist */
+    function onPersist()
+    {
+    	$this->datemessage = new \DateTime('now');
+    }
+
     
 
     /**
@@ -91,26 +89,26 @@ class Message
     }
 
     /**
-     * Set contenumessage
+     * Set body
      *
-     * @param string $contenumessage
+     * @param string $body
      * @return Message
      */
-    public function setContenumessage($contenumessage)
+    public function setBody($body)
     {
-        $this->contenumessage = $contenumessage;
+        $this->body = $body;
     
         return $this;
     }
 
     /**
-     * Get contenumessage
+     * Get body
      *
      * @return string 
      */
-    public function getContenumessage()
+    public function getBody()
     {
-        return $this->contenumessage;
+        return $this->body;
     }
 
     /**
@@ -137,104 +135,81 @@ class Message
     }
 
     /**
-     * Set estlu
+     * Set isread
      *
-     * @param integer $estlu
+     * @param boolean $isread
      * @return Message
      */
-    public function setEstlu($estlu)
+    public function setIsread($isread)
     {
-        $this->estlu = $estlu;
+        $this->isread = $isread;
     
         return $this;
     }
 
     /**
-     * Get estlu
+     * Get isread
      *
-     * @return integer 
+     * @return boolean 
      */
-    public function getEstlu()
+    public function getIsread()
     {
-        return $this->estlu;
+        return $this->isread;
     }
 
     /**
-     * Add idutilisateur
+     * Add idreceivers
      *
-     * @param Utilisateur $idutilisateur
+     * @param \MTM\LoginBundle\Entity\TeamMate $idreceivers
      * @return Message
      */
-    public function addIdutilisateur(Utilisateur $idutilisateur)
+    public function addIdreceiver(\MTM\LoginBundle\Entity\TeamMate $idreceivers)
     {
-        $this->idutilisateur[] = $idutilisateur;
+        $this->idreceivers[] = $idreceivers;
     
         return $this;
     }
 
     /**
-     * Remove idutilisateur
+     * Remove idreceivers
      *
-     * @param Utilisateur $idutilisateur
+     * @param \MTM\LoginBundle\Entity\TeamMate $idreceivers
      */
-    public function removeIdutilisateur(Utilisateur $idutilisateur)
+    public function removeIdreceiver(\MTM\LoginBundle\Entity\TeamMate $idreceivers)
     {
-        $this->idutilisateur->removeElement($idutilisateur);
+        $this->idreceivers->removeElement($idreceivers);
     }
 
     /**
-     * Get idutilisateur
+     * Get idreceivers
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getIdutilisateur()
+    public function getIdreceivers()
     {
-        return $this->idutilisateur;
+        return $this->idreceivers;
     }
 
     /**
-     * Set iddestinataire
+     * Set idsender
      *
-     * @param Utilisateur $iddestinataire
+     * @param \MTM\LoginBundle\Entity\TeamMate $idsender
      * @return Message
      */
-    public function setIddestinataire(Utilisateur $iddestinataire = null)
+    public function setIdsender(\MTM\LoginBundle\Entity\TeamMate $idsender = null)
     {
-        $this->iddestinataire = $iddestinataire;
+        $this->idsender = $idsender;
     
         return $this;
     }
 
     /**
-     * Get iddestinataire
+     * Get idsender
      *
-     * @return Utilisateur 
+     * @return \MTM\LoginBundle\Entity\TeamMate 
      */
-    public function getIddestinataire()
+    public function getIdsender()
     {
-        return $this->iddestinataire;
-    }
-
-    /**
-     * Set idexpediteur
-     *
-     * @param Utilisateur $idexpediteur
-     * @return Message
-     */
-    public function setIdexpediteur(Utilisateur $idexpediteur = null)
-    {
-        $this->idexpediteur = $idexpediteur;
-    
-        return $this;
-    }
-
-    /**
-     * Get idexpediteur
-     *
-     * @return Utilisateur 
-     */
-    public function getIdexpediteur()
-    {
-        return $this->idexpediteur;
+        return $this->idsender;
     }
 }

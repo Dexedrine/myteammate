@@ -11,7 +11,17 @@
     </head>
     <body>
     	{% block header %}
-    		<div class="header">Header</div>
+    		<div class="header">
+	    		<div>
+	    			{% block left_button %}{% endblock %}
+	    		</div>
+	    		<div>
+	    			{% block page_name %}Header{% endblock %}
+	    		</div>
+    			<div>
+    				{% block right_button %}{% endblock %}
+    			</div>
+    		</div>
     	{% endblock %}
         {% block body %}{% endblock %}
         {% javascripts %}{% endjavascripts %}

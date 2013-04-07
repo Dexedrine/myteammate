@@ -33,15 +33,17 @@ class SportController extends Controller
     {
     	$practice = new Practice();
     	$place = new Place();
-    	//$slot = new Slot();
+    	$slot = new Slot();
     	$sport = new Sport();
     	$level= new Level();
+    	
+    	
     	
     	$practice
 	    	->setIdsport($sport)
 	    	->setIdplace($place)
-	    	->setIdlevel($level);
-	    	//->addIdslot($slot);
+	    	->setIdlevel($level)
+	    	->addIdslot($slot);
     	
     	$teammate = $this->get('security.context')->getToken()->getUser() ;
     	
@@ -66,8 +68,8 @@ class SportController extends Controller
     			$em->persist($level)	;
     			$em->flush();
     			
-    			//$em->persist($slot)	;
-    			//$em->flush();
+    			$em->persist($slot)	;
+    			$em->flush();
     			
     			$practice->setIdteammate($teammate);
     			

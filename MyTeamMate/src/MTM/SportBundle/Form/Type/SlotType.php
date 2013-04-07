@@ -17,7 +17,7 @@ class SlotType extends AbstractType
 	public function setDefaultOptions(OptionsResolverInterface $resolver)
 	{
 		$resolver->setDefaults(array(
-				'data_class' => 'Doctrine\Common\Collections\ArrayCollection',
+				'data_class' => 'MTM\SportBundle\Entity\Slot',
 		));
 	}
 	

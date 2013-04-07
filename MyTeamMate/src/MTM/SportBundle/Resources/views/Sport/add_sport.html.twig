@@ -1,12 +1,28 @@
-{% extends 'MTMSportBundle:Sport:base_sport.html.twig' %}
+{% extends 'MTMSportBundle::base_sport.html.twig' %}
 
 
-{% block body %}
+{% block div %}
+	{% javascripts '../../public/js/addSlot.js' %}
+		<link src="{{ asset_url }}" type="text/javascript" />
+	{% endjavascripts %}
+	
 	<form action="{{ path('add_sport') }}" method="post" >
+		<h3>Sport</h3>
 	   	{{ form_widget(form.idsport) }}
+	   	<h3>Lieu</h3>
 		{{ form_widget(form.idplace) }}
+		<h3>Niveau</h3>
 		{{ form_widget(form.idlevel) }}
-		
+		<h3>Créneaux</h3>
+		<ul class="slots" data-prototype="{{ form_widget(form.idslots.vars.prototype)|e }}" >
+    		{% for slot in form.idslots  %}	
+	         	<li>{{ form_widget(slot) }}</li>
+	    	{% endfor %}
+		</ul>
+		{{ form_rest(form) }}
 	    <input type="submit" />
-	</form>
+	</form>		
+	
 {% endblock %}
+
+

@@ -1,3 +1,3 @@
-mtm_registration_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: MTMRegistrationBundle:Default:index }
+registration:
+    pattern: /registration
+    defaults: { _controller: MTMRegistrationBundle:Registration:registration }

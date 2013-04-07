@@ -22,7 +22,7 @@ class RegistrationController extends Controller {
 				$em->persist($user->setMotdepasse(sha1($user->getMotdepasse())))	;
 				$em->flush();
 
-				return $this->redirect($this->generateUrl('registration'));
+				return $this->render('MTMRegistrationBundle:Registration:registration_success.html.twig');
 			}
 		}
 

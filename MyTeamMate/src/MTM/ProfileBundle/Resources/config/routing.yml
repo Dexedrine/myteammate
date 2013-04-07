@@ -1,3 +1,7 @@
-mtm_profile_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: MTMProfileBundle:Default:index }
+profile:
+    pattern: /user/profile
+    defaults: { _controller: MTMProfileBundle:Profile:profile }
+
+add_profile:
+    pattern: /user/add_profile
+    defaults: { _controller: MTMProfileBundle:Profile:add }

@@ -13,24 +13,27 @@ _configurator:
 _main:
     resource: routing.yml
    
-profile:
-    pattern: /profile
-    defaults: { _controller: MTMProfileBundle:Profile:profile }
+mtm_registration:
+    resource: "@MTMRegistrationBundle/Resources/config/routing.yml"
+    prefix:   /
 
-add_profile:
-    pattern: /add_profile
-    defaults: { _controller: MTMProfileBundle:Profile:add }
-    
-registration:
-    pattern: /registration
-    defaults: { _controller: MTMRegistrationBundle:Registration:registration }
- 
-login:
-    pattern:   /login
-    defaults:  { _controller: MTMLoginBundle:Login:login }
-    
-login_check:
-    pattern:   /login_check
-    
-logout:
-    path:   /logout
+mtm_sport:
+    resource: "@MTMSportBundle/Resources/config/routing.yml"
+    prefix:   /
+
+mtm_message:
+    resource: "@MTMMessageBundle/Resources/config/routing.yml"
+    prefix:   /
+
+mtm_comment:
+    resource: "@MTMCommentBundle/Resources/config/routing.yml"
+    prefix:   /
+
+mtm_profile:
+    resource: "@MTMProfileBundle/Resources/config/routing.yml"
+    prefix:   /
+
+mtm_login:
+    resource: "@MTMLoginBundle/Resources/config/routing.yml"
+    prefix:   /
+

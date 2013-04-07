@@ -1,8 +1,5 @@
-{% extends '::base.html.twig' %}
+{% extends 'MTMSportBundle:Sport:base_sport.html.twig' %}
 
-{% block header %}
-	<div class="header">Sport</div>
-{% endblock %}
 
 {% block body %}
 	<form action="{{ path('add_sport') }}" method="post" {{ form_enctype(form) }}>

@@ -43,6 +43,6 @@ class SportController extends Controller
     	}*/
     	
     	return $this
-    	->render('MTMSportBundle:Sport:add_profile.html.twig');
+    	->render('MTMSportBundle:Sport:add_sport.html.twig');
     }
 }

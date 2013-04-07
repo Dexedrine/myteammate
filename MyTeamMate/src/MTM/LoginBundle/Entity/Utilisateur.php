@@ -32,9 +32,9 @@ class Utilisateur implements UserInterface, \Serializable {
 	private $mail;
 
 	/**
-	 * @var integer
+	 * @var bool
 	 *
-	 * @ORM\Column(name="acceptusemail", type="integer", nullable=true)
+	 * @ORM\Column(name="acceptusemail", type="boolean", nullable=true)
 	 */
 	private $acceptusemail;
 
@@ -116,7 +116,7 @@ class Utilisateur implements UserInterface, \Serializable {
 	/**
 	 * Set acceptusemail
 	 *
-	 * @param integer $acceptusemail
+	 * @param bool $acceptusemail
 	 * @return Utilisateur
 	 */
 	public function setAcceptusemail($acceptusemail) {
@@ -128,7 +128,7 @@ class Utilisateur implements UserInterface, \Serializable {
 	/**
 	 * Get acceptusemail
 	 *
-	 * @return integer 
+	 * @return bool 
 	 */
 	public function getAcceptusemail() {
 		return $this->acceptusemail;

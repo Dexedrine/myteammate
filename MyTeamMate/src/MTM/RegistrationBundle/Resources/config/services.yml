@@ -1,0 +1,7 @@
+parameters:
+#    mtm_registration.example.class: MTM\RegistrationBundle\Example
+
+services:
+#    mtm_registration.example:
+#        class: %mtm_registration.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

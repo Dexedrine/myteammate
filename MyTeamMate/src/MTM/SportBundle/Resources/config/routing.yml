@@ -1,3 +1,8 @@
-mtm_sport_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: MTMSportBundle:Default:index }
+sport:
+    pattern: /admin/sport
+    defaults:  { _controller: MTMSportBundle:Sport:view }
+
+add_sport:
+    pattern: /user/add_sport
+    defaults:  { _controller: MTMSportBundle:Sport:add }
+    

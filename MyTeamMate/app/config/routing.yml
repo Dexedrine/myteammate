@@ -1,3 +1,7 @@
+mtm_registration:
+    resource: "@MTMRegistrationBundle/Resources/config/routing.yml"
+    prefix:   /
+
 mtm_sport:
     resource: "@MTMSportBundle/Resources/config/routing.yml"
     prefix:   /
@@ -17,6 +21,7 @@ mtm_profile:
 mtm_login:
     resource: "@MTMLoginBundle/Resources/config/routing.yml"
     prefix:   /
+    
 
 
 

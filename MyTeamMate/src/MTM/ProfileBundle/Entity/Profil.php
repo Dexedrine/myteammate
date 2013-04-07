@@ -62,7 +62,7 @@ class Profil
     /**
      * @var \Utilisateur
      *
-     * @ORM\ManyToOne(targetEntity="MTM\LoginBundle\Entity\Utilisateur")
+     * @ORM\OneToOne(targetEntity="MTM\LoginBundle\Entity\Utilisateur")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="idutilisateur", referencedColumnName="idutilisateur")
      * })

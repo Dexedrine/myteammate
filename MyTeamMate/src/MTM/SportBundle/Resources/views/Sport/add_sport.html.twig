@@ -1,8 +1,13 @@
+{% extends '::base.html.twig' %}
 
+{% block header %}
+	<div class="header">Sport</div>
+{% endblock %}
 
-
-<form action="{{ path('add_sport') }}" method="post" {{ form_enctype(form) }}>
-   
-
-    <input type="submit" />
-</form>
+{% block body %}
+	<form action="{{ path('add_sport') }}" method="post" {{ form_enctype(form) }}>
+	   
+	
+	    <input type="submit" />
+	</form>
+{% endblock %}

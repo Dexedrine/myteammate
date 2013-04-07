@@ -1,5 +1,13 @@
-<form action="{{ path('registration') }}" method="post" {{ form_enctype(form) }}>
-    {{ form_widget(form) }}
+{% extends '::base.html.twig' %}
 
-    <input type="submit" />
-</form>
+{% block header %}
+	<div class="header">Inscription</div>
+{% endblock %}
+
+{% block body %}
+	<form action="{{ path('registration') }}" method="post" {{ form_enctype(form) }}>
+	    {{ form_widget(form) }}
+	
+	    <input type="submit" />
+	</form>
+{% endblock %}

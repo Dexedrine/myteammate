@@ -1,6 +1,16 @@
-Hello {{ nom }} {{ prenom }} !
+{% extends '::base.html.twig' %}
 
-<a href="{{ path('sport') }}" > Voir mes sports </a>
-<a href="{{ path('message') }}"  > Voir mes messages </a>
-<a> Voir mes commentaires </a>
-<a> Voir mes favoris </a>
+
+{% block header %}
+	<div class="header">Profil</div>
+{% endblock %}
+
+{% block body %}
+	Hello {{ nom }} {{ prenom }} !
+	
+	<a href="{{ path('sport') }}" > Voir mes sports </a>
+	<a href="{{ path('message') }}"  > Voir mes messages </a>
+	<a> Voir mes commentaires </a>
+	<a> Voir mes favoris </a>
+{% endblock %}
+

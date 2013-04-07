@@ -4,7 +4,10 @@ jms_security_extra:
 
 security:
     encoders:
-        MTM\LoginBundle\Entity\Utilisateur:  plaintext
+        MTM\LoginBundle\Entity\Utilisateur:  
+            algorithm:   sha1
+            iterations: 1
+            encode_as_base64: false
 
     role_hierarchy:
         ROLE_ADMIN:       ROLE_USER

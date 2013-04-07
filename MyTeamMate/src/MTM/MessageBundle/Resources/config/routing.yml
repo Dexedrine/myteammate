@@ -1,3 +1,7 @@
-mtm_message_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: MTMMessageBundle:Default:index }
+message:
+    pattern: /user/message
+    defaults: { _controller: MTMMessageBundle:Message:message }
+
+send_message:
+    pattern: /user/send_message
+    defaults: { _controller: MTMMessageBundle:Message:send }

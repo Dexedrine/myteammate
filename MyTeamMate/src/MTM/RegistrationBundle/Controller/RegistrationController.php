@@ -3,14 +3,14 @@
 namespace MTM\RegistrationBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use MTM\LoginBundle\Entity\Utilisateur;
+use MTM\LoginBundle\Entity\TeamMate;
 
 class RegistrationController extends Controller {
 	public function registrationAction(Request $request) {
-		$user = new Utilisateur();
+		$teammate = new TeamMate();
 
-		$form = $this->createFormBuilder($user)->add('mail', 'email')
-				->add('motdepasse', 'password')
+		$form = $this->createFormBuilder($teammate)->add('email', 'email')
+				->add('password', 'password')
 				->add('acceptusemail', 'checkbox')
 		->getForm();
 
@@ -19,7 +19,7 @@ class RegistrationController extends Controller {
 
 			if ($form->isValid()) {
 				$em = $this->getDoctrine()->getManager();
-				$em->persist($user->setMotdepasse(sha1($user->getMotdepasse())))	;
+				$em->persist($teammate)	;
 				$em->flush();
 
 				return $this->render('MTMRegistrationBundle:Registration:registration_success.html.twig');

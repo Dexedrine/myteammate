@@ -10,12 +10,12 @@ class MessageController extends Controller
 {
 public function messageAction()
     {
-    	$idUser = $this->get('security.context')->getToken()->getUser()->getIdutilisateur() ;
+    	$idTeammate = $this->get('security.context')->getToken()->getUser()->getIdteammate() ;
     	
     	$em = $this->getDoctrine()->getManager();
     	$repository = $em->getRepository('MTMMessageBundle:Message');
     	
-    	$messages = $repository->findBy(array('iddestinataire' => $idUser));
+    	$messages = $repository->findBy(array('iddestinataire' => $idTeammate));
     	if (!$messages) {
     		return $this->render('MTMMessageBundle:Message:no_message.html.twig');
     	}
@@ -35,7 +35,7 @@ public function messageAction()
     	
     		if ($form->isValid()) {
     			/*$em = $this->getDoctrine()->getManager();
-    			$em->persist($profile->setIdutilisateur($user))	;
+    			$em->persist($profile->setIduser($user))	;
     			$em->flush();*/
     	
     			return $this->redirect($this->generateUrl('message'));

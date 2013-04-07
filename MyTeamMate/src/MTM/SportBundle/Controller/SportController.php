@@ -4,18 +4,23 @@ namespace MTM\SportBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use MTM\SportBundle\Entity\Sport;
+use MTM\SportBundle\Entity\Niveau;
+use MTM\SportBundle\Entity\Creneau;
+use MTM\SportBundle\Entity\Practice;
+use MTM\SportBundle\Entity\Place;
 
 class SportController extends Controller
 {
     public function viewAction()
     {
-    	$idUser = $this->get('security.context')->getToken()->getUser()->getIdutilisateur() ;
+    	$idTeamMate = $this->get('security.context')->getToken()->getUser()->getIduser() ;
     	 
     	$em = $this->getDoctrine()->getManager();
-    	$repository = $em->getRepository('MTMSportBundle:Pratique');
+    	$repository = $em->getRepository('MTMSportBundle:Practice');
     	 
-    	$sports = $repository->findBy(array('idutilisateur' => $idUser));
-    	if (!$sports) {
+    	$practices = $repository->findBy(array('idteammate' => $idTeamMate));
+    	if (!$practices) {
     		return $this->render('MTMSportBundle:Sport:no_sport.html.twig');
     	}
     	 
@@ -24,9 +29,13 @@ class SportController extends Controller
     
     public function addAction(Request $request)
     {
-    	/*$sport = new Pratique();
+    	$practice = new Practice();
+    	$place = new Place();
+    	$slot = new Slot();
+    	$sport = new Sport();
+    	$level= new Level();
     	
-    	$user = $this->get('security.context')->getToken()->getUser() ;
+    	$teammate = $this->get('security.context')->getToken()->getUser() ;
     	
     	
     	
@@ -35,12 +44,12 @@ class SportController extends Controller
     	
     		if ($form->isValid()) {
     			$em = $this->getDoctrine()->getManager();
-    			$em->persist($profile->setIdutilisateur($user))	;
+    			$em->persist($profile->setIduser($teammate))	;
     			$em->flush();
     	
-    			return $this->redirect($this->generateUrl('profile'));
+    			return $this->redirect($this->generateUrl('sport'));
     		}
-    	}*/
+    	}
     	
     	return $this
     	->render('MTMSportBundle:Sport:add_sport.html.twig');

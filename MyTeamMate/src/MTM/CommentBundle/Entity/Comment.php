@@ -3,42 +3,75 @@
 namespace MTM\CommentBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use MTM\LoginBundle\Entity\TeamMate ;
 
 /**
- * Commentaire
+ * Comment
+ *
+ * @ORM\Table(name="comment")
+ * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks
  */
-class Commentaire
+class Comment
 {
     /**
      * @var integer
+     *
+     * @ORM\Column( type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $idcomment;
 
     /**
      * @var string
+     *
+     * @ORM\Column(type="text", nullable=true)
      */
     private $contents;
 
     /**
      * @var \DateTime
+     *
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $datecomment;
 
     /**
      * @var boolean
+     *
+     * @ORM\Column(name="afficher", type="boolean", nullable=true)
      */
     private $visible;
 
+    
     /**
-     * @var \MTM\LoginBundle\Entity\User
+     * @var \TeamMate
+     *
+     * @ORM\ManyToOne(targetEntity="MTM\LoginBundle\Entity\TeamMate")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idreceiver", referencedColumnName="idteammate")
+     * })
      */
     private $idreceiver;
 
     /**
-     * @var \MTM\LoginBundle\Entity\User
+     * @var \TeamMate
+     *
+     * @ORM\ManyToOne(targetEntity="MTM\LoginBundle\Entity\TeamMate")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idposter", referencedColumnName="idteammate")
+     * })
      */
     private $idposter;
 
+  
+    
+    /**  @ORM\PrePersist */
+    function onPersist()
+    {
+    	$this->datecomment = new \DateTime('now');
+    }
 
     /**
      * Get idcomment
@@ -54,7 +87,7 @@ class Commentaire
      * Set contents
      *
      * @param string $contents
-     * @return Commentaire
+     * @return Comment
      */
     public function setContents($contents)
     {
@@ -77,7 +110,7 @@ class Commentaire
      * Set datecomment
      *
      * @param \DateTime $datecomment
-     * @return Commentaire
+     * @return Comment
      */
     public function setDatecomment($datecomment)
     {
@@ -100,7 +133,7 @@ class Commentaire
      * Set visible
      *
      * @param boolean $visible
-     * @return Commentaire
+     * @return Comment
      */
     public function setVisible($visible)
     {
@@ -122,10 +155,10 @@ class Commentaire
     /**
      * Set idreceiver
      *
-     * @param \MTM\LoginBundle\Entity\User $idreceiver
-     * @return Commentaire
+     * @param \MTM\LoginBundle\Entity\TeamMate $idreceiver
+     * @return Comment
      */
-    public function setIdreceiver(\MTM\LoginBundle\Entity\User $idreceiver = null)
+    public function setIdreceiver(\MTM\LoginBundle\Entity\TeamMate $idreceiver = null)
     {
         $this->idreceiver = $idreceiver;
     
@@ -135,7 +168,7 @@ class Commentaire
     /**
      * Get idreceiver
      *
-     * @return \MTM\LoginBundle\Entity\User 
+     * @return \MTM\LoginBundle\Entity\TeamMate 
      */
     public function getIdreceiver()
     {
@@ -145,10 +178,10 @@ class Commentaire
     /**
      * Set idposter
      *
-     * @param \MTM\LoginBundle\Entity\User $idposter
-     * @return Commentaire
+     * @param \MTM\LoginBundle\Entity\TeamMate $idposter
+     * @return Comment
      */
-    public function setIdposter(\MTM\LoginBundle\Entity\User $idposter = null)
+    public function setIdposter(\MTM\LoginBundle\Entity\TeamMate $idposter = null)
     {
         $this->idposter = $idposter;
     
@@ -158,7 +191,7 @@ class Commentaire
     /**
      * Get idposter
      *
-     * @return \MTM\LoginBundle\Entity\User 
+     * @return \MTM\LoginBundle\Entity\TeamMate
      */
     public function getIdposter()
     {

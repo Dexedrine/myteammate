@@ -3,8 +3,10 @@
 
 {% block body %}
 	<form action="{{ path('add_sport') }}" method="post" >
-	   	
-	
+	   	{{ form_widget(form.idsport) }}
+		{{ form_widget(form.idplace) }}
+		{{ form_widget(form.idlevel) }}
+		
 	    <input type="submit" />
 	</form>
 {% endblock %}

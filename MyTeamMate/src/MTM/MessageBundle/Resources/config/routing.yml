@@ -1,7 +1,7 @@
 message:
     pattern: /user/message
-    defaults: { _controller: MTMMessageBundle:Message:message }
+    defaults: { _controller: "MTMMessageBundle:Message:message" }
 
 send_message:
     pattern: /user/send_message
-    defaults: { _controller: MTMMessageBundle:Message:send }
+    defaults: { _controller: "MTMMessageBundle:Message:send" }

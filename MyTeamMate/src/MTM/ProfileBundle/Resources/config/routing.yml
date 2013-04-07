@@ -1,7 +1,7 @@
 profile:
     pattern: /user/profile
-    defaults: { _controller: MTMProfileBundle:Profile:profile }
+    defaults: { _controller: "MTMProfileBundle:Profile:profile" }
 
 add_profile:
     pattern: /user/add_profile
-    defaults: { _controller: MTMProfileBundle:Profile:add }
+    defaults: { _controller: "MTMProfileBundle:Profile:add" }

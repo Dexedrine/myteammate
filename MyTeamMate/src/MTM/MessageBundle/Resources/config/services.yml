@@ -1,0 +1,7 @@
+parameters:
+#    mtm_message.example.class: MTM\MessageBundle\Example
+
+services:
+#    mtm_message.example:
+#        class: %mtm_message.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

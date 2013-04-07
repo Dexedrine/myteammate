@@ -1,16 +1,3 @@
-_welcome:
-    pattern:  /
-    defaults: { _controller: AcmeDemoBundle:Welcome:index }
-
-_demo_secured:
-    resource: "@AcmeDemoBundle/Controller/SecuredController.php"
-    type:     annotation
-
-_demo:
-    resource: "@AcmeDemoBundle/Controller/DemoController.php"
-    type:     annotation
-    prefix:   /demo
-
 _wdt:
     resource: "@WebProfilerBundle/Resources/config/routing/wdt.xml"
     prefix:   /_wdt
@@ -25,3 +12,28 @@ _configurator:
 
 _main:
     resource: routing.yml
+   
+mtm_registration:
+    resource: "@MTMRegistrationBundle/Resources/config/routing.yml"
+    prefix:   /
+
+mtm_sport:
+    resource: "@MTMSportBundle/Resources/config/routing.yml"
+    prefix:   /
+
+mtm_message:
+    resource: "@MTMMessageBundle/Resources/config/routing.yml"
+    prefix:   /
+
+mtm_comment:
+    resource: "@MTMCommentBundle/Resources/config/routing.yml"
+    prefix:   /
+
+mtm_profile:
+    resource: "@MTMProfileBundle/Resources/config/routing.yml"
+    prefix:   /
+
+mtm_login:
+    resource: "@MTMLoginBundle/Resources/config/routing.yml"
+    prefix:   /
+

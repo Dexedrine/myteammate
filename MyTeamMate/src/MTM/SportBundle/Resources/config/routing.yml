@@ -1,0 +1,8 @@
+sport:
+    pattern: /user/sport
+    defaults:  { _controller: "MTMSportBundle:Sport:view" }
+
+add_sport:
+    pattern: /user/add_sport
+    defaults:  { _controller: "MTMSportBundle:Sport:add" }
+    

@@ -1,0 +1,11 @@
+{% extends 'MTMMessageBundle:Message:base_message.html.twig' %}
+
+{% block body %}
+
+<form action="{{ path('send_message') }}" method="post" >
+    <!--  Créer ici le formulaire d'envoie de message -->
+
+    <input type="submit" />
+</form>
+
+{% endblock %}

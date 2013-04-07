@@ -1,0 +1,10 @@
+{% extends 'MTMProfileBundle:Profile:base_profile.html.twig' %}
+
+
+{% block body %}
+	<form action="{{ path('add_profile') }}" method="post" {{ form_enctype(form) }}>
+	    {{ form_widget(form) }}
+	
+	    <input type="submit" />
+	</form>
+{% endblock %}

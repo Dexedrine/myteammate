@@ -1,1 +1,9 @@
-Vous n'avez pas encore de sport : <a href="{{ path('add_sport') }}"> Ajouter </a>
+{% extends '::base.html.twig' %}
+
+{% block header %}
+	<div class="header">Sport</div>
+{% endblock %}
+
+{% block body %}
+	Vous n'avez pas encore de sport : <a href="{{ path('add_sport') }}"> Ajouter </a>
+{% block body %}

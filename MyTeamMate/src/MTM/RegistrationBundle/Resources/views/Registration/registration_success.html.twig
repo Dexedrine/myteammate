@@ -1,1 +1,9 @@
-Vous avez été enregister. <a href="{{ path("profile") }}" > OK </a>
+{% extends '::base.html.twig' %}
+
+{% block header %}
+	<div class="header">Inscription</div>
+{% endblock %}
+
+{% block body %}
+	Vous avez été enregisté. <a href="{{ path("profile") }}" > OK </a>
+{% endblock %}

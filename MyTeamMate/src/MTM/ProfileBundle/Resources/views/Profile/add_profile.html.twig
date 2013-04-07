@@ -1,8 +1,5 @@
-{% extends '::base.html.twig' %}
+{% extends 'MTMProfileBundle:Profile:base_profile.html.twig' %}
 
-{% block header %}
-	<div class="header">Profil</div>
-{% endblock %}
 
 {% block body %}
 	<form action="{{ path('add_profile') }}" method="post" {{ form_enctype(form) }}>

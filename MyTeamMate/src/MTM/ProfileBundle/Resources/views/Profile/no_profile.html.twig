@@ -1,8 +1,4 @@
-{% extends '::base.html.twig' %}
-
-{% block header %}
-	<div class="header">Profil</div>
-{% endblock %}
+{% extends 'MTMProfileBundle:Profile:base_profile.html.twig' %}	
 
 {% block body %}
 	Vous n'avez pas encore de profil : <a href="{{ path('add_profile') }}"> Ajouter </a>

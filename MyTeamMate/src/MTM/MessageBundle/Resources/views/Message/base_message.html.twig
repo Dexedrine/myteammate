@@ -1,5 +1,9 @@
 {% extends '::base.html.twig' %}
 
-{% block page_name %}Message{% endblock %}
+{% block page_name %}Messages{% endblock %}
+
+{% block right_button %}
+	<a class="logout" value="X" href="{{ path('logout') }}">X</a>
+{% endblock %}
 
 {% block body %}{% endblock %}

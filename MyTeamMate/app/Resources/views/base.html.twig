@@ -13,22 +13,26 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
+    	<div class="top">
     	{% block header %}
-    		<div class="header">
-	    		<div>
-	    			{% block left_button %}{% endblock %}
-	    		</div>
-	    		<div>
-	    			{% block page_name %}Header{% endblock %}
-	    		</div>
-    			<div>
-    				{% block right_button %}{% endblock %}
-    			</div>
+    	
+    		<div class="left_head">
+				{% block left_button %}{% endblock %}
     		</div>
+    		<div class="page_name">
+    			{% block page_name %}Header{% endblock %}
+	    	</div>
+    		<div class="right_head">
+    				{% block right_button %}{% endblock %}
+    		</div>    	
     	{% endblock %}
-    	{% block body %}
-	        {% block div %}{% endblock %}
-	        {% javascripts %}{% endjavascripts %}
-	    {% endblock %}
+    	</div>
+    	
+    	<div class="middle">
+	    	{% block body %}
+		        {% block div %}{% endblock %}
+		        {% javascripts %}{% endjavascripts %}
+		    {% endblock %}
+	    </div>
     </body>
 </html>

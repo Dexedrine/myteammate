@@ -1,5 +1,10 @@
 {% extends '::base.html.twig' %}
 
+
 {% block page_name %}Profil{% endblock %}
+
+{% block right_button %}
+	<a class="logout" value="X" href="{{ path('logout') }}">X</a>
+{% endblock %}
 
 {% block body %}{% endblock %}

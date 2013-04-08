@@ -4,8 +4,9 @@ namespace MTM\ProfileBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Core\SecurityContext;
-use MTM\ProfileBundle\Entity\Profile;
 use Symfony\Component\HttpFoundation\Request;
+use MTM\ProfileBundle\Entity\Profile;
+
 
 class ProfileController extends Controller
 {

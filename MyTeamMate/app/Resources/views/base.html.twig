@@ -7,13 +7,28 @@
         	<link href='http://fonts.googleapis.com/css?family=Pontano+Sans' rel='stylesheet' type='text/css'>
         	<link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
         {% endstylesheets %}
+        {% javascripts '../app/Resources/public/js/jquery.js' %}
+        	<link src="{{ asset_url }}" type="text/javascript" />
+        {% endjavascripts %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
     	{% block header %}
-    		<div class="header">Header</div>
+    		<div class="header">
+	    		<div>
+	    			{% block left_button %}{% endblock %}
+	    		</div>
+	    		<div>
+	    			{% block page_name %}Header{% endblock %}
+	    		</div>
+    			<div>
+    				{% block right_button %}{% endblock %}
+    			</div>
+    		</div>
     	{% endblock %}
-        {% block body %}{% endblock %}
-        {% javascripts %}{% endjavascripts %}
+    	{% block body %}
+	        {% block div %}{% endblock %}
+	        {% javascripts %}{% endjavascripts %}
+	    {% endblock %}
     </body>
 </html>

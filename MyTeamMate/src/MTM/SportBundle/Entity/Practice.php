@@ -55,7 +55,7 @@ class Practice
      *   @ORM\JoinColumn(name="idteammate", referencedColumnName="idteammate")
      * })
      */
-    private $iduser;
+    private $idteammate;
 
     /**
      * @var \Sport
@@ -89,8 +89,6 @@ class Practice
     public function __construct() {
     	$this->idslots = new \Doctrine\Common\Collections\ArrayCollection();
     }
-
-
 
 
 
@@ -151,26 +149,26 @@ class Practice
     }
 
     /**
-     * Set iduser
+     * Set idteammate
      *
-     * @param \MTM\LoginBundle\Entity\TeamMate $iduser
+     * @param \MTM\LoginBundle\Entity\TeamMate $idteammate
      * @return Practice
      */
-    public function setIduser(\MTM\LoginBundle\Entity\TeamMate $iduser = null)
+    public function setIdteammate(\MTM\LoginBundle\Entity\TeamMate $idteammate = null)
     {
-        $this->iduser = $iduser;
+        $this->idteammate = $idteammate;
     
         return $this;
     }
 
     /**
-     * Get iduser
+     * Get idteammate
      *
      * @return \MTM\LoginBundle\Entity\TeamMate 
      */
-    public function getIduser()
+    public function getIdteammate()
     {
-        return $this->iduser;
+        return $this->idteammate;
     }
 
     /**

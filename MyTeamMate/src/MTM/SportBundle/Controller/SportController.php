@@ -62,7 +62,7 @@ class SportController extends Controller
     			$em->persist($sport)	;
     			$em->flush();
     			
-    			$em->persist($address)	;
+    			$em->persist($place)	;
     			$em->flush();
     			
     			$em->persist($level)	;

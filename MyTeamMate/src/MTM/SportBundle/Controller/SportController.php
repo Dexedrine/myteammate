@@ -51,7 +51,6 @@ class SportController extends Controller
     	$form = $this->createForm(new PracticeType(), $practice);
     	
     	
-    	
     	if ($request->isMethod('POST')) {
     		$form->bind($request);
     	

@@ -1,28 +1,7 @@
 //Get the ul that holds the collection of tags
-	var collectionHolder = $('ul.slots');
 	
-	// setup an "add a tag" link
-	var $addSlotLink = $('<a href="#" class="add_slot_link">Ajouter un créneau</a>');
-	var $newLinkLi = $('<li></li>').append($addSlotLink);
-	
-	jQuery(document).ready(function() {
-	    // add the "add a slot" anchor and li to the slots ul
-	    collectionHolder.append($newLinkLi);
-	
-	    // count the current form inputs we have (e.g. 2), use that as the new
-	    // index when inserting a new item (e.g. 2)
-	    collectionHolder.data('index', collectionHolder.find(':input').length);
-	
-	    $addTagLink.on('click', function(e) {
-	        // prevent the link from creating a "#" on the URL
-	        e.preventDefault();
-	
-	        // add a new tag form (see next code block)
-	        addTagForm(collectionHolder, $newLinkLi);
-	    });
-	});
-	function addTagForm(collectionHolder, $newLinkLi) {
-	    // Get the data-prototype explained earlier
+	function addSlotForm(collectionHolder, $newLinkLi) {
+		// Get the data-prototype explained earlier
 	    var prototype = collectionHolder.data('prototype');
 
 	    // get the new index
@@ -36,6 +15,22 @@
 	    collectionHolder.data('index', index + 1);
 
 	    // Display the form in the page in an li, before the "Add a tag" link li
-	    var $newFormLi = $('<li></li>').append(newForm);
+	    var $newFormLi = $('<li id="slot" ></li>').append(newForm);
+	    
+	    addSlotFormDeleteLink($newFormLi)
+	    
 	    $newLinkLi.before($newFormLi);
+	}
+	
+	function addSlotFormDeleteLink($slotFormLi) {
+	    var $removeFormA = $('<a href="#">Supprimer ce créneau</a>');
+	    $slotFormLi.append($removeFormA); 
+
+	    $removeFormA.on('click', function(e) {
+	        // empêche le lien de créer un « # » dans l'URL
+	        e.preventDefault();
+
+	        // supprime l'élément li pour le formulaire de tag
+	        $slotFormLi.remove();
+	    });
 	}

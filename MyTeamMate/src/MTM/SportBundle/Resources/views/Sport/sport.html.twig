@@ -1,5 +1,19 @@
 {% extends 'MTMSportBundle::base_sport.html.twig' %}
 
 {% block div %}
-	Hello {{ name }}!
+	{%  for practice in  practices %}
+		<br>
+		<div class=practice >
+			{{ practice.getIdSport().getNomsport() }} <br>
+			{{ practice.getIdPlace().getAddress() }} <br>
+			{{ practice.getIdLevel().getLevel() }} <br>
+			{% for slot in practice.getIdslots %}
+						{{ slot.getDay() }}	  
+						{{ slot.getStarthour()|date('H:i') }} 
+						{{ slot.getEndhour()|date('H:i') }}
+						<br>
+			{% endfor %}
+			<a href="{{ path('edit_sport',{"idpractice" : practice.getIdpractice()}) }}" >Modifier</a>
+		</div>
+	{% endfor %}
 {% endblock %}

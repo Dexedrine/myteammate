@@ -12,6 +12,7 @@ class PracticeType extends AbstractType {
 		$builder->add('idslots', 'collection',
 						array('type' => new SlotType(), 
 								'allow_add' => true,
+								'allow_delete' => true,
 								'by_reference' => false,));
 	}
 

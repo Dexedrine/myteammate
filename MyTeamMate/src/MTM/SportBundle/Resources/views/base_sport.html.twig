@@ -1,10 +1,16 @@
 {% extends '::base.html.twig' %}
 
+{% block left_button %}
+	<a class="button_add" value="Ajouter" href="{{ path('add_sport') }}">Ajouter</a>
+{% endblock %}
+
 {% block page_name %}Sports{% endblock %}
 
 {% block right_button %}
 	<a class="logout" value="X" href="{{ path('logout') }}">X</a>
 {% endblock %}
 
-{% block div %}{% endblock %}
-{% javascripts %}{% endjavascripts %}
+{% block body %}
+	{% block div %}{% endblock %}
+	{% javascripts %}{% endjavascripts %}
+{% endblock %}

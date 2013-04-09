@@ -6,3 +6,7 @@ add_sport:
     pattern: /user/add_sport
     defaults:  { _controller: "MTMSportBundle:Sport:add" }
     
+edit_sport:
+    pattern: /user/edit_sport/{idpractice}
+    defaults:  { _controller: "MTMSportBundle:Sport:edit" }
+    

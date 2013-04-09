@@ -49,7 +49,7 @@ class Message
     /**
      * @var \Doctrine\Common\Collections\Collection
      * 
-     * @ORM\ManyToMany(targetEntity="TeamMate")
+     * @ORM\ManyToMany(targetEntity="MTM\LoginBundle\Entity\TeamMate")
      * 	@ORM\JoinTable(name="messagesreceivers",
      *   joinColumns={
      *     @ORM\JoinColumn(name="idmessage", referencedColumnName="idmessage")

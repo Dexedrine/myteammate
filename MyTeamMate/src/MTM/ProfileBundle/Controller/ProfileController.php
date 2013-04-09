@@ -32,11 +32,11 @@ class ProfileController extends Controller
     	
     	$teamate = $this->get('security.context')->getToken()->getUser() ;
     	
-    	$form = $this->createFormBuilder($profile)->add('name', 'text')
-    	->add('firstname', 'text')
-    	->add('username','text')
-    	->add('sexe', 'text')
-    	->add('urlphoto','text')
+    	$form = $this->createFormBuilder($profile)->add('name', 'text',array('label' => 'Nom'))
+    	->add('firstname', 'text',array('label' => 'Prénom'))
+    	->add('username','text',array('label' => 'Nom d\'utilisateur'))
+    	->add('sexe', 'text',array('label' => 'Sexe(H/F)'))
+    	->add('urlphoto','text',array('label' => 'URL de votre photo'))
     	->getForm();
     	
     	if ($request->isMethod('POST')) {

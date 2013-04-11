@@ -1,0 +1,3 @@
+mtm_design_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: MTMDesignBundle:Default:index }

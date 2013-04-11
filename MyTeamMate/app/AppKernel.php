@@ -25,6 +25,7 @@ class AppKernel extends Kernel
             new MTM\MessageBundle\MTMMessageBundle(),
             new MTM\SportBundle\MTMSportBundle(),
             new MTM\RegistrationBundle\MTMRegistrationBundle(),
+            new MTM\DesignBundle\MTMDesignBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

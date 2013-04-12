@@ -5,8 +5,14 @@ body{
 	margin: 0;
 }
 .middle{
-	margin: 5px;
 	text-align: center;
+}
+
+label
+{
+    display: block;
+    width: 150px;
+    float: left;
 }
 
 /* header */

@@ -1,3 +1,7 @@
+mtm_design:
+    resource: "@MTMDesignBundle/Resources/config/routing.yml"
+    prefix:   /
+
 mtm_registration:
     resource: "@MTMRegistrationBundle/Resources/config/routing.yml"
     prefix:   /

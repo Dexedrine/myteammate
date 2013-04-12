@@ -8,16 +8,20 @@
 	{% endif %}
 
 	<form action="{{ path('login_check') }}" method="post">
-	    <label for="username">Email :</label>
-	    <input type="text" id="username" name="_username" value="{{ last_username }}" />
-	
+        <p>  
+	  		<label for="username">Email :</label>
+	   		<input type="text" id="username" name="_username" placeholder="exemple@exemple.com" value="{{ last_username }}" />
+		</p>
+	<p>
 	    <label for="password">Password :</label>
-	    <input type="password" id="password" name="_password" />
-	
+	    <input type="password" id="password" name="_password" placeholder="mot de passe" />
+	</p>
+	<p>
 	    <input type="checkbox" id="remember_me" name="_remember_me" checked />
-	    <label for="remember_me">Keep me logged in</label>
-	
+	    <label for="remember_me">Rester connecté</label>
+	</p>
 	    <input type="submit" name="login" />
 	</form>
 	<p>Vous n'avez pas de compte ? <a href="{{ path('registration') }}" >S'inscrire</a></p>
+	<p>Vous avez oubli&eacute; votre mot de passe ?</p>
 {% endblock %}

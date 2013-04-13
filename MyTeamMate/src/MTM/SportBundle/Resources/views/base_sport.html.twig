@@ -1,6 +1,8 @@
 {% extends '::connect.html.twig' %}
 
-{% block page_name %}Sports{% endblock %}
+{% block page_name %}
+	<a class="sport" value="Sport" href="{{ path('sport') }}">Sport</a>	
+{% endblock %}
 
 {% block right_button %}
 	<a class="button_add" value="Ajouter" href="{{ path('add_sport') }}">Ajouter</a>

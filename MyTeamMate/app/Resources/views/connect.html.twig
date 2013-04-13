@@ -1,6 +1,23 @@
 {% extends '::base.html.twig' %}
 
 {% block left_button %}
-		<a value="X" href="{{ path('logout') }}">X</a>
+		<script type="text/javascript">
+		<!--
+			function showMenu(ev){
+			$("nav").slideToggle();
+			}
+		//-->
+		</script>
+		<button class="menu" onclick="showMenu(event)" >
+			Menu
+		</button>
 {% endblock %}
 
+{% block nav %}
+	<nav class=menu >
+    		<ul>
+    			<li><a href="{{ path('profile') }}">Home</a></li>	
+    			<li><a href="{{ path('logout') }}">Déconnexion</a></li>		
+    		</ul>
+	</nav>
+{% endblock %}

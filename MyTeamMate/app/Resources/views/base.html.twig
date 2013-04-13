@@ -9,6 +9,12 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
+    	<script type="text/javascript">
+	    	$(document).ready(function(){
+	   		    $("nav").hide();
+	    	});
+	    	
+    	</script>
     	<div class="top">
     	{% block header %}
     	
@@ -23,6 +29,10 @@
     		</div>    	
     	{% endblock %}
     	</div>
+    	
+    	{% block nav %}
+  
+    	{% endblock  %}
     	
     	<div class="middle">
 	    	{% block body %}

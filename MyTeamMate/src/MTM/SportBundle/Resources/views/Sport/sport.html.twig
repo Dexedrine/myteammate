@@ -1,19 +1,41 @@
 {% extends 'MTMSportBundle::base_sport.html.twig' %}
 
 {% block div %}
+	<script>
+		function allowDrop(ev)
+		{
+			ev.preventDefault();
+		}
+		
+		function drag(ev)
+		{
+			ev.dataTransfer.setData("Text",ev.target.id);
+		}
+			
+		function drop(ev)
+		{
+			ev.preventDefault();
+			var data=ev.dataTransfer.getData("Text");
+			ev.target.appendChild(document.getElementById(data));
+		}
+	</script>
+
 	{%  for practice in  practices %}
 		<br>
-		<div class=practice >
-			{{ practice.getIdSport().getNomsport() }} <br>
-			{{ practice.getIdPlace().getAddress() }} <br>
-			{{ practice.getIdLevel().getLevel() }} <br>
-			{% for slot in practice.getIdslots %}
-						{{ slot.getDay() }}	  
-						{{ slot.getStarthour()|date('H:i') }} 
-						{{ slot.getEndhour()|date('H:i') }}
-						<br>
-			{% endfor %}
-			<a href="{{ path('edit_sport',{"idpractice" : practice.getIdpractice()}) }}" >Modifier</a>
+		<div class="draggable" ondrop="drop(event)" ondragover="allowDrop(event)" >
+			<div class="practice" ondragstart="drag(event)" draggable="true">
+				{{ practice.getIdSport().getNomsport() }} <br>
+				{{ practice.getIdPlace().getAddress() }} <br>
+				{{ practice.getIdLevel().getLevel() }} <br>
+				{% for slot in practice.getIdslots %}
+							{{ slot.getDay() }}	  
+							{{ slot.getStarthour()|date('H:i') }} 
+							{{ slot.getEndhour()|date('H:i') }}
+							<br>
+				{% endfor %}
+				<a href="{{ path('edit_sport',{"idpractice" : practice.getIdpractice()}) }}" >Modifier</a>
+				<a href="{{ path('delete_sport',{"idpractice" : practice.getIdpractice()}) }}" >Supprimer</a>
+			</div>
 		</div>
 	{% endfor %}
 {% endblock %}

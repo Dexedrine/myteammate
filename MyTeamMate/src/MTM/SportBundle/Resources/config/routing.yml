@@ -10,3 +10,7 @@ edit_sport:
     pattern: /user/edit_sport/{idpractice}
     defaults:  { _controller: "MTMSportBundle:Sport:edit" }
     
+delete_sport:
+    pattern: /user/delete_sport/{idpractice}
+    defaults:  { _controller: "MTMSportBundle:Sport:delete" }
+    

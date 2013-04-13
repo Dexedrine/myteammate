@@ -71,7 +71,7 @@ class Practice
     /**
 	 * @var \Doctrine\Common\Collections\Collection
 	 *
-	 * @ORM\ManyToMany(targetEntity="Slot")
+	 * @ORM\ManyToMany(targetEntity="Slot",cascade={"persist","remove"})
 	 * @ORM\JoinTable(name="practicesslots",
 	 *   joinColumns={
 	 *     @ORM\JoinColumn(name="idpractice", referencedColumnName="idpractice")

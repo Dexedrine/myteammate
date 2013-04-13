@@ -4,8 +4,11 @@
 
 	{% block div %}
 		
-		
-		<form action="{{ path('add_sport') }}" method="post" >
+		{% if action == 'edit_sport' %}
+			<form action="{{ path(action,{"idpractice" : idpractice}) }}" method="post" >
+		{% else %}
+			<form action="{{ path(action) }}" method="post" >
+		{% endif %}
 			<h3>Sport</h3>
 		   	{{ form_widget(form.idsport) }}
 		   	<h3>Lieu</h3>
@@ -23,7 +26,6 @@
 		</form>		
 		
 	{% endblock %}
-		<script src="{{ asset('bundles/mtmsport/js/jquery-1.9.1.js') }}" type="text/javascript" ></script>
 		<script src="{{ asset('bundles/mtmsport/js/addSlot.js') }}" type="text/javascript" ></script>
 		<script type="text/javascript">
 		<!--

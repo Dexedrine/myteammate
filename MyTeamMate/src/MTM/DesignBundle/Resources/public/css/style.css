@@ -43,14 +43,9 @@ label
 	right: 5px;
 }
 
-button.menu{
+.button img{
 	cursor:pointer; 
-	text-align: center;
-	width : 50px ;
-	height: 25px ; 
-	margin: 5px;
-	border-radius : 20% ;
-	background-color: #1364FE;
+	margin: 3px 10px;
 }
 
 nav{
@@ -63,10 +58,6 @@ nav{
 }
 
 /* login */
-.logout{
-	background: url('../img/logout.gif') no-repeat scroll 0 0;
-}
-
 
 /* profil */
 

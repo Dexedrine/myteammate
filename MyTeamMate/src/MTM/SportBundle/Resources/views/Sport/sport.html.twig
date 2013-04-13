@@ -2,6 +2,17 @@
 
 {% block div %}
 	<script>
+	$(document).ready(function(){
+		 
+	    // cacher la div #menu
+	    $(".delete").hide();
+	     
+	});
+
+		function dragend(ev){
+			$(".delete").slideToggle();
+		}
+		
 		function allowDrop(ev)
 		{
 			ev.preventDefault();
@@ -10,20 +21,24 @@
 		function drag(ev)
 		{
 			ev.dataTransfer.setData("Text",ev.target.id);
+			$(".delete").slideToggle();
 		}
 			
 		function drop(ev)
 		{
 			ev.preventDefault();
 			var data=ev.dataTransfer.getData("Text");
+			var route = "{{ path('delete_sport', { 'idpractice': "PLACEHOLDER" }) }}";
+			window.location = route.replace("PLACEHOLDER", data);
+			
 			ev.target.appendChild(document.getElementById(data));
 		}
 	</script>
-
-	{%  for practice in  practices %}
-		<br>
-		<div class="draggable" ondrop="drop(event)" ondragover="allowDrop(event)" >
-			<div class="practice" ondragstart="drag(event)" draggable="true">
+	<div class="delete" ondrop="drop(event)" ondragover="allowDrop(event)" >
+		<img src="{{ asset('bundles/mtmdesign/img/trash.png') }}" width="48px" height="48px" >
+	</div>
+	{%  for practice in  practices %}			
+			<div class="practice" id="{{ practice.getIdpractice() }}" ondragend="dragend(event)" ondragstart="drag(event)" draggable="true">
 				{{ practice.getIdSport().getNomsport() }} <br>
 				{{ practice.getIdPlace().getAddress() }} <br>
 				{{ practice.getIdLevel().getLevel() }} <br>
@@ -36,6 +51,6 @@
 				<a href="{{ path('edit_sport',{"idpractice" : practice.getIdpractice()}) }}" >Modifier</a>
 				<a href="{{ path('delete_sport',{"idpractice" : practice.getIdpractice()}) }}" >Supprimer</a>
 			</div>
-		</div>
+		
 	{% endfor %}
 {% endblock %}

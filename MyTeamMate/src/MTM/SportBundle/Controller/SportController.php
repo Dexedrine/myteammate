@@ -51,13 +51,10 @@ class SportController extends Controller {
 
 				$em = $this->getDoctrine()->getManager();
 				
+				// Plus nécessaire si on propose.
 				$em->persist($sport);
 				$em->persist($place);
 				$em->persist($level);
-
-				foreach ($practice->getIdslots() as $slot){
-					$em->persist($slot);
-				}
 				
 				$practice->setIdteammate($teammate);
 
@@ -82,6 +79,15 @@ class SportController extends Controller {
 		$repository = $em->getRepository('MTMSportBundle:Practice');
 		$practice = $repository->findOneBy(array('idpractice' => $idpractice));
 
+
+		// récupère les créneaux avant modif
+		$originalSlots = array();
+
+		// Crée un tableau contenant les objets Tag courants de la
+		// base de données
+		foreach ($practice->getIdslots() as $slot)
+			$originalSlots[] = $slot;
+			
 		$form = $this->createForm(new PracticeType(), $practice);
 
 		if ($request->isMethod('POST')) {
@@ -89,8 +95,17 @@ class SportController extends Controller {
 
 			if ($form->isValid()) {
 				
-				$em = $this->getDoctrine()->getManager();
-
+				foreach ($practice->getIdslots() as $slot) {
+					foreach ($originalSlots as $key => $toDel) {
+						if ($toDel->getIdSlot() === $slot->getIdSlot()) {
+							unset($originalSlots[$key]);
+						}
+						else{
+							$em->remove($slot);
+						}
+					}
+				}
+				
 				$em->flush();
 
 				return $this->redirect($this->generateUrl('sport'));
@@ -112,6 +127,9 @@ class SportController extends Controller {
 		$practice = $repository->findOneBy(array('idpractice' => $idpractice));
 	
 		$em->remove($practice);
+		foreach ($practice->getIdslots() as $slot) {
+			$em->remove($slot);
+		}
 		$em->flush();
 
 		return $this->redirect($this->generateUrl('sport'));

@@ -5,10 +5,10 @@ body{
 	margin: 0;
 	z-index : 0;
 }
-.middle{
-	text-align: center;
-}
 
+.middle{
+	margin-top: 10px;
+}
 label
 {
     display: block;
@@ -63,6 +63,75 @@ nav{
 }
 
 /* login */
+
+.loginForm{
+	text-align: center;
+	width: 25%;
+	margin: 0 auto;
+}
+
+.inputs li{
+	list-style: none;
+	background: #FFFFFF;
+	width: 100%;
+	padding: 12px 15px;
+	margin: 0 0 10px 0;
+	border-radius: 3px;
+}
+
+.inputs{
+	margin: 0;
+	padding: 0;
+}
+
+.inputs li input{
+	border: none;
+	font-size: 18px;
+	outline: none;
+}
+
+.inputs li label{
+	color: #BEBEBE;
+	margin-left: 55px;
+}
+.icon{
+	margin-right: 5px;
+}
+.footerLogin{
+	text-align: left;
+	margin: 0;
+	display: block;
+	height: 50px;
+	margin-top: 20px;
+}
+.footerLogin ul{
+	margin: 0;
+	padding: 0;
+	float: left;
+}
+
+.footerLogin ul li{
+	list-style: none;
+	font-size: 14px;
+	
+}
+.loginSubmit{
+	background-color: #E1E1E1;
+	padding: 12px 15px;
+	margin: 0 0 10px 29px;
+	border-radius: 3px;
+}
+
+.loginSubmit input{
+	background-color: #E1E1E1;
+	border: 0px;
+	font-size: 16px;
+	position: relative;
+	cursor: pointer;
+}
+
+/*registration*/
+
 
 /* profile */
 .personnal_info{

@@ -16,6 +16,10 @@ label
     float: left;
 }
 
+.clear {
+  clear: both;
+}
+
 /* header */
 .top{
 	background-color: #13648C;
@@ -45,21 +49,53 @@ label
 
 .button img{
 	cursor:pointer; 
-	margin: 3px 10px;
+	margin: 7px 10px;
 }
 
 nav{
-	background-color : green ;
+	background-color : #13648C;
 	border : solid;
 	top: 35px;
 	width : 300px;
 	position: absolute;
-	z-index ; 1;
+	z-index: 1;
+	color: white;
 }
 
 /* login */
 
-/* profil */
+/* profile */
+.personnal_info{
+	font-weight: bold;
+	font-size: 14px;
+	text-align: left;
+}
+.picture img{
+	max-width: 50px;
+	float: right;
+	margin: 5px;
+	margin-top: -1em;
+}
+.tiles{
+	height: 100%;	
+}
+.tile{
+	float:left;
+	margin: 1%;
+	width:48%;
+	height: 120px;
+	background-color: #13648C;
+	color: white;
+}
+.tile a{
+	display:block;
+	width: 100%;
+	height:100%;	
+}
+.tile img{
+	max-width: 90%;
+	max-height:90%;	
+}
 
 /* practice */
 

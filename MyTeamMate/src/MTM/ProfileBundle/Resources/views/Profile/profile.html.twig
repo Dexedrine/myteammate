@@ -2,11 +2,39 @@
 
 {% block page_name %}Profil{% endblock %}
 {% block body %}
-	Hello {{ name }} {{ firstname }} !
-	
-	<a href="{{ path('sport') }}" > Voir mes sports </a>
-	<a href="{{ path('message') }}"  > Voir mes messages </a>
-	<a> Voir mes commentaires </a>
-	<a> Voir mes favoris </a>
-{% endblock %}
 
+	<div class="personnal_info">
+		<span> {{ firstname }} </span>
+		<span> {{ name }} </span>
+	
+	
+		<div class="picture">
+			<img alt="photo" src="{{ picture }}">
+		</div>
+	</div>
+	<div class="clear"></div>
+	
+	<div class="tiles">
+		<div class="tile">
+			<a href="{{ path('sport') }}" >
+				<img alt="Sports" src="{{ asset('bundles/mtmdesign/img/sports.png') }}">
+			</a>
+		</div>
+		<div class="tile">
+			<a href="{{ path('message') }}"  >
+				<img alt="Messages" src="{{ asset('bundles/mtmdesign/img/msg.png') }}">
+			</a>
+		</div>
+		<div class="clear"></div>
+		<div class="tile">
+			<a>
+				<img alt="Commentaires" src="{{ asset('bundles/mtmdesign/img/comm.png') }}">
+			</a>
+		</div>
+		<div class="tile">
+			<a>
+				<img alt="Favoris" src="{{ asset('bundles/mtmdesign/img/favoris.png') }}">
+			</a>
+		</div>
+	</div>
+{% endblock %}

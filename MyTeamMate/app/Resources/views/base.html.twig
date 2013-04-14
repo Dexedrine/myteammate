@@ -4,8 +4,6 @@
         <meta charset="UTF-8" />
         <title>{% block title %}My Team Mate{% endblock %}</title>
         <link href="http://fonts.googleapis.com/css?family=Pontano+Sans" rel="stylesheet" type="text/css" />
-        <link rel="stylesheet" href="{{ asset('bundles/mtmdesign/css/icon.css') }}" />
-		<!--[if lte IE 7]><script src="{{ asset('bundles/mtmdesign/css/lte-ie7.js')}}"></script><![endif]-->
         <link href="{{ asset('bundles/mtmdesign/css/style.css') }}" type="text/css" rel="stylesheet" />
         <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
         <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.min.js"></script>
@@ -16,7 +14,6 @@
 	    	$(document).ready(function(){
 	   		    $("nav").hide();
 	    	});
-	    	
     	</script>
     	<div class="top">
     	{% block header %}

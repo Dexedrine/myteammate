@@ -63,17 +63,19 @@ nav{
 }
 
 /* login */
+.loginForm {
+	margin: 0 20px;
+}
 
-.loginForm{
+.loginForm form{
 	text-align: center;
-	width: 25%;
 	margin: 0 auto;
+	max-width: 400px;
 }
 
 .inputs li{
 	list-style: none;
 	background: #FFFFFF;
-	width: 100%;
 	padding: 12px 15px;
 	margin: 0 0 10px 0;
 	border-radius: 3px;
@@ -91,7 +93,7 @@ nav{
 }
 
 .inputs li label{
-	color: #BEBEBE;
+	color: #A9A9A9;
 	margin-left: 55px;
 }
 .icon{
@@ -108,6 +110,8 @@ nav{
 	margin: 0;
 	padding: 0;
 	float: left;
+	max-width: 195px;
+	margin-top: 7px;
 }
 
 .footerLogin ul li{
@@ -115,10 +119,14 @@ nav{
 	font-size: 14px;
 	
 }
+
+.loginLink,
+.loginSubmit {
+	height: 51px;
+}
 .loginSubmit{
 	background-color: #E1E1E1;
-	padding: 12px 15px;
-	margin: 0 0 10px 29px;
+	margin: 0 0 10px 200px;
 	border-radius: 3px;
 }
 
@@ -128,6 +136,18 @@ nav{
 	font-size: 16px;
 	position: relative;
 	cursor: pointer;
+}
+
+.loginSubmit .loginSubmitInner {
+	padding: 12px 15px;	
+}
+.loginSubmitInner {
+	margin: 0 auto;
+	width: 100px;
+}
+
+.rememberMe label {
+	font-weight: bold;
 }
 
 /*registration*/

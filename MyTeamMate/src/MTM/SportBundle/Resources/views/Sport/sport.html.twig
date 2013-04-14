@@ -1,44 +1,58 @@
 {% extends 'MTMSportBundle::base_sport.html.twig' %}
 
 {% block div %}
+	<script src="jquery.ui.touch-punch.min.js"></script>
 	<script>
 	$(document).ready(function(){
-		 
+		
+		$.event.props.push('dataTransfer');
+		
 	    // cacher la div #menu
 	    $(".delete").hide();
+	    var $this ; 	 
+	    
+	    
+	    $(".delete").on({
+			
+	    	dragover: function(e) {
+				e.preventDefault();
+	    	},
+
+	    	drop: function(e) {
+	    		e.preventDefault();
+				var data= e.dataTransfer.getData('text/html');
+				var route = "{{ path('delete_sport', { 'idpractice': "PLACEHOLDER" }) }}";
+				window.location = route.replace("PLACEHOLDER", data);
+				
+				e.target.appendChild(document.getElementById(data));
+		    }
+    		
+		})
+
+		 $(".practice").on({
+			 
+			dragend: function(e){
+				$(".delete").slideToggle();
+			},
+			
+			dragstart: function(e) {
+				$this = $(this);
+	            i = $(this).index();
+	            $(this).css('opacity', '1');
+	 
+	            e.dataTransfer.setData('text/html', e.target.id);
+				$(".delete").slideToggle();
+			},
+
+		})
 	     
 	});
-
-		function dragend(ev){
-			$(".delete").slideToggle();
-		}
-		
-		function allowDrop(ev)
-		{
-			ev.preventDefault();
-		}
-		
-		function drag(ev)
-		{
-			ev.dataTransfer.setData("Text",ev.target.id);
-			$(".delete").slideToggle();
-		}
-			
-		function drop(ev)
-		{
-			ev.preventDefault();
-			var data=ev.dataTransfer.getData("Text");
-			var route = "{{ path('delete_sport', { 'idpractice': "PLACEHOLDER" }) }}";
-			window.location = route.replace("PLACEHOLDER", data);
-			
-			ev.target.appendChild(document.getElementById(data));
-		}
 	</script>
-	<div class="delete" ondrop="drop(event)" ondragover="allowDrop(event)" >
+	<div class="delete" >
 		<img src="{{ asset('bundles/mtmdesign/img/trash.png') }}" width="48px" height="48px" >
 	</div>
 	{%  for practice in  practices %}			
-			<div class="practice" id="{{ practice.getIdpractice() }}" ondragend="dragend(event)" ondragstart="drag(event)" draggable="true">
+			<div class="practice" id="{{ practice.getIdpractice() }}" draggable="true">
 				{{ practice.getIdSport().getNomsport() }} <br>
 				{{ practice.getIdPlace().getAddress() }} <br>
 				{{ practice.getIdLevel().getLevel() }} <br>

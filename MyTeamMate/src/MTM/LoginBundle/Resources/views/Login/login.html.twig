@@ -12,7 +12,7 @@
        	 <ul class="inputs">
        		 <li>
       			<span class="icon" data-icon="&#xe000;" aria-hidden="true" title="username"></span>
-	   			<input type="text" id="username" name="_username" placeholder="Adresse mail" autofocus="autofocus" value="{{ last_username }}" />
+	   			<input type="mail" id="username" name="_username" placeholder="Adresse mail" autofocus="autofocus" value="{{ last_username }}" />
 			</li>
 			<li>
 				<span class="icon" data-icon="&#xe002;" aria-hidden="true" title="password"></span>
@@ -23,7 +23,7 @@
 	    		<input type="checkbox" id="remember_me" name="_remember_me" checked />
 	    	</li>	
 		</ul>
-		</form>
+		
 		
 		<div class="footerLogin">
 			<ul class="loginLink">
@@ -39,9 +39,10 @@
 	 	   	<span class="icon">
 	 	   		<span class="icon" data-icon="&#xe001;" aria-hidden="true" title="password"></span
 	 	   	</span>
-	 	   		<input type="submit" name="login" />
+	 	   		<input type="submit" name="_login" value="Login" />
 	 	   </span>   
 		</div>
+		</form>
 	</div>
 	
 {% endblock %}

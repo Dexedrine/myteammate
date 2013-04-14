@@ -7,21 +7,41 @@
 	    <div>{{ error.message }}</div>
 	{% endif %}
 
-	<form action="{{ path('login_check') }}" method="post">
-        <p>  
-	  		<label for="username">Email :</label>
-	   		<input type="text" id="username" name="_username" placeholder="exemple@exemple.com" value="{{ last_username }}" />
-		</p>
-	<p>
-	    <label for="password">Password :</label>
-	    <input type="password" id="password" name="_password" placeholder="mot de passe" />
-	</p>
-	<p>
-	    <input type="checkbox" id="remember_me" name="_remember_me" checked />
-	    <label for="remember_me">Rester connect&eacute;</label>
-	</p>
-	    <input type="submit" name="login" />
-	</form>
-	<p>Vous n'avez pas de compte ? <a href="{{ path('registration') }}" >S'inscrire</a></p>
-	<p>Vous avez oubli&eacute; votre mot de passe ?</p>
+	<div class="loginForm">
+	     <form action="{{ path('login_check') }}" method="post">	
+       	 <ul class="inputs">
+       		 <li>
+      			<span class="icon" data-icon="&#xe000;" aria-hidden="true" title="username"></span>
+	   			<input type="text" id="username" name="_username" placeholder="Adresse mail" autofocus="autofocus" value="{{ last_username }}" />
+			</li>
+			<li>
+				<span class="icon" data-icon="&#xe002;" aria-hidden="true" title="password"></span>
+	    		<input type="password" id="password" name="_password" placeholder="Mot de passe" />
+			</li>
+			<li>
+			    <label for="remember_me">Rester connect&eacute;</label>
+	    		<input type="checkbox" id="remember_me" name="_remember_me" checked />
+	    	</li>	
+		</ul>
+		</form>
+		
+		<div class="footerLogin">
+			<ul class="loginLink">
+				<li>
+					<a>Mot de passe oubli&eacute; ?</a>				
+				</li>
+				<li>
+					<a href="{{ path('registration') }}" >Pas encore de compte ? S'inscrire</a>
+	 	 	 	</li>
+	 	   </ul>
+	 	   
+	 	   <span class="loginSubmit">
+	 	   	<span class="icon">
+	 	   		<span class="icon" data-icon="&#xe001;" aria-hidden="true" title="password"></span
+	 	   	</span>
+	 	   		<input type="submit" name="login" />
+	 	   </span>   
+		</div>
+	</div>
+	
 {% endblock %}

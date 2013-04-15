@@ -7,6 +7,13 @@ use MTM\LoginBundle\Entity\TeamMate;
 
 class RegistrationController extends Controller {
 	public function registrationAction(Request $request) {
+		
+		if ($this->get('security.context')->isGranted('IS_AUTHENTICATED_FULLY'))
+    	{
+        	// redirect authenticated users to homepage
+        	return $this->redirect($this->generateUrl('profile'));
+    	}
+    	
 		$teammate = new TeamMate();
 
 		$form = $this->createFormBuilder($teammate)->add('email', 'email')

@@ -9,9 +9,10 @@ class PracticeType extends AbstractType {
 		$builder->add('idsport', 'entity' ,
 			array( 'class' => 'MTMSportBundle:Sport',
 					'property' => 'nomsport'));
-		$builder->add('idplace', 'entity' ,
+		$builder->add('idplace', new PlaceType() );
+		/*$builder->add('idplace', 'entity' ,
 			array( 'class' => 'MTMSportBundle:Place',
-					'property' => 'address'));
+					'property' => 'address'));*/
 		$builder->add('idlevel', 'entity' ,
 			array( 'class' => 'MTMSportBundle:Level',
 					'property' => 'level'));

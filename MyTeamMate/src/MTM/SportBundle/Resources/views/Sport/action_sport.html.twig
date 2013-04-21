@@ -1,5 +1,6 @@
 {% extends 'MTMSportBundle::base_sport.html.twig' %}
 
+
 {% block body %}
 
 	{% block div %}
@@ -24,11 +25,22 @@
 			{{ form_rest(form) }}
 		    <input type="submit" />
 		</form>		
+		<div id="map-canvas" ></div>
 		
 	{% endblock %}
 		<script src="{{ asset('bundles/mtmsport/js/addSlot.js') }}" type="text/javascript" ></script>
 		<script type="text/javascript">
 		<!--
+		function initialize() {
+			
+			var input = (document.getElementById('practice_idplace_address'));
+			var autocomplete = new google.maps.places.Autocomplete(input);
+
+			google.maps.event.addListener(autocomplete, 'place_changed', function() {})
+	  			
+		}
+		google.maps.event.addDomListener(window, 'load', initialize);
+		
 		var collectionHolder = $('ul.slots');
 		
 		// setup an "add a tag" link

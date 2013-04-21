@@ -32,9 +32,10 @@ class SportController extends Controller {
 
 	public function addAction(Request $request) {
 		$practice = new Practice();
+		$place = new Place();
 		$slot = new Slot();
 
-		$practice->addIdslot($slot);
+		$practice->setIdplace($place)->addIdslot($slot);
 
 		$teammate = $this->get('security.context')->getToken()->getUser();
 
@@ -47,6 +48,7 @@ class SportController extends Controller {
 
 				$em = $this->getDoctrine()->getManager();
 				
+				$em->persist($place);
 				
 				$practice->setIdteammate($teammate);
 

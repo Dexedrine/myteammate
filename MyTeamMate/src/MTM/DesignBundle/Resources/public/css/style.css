@@ -161,7 +161,7 @@ nav{
 	text-align: left;
 }
 .picture img{
-	max-width: 50px;
+	max-width: 33%;
 	float: right;
 	margin: 5px;
 	margin-top: -1em;

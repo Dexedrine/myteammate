@@ -8,19 +8,20 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 class SportType extends AbstractType
 {
 	public function buildForm(FormBuilderInterface $builder, array $options)
-	{
-		$builder->add('nomsport');
-	}
-
+		{
+		$builder->add('nomsport','choice', array('choices' => 'lal'));
+		
+		}
+	
 	public function setDefaultOptions(OptionsResolverInterface $resolver)
-	{
+		{
 		$resolver->setDefaults(array(
-				'data_class' => 'MTM\SportBundle\Entity\Sport',
+			'data_class' => 'MTM\SportBundle\Entity\Sport',
 		));
-	}
+		}
 	
 	public function getName()
-	{
+		{
 		return 'sport';
-	}
+		}
 }

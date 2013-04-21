@@ -6,9 +6,15 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class PracticeType extends AbstractType {
 	public function buildForm(FormBuilderInterface $builder, array $options) {
-		$builder->add('idsport', new SportType());
-		$builder->add('idplace', new PlaceType());
-		$builder->add('idlevel', new LevelType());
+		$builder->add('idsport', 'entity' ,
+			array( 'class' => 'MTMSportBundle:Sport',
+					'property' => 'nomsport'));
+		$builder->add('idplace', 'entity' ,
+			array( 'class' => 'MTMSportBundle:Place',
+					'property' => 'address'));
+		$builder->add('idlevel', 'entity' ,
+			array( 'class' => 'MTMSportBundle:Level',
+					'property' => 'level'));
 		$builder->add('idslots', 'collection',
 						array('type' => new SlotType(), 
 								'allow_add' => true,

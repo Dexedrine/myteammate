@@ -76,7 +76,7 @@ class Message
     /**
 	 * @var \Doctrine\Common\Collections\Collection
 	 *
-	 * @ORM\ManyToMany(targetEntity="MTM\MessageBundle\Entity\TeamMate")
+	 * @ORM\ManyToMany(targetEntity="MTM\LoginBundle\Entity\TeamMate")
 	 * @ORM\JoinTable(name="abusedmessage",
 	 *   joinColumns={
 	 *     @ORM\JoinColumn(name="idmessage", referencedColumnName="idmessage")

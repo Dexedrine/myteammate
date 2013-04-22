@@ -68,7 +68,7 @@ class Comment
 	/**
 	 * @var \Doctrine\Common\Collections\Collection
 	 *
-	 * @ORM\ManyToMany(targetEntity="MTM\CommentBundle\Entity\TeamMate")
+	 * @ORM\ManyToMany(targetEntity="MTM\LoginBundle\Entity\TeamMate")
 	 * @ORM\JoinTable(name="abusedcomment",
 	 *   joinColumns={
 	 * 	   @ORM\JoinColumn(name="idcomment", referencedColumnName="idcomment")

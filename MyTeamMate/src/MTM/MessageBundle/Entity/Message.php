@@ -55,12 +55,12 @@ class Message
      *     @ORM\JoinColumn(name="idmessage", referencedColumnName="idmessage")
      *   },
      *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="idreceive", referencedColumnName="idteammate")
+     *     @ORM\JoinColumn(name="idreceiver", referencedColumnName="idteammate")
      *   }
      * )
      * 
      */
-    private $idreceive;
+    private $idreceivers;
 
 
     /**
@@ -78,7 +78,7 @@ class Message
      */
     public function __construct()
     {
-        $this->idreceive = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->idreceivers = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
     /** @ORM\PrePersist */
@@ -169,36 +169,36 @@ class Message
     }
 
     /**
-     * Add idreceive
+     * Add idreceiver
      *
-     * @param \MTM\LoginBundle\Entity\TeamMate $idreceive
+     * @param \MTM\LoginBundle\Entity\TeamMate $idreceiver
      * @return Message
      */
-    public function addIdreceiver(\MTM\LoginBundle\Entity\TeamMate $idreceive)
+    public function addIdreceiver(\MTM\LoginBundle\Entity\TeamMate $idreceiver)
     {
-        $this->idreceive[] = $idreceive;
+        $this->idreceivers[] = $idreceiver;
     
         return $this;
     }
 
     /**
-     * Remove idreceive
+     * Remove idreceiver
      *
-     * @param \MTM\LoginBundle\Entity\TeamMate $idreceive
+     * @param \MTM\LoginBundle\Entity\TeamMate $idreceiver
      */
-    public function removeIdreceiver(\MTM\LoginBundle\Entity\TeamMate $idreceive)
+    public function removeIdreceiverr(\MTM\LoginBundle\Entity\TeamMate $idreceiver)
     {
-        $this->idreceive->removeElement($idreceive);
+        $this->idreceivers->removeElement($idreceiver);
     }
 
     /**
-     * Get idreceive
+     * Get idreceivers
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getidreceive()
+    public function getidreceiver()
     {
-        return $this->idreceive;
+        return $this->idreceivers;
     }
 
     /**

@@ -15,7 +15,7 @@ public function messageAction()
     	$em = $this->getDoctrine()->getManager();
     	$repository = $em->getRepository('MTMMessageBundle:Message');
     	
-    	$messages = $repository->findBy(array('iddestinataire' => $idTeammate));
+    	$messages = $repository->findOneBy(array('idreceive' => $idTeammate));
     	if (!$messages) {
     		return $this->render('MTMMessageBundle:Message:no_message.html.twig');
     	}

@@ -60,7 +60,7 @@ class Message
      * )
      * 
      */
-    private $idreceivers;
+    private $idreceive;
 
 
     /**
@@ -78,7 +78,7 @@ class Message
      */
     public function __construct()
     {
-        $this->idreceivers = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->idreceive = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
     /** @ORM\PrePersist */
@@ -169,36 +169,36 @@ class Message
     }
 
     /**
-     * Add idreceivers
+     * Add idreceive
      *
-     * @param \MTM\LoginBundle\Entity\TeamMate $idreceivers
+     * @param \MTM\LoginBundle\Entity\TeamMate $idreceive
      * @return Message
      */
-    public function addIdreceiver(\MTM\LoginBundle\Entity\TeamMate $idreceivers)
+    public function addIdreceiver(\MTM\LoginBundle\Entity\TeamMate $idreceive)
     {
-        $this->idreceivers[] = $idreceivers;
+        $this->idreceive[] = $idreceive;
     
         return $this;
     }
 
     /**
-     * Remove idreceivers
+     * Remove idreceive
      *
-     * @param \MTM\LoginBundle\Entity\TeamMate $idreceivers
+     * @param \MTM\LoginBundle\Entity\TeamMate $idreceive
      */
-    public function removeIdreceiver(\MTM\LoginBundle\Entity\TeamMate $idreceivers)
+    public function removeIdreceiver(\MTM\LoginBundle\Entity\TeamMate $idreceive)
     {
-        $this->idreceivers->removeElement($idreceivers);
+        $this->idreceive->removeElement($idreceive);
     }
 
     /**
-     * Get idreceivers
+     * Get idreceive
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getIdreceivers()
+    public function getidreceive()
     {
-        return $this->idreceivers;
+        return $this->idreceive;
     }
 
     /**

@@ -53,43 +53,6 @@ class TeamMate implements UserInterface, \Serializable {
 	 */
 	private $password;
 
-	/**
-	 * @var \Doctrine\Common\Collections\Collection
-	 *
-	 * @ORM\ManyToMany(targetEntity="MTM\CommentBundle\Entity\Comment", inversedBy="idteammate")
-	 * @ORM\JoinTable(name="abusedcomment",
-	 *   joinColumns={
-	 *     @ORM\JoinColumn(name="idteammate", referencedColumnName="idteammate")
-	 *   },
-	 *   inverseJoinColumns={
-	 *     @ORM\JoinColumn(name="idcomment", referencedColumnName="idcomment")
-	 *   }
-	 * )
-	 */
-	private $idabusedcomments;
-
-	/**
-	 * @var \Doctrine\Common\Collections\Collection
-	 *
-	 * @ORM\ManyToMany(targetEntity="MTM\MessageBundle\Entity\Message", inversedBy="idteammate")
-	 * @ORM\JoinTable(name="abusedmessage",
-	 *   joinColumns={
-	 *     @ORM\JoinColumn(name="idteammate", referencedColumnName="idteammate")
-	 *   },
-	 *   inverseJoinColumns={
-	 *     @ORM\JoinColumn(name="idmessage", referencedColumnName="idmessage")
-	 *   }
-	 * )
-	 */
-	private $idabusedmessages;
-
-	/**
-	 * Constructor
-	 */
-	public function __construct() {
-		$this->idcommentaire = new \Doctrine\Common\Collections\ArrayCollection();
-		$this->idmessage = new \Doctrine\Common\Collections\ArrayCollection();
-	}
 	
 	/**
 	 * @ORM\PrePersist

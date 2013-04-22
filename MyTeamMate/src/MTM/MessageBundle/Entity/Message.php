@@ -72,6 +72,21 @@ class Message
      * })
      */
     private $idsender;
+    
+    /**
+	 * @var \Doctrine\Common\Collections\Collection
+	 *
+	 * @ORM\ManyToMany(targetEntity="MTM\MessageBundle\Entity\TeamMate")
+	 * @ORM\JoinTable(name="abusedmessage",
+	 *   joinColumns={
+	 *     @ORM\JoinColumn(name="idmessage", referencedColumnName="idmessage")
+	 *   },
+	 *   inverseJoinColumns={
+	 *     @ORM\JoinColumn(name="idteammate", referencedColumnName="idteammate")
+	 *   }
+	 * )
+	 */
+	private $abusedmessages;
 
     /**
      * Constructor
@@ -79,6 +94,7 @@ class Message
     public function __construct()
     {
         $this->idreceivers = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->abusedmessages = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
     /** @ORM\PrePersist */

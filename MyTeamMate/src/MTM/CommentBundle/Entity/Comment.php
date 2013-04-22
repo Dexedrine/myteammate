@@ -65,6 +65,27 @@ class Comment
      */
     private $idposter;
 
+	/**
+	 * @var \Doctrine\Common\Collections\Collection
+	 *
+	 * @ORM\ManyToMany(targetEntity="MTM\CommentBundle\Entity\TeamMate")
+	 * @ORM\JoinTable(name="abusedcomment",
+	 *   joinColumns={
+	 * 	   @ORM\JoinColumn(name="idcomment", referencedColumnName="idcomment")
+	 *   },
+	 *   inverseJoinColumns={
+	 *     @ORM\JoinColumn(name="idteammate", referencedColumnName="idteammate")
+	 *   }
+	 * )
+	 */
+	private $abusedcomments;
+	
+	/**
+	 * Constructor
+	 */
+	public function __construct() {
+		$this->abusedcomments = new \Doctrine\Common\Collections\ArrayCollection();
+	}
   
     
     /**  @ORM\PrePersist */

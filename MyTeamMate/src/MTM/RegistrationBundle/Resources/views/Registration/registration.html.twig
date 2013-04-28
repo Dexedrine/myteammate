@@ -3,9 +3,36 @@
 {% block page_name %}Inscription{% endblock %}
 
 {% block body %}
+
+<div class="registrationForm">
 	<form action="{{ path('registration') }}" method="post" {{ form_enctype(form) }}>
-	    {{ form_widget(form) }}
-	
-	    <input type="submit" />
+	  <ul class="inputs">
+	   <li>
+	   		<span class="icon" data-icon="&#xe000;" aria-hidden="true" title="username"></span>
+		    {{ form_widget(form.email) }}
+	    </li>
+	    <li>
+			<span class="icon" data-icon="&#xe002;" aria-hidden="true" title="password"></span>	 
+	 	 	{{ form_widget(form.password.first, {'attr': {'placeholder': 'Mot de passe'}}) }}
+	 	 </li>
+	 	 <li>
+	 		 <span class="icon" data-icon="&#xe002;" aria-hidden="true" title="password"></span>	
+	 		 {{ form_widget(form.password.second, {'attr': {'placeholder': 'Verification'}}) }}
+	 	 </li>
+	 	 <li class="acceptusemail">
+	 		 <label> J'accepte l'utilisation de mon adresse mail</label>
+	   		 {{ form_widget(form.acceptusemail) }}
+	    </li>
+	    </ul>
+	    <div class="registrationSubmit">
+		 	   <div class="registrationSubmitInner">
+		 	   	<span class="icon">
+		 	   		<span class="icon" data-icon="&#xe001;" aria-hidden="true" title="password"></span>
+		 	   		 <input type="submit" />
+		 	   	</span>
+		</div>
+		</div>
+		 	   	
 	</form>
+</div>
 {% endblock %}

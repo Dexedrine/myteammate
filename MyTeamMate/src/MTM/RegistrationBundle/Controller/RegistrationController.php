@@ -15,12 +15,16 @@ class RegistrationController extends Controller {
     	}
     	
 		$teammate = new TeamMate();
-
-		$form = $this->createFormBuilder($teammate)->add('email', 'email')
-				->add('password', 'password')
+		$form = $this->createFormBuilder($teammate)		
+				->add('email', 'email', array('attr' => array('placeholder' => 'Adresse Mail')))
+				->add('password', 'repeated', array('type' => 'password',
+  												  'invalid_message' => 'Les mots de passe doivent correspondre',
+   												 'options' => array('required' => true),
+  													 'first_options'  => array('label' => ' ' ),
+  													'second_options' => array('label' => ' ')))		
 				->add('acceptusemail', 'checkbox')
-		->getForm();
-
+				->getForm();
+		
 		if ($request->isMethod('POST')) {
 			$form->bind($request);
 

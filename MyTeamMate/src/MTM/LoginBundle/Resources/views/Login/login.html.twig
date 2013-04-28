@@ -3,10 +3,7 @@
 {% block page_name %}Connexion{% endblock %}
 
 {% block body %}
-	{% if error %}
-	    <div>{{ error.message }}</div>
-	{% endif %}
-
+	
 	<div class="loginForm">
 	     <form action="{{ path('login_check') }}" method="post">	
        	 <ul class="inputs">
@@ -24,7 +21,9 @@
 	    	</li>	
 		</ul>
 		
-		
+		{% if error %}
+	    <div>L'adresse mail ou le mot de passe saisi est incorrect</div>
+		{% endif %}
 		<div class="footerLogin">
 			<ul class="loginLink">
 				<li>

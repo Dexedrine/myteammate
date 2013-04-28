@@ -10,7 +10,13 @@ window.onload = function() {
 			'icon-key' : '&#xe001;',
 			'icon-locked' : '&#xe002;',
 			'icon-user' : '&#xe003;',
-			'icon-home' : '&#xe004;'
+			'icon-home' : '&#xe004;',
+			'icon-checkmark' : '&#xe005;',
+			'icon-camera' : '&#xe006;',
+			'icon-location' : '&#xe007;',
+			'icon-trashcan' : '&#xe008;',
+			'icon-list' : '&#xe009;',
+			'icon-star' : '&#xe00a;'
 		},
 		els = document.getElementsByTagName('*'),
 		i, attr, html, c, el;

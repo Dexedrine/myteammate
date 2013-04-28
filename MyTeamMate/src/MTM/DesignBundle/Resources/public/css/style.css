@@ -12,7 +12,7 @@ body{
 label
 {
     display: block;
-    width: 150px;
+    width: 153px;
     float: left;
 }
 
@@ -78,7 +78,6 @@ nav{
 	background: #FFFFFF;
 	padding: 12px 15px;
 	margin: 0 0 10px 0;
-	border-radius: 3px;
 }
 
 .inputs{
@@ -94,7 +93,7 @@ nav{
 
 .inputs li label{
 	color: #A9A9A9;
-	margin-left: 55px;
+	margin-left: 89px;
 }
 .icon{
 	margin-right: 5px;
@@ -128,10 +127,9 @@ nav{
 .loginSubmit{
 	background-color: #E1E1E1;
 	margin: 0 0 10px 200px;
-	border-radius: 3px;
 }
 
-.loginSubmit input{
+.loginSubmit input, .registrationSubmit input{
 	background-color: #E1E1E1;
 	border: 0px;
 	font-size: 16px;
@@ -139,10 +137,10 @@ nav{
 	cursor: pointer;
 }
 
-.loginSubmit .loginSubmitInner {
+.loginSubmit .loginSubmitInner, .registrationSubmit .registrationSubmitInner {
 	padding: 12px 15px;	
 }
-.loginSubmitInner {
+.loginSubmitInner, .registrationSubmitInner {
 	margin: 0 auto;
 	width: 100px;
 }
@@ -152,7 +150,26 @@ nav{
 }
 
 /*registration*/
+.registrationForm {
+	margin: 0 20px;
+}
 
+.registrationForm form{
+	text-align: center;
+	margin: 0 auto;
+	max-width: 400px;
+}
+.registrationSubmit{
+	background-color: #E1E1E1;
+}
+
+.acceptusemail{	
+	line-height: 2em;	
+}
+
+.acceptusemail label{
+	line-height: 1em;
+}
 
 /* profile */
 .personnal_info{

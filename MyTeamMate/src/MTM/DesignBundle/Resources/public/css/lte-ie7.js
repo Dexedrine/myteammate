@@ -16,7 +16,14 @@ window.onload = function() {
 			'icon-location' : '&#xe007;',
 			'icon-trashcan' : '&#xe008;',
 			'icon-list' : '&#xe009;',
-			'icon-star' : '&#xe00a;'
+			'icon-trophy' : '&#xe00b;',
+			'icon-star' : '&#xe00c;',
+			'icon-star-2' : '&#xe00d;',
+			'icon-cog' : '&#xe00a;',
+			'icon-enter' : '&#xe00e;',
+			'icon-accessibility' : '&#xe00f;',
+			'icon-heart' : '&#xe010;',
+			'icon-heart-2' : '&#xe011;'
 		},
 		els = document.getElementsByTagName('*'),
 		i, attr, html, c, el;

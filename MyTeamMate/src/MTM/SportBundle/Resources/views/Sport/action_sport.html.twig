@@ -1,6 +1,5 @@
 {% extends 'MTMSportBundle::base_sport.html.twig' %}
 
-
 {% block body %}
 
 	{% block div %}
@@ -23,7 +22,12 @@
 		    	{% endfor %}
 			</ul>
 			{{ form_rest(form) }}
-		    <input type="submit" />
+			{% if action == 'edit_sport' %}
+		    <input value="Modifier" type="submit" />
+			
+		{% else %}
+		    <input value="Ajouter" type="submit" />
+				{% endif %}
 		</form>		
 		<div id="map-canvas" ></div>
 		
@@ -44,7 +48,7 @@
 		var collectionHolder = $('ul.slots');
 		
 		// setup an "add a tag" link
-		var $addSlotLink = $('<a href="#" class="add_slot_link">Ajouter un créneau</a>');
+		var $addSlotLink = $('<a href="#" class="add_slot_link">Ajouter un cr√©neau</a>');
 		var $newLinkLi = $('<li></li>').append($addSlotLink);	
 
 		
@@ -66,7 +70,7 @@
 			    
 		        
 		    });
-		 	// ajoute un lien de suppression à tous les éléments li de
+		 	// ajoute un lien de suppression √† tous les √©l√©ments li de
 		    // formulaires de tag existants
 			collectionHolder.find('li#slot').each(function() {
 		        addSlotFormDeleteLink($(this));
@@ -77,5 +81,3 @@
 		</script>
 		
 {% endblock %}
-
-

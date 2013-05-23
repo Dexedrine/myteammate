@@ -62,7 +62,7 @@ doctrine:
 swiftmailer:
     transport:   gmail
     username:    contact.myteammate
-    password:    faust4ever
+    password:    { resource: "%kernel.root_dir%/config/private.yml" }
     #disable_delivery:  true
     #delivery_address:  contact.myteammate@gmail.com
 

@@ -30,6 +30,19 @@ class RegistrationController extends Controller {
 				$em = $this->getDoctrine()->getManager();
 				$em->persist($teammate)	;
 				$em->flush();
+				
+				
+				//ne fonctionne que sur un réseau extérieur à celui de la fac
+// 				$message = \Swift_Message::newInstance()
+// 				->setSubject('Inscription sur My Team Mate')
+// 				->setTo($teammate->getEmail())
+// 				->setFrom('contact.myteammate@gmail.com')
+// 				//faire le template pour l'envoi de mail
+// 				->setBody('Bonjour, vous venez de vous inscrire sur l\' application MyTeamMate !');
+				//template pour l'envoi de mail
+				//->setBody($this->renderView('MTMRegistrationBundle:Mail:email_template.html.twig', array('login' => $login) ))
+				
+// 				$this->get('mailer')->send($message);
 
 				return $this->render('MTMRegistrationBundle:Registration:registration_success.html.twig');
 			}

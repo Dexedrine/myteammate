@@ -11,7 +11,6 @@ class AppKernel extends Kernel
             new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
             new Symfony\Bundle\SecurityBundle\SecurityBundle(),
             new Symfony\Bundle\TwigBundle\TwigBundle(),
-            new Symfony\Bundle\MonologBundle\MonologBundle(),
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
@@ -26,6 +25,7 @@ class AppKernel extends Kernel
             new MTM\SportBundle\MTMSportBundle(),
             new MTM\RegistrationBundle\MTMRegistrationBundle(),
             new MTM\DesignBundle\MTMDesignBundle(),
+        	new Ideato\FlickrApiBundle\FlickrApiBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

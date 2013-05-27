@@ -54,12 +54,19 @@ label
 
 nav{
 	background-color : #13648C;
-	border : solid;
+	border: 2px solid white;
 	top: 35px;
-	width : 300px;
+	width : 250px;
 	position: absolute;
 	z-index: 1;
-	color: white;
+}
+nav div a{
+	padding: 3px 10px;
+	border: 2px solid white;	
+	color: white;	
+	text-decoration: none;
+	display: block;
+	height: 100%;
 }
 
 /* login */

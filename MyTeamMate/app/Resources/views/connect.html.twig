@@ -2,11 +2,9 @@
 
 {% block left_button %}
 		<script type="text/javascript">
-		<!--
 			function showMenu(ev){
-			$("nav").slideToggle();
+				$("nav").slideToggle();
 			}
-		//-->
 		</script>
 		<a class="button menu" onclick="showMenu(event)">
 			<img src="{{ asset('bundles/mtmdesign/img/menu.png') }}" alt="Menu" />
@@ -15,9 +13,11 @@
 
 {% block nav %}
 	<nav class=menu >
-    		<ul>
-    			<li><a href="{{ path('profile') }}">Home</a></li>	
-    			<li><a href="{{ path('logout') }}">Déconnexion</a></li>		
-    		</ul>
+    	<div>
+    		<a href="{{ path('profile') }}"><span>Home</span></a>
+    	</div>
+    	<div>
+    		<a href="{{ path('logout') }}"><span>Déconnexion</span></a>
+    	</div>		
 	</nav>
 {% endblock %}

@@ -5,7 +5,7 @@
 {% block body %}
 
 <div class="registrationForm">
-	<form action="{{ path('registration') }}" method="post" {{ form_enctype(form) }}>
+	<form name="reg_form" action="{{ path('registration') }}" method="post" {{ form_enctype(form) }}>
 	  <ul class="inputs">
 	   <li>
 	   		<span class="icon" data-icon="&#xe000;" aria-hidden="true" title="username"></span>
@@ -24,7 +24,7 @@
 	   		 {{ form_widget(form.acceptusemail) }}
 	    </li>
 	    </ul>
-	    <div class="registrationSubmit">
+	    <div class="registrationSubmit" onclick="document.forms['reg_form'].submit()">
 		 	   <div class="registrationSubmitInner">
 		 	   	<span class="icon">
 		 	   		<span class="icon" data-icon="&#xe001;" aria-hidden="true" title="password"></span>

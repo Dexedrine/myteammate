@@ -8,9 +8,13 @@
 	<a class="button add_sport" value="Ajouter" href="{{ path('add_sport') }}">
 		<img src="{{ asset('bundles/mtmdesign/img/add.png') }}" alt="Ajouter" />
 	</a>
+	{% include 'FOSCommentBundle:Thread:async.html.twig' with {'id': 'foo'} %}
+	
 {% endblock %}
-
+	
 {% block body %}
 	{% block div %}{% endblock %}
-	{% javascripts %}{% endjavascripts %}
+	{% javascripts %}
+
+	{% endjavascripts %}
 {% endblock %}

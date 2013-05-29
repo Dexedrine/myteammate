@@ -4,24 +4,29 @@ namespace MTM\CommentBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use MTM\LoginBundle\Entity\TeamMate ;
+use FOS\CommentBundle\Entity\Comment as BaseComment;
 
 /**
- * Comment
- *
- * @ORM\Table(name="comment")
  * @ORM\Entity
- * @ORM\HasLifecycleCallbacks
+ * @ORM\ChangeTrackingPolicy("DEFERRED_EXPLICIT")
  */
-class Comment
+class Comment extends BaseComment
 {
-    /**
-     * @var integer
-     *
-     * @ORM\Column( type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $idcomment;
+	
+	/**
+	 * @ORM\Id
+	 * @ORM\Column(type="integer")
+	 * @ORM\GeneratedValue(strategy="AUTO")
+	 */
+	protected $id;
+	
+	/**
+	 * Thread of this comment
+	 *
+	 * @var Thread
+	 * @ORM\ManyToOne(targetEntity="MTM\CommentBundle\Entity\Thread")
+	 */
+	protected $thread;
 
     /**
      * @var string

@@ -3,10 +3,9 @@
 namespace MTM\LoginBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
-
-use MTM\CommentBundle\Entity\Comment ;
-use MTM\MessageBundle\Entity\Message ;
-
+use FOS\MessageBundle\Model\ParticipantInterface;
+use MTM\CommentBundle\Entity\Comment;
+use MTM\MessageBundle\Entity\Message;
 /**
  * TeamMate
  *
@@ -243,5 +242,9 @@ class TeamMate implements UserInterface, \Serializable {
         $this->salt = $salt;
     
         return $this;
+    }
+    public function getId() {
+    	return $idteammate;
+    
     }
 }

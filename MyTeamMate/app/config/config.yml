@@ -32,6 +32,7 @@ assetic:
     bundles:        
       - "MTMSportBundle"
       - "MTMDesignBundle"
+      - "FOSCommentBundle"
     #java: /usr/bin/java
     filters:
         cssrewrite: ~
@@ -65,3 +66,28 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+fos_comment:
+    db_driver: orm
+    class:
+        model:
+            comment: MTM\CommentBundle\Entity\Comment
+            thread: MTM\CommentBundle\Entity\Thread
+            
+fos_message:
+    db_driver:     orm
+    thread_class:  MTM\MessageBundle\Entity\Thread
+    message_class: MTM\MessageBundle\Entity\Message
+fos_user:
+    db_driver:          orm    
+    firewall_name:      main
+    user_class:         MTM\UserBundle\Entity\TeamMate
+    registration:
+        confirmation:
+            enabled:    true
+services:
+    fos_user.registration.form:
+        class: FOS\UserBundle\Form\Type\RegistrationFormType
+        arguments: ["%fos_user.model.user.class%"]
+        tags:
+            - { name: form.type, alias: fos_user_registration }

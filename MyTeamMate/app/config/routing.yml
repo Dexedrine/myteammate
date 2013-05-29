@@ -1,3 +1,9 @@
+
+fos_comment_api:
+    type: rest
+    resource: "@FOSCommentBundle/Resources/config/routing.yml"
+    prefix: /api
+    defaults: { _format: html }
 mtm_design:
     resource: "@MTMDesignBundle/Resources/config/routing.yml"
     prefix:   /
@@ -25,7 +31,4 @@ mtm_profile:
 mtm_login:
     resource: "@MTMLoginBundle/Resources/config/routing.yml"
     prefix:   /
-    
-
-
 

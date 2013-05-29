@@ -5,7 +5,7 @@
 {% block body %}
 	
 	<div class="loginForm">
-	     <form action="{{ path('login_check') }}" method="post">	
+	     <form name="login_form" action="{{ path('login_check') }}" method="post">	
        	 <ul class="inputs">
        		 <li>
       			<span class="icon" data-icon="&#xe003;" aria-hidden="true" title="username"></span>
@@ -34,7 +34,7 @@
 	 	 	 	</li>
 	 	   </ul>
 	 	   
-	 	   <div class="loginSubmit">
+	 	   <div class="loginSubmit" onclick="document.forms['login_form'].submit()">
 		 	   <div class="loginSubmitInner">
 		 	   	<span class="icon">
 		 	   		<span class="icon" data-icon="&#xe001;" aria-hidden="true" title="password"></span>

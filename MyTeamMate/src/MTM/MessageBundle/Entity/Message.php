@@ -22,7 +22,7 @@ class Message extends BaseMessage
 	 */
 	protected $id;
 
-	/**
+	/**                            
 	 * @ORM\ManyToOne(targetEntity="MTM\MessageBundle\Entity\Thread", inversedBy="messages")
 	 * @ORM\JoinColumn(name="thread_id", referencedColumnName="id")
 	 */
@@ -30,12 +30,13 @@ class Message extends BaseMessage
 
 	/**
 	 * @ORM\ManyToOne(targetEntity="MTM\LoginBundle\Entity\TeamMate")
-	 * @ORM\JoinColumn(name="user_id", referencedColumnName="idteammate")
+	 * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
 	 */
 	protected $sender;
 
 	/**
-	 * @ORM\OneToMany(targetEntity="MTM\MessageBundle\Entity\MessageMetadata", mappedBy="message", cascade={"all"})
+	 * @ORM\OneToMany(targetEntity="MTM\MessageBundle\Entity\MessageMetaData", mappedBy="message", cascade={"all"})
+	 * @ORM\JoinColumn(name="metadata", referencedColumnName="id")
 	 */
 	protected $metadata;
 

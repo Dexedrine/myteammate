@@ -21,18 +21,21 @@ class Thread extends BaseThread
      */
     protected $id;
 
-    /**
+     /**
      * @ORM\ManyToOne(targetEntity="MTM\LoginBundle\Entity\TeamMate")
+     * @ORM\JoinColumn(name="createdBy", referencedColumnName="id")
      */
     protected $createdBy;
 
     /**
      * @ORM\OneToMany(targetEntity="MTM\MessageBundle\Entity\Message", mappedBy="thread")
+     * @ORM\JoinColumn(name="message", referencedColumnName="id")
      */
     protected $messages;
 
     /**
-     * @ORM\OneToMany(targetEntity="MTM\MessageBundle\Entity\ThreadMetadata", mappedBy="thread", cascade={"all"})
+     * @ORM\OneToMany(targetEntity="MTM\MessageBundle\Entity\ThreadMetaData", mappedBy="thread", cascade={"all"})
+     *@ORM\JoinColumn(name="metadata", referencedColumnName="id")
      */
     protected $metadata;
 
@@ -55,6 +58,9 @@ class Thread extends BaseThread
     public function addMetadata(ModelThreadMetadata $meta) {
         $meta->setThread($this);
         parent::addMetadata($meta);
+    }
+    public function getId(){
+    	return $this->id;
     }
 
 }

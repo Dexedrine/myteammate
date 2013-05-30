@@ -22,11 +22,13 @@ class MessageMetadata extends BaseMessageMetadata
 
     /**
      * @ORM\ManyToOne(targetEntity="MTM\MessageBundle\Entity\Message", inversedBy="metadata")
+     * @ORM\JoinColumn(name="message", referencedColumnName="id")
      */
     protected $message;
 
     /**
      * @ORM\ManyToOne(targetEntity="MTM\LoginBundle\Entity\TeamMate")
+     *  @ORM\JoinColumn(name="participant", referencedColumnName="id")
      */
     protected $participant;
 
@@ -41,4 +43,3 @@ class MessageMetadata extends BaseMessageMetadata
     }
 
 }
-

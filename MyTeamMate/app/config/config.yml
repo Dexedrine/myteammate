@@ -5,7 +5,7 @@ imports:
 
 framework:
     #esi:             ~
-    #translator:      { fallback: %locale% }
+    translator:      ~
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -34,6 +34,7 @@ assetic:
       - "MTMSportBundle"
       - "MTMDesignBundle"
       - "FOSCommentBundle"
+      - "FOSMessageBundle"
     #java: /usr/bin/java
     filters:
         cssrewrite: ~
@@ -80,12 +81,12 @@ fos_message:
     thread_class:  MTM\MessageBundle\Entity\Thread
     message_class: MTM\MessageBundle\Entity\Message
 fos_user:
-    db_driver:          orm    
-    firewall_name:      main
-    user_class:         MTM\UserBundle\Entity\TeamMate
-    registration:
-        confirmation:
-            enabled:    true
+    db_driver: orm 
+    firewall_name: main
+    user_class: MTM\LoginBundle\Entity\TeamMate
+#registration:
+#        confirmation:
+#            enabled:    true
 services:
     fos_user.registration.form:
         class: FOS\UserBundle\Form\Type\RegistrationFormType

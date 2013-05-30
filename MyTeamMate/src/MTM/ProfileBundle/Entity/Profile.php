@@ -65,7 +65,7 @@ class Profile
      *
      * @ORM\OneToOne(targetEntity="MTM\LoginBundle\Entity\TeamMate")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idteammate", referencedColumnName="idteammate")
+     *   @ORM\JoinColumn(name="idteammate", referencedColumnName="id")
      * })
      */
     private $idteammate;
@@ -201,7 +201,7 @@ class Profile
     /**
      * Set idteammate
      *
-     * @param \MTM\LoginBundle\Entity\TeamMate $idteammate
+     * @param \MTM\LoginBundle\Entity\TeamMate $id
      * @return Profile
      */
     public function setIdteammate(\MTM\LoginBundle\Entity\TeamMate $idteammate = null)

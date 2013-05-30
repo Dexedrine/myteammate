@@ -11,7 +11,7 @@ use MTM\ProfileBundle\Entity\Profile;
 class ProfileController extends Controller {
 	public function profileAction() {
 		$idTeamMate = $this->get('security.context')->getToken()->getUser()
-				->getIdteammate();
+				->getId();
 
 		$em = $this->getDoctrine()->getManager();
 		$repository = $em->getRepository('MTMProfileBundle:Profile');
@@ -27,7 +27,7 @@ class ProfileController extends Controller {
 						array(
 							'name' => ucwords($profile->getName()),
 							'firstname' => ucwords($profile->getFirstName()),
-							'picture' => $this->getPhotoUrl("8857137640")//ucwords($profile->getUrlPhoto())
+							'picture' => ''
 						)
 				);
 	}
@@ -89,9 +89,8 @@ class ProfileController extends Controller {
 				->add('username', 'text',
 						array('label' => 'Nom d\'utilisateur'))
 				->add('sexe', 'text', array('label' => 'Sexe(H/F)'))
-				->add('attachment', 'file')
-				/*->add('urlphoto', 'text',
-						array('label' => 'URL de votre photo'))*/
+				//->add('attachment', 'file')
+			
 						->getForm();
 		
 		/* TODO champ upload d'image */

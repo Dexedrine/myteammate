@@ -20,11 +20,14 @@ class ThreadMetadata extends BaseThreadMetadata {
 
 	/**
 	 * @ORM\ManyToOne(targetEntity="MTM\MessageBundle\Entity\Thread", inversedBy="metadata")
+	 * @ORM\JoinColumn(name="thread", referencedColumnName="id")
+	 *
 	 */
 	protected $thread;
 
 	/**
 	 * @ORM\ManyToOne(targetEntity="MTM\LoginBundle\Entity\TeamMate")
+	 * @ORM\JoinColumn(name="participant", referencedColumnName="id")
 	 */
 	protected $participant;
 

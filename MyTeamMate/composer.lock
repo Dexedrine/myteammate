@@ -606,6 +606,7 @@
                 "orm"
             ],
             "time": "2013-05-27 19:47:16"
+<<<<<<< HEAD
         },
         {
             "name": "friendsofsymfony/comment-bundle",
@@ -973,6 +974,8 @@
                 "flickr api photo"
             ],
             "time": "2013-03-10 14:22:36"
+=======
+>>>>>>> branch 'master' of https://github.com/Dexedrine/myteammate.git
         },
         {
             "name": "jdorn/sql-formatter",
@@ -2188,12 +2191,18 @@
 
     ],
     "minimum-stability": "alpha",
+<<<<<<< HEAD
     "stability-flags": {
         "ideato/flickr-api-bundle": 20,
         "friendsofsymfony/message-bundle": 20,
         "friendsofsymfony/comment-bundle": 20,
         "friendsofsymfony/user-bundle": 20
     },
+=======
+    "stability-flags": [
+
+    ],
+>>>>>>> branch 'master' of https://github.com/Dexedrine/myteammate.git
     "platform": {
         "php": ">=5.3.3"
     },

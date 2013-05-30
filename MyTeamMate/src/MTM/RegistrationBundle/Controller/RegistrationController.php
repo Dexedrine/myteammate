@@ -34,16 +34,15 @@ class RegistrationController extends Controller {
 				
 				
 				//ne fonctionne que sur un réseau extérieur à celui de la fac
- 				$message = \Swift_Message::newInstance()
- 				->setSubject('Inscription sur My Team Mate')
- 				->setTo($teammate->getEmail())
- 				->setFrom('contact.myteammate@gmail.com')
- 				->setContentType("text/html")
- 				//faire le template pour l'envoi de mail
+ 				//$message = \Swift_Message::newInstance()
+ 				//->setSubject('Inscription sur My Team Mate')
+ 				//->setTo($teammate->getEmail())
+ 				//->setFrom('contact.myteammate@gmail.com')
+ 				//->setContentType("text/html")
 				//template pour l'envoi de mail
-				->setBody($this->renderView('MTMRegistrationBundle:Mail:email_template.html.twig', array('login' => $teammate->getEmail()) ));
+				//->setBody($this->renderView('MTMRegistrationBundle:Mail:email_template.html.twig', array('login' => $teammate->getEmail()) ));
 				
- 				$this->get('mailer')->send($message);
+ 				//$this->get('mailer')->send($message);
 
 				return $this->render('MTMRegistrationBundle:Registration:registration_success.html.twig');
 			}

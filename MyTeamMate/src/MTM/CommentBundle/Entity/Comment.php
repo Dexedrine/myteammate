@@ -55,7 +55,7 @@ class Comment extends BaseComment
      *
      * @ORM\ManyToOne(targetEntity="MTM\LoginBundle\Entity\TeamMate")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idreceiver", referencedColumnName="idteammate")
+     *   @ORM\JoinColumn(name="idreceiver", referencedColumnName="id")
      * })
      */
     private $idreceiver;
@@ -65,7 +65,7 @@ class Comment extends BaseComment
      *
      * @ORM\ManyToOne(targetEntity="MTM\LoginBundle\Entity\TeamMate")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idposter", referencedColumnName="idteammate")
+     *   @ORM\JoinColumn(name="idposter", referencedColumnName="id")
      * })
      */
     private $idposter;
@@ -76,10 +76,10 @@ class Comment extends BaseComment
 	 * @ORM\ManyToMany(targetEntity="MTM\LoginBundle\Entity\TeamMate")
 	 * @ORM\JoinTable(name="abusedcomment",
 	 *   joinColumns={
-	 * 	   @ORM\JoinColumn(name="idcomment", referencedColumnName="idcomment")
+	 * 	   @ORM\JoinColumn(name="id", referencedColumnName="id")
 	 *   },
 	 *   inverseJoinColumns={
-	 *     @ORM\JoinColumn(name="idteammate", referencedColumnName="idteammate")
+	 *     @ORM\JoinColumn(name="idteammate", referencedColumnName="id")
 	 *   }
 	 * )
 	 */
@@ -104,9 +104,9 @@ class Comment extends BaseComment
      *
      * @return integer 
      */
-    public function getIdcomment()
+    public function getId()
     {
-        return $this->idcomment;
+        return $this->id;
     }
 
     /**

@@ -81,12 +81,6 @@ class TeamMate extends BaseUser implements UserInterface, \Serializable,
 	public function getSalt() {
 		return $this->salt;
 	}
-	public function getPassword() {
-		return $this->password;
-	}
-	public function getUsername() {
-		return $this->email;
-	}
 	public function eraseCredentials() {
 
 	}

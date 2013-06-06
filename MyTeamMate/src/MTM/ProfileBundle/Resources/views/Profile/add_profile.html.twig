@@ -2,7 +2,7 @@
 
 
 {% block body %}
-	<form action="{{ path('fos_user_registration_register') }}" method="post" {{ form_enctype(form) }}>
+	<form action="{{ path('add_profile') }}" method="post" {{ form_enctype(form) }}>
 	    {{ form_widget(form) }}
 	    <input type="submit" />
 	</form>

@@ -11,11 +11,7 @@ use MTM\ProfileBundle\Entity\Profile;
 class ProfileController extends Controller {
 	public function profileAction() {
 		$idTeamMate = $this->get('security.context')->getToken()->getUser()
-<<<<<<< HEAD
-				->getIdteammate();
-=======
 				->getId();
->>>>>>> parent of d7aa5df... Ajout de la gestion des messages et mofification du bundle qui gère
 
 		$em = $this->getDoctrine()->getManager();
 		$repository = $em->getRepository('MTMProfileBundle:Profile');

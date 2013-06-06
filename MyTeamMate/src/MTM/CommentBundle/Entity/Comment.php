@@ -4,24 +4,29 @@ namespace MTM\CommentBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use MTM\LoginBundle\Entity\TeamMate ;
+use FOS\CommentBundle\Entity\Comment as BaseComment;
 
 /**
- * Comment
- *
- * @ORM\Table(name="comment")
  * @ORM\Entity
- * @ORM\HasLifecycleCallbacks
+ * @ORM\ChangeTrackingPolicy("DEFERRED_EXPLICIT")
  */
-class Comment
+class Comment extends BaseComment
 {
-    /**
-     * @var integer
-     *
-     * @ORM\Column( type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $idcomment;
+	
+	/**
+	 * @ORM\Id
+	 * @ORM\Column(type="integer")
+	 * @ORM\GeneratedValue(strategy="AUTO")
+	 */
+	protected $id;
+	
+	/**
+	 * Thread of this comment
+	 *
+	 * @var Thread
+	 * @ORM\ManyToOne(targetEntity="MTM\CommentBundle\Entity\Thread")
+	 */
+	protected $thread;
 
     /**
      * @var string
@@ -50,7 +55,7 @@ class Comment
      *
      * @ORM\ManyToOne(targetEntity="MTM\LoginBundle\Entity\TeamMate")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idreceiver", referencedColumnName="idteammate")
+     *   @ORM\JoinColumn(name="idreceiver", referencedColumnName="id")
      * })
      */
     private $idreceiver;
@@ -60,7 +65,7 @@ class Comment
      *
      * @ORM\ManyToOne(targetEntity="MTM\LoginBundle\Entity\TeamMate")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idposter", referencedColumnName="idteammate")
+     *   @ORM\JoinColumn(name="idposter", referencedColumnName="id")
      * })
      */
     private $idposter;
@@ -71,10 +76,10 @@ class Comment
 	 * @ORM\ManyToMany(targetEntity="MTM\LoginBundle\Entity\TeamMate")
 	 * @ORM\JoinTable(name="abusedcomment",
 	 *   joinColumns={
-	 * 	   @ORM\JoinColumn(name="idcomment", referencedColumnName="idcomment")
+	 * 	   @ORM\JoinColumn(name="id", referencedColumnName="id")
 	 *   },
 	 *   inverseJoinColumns={
-	 *     @ORM\JoinColumn(name="idteammate", referencedColumnName="idteammate")
+	 *     @ORM\JoinColumn(name="idteammate", referencedColumnName="id")
 	 *   }
 	 * )
 	 */
@@ -99,9 +104,9 @@ class Comment
      *
      * @return integer 
      */
-    public function getIdcomment()
+    public function getId()
     {
-        return $this->idcomment;
+        return $this->id;
     }
 
     /**

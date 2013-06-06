@@ -27,5 +27,11 @@ mtm_login:
     prefix:   /
     
 
+<<<<<<< HEAD
+=======
+fos_user_register:
+    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+    prefix: /register
+>>>>>>> parent of d7aa5df... Ajout de la gestion des messages et mofification du bundle qui gère
 
 

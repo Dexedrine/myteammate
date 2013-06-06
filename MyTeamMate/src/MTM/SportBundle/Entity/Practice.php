@@ -52,7 +52,7 @@ class Practice
      * @ORM\GeneratedValue(strategy="NONE")
      * @ORM\ManyToOne(targetEntity="MTM\LoginBundle\Entity\TeamMate")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idteammate", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="idteammate", referencedColumnName="idteammate")
      * })
      */
     private $idteammate;
@@ -151,7 +151,7 @@ class Practice
     /**
      * Set idteammate
      *
-     * @param \MTM\LoginBundle\Entity\TeamMate $id
+     * @param \MTM\LoginBundle\Entity\TeamMate $idteammate
      * @return Practice
      */
     public function setIdteammate(\MTM\LoginBundle\Entity\TeamMate $idteammate = null)

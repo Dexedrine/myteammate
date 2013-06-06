@@ -4,29 +4,24 @@ namespace MTM\CommentBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use MTM\LoginBundle\Entity\TeamMate ;
-use FOS\CommentBundle\Entity\Comment as BaseComment;
 
 /**
+ * Comment
+ *
+ * @ORM\Table(name="comment")
  * @ORM\Entity
- * @ORM\ChangeTrackingPolicy("DEFERRED_EXPLICIT")
+ * @ORM\HasLifecycleCallbacks
  */
-class Comment extends BaseComment
+class Comment
 {
-	
-	/**
-	 * @ORM\Id
-	 * @ORM\Column(type="integer")
-	 * @ORM\GeneratedValue(strategy="AUTO")
-	 */
-	protected $id;
-	
-	/**
-	 * Thread of this comment
-	 *
-	 * @var Thread
-	 * @ORM\ManyToOne(targetEntity="MTM\CommentBundle\Entity\Thread")
-	 */
-	protected $thread;
+    /**
+     * @var integer
+     *
+     * @ORM\Column( type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $idcomment;
 
     /**
      * @var string
@@ -55,7 +50,7 @@ class Comment extends BaseComment
      *
      * @ORM\ManyToOne(targetEntity="MTM\LoginBundle\Entity\TeamMate")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idreceiver", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="idreceiver", referencedColumnName="idteammate")
      * })
      */
     private $idreceiver;
@@ -65,7 +60,7 @@ class Comment extends BaseComment
      *
      * @ORM\ManyToOne(targetEntity="MTM\LoginBundle\Entity\TeamMate")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idposter", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="idposter", referencedColumnName="idteammate")
      * })
      */
     private $idposter;
@@ -76,10 +71,10 @@ class Comment extends BaseComment
 	 * @ORM\ManyToMany(targetEntity="MTM\LoginBundle\Entity\TeamMate")
 	 * @ORM\JoinTable(name="abusedcomment",
 	 *   joinColumns={
-	 * 	   @ORM\JoinColumn(name="id", referencedColumnName="id")
+	 * 	   @ORM\JoinColumn(name="idcomment", referencedColumnName="idcomment")
 	 *   },
 	 *   inverseJoinColumns={
-	 *     @ORM\JoinColumn(name="idteammate", referencedColumnName="id")
+	 *     @ORM\JoinColumn(name="idteammate", referencedColumnName="idteammate")
 	 *   }
 	 * )
 	 */
@@ -104,9 +99,9 @@ class Comment extends BaseComment
      *
      * @return integer 
      */
-    public function getId()
+    public function getIdcomment()
     {
-        return $this->id;
+        return $this->idcomment;
     }
 
     /**

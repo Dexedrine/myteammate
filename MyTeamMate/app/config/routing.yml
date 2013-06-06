@@ -1,11 +1,3 @@
-
-fos_comment_api:
-    type: rest
-    resource: "@FOSCommentBundle/Resources/config/routing.yml"
-    prefix: /comment
-    defaults: { _format: html }
-    
-
 mtm_design:
     resource: "@MTMDesignBundle/Resources/config/routing.yml"
     prefix:   /
@@ -33,27 +25,7 @@ mtm_profile:
 mtm_login:
     resource: "@MTMLoginBundle/Resources/config/routing.yml"
     prefix:   /
-fos_message:
-    resource: "@FOSMessageBundle/Resources/config/routing.xml"
-    prefix:   /user/message
-
     
-fos_user_security:
-    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
-    prefix: /
 
-fos_user_profile:
-    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
-    prefix: /user/profile
 
-fos_user_register:
-    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
-    prefix: /registratio
 
-fos_user_resetting:
-    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
-    prefix: /resetting
-
-fos_user_change_password:
-    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
-    prefix: /change

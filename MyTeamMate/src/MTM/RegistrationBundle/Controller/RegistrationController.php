@@ -21,7 +21,6 @@ class RegistrationController extends Controller {
   												  'invalid_message' => 'Les mots de passe doivent correspondre',
    												 'options' => array('required' => true)))		
 				->add('acceptusemail', 'checkbox',array('required' => false))
-				->add('username', 'text',array('required' => true))
 				->getForm();
 		
 		if ($request->isMethod('POST')) {
@@ -29,7 +28,7 @@ class RegistrationController extends Controller {
 
 			if ($form->isValid()) {
 				$em = $this->getDoctrine()->getManager();
-				$em->persist($teammate);
+				$em->persist($teammate)	;
 				$em->flush();
 				
 				

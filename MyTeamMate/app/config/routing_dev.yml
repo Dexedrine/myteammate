@@ -36,3 +36,4 @@ mtm_profile:
 mtm_login:
     resource: "@MTMLoginBundle/Resources/config/routing.yml"
     prefix:   /
+

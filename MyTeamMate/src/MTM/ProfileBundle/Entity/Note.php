@@ -43,7 +43,7 @@ class Note
      *
      * @ORM\ManyToOne(targetEntity="MTM\LoginBundle\Entity\TeamMate")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idrater", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="idrater", referencedColumnName="idteammate")
      * })
      */
     private $idrater;
@@ -53,7 +53,7 @@ class Note
      *
      * @ORM\ManyToOne(targetEntity="MTM\LoginBundle\Entity\TeamMate")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idnoted", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="idnoted", referencedColumnName="idteammate")
      * })
      */
     private $idnoted;

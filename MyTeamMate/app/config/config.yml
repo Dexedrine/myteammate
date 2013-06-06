@@ -5,7 +5,7 @@ imports:
 
 framework:
     #esi:             ~
-    translator:      ~
+    #translator:      { fallback: %locale% }
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -33,8 +33,6 @@ assetic:
     bundles:        
       - "MTMSportBundle"
       - "MTMDesignBundle"
-      - "FOSCommentBundle"
-      - "FOSMessageBundle"
     #java: /usr/bin/java
     filters:
         cssrewrite: ~
@@ -61,35 +59,7 @@ doctrine:
         auto_generate_proxy_classes: "%kernel.debug%"
         auto_mapping: true
 
-# Swiftmailer Configuration
-swiftmailer:
-    transport: "%mailer_transport%"
-    host:      "%mailer_host%"
-    username:  "%mailer_user%"
-    password:  "%mailer_password%"
-    spool:     { type: memory }
 
-fos_comment:
-    db_driver: orm
-    class:
-        model:
-            comment: MTM\CommentBundle\Entity\Comment
-            thread: MTM\CommentBundle\Entity\Thread
-            
-fos_message:
-    db_driver:     orm
-    thread_class:  MTM\MessageBundle\Entity\Thread
-    message_class: MTM\MessageBundle\Entity\Message
-fos_user:
-    db_driver: orm 
-    firewall_name: main
-    user_class: MTM\LoginBundle\Entity\TeamMate
-#registration:
-#        confirmation:
-#            enabled:    true
-services:
-    fos_user.registration.form:
-        class: FOS\UserBundle\Form\Type\RegistrationFormType
-        arguments: ["%fos_user.model.user.class%"]
-        tags:
-            - { name: form.type, alias: fos_user_registration }
+    
+    
+  

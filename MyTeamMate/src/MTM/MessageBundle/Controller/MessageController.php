@@ -2,142 +2,49 @@
 
 namespace MTM\MessageBundle\Controller;
 
-
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+use MTM\MessageBundle\Entity\Message;
 
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\DependencyInjection\ContainerAware;
-use Symfony\Component\HttpFoundation\RedirectResponse;
-use FOS\MessageBundle\Provider\ProviderInterface;
-use FOS\MessageBundle\Controller\MessageController as BaseController;
-
-class MessageController extends BaseController
+class MessageController extends Controller
 {
-	public function messageAction()
-	{
-// 		$idTeammate = $this->get('security.context')->getToken()->getUser()->getIdteammate() ;
-	
-// 		$em = $this->getDoctrine()->getManager();
-// 		$repository = $em->getRepository('MTMMessageBundle:Message');
-	
-// 		$messages = null ;//= $repository->findByIdreceivers($idTeammate);
-// 		if (!$messages) {
-// 			return $this->render('MTMMessageBundle:Message:no_message.html.twig');
-// 		}
-		//return $this->render('FOSMessageBundle::layout.html.twig');
-		return $this->container->get('templating')->renderResponse('MTMMessageBundle::layout.html.twig');
-	}
-//      /**
-//      * Displays the authenticated participant inbox
-//      *
-//      * @return Response
-//      */
-//     public function inboxAction()
-//     {
-//         $threads = $this->getProvider()->getInboxThreads();
-
-//         return $this->container->get('templating')->renderResponse('FOSMessageBundle:Message:inbox.html.twig', array(
-//             'threads' => $threads
-//         ));
-//     }
-
-//     /**
-//      * Displays the authenticated participant sent mails
-//      *
-//      * @return Response
-//      */
-//     public function sentAction()
-//     {
-//         $threads = $this->getProvider()->getSentThreads();
-
-//         return $this->container->get('templating')->renderResponse('FOSMessageBundle:Message:sent.html.twig', array(
-//             'threads' => $threads
-//         ));
-//     }
-
-//     /**
-//      * Displays a thread, also allows to reply to it
-//      *
-//      * @param strind $threadId the thread id
-//      * @return Response
-//      */
-//     public function threadAction($threadId)
-//     {
-//         $thread = $this->getProvider()->getThread($threadId);
-//         $form = $this->container->get('fos_message.reply_form.factory')->create($thread);
-//         $formHandler = $this->container->get('fos_message.reply_form.handler');
-
-//         if ($message = $formHandler->process($form)) {
-//             return new RedirectResponse($this->container->get('router')->generate('fos_message_thread_view', array(
-//                 'threadId' => $message->getThread()->getId()
-//             )));
-//         }
-
-//         return $this->container->get('templating')->renderResponse('FOSMessageBundle:Message:thread.html.twig', array(
-//             'form' => $form->createView(),
-//             'thread' => $thread
-//         ));
-//     }
-
-//     /**
-//      * Create a new message thread
-//      *
-//      * @return Response
-//      */
-//     public function newThreadAction()
-//     {
-//         $form = $this->container->get('fos_message.new_thread_form.factory')->create();
-//         $formHandler = $this->container->get('fos_message.new_thread_form.handler');
-
-//         if ($message = $formHandler->process($form)) {
-//             return new RedirectResponse($this->container->get('router')->generate('fos_message_thread_view', array(
-//                 'threadId' => $message->getThread()->getId()
-//             )));
-//         }
-
-//         return $this->container->get('templating')->renderResponse('FOSMessageBundle:Message:newThread.html.twig', array(
-//             'form' => $form->createView(),
-//             'data' => $form->getData()
-//         ));
-//     }
-
-//     /**
-//      * Deletes a thread
-//      *
-//      * @return Response
-//      */
-//     public function deleteAction($threadId)
-//     {
-//         $thread = $this->getProvider()->getThread($threadId);
-//         $this->container->get('fos_message.deleter')->markAsDeleted($thread);
-//         $this->container->get('fos_message.thread_manager')->saveThread($thread);
-
-//         return new RedirectResponse($this->container->get('router')->generate('fos_message_inbox'));
-//     }
-
-//     /**
-//      * Searches for messages in the inbox and sentbox
-//      *
-//      * @return Response
-//      */
-//     public function searchAction()
-//     {
-//         $query = $this->container->get('fos_message.search_query_factory')->createFromRequest();
-//         $threads = $this->container->get('fos_message.search_finder')->find($query);
-
-//         return $this->container->get('templating')->renderResponse('FOSMessageBundle:Message:search.html.twig', array(
-//             'query' => $query,
-//             'threads' => $threads
-//         ));
-//     }
-
-//     /**
-//      * Gets the provider service
-//      *
-//      * @return ProviderInterface
-//      */
-//     protected function getProvider()
-//     {
-//         return $this->container->get('fos_message.provider');
-//     }
+public function messageAction()
+    {
+    	$idTeammate = $this->get('security.context')->getToken()->getUser()->getIdteammate() ;
+    	
+    	$em = $this->getDoctrine()->getManager();
+    	$repository = $em->getRepository('MTMMessageBundle:Message');
+    	
+    	$messages = null ;//= $repository->findByIdreceivers($idTeammate);
+    	if (!$messages) {
+    		return $this->render('MTMMessageBundle:Message:no_message.html.twig');
+    	}
+    	
+        return $this->render('MTMMessageBundle:Message:message.html.twig');
+    }
+    
+    public function sendAction(Request $request)
+    {
+    	$Message = new Message();
+    	
+    	$user = $this->get('security.context')->getToken()->getUser() ;
+    	
+    	
+    	if ($request->isMethod('POST')) {
+    		$form->bind($request);
+    	
+    		if ($form->isValid()) {
+    			/*$em = $this->getDoctrine()->getManager();
+    			$em->persist($profile->setIduser($user))	;
+    			$em->flush();*/
+    	
+    			return $this->redirect($this->generateUrl('message'));
+    		}
+    	}
+    	
+    	//creation du formulaire d'envoie de message dans send_message.html.twig
+    	
+    	return $this
+    	->render('MTMMessageBundle:Message:send_message.html.twig');
+    }
 }

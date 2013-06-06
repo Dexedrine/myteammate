@@ -3,6 +3,7 @@
 
 {% block body %}
 
+
 <div class="profileForm">
 	<form name="pro_form" action="{{ path('add_profile') }}" method="post" {{ form_enctype(form) }}>
 		<ul class="inputs">	    
@@ -30,6 +31,11 @@
 		</div>
 				{{ form_rest(form) }}
 		
+
+	<form action="{{ path('fos_user_registration_register') }}" method="post" {{ form_enctype(form) }}>
+	    {{ form_widget(form) }}
+	    <input type="submit" />
 	</form>
 </div>
+
 {% endblock %}

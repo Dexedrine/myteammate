@@ -3,3 +3,5 @@
 */.settings
 */bin/classes
 /.DS_Store
+/composer.phar
+MyTeamMate/composer.lock

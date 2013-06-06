@@ -36,7 +36,7 @@ class Favorite
      *
      * @ORM\ManyToOne(targetEntity="MTM\LoginBundle\Entity\TeamMate")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idmaker", referencedColumnName="idteammate")
+     *   @ORM\JoinColumn(name="idmaker", referencedColumnName="id")
      * })
      */
     private $idmaker;
@@ -46,7 +46,7 @@ class Favorite
      *
      * @ORM\ManyToOne(targetEntity="MTM\LoginBundle\Entity\TeamMate")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idtarget", referencedColumnName="idteammate")
+     *   @ORM\JoinColumn(name="idtarget", referencedColumnName="id")
      * })
      */
     private $idtarget;

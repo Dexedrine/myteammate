@@ -1,0 +1,14 @@
+{% extends '::noconnect.html.twig' %}
+
+{% block page_name %}{% trans from 'FOSMessageBundle' %}messenger{% endtrans %}{% endblock %}
+
+{% trans_default_domain 'FOSMessageBundle' %}
+
+{% block body %}
+        <ul>
+            <li><a href="{{ url('fos_message_inbox') }}">{% trans from 'FOSMessageBundle' %}inbox{% endtrans %}</a></li>
+            <li><a href="{{ url('fos_message_sent') }}">{% trans from 'FOSMessageBundle' %}sent{% endtrans %}</a></li>
+        </ul>
+
+        {% block fos_message_content %}{% endblock %}
+{% endblock body %}

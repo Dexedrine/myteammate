@@ -3,20 +3,19 @@
 {% block page_name %}Connexion{% endblock %}
 
 {% block body %}
-	
 	<div class="loginForm">
-	     <form name="login_form" action="{{ path('login_check') }}" method="post">	
+	     <form name="login_form" action="{{ path('login_check') }}" method="post">
        	 <ul class="inputs">
        		 <li>
       			<span class="icon" data-icon="&#xe003;" aria-hidden="true" title="username"></span>
-	   			<input type="email" id="username" name="_username" placeholder="Adresse mail" autofocus="autofocus" value="{{ last_username }}" />
+	   			<input type="text" id="username" name="_username" placeholder="Adresse mail" autofocus="autofocus" value="{{ last_username }}" />
 			</li>
 			<li>
 				<span class="icon" data-icon="&#xe002;" aria-hidden="true" title="password"></span>
 	    		<input type="password" id="password" name="_password" placeholder="Mot de passe" />
 			</li>
 			<li class="rememberMe">
-			    <label for="remember_me">Rester connect&eacute;</label>
+			    <label for="remember_me">Rester connecté</label>
 	    		<input type="checkbox" id="remember_me" name="_remember_me" checked />
 	    	</li>	
 		</ul>

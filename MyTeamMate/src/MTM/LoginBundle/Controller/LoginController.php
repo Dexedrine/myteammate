@@ -28,6 +28,7 @@ class LoginController extends Controller
 			$session->remove(SecurityContext::AUTHENTICATION_ERROR);
 		}
 		
+		
 		return $this->render(
 			'MTMLoginBundle:Login:login.html.twig',
 			array(

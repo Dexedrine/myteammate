@@ -1,6 +1,6 @@
 login:
     pattern:   /login
-    defaults:  { _controller: "MTMLoginBundle:Login:login" }
+    defaults:  { _controller: "FOSUserBundle:Security:login" }
     
 login_check:
     pattern:   /login_check

@@ -30,7 +30,8 @@ twig:
 assetic:
     debug:          "%kernel.debug%"
     use_controller: false
-    bundles:        
+    bundles:
+      - "MTMCoreBundle"        
       - "MTMSportBundle"
       - "MTMDesignBundle"
       - "MTMCommentBundle"
@@ -81,7 +82,7 @@ fos_message:
 fos_user:
     db_driver: orm 
     firewall_name: main
-    user_class: MTM\LoginBundle\Entity\TeamMate
+    user_class: MTM\CoreBundle\Entity\TeamMate
 #registration:
 #        confirmation:
 #            enabled:    true

@@ -1,3 +1,0 @@
-registration:
-    pattern: /registration
-    defaults: { _controller: "FOSUserBundle:Registration:register" }

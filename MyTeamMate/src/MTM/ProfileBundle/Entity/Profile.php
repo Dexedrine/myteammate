@@ -4,7 +4,7 @@ namespace MTM\ProfileBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-use MTM\LoginBundle\Entity\TeamMate;
+use MTM\CoreBundle\Entity\TeamMate;
 
 /**
  * Profile
@@ -56,7 +56,7 @@ class Profile
     /**
      * @var \TeamMate
      *
-     * @ORM\OneToOne(targetEntity="MTM\LoginBundle\Entity\TeamMate")
+     * @ORM\OneToOne(targetEntity="MTM\CoreBundle\Entity\TeamMate")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id", referencedColumnName="id")
      * })
@@ -171,10 +171,10 @@ class Profile
     /**
      * Set idteammate
      *
-     * @param \MTM\LoginBundle\Entity\TeamMate $id
+     * @param \MTM\CoreBundle\Entity\TeamMate $id
      * @return Profile
      */
-    public function setIdteammate(\MTM\LoginBundle\Entity\TeamMate $idteammate = null)
+    public function setIdteammate(\MTM\CoreBundle\Entity\TeamMate $idteammate = null)
     {
         $this->idteammate = $idteammate;
     
@@ -184,7 +184,7 @@ class Profile
     /**
      * Get idteammate
      *
-     * @return \MTM\LoginBundle\Entity\TeamMate 
+     * @return \MTM\CoreBundle\Entity\TeamMate 
      */
     public function getIdteammate()
     {

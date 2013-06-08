@@ -4,7 +4,7 @@ namespace MTM\ProfileBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
-use MTM\LoginBundle\Entity\TeamMate;
+use MTM\CoreBundle\Entity\TeamMate;
 
 /**
  * Note
@@ -41,7 +41,7 @@ class Note
     /**
      * @var \TeamMate
      *
-     * @ORM\ManyToOne(targetEntity="MTM\LoginBundle\Entity\TeamMate")
+     * @ORM\ManyToOne(targetEntity="MTM\CoreBundle\Entity\TeamMate")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="idrater", referencedColumnName="id")
      * })
@@ -51,7 +51,7 @@ class Note
     /**
      * @var \User
      *
-     * @ORM\ManyToOne(targetEntity="MTM\LoginBundle\Entity\TeamMate")
+     * @ORM\ManyToOne(targetEntity="MTM\CoreBundle\Entity\TeamMate")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="idnoted", referencedColumnName="id")
      * })
@@ -125,10 +125,10 @@ class Note
     /**
      * Set idrater
      *
-     * @param \MTM\LoginBundle\Entity\TeamMate $idrater
+     * @param \MTM\CoreBundle\Entity\TeamMate $idrater
      * @return Note
      */
-    public function setIdrater(\MTM\LoginBundle\Entity\TeamMate $idrater = null)
+    public function setIdrater(\MTM\CoreBundle\Entity\TeamMate $idrater = null)
     {
         $this->idrater = $idrater;
     
@@ -138,7 +138,7 @@ class Note
     /**
      * Get idrater
      *
-     * @return \MTM\LoginBundle\Entity\TeamMate 
+     * @return \MTM\CoreBundle\Entity\TeamMate 
      */
     public function getIdrater()
     {
@@ -148,10 +148,10 @@ class Note
     /**
      * Set idnoted
      *
-     * @param \MTM\LoginBundle\Entity\TeamMate $idnoted
+     * @param \MTM\CoreBundle\Entity\TeamMate $idnoted
      * @return Note
      */
-    public function setIdnoted(\MTM\LoginBundle\Entity\TeamMate $idnoted = null)
+    public function setIdnoted(\MTM\CoreBundle\Entity\TeamMate $idnoted = null)
     {
         $this->idnoted = $idnoted;
     
@@ -161,7 +161,7 @@ class Note
     /**
      * Get idnoted
      *
-     * @return \MTM\LoginBundle\Entity\TeamMate 
+     * @return \MTM\CoreBundle\Entity\TeamMate 
      */
     public function getIdnoted()
     {

@@ -3,7 +3,7 @@
 namespace MTM\SportBundle\Entity;
 
 	use Doctrine\ORM\Mapping as ORM;
-use MTM\LoginBundle\Entity\TeamMate ;
+use MTM\CoreBundle\Entity\TeamMate ;
 
 
 /**
@@ -50,7 +50,7 @@ class Practice
      * @var \TeamMate
      *
      * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\ManyToOne(targetEntity="MTM\LoginBundle\Entity\TeamMate")
+     * @ORM\ManyToOne(targetEntity="MTM\CoreBundle\Entity\TeamMate")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="idteammate", referencedColumnName="id")
      * })
@@ -151,10 +151,10 @@ class Practice
     /**
      * Set idteammate
      *
-     * @param \MTM\LoginBundle\Entity\TeamMate $id
+     * @param \MTM\CoreBundle\Entity\TeamMate $id
      * @return Practice
      */
-    public function setIdteammate(\MTM\LoginBundle\Entity\TeamMate $idteammate = null)
+    public function setIdteammate(\MTM\CoreBundle\Entity\TeamMate $idteammate = null)
     {
         $this->idteammate = $idteammate;
     
@@ -164,7 +164,7 @@ class Practice
     /**
      * Get idteammate
      *
-     * @return \MTM\LoginBundle\Entity\TeamMate 
+     * @return \MTM\CoreBundle\Entity\TeamMate 
      */
     public function getIdteammate()
     {

@@ -3,7 +3,7 @@
 namespace MTM\CommentBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use MTM\LoginBundle\Entity\TeamMate ;
+use MTM\CoreBundle\Entity\TeamMate ;
 use FOS\CommentBundle\Entity\Comment as BaseComment;
 
 /**
@@ -53,7 +53,7 @@ class Comment extends BaseComment
     /**
      * @var \TeamMate
      *
-     * @ORM\ManyToOne(targetEntity="MTM\LoginBundle\Entity\TeamMate")
+     * @ORM\ManyToOne(targetEntity="MTM\CoreBundle\Entity\TeamMate")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="idreceiver", referencedColumnName="id")
      * })
@@ -63,7 +63,7 @@ class Comment extends BaseComment
     /**
      * @var \TeamMate
      *
-     * @ORM\ManyToOne(targetEntity="MTM\LoginBundle\Entity\TeamMate")
+     * @ORM\ManyToOne(targetEntity="MTM\CoreBundle\Entity\TeamMate")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="idposter", referencedColumnName="id")
      * })
@@ -73,7 +73,7 @@ class Comment extends BaseComment
 	/**
 	 * @var \Doctrine\Common\Collections\Collection
 	 *
-	 * @ORM\ManyToMany(targetEntity="MTM\LoginBundle\Entity\TeamMate")
+	 * @ORM\ManyToMany(targetEntity="MTM\CoreBundle\Entity\TeamMate")
 	 * @ORM\JoinTable(name="abusedcomment",
 	 *   joinColumns={
 	 * 	   @ORM\JoinColumn(name="id", referencedColumnName="id")
@@ -181,10 +181,10 @@ class Comment extends BaseComment
     /**
      * Set idreceiver
      *
-     * @param \MTM\LoginBundle\Entity\TeamMate $idreceiver
+     * @param \MTM\CoreBundle\Entity\TeamMate $idreceiver
      * @return Comment
      */
-    public function setIdreceiver(\MTM\LoginBundle\Entity\TeamMate $idreceiver = null)
+    public function setIdreceiver(\MTM\CoreBundle\Entity\TeamMate $idreceiver = null)
     {
         $this->idreceiver = $idreceiver;
     
@@ -194,7 +194,7 @@ class Comment extends BaseComment
     /**
      * Get idreceiver
      *
-     * @return \MTM\LoginBundle\Entity\TeamMate 
+     * @return \MTM\CoreBundle\Entity\TeamMate 
      */
     public function getIdreceiver()
     {
@@ -204,10 +204,10 @@ class Comment extends BaseComment
     /**
      * Set idposter
      *
-     * @param \MTM\LoginBundle\Entity\TeamMate $idposter
+     * @param \MTM\CoreBundle\Entity\TeamMate $idposter
      * @return Comment
      */
-    public function setIdposter(\MTM\LoginBundle\Entity\TeamMate $idposter = null)
+    public function setIdposter(\MTM\CoreBundle\Entity\TeamMate $idposter = null)
     {
         $this->idposter = $idposter;
     
@@ -217,7 +217,7 @@ class Comment extends BaseComment
     /**
      * Get idposter
      *
-     * @return \MTM\LoginBundle\Entity\TeamMate
+     * @return \MTM\CoreBundle\Entity\TeamMate
      */
     public function getIdposter()
     {

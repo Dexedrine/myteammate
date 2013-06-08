@@ -29,7 +29,7 @@ class Message
 	protected $thread;
 
 	/**
-	 * @ORM\ManyToOne(targetEntity="MTM\LoginBundle\Entity\TeamMate")
+	 * @ORM\ManyToOne(targetEntity="MTM\CoreBundle\Entity\TeamMate")
 	 * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
 	 */
 	protected $sender;

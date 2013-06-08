@@ -8,7 +8,11 @@
 		<span> {{ name }} </span>
 	
 		<div class="picture">
+		{% if picture %}
 			<img alt="photo" src="{{ picture }}">
+		{% else %}
+			<img alt="photo" src="{{ asset('bundles/mtmdesign/img/anonymous.jpg') }}">
+		{% endif %}
 		</div>
 		
 	</div>

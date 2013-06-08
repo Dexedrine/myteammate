@@ -1,6 +1,7 @@
 <?php
 
 namespace MTM\ProfileBundle\Controller;
+
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\SecurityContext;
@@ -50,6 +51,29 @@ class ProfileController extends Controller {
 				. $photoset_id;
 
 		//parse result and build picture url
+<<<<<<< HEAD
+		
+		if(	$json_response = @file_get_contents($url_photo)){
+			$json_response = substr($json_response,strpos($json_response,'(')+1);
+			$json_response = substr($json_response, 0, strlen($json_response)-1);
+			$json_response = json_decode($json_response);
+		
+			$photos = $json_response->photoset->photo;
+			foreach ($photos as $p){
+				if($p->id == $id_photo){
+					$photo = $p;
+					break;
+				}
+			}					
+		
+			if($photo){
+				$farm = $photo->farm;
+				$server = $photo->server;
+				$photo_id = $photo->id;
+				$photo_secret = $photo->secret;
+				
+				$flickr_url = sprintf("http://farm%s.staticflickr.com/%s/%s_%s_c.jpg",$farm,$server,$photo_id,$photo_secret);
+=======
 		$json_response = file_get_contents($url_photo);
 		$json_response = substr($json_response, strpos($json_response, '(') + 1);
 		$json_response = substr($json_response, 0, strlen($json_response) - 1);
@@ -60,7 +84,17 @@ class ProfileController extends Controller {
 			if ($p->id == $id_photo) {
 				$photo = $p;
 				break;
+>>>>>>> branch 'master' of https://github.com/Dexedrine/myteammate.git
 			}
+<<<<<<< HEAD
+			else {
+				$flickr_url = "http://farm9.staticflickr.com/8558/8702120362_933109e628_c.jpg";
+			}
+			
+			return $flickr_url;
+		}
+		return false;
+=======
 		}
 
 		if ($photo) {
@@ -77,6 +111,7 @@ class ProfileController extends Controller {
 		}
 
 		return $flickr_url;
+>>>>>>> branch 'master' of https://github.com/Dexedrine/myteammate.git
 	}
 
 	public function addAction(Request $request) {

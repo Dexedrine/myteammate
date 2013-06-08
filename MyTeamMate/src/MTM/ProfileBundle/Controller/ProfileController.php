@@ -50,32 +50,35 @@ class ProfileController extends Controller {
 		. '&auth_token=' . $auth_token . '&method=flickr.photosets.getPhotos&format=json&photoset_id='. $photoset_id;
 				
 		//parse result and build picture url
-		$json_response = file_get_contents($url_photo);
-		$json_response = substr($json_response,strpos($json_response,'(')+1);
-		$json_response = substr($json_response, 0, strlen($json_response)-1);
-		$json_response = json_decode($json_response);
 		
-		$photos = $json_response->photoset->photo;
-		foreach ($photos as $p){
-			if($p->id == $id_photo){
-				$photo = $p;
-				break;
+		if(	$json_response = @file_get_contents($url_photo)){
+			$json_response = substr($json_response,strpos($json_response,'(')+1);
+			$json_response = substr($json_response, 0, strlen($json_response)-1);
+			$json_response = json_decode($json_response);
+		
+			$photos = $json_response->photoset->photo;
+			foreach ($photos as $p){
+				if($p->id == $id_photo){
+					$photo = $p;
+					break;
+				}
+			}					
+		
+			if($photo){
+				$farm = $photo->farm;
+				$server = $photo->server;
+				$photo_id = $photo->id;
+				$photo_secret = $photo->secret;
+				
+				$flickr_url = sprintf("http://farm%s.staticflickr.com/%s/%s_%s_c.jpg",$farm,$server,$photo_id,$photo_secret);
 			}
-		}
-		
-		if($photo){
-			$farm = $photo->farm;
-			$server = $photo->server;
-			$photo_id = $photo->id;
-			$photo_secret = $photo->secret;
+			else {
+				$flickr_url = "http://farm9.staticflickr.com/8558/8702120362_933109e628_c.jpg";
+			}
 			
-			$flickr_url = sprintf("http://farm%s.staticflickr.com/%s/%s_%s_c.jpg",$farm,$server,$photo_id,$photo_secret);
+			return $flickr_url;
 		}
-		else {
-			$flickr_url = "http://farm9.staticflickr.com/8558/8702120362_933109e628_c.jpg";
-		}
-		
-		return $flickr_url;
+		return false;
 	}
 
 	public function addAction(Request $request) {

@@ -5,3 +5,4 @@
 /.DS_Store
 /composer.phar
 */composer.lock
+*/composer.phar

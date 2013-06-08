@@ -2,12 +2,11 @@
 
 namespace MTM\CoreBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\UserInterface;
 use FOS\MessageBundle\Model\ParticipantInterface;
 use MTM\CommentBundle\Entity\Comment;
 use MTM\MessageBundle\Entity\Message;
 
-use FOS\UserBundle\Model\User as BaseUser ;
+use FOS\UserBundle\Model\User as BaseUser;
 /**
  * TeamMate
  *
@@ -15,7 +14,7 @@ use FOS\UserBundle\Model\User as BaseUser ;
  * @ORM\Entity
  * @ORM\HasLifecycleCallbacks
  */
-class TeamMate extends BaseUser {
+class TeamMate extends BaseUser  implements ParticipantInterface{
 	
 	/**
 	 * @ORM\Id
@@ -29,7 +28,6 @@ class TeamMate extends BaseUser {
 		parent::__construct();
 		// your own logic
 		}
-	
 	
 	/**
 	 * @var boolean
@@ -59,6 +57,8 @@ class TeamMate extends BaseUser {
 		return $this->acceptusemail;
 	}
 	
-	
+	public function getId(){
+		return $this->id;
+	}
 	
 }

@@ -13,7 +13,7 @@ use FOS\MessageBundle\Model\MessageMetadata as ModelMessageMetadata;
 /**
  * @ORM\Entity
  */
-class Message 
+class Message extends BaseMessage
 {
 	/**
 	 * @ORM\Id

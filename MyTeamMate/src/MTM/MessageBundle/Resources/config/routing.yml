@@ -1,7 +1,24 @@
-message:
-    pattern: /user/message
-    defaults: { _controller: "MTMMessageBundle:Message:message" }
+fos_message_inbox:
+    pattern: /user/message/
+    defaults: { _controller: "FOSMessageBundle:Message:inbox" }
 
-send_message:
-    pattern: /user/send_message
-    defaults: { _controller: "MTMMessageBundle:Message:send" }
+fos_message_sent:
+    pattern: /user/message/sent
+    defaults: { _controller: "FOSMessageBundle:Message:sent" }
+
+fos_message_search:
+    pattern: /user/message/search
+    defaults: { _controller: "FOSMessageBundle:Message:search" }
+
+fos_message_thread_new:
+    pattern: /user/message/new
+    defaults: { _controller: "FOSMessageBundle:Message:newThread" }
+
+fos_message_thread_view:
+    pattern: /user/message/thread/{threadId}
+    defaults: { _controller: "FOSMessageBundle:Message:thread" }
+    
+fos_message_thread_delete:
+    pattern: /user/message/delete/{threadId}
+    defaults: { _controller: "FOSMessageBundle:Message:delete" }
+ 

@@ -4,7 +4,7 @@ namespace MTM\ProfileBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-use MTM\LoginBundle\Entity\TeamMate;
+use MTM\CoreBundle\Entity\TeamMate;
 
 /**
  * Profile
@@ -40,13 +40,6 @@ class Profile
     /**
      * @var string
      *
-     * @ORM\Column(type="string", length=25, nullable=false)
-     */
-    private $username;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(type="string", nullable=false)
      * @Assert\NotBlank()
      * @Assert\Choice(choices = {"M", "F"})
@@ -63,9 +56,9 @@ class Profile
     /**
      * @var \TeamMate
      *
-     * @ORM\OneToOne(targetEntity="MTM\LoginBundle\Entity\TeamMate")
+     * @ORM\OneToOne(targetEntity="MTM\CoreBundle\Entity\TeamMate")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idteammate", referencedColumnName="idteammate")
+     *   @ORM\JoinColumn(name="id", referencedColumnName="id")
      * })
      */
     private $idteammate;
@@ -130,29 +123,6 @@ class Profile
     }
 
     /**
-     * Set username
-     *
-     * @param string $username
-     * @return Profile
-     */
-    public function setUsername($username)
-    {
-        $this->username = $username;
-    
-        return $this;
-    }
-
-    /**
-     * Get username
-     *
-     * @return string 
-     */
-    public function getUsername()
-    {
-        return $this->username;
-    }
-
-    /**
      * Set sexe
      *
      * @param string $sexe
@@ -201,10 +171,10 @@ class Profile
     /**
      * Set idteammate
      *
-     * @param \MTM\LoginBundle\Entity\TeamMate $idteammate
+     * @param \MTM\CoreBundle\Entity\TeamMate $id
      * @return Profile
      */
-    public function setIdteammate(\MTM\LoginBundle\Entity\TeamMate $idteammate = null)
+    public function setIdteammate(\MTM\CoreBundle\Entity\TeamMate $idteammate = null)
     {
         $this->idteammate = $idteammate;
     
@@ -214,7 +184,7 @@ class Profile
     /**
      * Get idteammate
      *
-     * @return \MTM\LoginBundle\Entity\TeamMate 
+     * @return \MTM\CoreBundle\Entity\TeamMate 
      */
     public function getIdteammate()
     {

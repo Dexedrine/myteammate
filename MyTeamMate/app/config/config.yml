@@ -30,9 +30,15 @@ twig:
 assetic:
     debug:          "%kernel.debug%"
     use_controller: false
-    bundles:        
+    bundles:
+      - "MTMCoreBundle"        
       - "MTMSportBundle"
       - "MTMDesignBundle"
+      - "MTMCommentBundle"
+      - "MTMMessageBundle"
+      - "FOSUserBundle"
+      - "FOSCommentBundle"
+      - "FOSMessageBundle"
     #java: /usr/bin/java
     filters:
         cssrewrite: ~
@@ -59,7 +65,24 @@ doctrine:
         auto_generate_proxy_classes: "%kernel.debug%"
         auto_mapping: true
 
+# Swiftmailer Configuration dans le private.yml
 
+fos_comment:
+    db_driver: orm
+    class:
+        model:
+            comment: MTM\CommentBundle\Entity\Comment
+            thread: MTM\CommentBundle\Entity\Thread
+            
+fos_message:
+    db_driver:     orm
+    thread_class:  MTM\MessageBundle\Entity\Thread
+    message_class: MTM\MessageBundle\Entity\Message
     
-    
-  
+fos_user:
+    db_driver: orm 
+    firewall_name: main
+    user_class: MTM\CoreBundle\Entity\TeamMate
+#registration:
+#        confirmation:
+#            enabled:    true

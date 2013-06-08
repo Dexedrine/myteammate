@@ -1,10 +1,37 @@
 {% extends 'MTMProfileBundle:Profile:base_profile.html.twig' %}
-
+{% block page_name %}Complétion de profil{% endblock %}
 
 {% block body %}
-	<form action="{{ path('add_profile') }}" method="post" {{ form_enctype(form) }}>
-	    {{ form_widget(form) }}
-	
-	    <input type="submit" />
-	</form>
+
+
+<div class="profileForm">
+	<form name="pro_form" action="{{ path('add_profile') }}" method="post" {{ form_enctype(form) }}>
+		<ul class="inputs">	    
+		<li>
+			<span class="icon" title="name">Nom</span>
+		    {{ form_widget(form.name) }}
+	    </li>
+	    <li>
+			<span class="icon" title="firstname">Prénom</span>
+		    {{ form_widget(form.firstname) }}
+	    </li>
+
+ 		<li>
+		    {{ form_widget(form.sexe) }}		    
+	    </li>
+
+</ul>
+	{{ form_rest(form) }}
+	<input value="Valider" type="submit" />
+	   <div class="profileSubmit" onclick="document.forms['pro_form'].submit()">
+		 	   <div class="profileSubmitInner">
+		 	   	<span class="icon">
+		 	   		<span class="icon" data-icon="&#xe005;" aria-hidden="true" title="password"></span>
+		 	   		 
+		 	   	</span>
+		</div>
+				
+		
+</div>
+
 {% endblock %}

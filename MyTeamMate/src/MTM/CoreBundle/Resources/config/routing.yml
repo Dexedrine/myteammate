@@ -1,0 +1,13 @@
+login:
+    pattern:   /login
+    defaults:  { _controller: "FOSUserBundle:Security:login" }
+    
+login_check:
+    pattern:   /login_check
+    
+logout:
+    path:   /logout
+    
+registration:
+    pattern: /registration
+    defaults: { _controller: "FOSUserBundle:Registration:register" }

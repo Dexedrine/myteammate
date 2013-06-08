@@ -3,25 +3,30 @@
 namespace MTM\CommentBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use MTM\LoginBundle\Entity\TeamMate ;
+use MTM\CoreBundle\Entity\TeamMate ;
+use FOS\CommentBundle\Entity\Comment as BaseComment;
 
 /**
- * Comment
- *
- * @ORM\Table(name="comment")
  * @ORM\Entity
- * @ORM\HasLifecycleCallbacks
+ * @ORM\ChangeTrackingPolicy("DEFERRED_EXPLICIT")
  */
-class Comment
+class Comment extends BaseComment
 {
-    /**
-     * @var integer
-     *
-     * @ORM\Column( type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $idcomment;
+	
+	/**
+	 * @ORM\Id
+	 * @ORM\Column(type="integer")
+	 * @ORM\GeneratedValue(strategy="AUTO")
+	 */
+	protected $id;
+	
+	/**
+	 * Thread of this comment
+	 *
+	 * @var Thread
+	 * @ORM\ManyToOne(targetEntity="MTM\CommentBundle\Entity\Thread")
+	 */
+	protected $thread;
 
     /**
      * @var string
@@ -48,9 +53,9 @@ class Comment
     /**
      * @var \TeamMate
      *
-     * @ORM\ManyToOne(targetEntity="MTM\LoginBundle\Entity\TeamMate")
+     * @ORM\ManyToOne(targetEntity="MTM\CoreBundle\Entity\TeamMate")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idreceiver", referencedColumnName="idteammate")
+     *   @ORM\JoinColumn(name="idreceiver", referencedColumnName="id")
      * })
      */
     private $idreceiver;
@@ -58,9 +63,9 @@ class Comment
     /**
      * @var \TeamMate
      *
-     * @ORM\ManyToOne(targetEntity="MTM\LoginBundle\Entity\TeamMate")
+     * @ORM\ManyToOne(targetEntity="MTM\CoreBundle\Entity\TeamMate")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idposter", referencedColumnName="idteammate")
+     *   @ORM\JoinColumn(name="idposter", referencedColumnName="id")
      * })
      */
     private $idposter;
@@ -68,13 +73,13 @@ class Comment
 	/**
 	 * @var \Doctrine\Common\Collections\Collection
 	 *
-	 * @ORM\ManyToMany(targetEntity="MTM\LoginBundle\Entity\TeamMate")
+	 * @ORM\ManyToMany(targetEntity="MTM\CoreBundle\Entity\TeamMate")
 	 * @ORM\JoinTable(name="abusedcomment",
 	 *   joinColumns={
-	 * 	   @ORM\JoinColumn(name="idcomment", referencedColumnName="idcomment")
+	 * 	   @ORM\JoinColumn(name="id", referencedColumnName="id")
 	 *   },
 	 *   inverseJoinColumns={
-	 *     @ORM\JoinColumn(name="idteammate", referencedColumnName="idteammate")
+	 *     @ORM\JoinColumn(name="idteammate", referencedColumnName="id")
 	 *   }
 	 * )
 	 */
@@ -99,9 +104,9 @@ class Comment
      *
      * @return integer 
      */
-    public function getIdcomment()
+    public function getId()
     {
-        return $this->idcomment;
+        return $this->id;
     }
 
     /**
@@ -176,10 +181,10 @@ class Comment
     /**
      * Set idreceiver
      *
-     * @param \MTM\LoginBundle\Entity\TeamMate $idreceiver
+     * @param \MTM\CoreBundle\Entity\TeamMate $idreceiver
      * @return Comment
      */
-    public function setIdreceiver(\MTM\LoginBundle\Entity\TeamMate $idreceiver = null)
+    public function setIdreceiver(\MTM\CoreBundle\Entity\TeamMate $idreceiver = null)
     {
         $this->idreceiver = $idreceiver;
     
@@ -189,7 +194,7 @@ class Comment
     /**
      * Get idreceiver
      *
-     * @return \MTM\LoginBundle\Entity\TeamMate 
+     * @return \MTM\CoreBundle\Entity\TeamMate 
      */
     public function getIdreceiver()
     {
@@ -199,10 +204,10 @@ class Comment
     /**
      * Set idposter
      *
-     * @param \MTM\LoginBundle\Entity\TeamMate $idposter
+     * @param \MTM\CoreBundle\Entity\TeamMate $idposter
      * @return Comment
      */
-    public function setIdposter(\MTM\LoginBundle\Entity\TeamMate $idposter = null)
+    public function setIdposter(\MTM\CoreBundle\Entity\TeamMate $idposter = null)
     {
         $this->idposter = $idposter;
     
@@ -212,7 +217,7 @@ class Comment
     /**
      * Get idposter
      *
-     * @return \MTM\LoginBundle\Entity\TeamMate
+     * @return \MTM\CoreBundle\Entity\TeamMate
      */
     public function getIdposter()
     {

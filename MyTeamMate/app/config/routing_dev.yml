@@ -12,9 +12,11 @@ _configurator:
 
 _main:
     resource: routing.yml
-   
-mtm_registration:
-    resource: "@MTMRegistrationBundle/Resources/config/routing.yml"
+
+
+
+mtm_design:
+    resource: "@MTMDesignBundle/Resources/config/routing.yml"
     prefix:   /
 
 mtm_sport:
@@ -33,7 +35,25 @@ mtm_profile:
     resource: "@MTMProfileBundle/Resources/config/routing.yml"
     prefix:   /
 
-mtm_login:
-    resource: "@MTMLoginBundle/Resources/config/routing.yml"
+mtm_core:
+    resource: "@MTMCoreBundle/Resources/config/routing.yml"
     prefix:   /
+    
+fos_user_security:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
 
+fos_user_profile:
+    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
+    prefix: /profile
+
+fos_user_register:
+    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+    prefix: /register
+
+fos_user_resetting:
+    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
+    prefix: /resetting
+
+fos_user_change_password:
+    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
+    prefix: /profile

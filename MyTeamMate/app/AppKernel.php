@@ -22,7 +22,6 @@ class AppKernel extends Kernel {
         new MTM\MessageBundle\MTMMessageBundle(),
         new MTM\SportBundle\MTMSportBundle(),
         new MTM\DesignBundle\MTMDesignBundle(),
-        new Ideato\FlickrApiBundle\FlickrApiBundle(),
         new FOS\MessageBundle\FOSMessageBundle(),
         new FOS\UserBundle\FOSUserBundle(),
         new FOS\RestBundle\FOSRestBundle(),

@@ -11,3 +11,7 @@ logout:
 registration:
     pattern: /registration
     defaults: { _controller: "FOSUserBundle:Registration:register" }
+    
+change_password:
+    pattern: /change_password
+    defaults: { _controller: "FOSUserBundle:ChangePassword:changePassword" }

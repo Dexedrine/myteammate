@@ -9,9 +9,9 @@ use MTM\MessageBundle\Entity\Message;
 use FOS\UserBundle\Model\User as BaseUser;
 /**
  * TeamMate
- *
+ * 
  * @ORM\Table(name="teammate")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="MTM\CoreBundle\Repository\TeamMateRepository")
  * @ORM\HasLifecycleCallbacks
  */
 class TeamMate extends BaseUser  implements ParticipantInterface{

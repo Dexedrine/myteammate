@@ -6,6 +6,7 @@
 <div class="loginForm">
 	     <form name="login_form" action="{{ path("fos_user_security_check") }}" method="post">
     		<input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+    		<ul class="inputs">
        		 <li>
       			<span class="icon" data-icon="&#xe003;" aria-hidden="true" title="username"></span>
 	   			<input type="text" id="username" name="_username" placeholder="Adresse mail" autofocus="autofocus" value="{{ last_username }}" />

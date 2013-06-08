@@ -1,0 +1,7 @@
+{% extends 'MTMLoginBundle::connect.html.twig' %}
+
+{% block page_name %}Inscription{% endblock %}
+
+{% block body %}
+    <p>{{ 'registration.check_email'|trans({'%email%': user.email}) }}</p>
+{% endblock body %}

@@ -21,21 +21,17 @@
 	    </li>
 
 </ul>
-	
+	{{ form_rest(form) }}
+	<input value="Valider" type="submit" />
 	   <div class="profileSubmit" onclick="document.forms['pro_form'].submit()">
 		 	   <div class="profileSubmitInner">
 		 	   	<span class="icon">
 		 	   		<span class="icon" data-icon="&#xe005;" aria-hidden="true" title="password"></span>
-		 	   		 <input value="Valider" type="submit" />
+		 	   		 
 		 	   	</span>
 		</div>
-				{{ form_rest(form) }}
+				
 		
-
-	<form action="{{ path('fos_user_registration_register') }}" method="post" {{ form_enctype(form) }}>
-	    {{ form_widget(form) }}
-	    <input type="submit" />
-	</form>
 </div>
 
 {% endblock %}

@@ -87,9 +87,10 @@ class ProfileController extends Controller {
 		$form = $this->createFormBuilder($profile)
 				->add('name', 'text', array('label' => 'Nom'))
 				->add('firstname', 'text', array('label' => 'Prénom'))
-				->add('sexe', 'choice', array('choices' => array('h' =>'Homme', 'f' => 'Femme'),
+				/*->add('sexe', 'choice', array('choices' => array('h' =>'Homme', 'f' => 'Femme'),
 						'multiple' => false,
-						'expanded' => true))
+						'expanded' => true))*/
+				->add('sexe', 'text', array('label' => 'Sexe'))
 						->getForm();
 
 

@@ -40,13 +40,6 @@ class Profile
     /**
      * @var string
      *
-     * @ORM\Column(type="string", length=25, nullable=false)
-     */
-    private $username;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(type="string", nullable=false)
      * @Assert\NotBlank()
      * @Assert\Choice(choices = {"M", "F"})
@@ -65,7 +58,7 @@ class Profile
      *
      * @ORM\OneToOne(targetEntity="MTM\LoginBundle\Entity\TeamMate")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idteammate", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="id", referencedColumnName="id")
      * })
      */
     private $idteammate;
@@ -127,29 +120,6 @@ class Profile
     public function getFirstname()
     {
         return $this->firstname;
-    }
-
-    /**
-     * Set username
-     *
-     * @param string $username
-     * @return Profile
-     */
-    public function setUsername($username)
-    {
-        $this->username = $username;
-    
-        return $this;
-    }
-
-    /**
-     * Get username
-     *
-     * @return string 
-     */
-    public function getUsername()
-    {
-        return $this->username;
     }
 
     /**

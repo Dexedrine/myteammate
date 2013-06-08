@@ -1,4 +1,4 @@
-{% extends '::connect.html.twig' %}
+{% extends 'MTMLoginBundle::connect.html.twig' %}
 
 {% block page_name %}
 	<a class="sport" value="Sport" href="{{ path('sport') }}">Sport</a>	
@@ -8,7 +8,6 @@
 	<a class="button add_sport" value="Ajouter" href="{{ path('add_sport') }}">
 		<img src="{{ asset('bundles/mtmdesign/img/add.png') }}" alt="Ajouter" />
 	</a>
-	{% include 'FOSCommentBundle:Thread:async.html.twig' with {'id': 'foo'} %}
 	
 {% endblock %}
 	

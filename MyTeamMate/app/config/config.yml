@@ -36,6 +36,8 @@ assetic:
       - "MTMCommentBundle"
       - "MTMMessageBundle"
       - "FOSUserBundle"
+      - "FOSCommentBundle"
+      - "FOSMessageBundle"
     #java: /usr/bin/java
     filters:
         cssrewrite: ~

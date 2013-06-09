@@ -24,7 +24,8 @@ class ProfileController extends Controller {
 
 		return $this
 				->render('MTMProfileBundle:Profile:profile.html.twig',
-						array('name' => ucwords($profile->getName()),
+						array('id' => $idTeamMate,
+								'name' => ucwords($profile->getName()),
 								'firstname' => ucwords($profile->getFirstName()),
 								'picture' => ''));
 	}

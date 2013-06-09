@@ -19,7 +19,8 @@
         "jms/di-extra-bundle": "1.3.*",
 		"friendsofsymfony/message-bundle": "dev-master",
         "friendsofsymfony/comment-bundle": "dev-master",
-        "friendsofsymfony/user-bundle": "dev-master"
+        "friendsofsymfony/user-bundle": "dev-master",
+        "friendsofsymfony/rest-bundle": ">=0.11,<0.13-dev"
     },
     "scripts": {
         "post-install-cmd": [

@@ -73,6 +73,7 @@ fos_comment:
         model:
             comment: MTM\CommentBundle\Entity\Comment
             thread: MTM\CommentBundle\Entity\Thread
+            vote: MTM\CommentBundle\Entity\Vote
             
 fos_message:
     db_driver:     orm

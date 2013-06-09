@@ -13,8 +13,6 @@ _configurator:
 _main:
     resource: routing.yml
 
-
-
 mtm_design:
     resource: "@MTMDesignBundle/Resources/config/routing.yml"
     prefix:   /
@@ -27,10 +25,6 @@ mtm_message:
     resource: "@MTMMessageBundle/Resources/config/routing.yml"
     prefix:   /
 
-mtm_comment:
-    resource: "@MTMCommentBundle/Resources/config/routing.yml"
-    prefix:   /
-
 mtm_profile:
     resource: "@MTMProfileBundle/Resources/config/routing.yml"
     prefix:   /
@@ -38,6 +32,12 @@ mtm_profile:
 mtm_core:
     resource: "@MTMCoreBundle/Resources/config/routing.yml"
     prefix:   /
+    
+fos_comment_api:
+    type: rest
+    resource: "@FOSCommentBundle/Resources/config/routing.yml"
+    prefix: /api
+    defaults: { _format: html } 
     
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"

@@ -31,9 +31,10 @@
 		</div>
 		<div class="clear"></div>
 		<div class="tile">
-			<a>
+			<a href="{{ path('fos_comment_new_threads') }}" >
 				<img alt="Commentaires" src="{{ asset('bundles/mtmdesign/img/comm.png') }}">
 			</a>
+			{% include 'FOSCommentBundle:Thread:async.html.twig' with {'id': id} %}
 		</div>
 		<div class="tile">
 			<a>

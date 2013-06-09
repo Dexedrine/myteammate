@@ -36,9 +36,6 @@ class AppKernel extends Kernel {
 
 		return $bundles;
 	}
-		//new FOS\MessageBundle\FOSMessageBundle(),
-		//new FOS\RestBundle\FOSRestBundle(),
-		//new FOS\CommentBundle\FOSCommentBundle(),
 		
 	public function registerContainerConfiguration(LoaderInterface $loader) {
 		$loader

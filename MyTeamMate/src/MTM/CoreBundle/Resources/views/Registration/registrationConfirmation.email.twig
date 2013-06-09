@@ -1,0 +1,36 @@
+{% block subject %}Inscription sur My Team Mate{% endblock %}
+
+{% block body_text %}
+{% autoescape false %}
+Hello {{ user.username }} !
+
+You can reset your email by accessing {{ confirmationUrl }}
+
+Greetings,
+the Acme team
+{% endautoescape %}
+{% endblock %}
+
+{% block body_html %}
+ 	<!DOCTYPE html>
+	<html>
+	    <head>
+	        <meta charset="UTF-8" />
+	        <title>{% block title %}Inscription sur My Team Mate{% endblock %}</title>
+	        <link href="http://fonts.googleapis.com/css?family=Pontano+Sans" rel="stylesheet" type="text/css" />
+	        <link href="{{ asset('bundles/mtmdesign/css/mail.css') }}" type="text/css" rel="stylesheet" />
+	    </head>
+	    <body>
+	    	<h1>Pour que votre inscription sur MyTeamMate soit effective, veuillez cliquer sur le lien suivant :</h1>
+	    	<a href="{{ confirmationUrl }}">Lien de confirmation</a>
+	    	<div class="corps">
+	    	<h2>Bonjour {{ user.username }} ! </h2>
+	    	<p>Vous venez de vous inscrire à l'application MyTeamMate qui va vous permettre de trouver un coéquipier sportif rapidement !</p>
+	    	<p>N'hésitez pas a compléter votre profil pour pouvoir accèder à toutes les fonctionnalités de l'application</p    	
+	    	</div>
+		    
+			    
+	    </body>
+</html>
+{% endblock %}
+

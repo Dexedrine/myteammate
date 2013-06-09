@@ -84,6 +84,13 @@ fos_user:
     db_driver: orm 
     firewall_name: main
     user_class: MTM\CoreBundle\Entity\TeamMate
+    service:
+        mailer: fos_user.mailer.twig_swift
+    registration:
+        confirmation:
+            enabled:    true
+            template: "MTMCoreBundle:Registration:registrationConfirmation.email.twig"
+        
    
 #registration:
 #        confirmation:

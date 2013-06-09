@@ -4,4 +4,8 @@
 
 {% block body %}
     Vous avez &eacute;t&eacute; enregistr&eacute;. <a href="{{ path("profile") }}" > OK </a>
+    {% if app.session is not empty %}
+        {% set targetUrl = app.session.get('_security.' ~ app.security.token.providerKey ~ '.target_path') %}
+        {% if targetUrl is not empty %}<p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>{% endif %}
+    {% endif %}
 {% endblock body %}

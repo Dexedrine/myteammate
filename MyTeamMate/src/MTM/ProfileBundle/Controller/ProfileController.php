@@ -27,10 +27,10 @@ class ProfileController extends Controller {
 						array('id' => $idTeamMate,
 								'name' => ucwords($profile->getName()),
 								'firstname' => ucwords($profile->getFirstName()),
-								'picture' => ''));
+								'picture' => $this->getPhotoUrl($this->get('security.context')->getToken()->getUser()->getUsername())));
 	}
 
-	public function getPhotoUrl($id_photo) {
+	public function getPhotoUrl($username) {
 		//appeler cette photo lors de l'upload pour récupérer l'url à stocker en base
 
 		//get flickr parameters from parameters.yml	
@@ -52,7 +52,7 @@ class ProfileController extends Controller {
 				. $photoset_id;
 
 		//parse result and build picture url
-		
+		$photo = "";
 		if(	$json_response = @file_get_contents($url_photo)){
 			$json_response = substr($json_response,strpos($json_response,'(')+1);
 			$json_response = substr($json_response, 0, strlen($json_response)-1);
@@ -60,41 +60,25 @@ class ProfileController extends Controller {
 		
 			$photos = $json_response->photoset->photo;
 			foreach ($photos as $p){
-				if($p->id == $id_photo){
+				if($p->title == $username){
 					$photo = $p;
 					break;
 				}
 			}
 		}					
 	
-		if($photo){
+		if($photo != ""){
 			$farm = $photo->farm;
 			$server = $photo->server;
 			$photo_id = $photo->id;
 			$photo_secret = $photo->secret;
 			
 			$flickr_url = sprintf("http://farm%s.staticflickr.com/%s/%s_%s_c.jpg",$farm,$server,$photo_id,$photo_secret);
-
-			$json_response = file_get_contents($url_photo);
-			$json_response = substr($json_response, strpos($json_response, '(') + 1);
-			$json_response = substr($json_response, 0, strlen($json_response) - 1);
-			$json_response = json_decode($json_response);
-	
-			$photos = $json_response->photoset->photo;
-			foreach ($photos as $p) {
-				if ($p->id == $id_photo) {
-					$photo = $p;
-					break;
-				}
-	
-				else {
-					$flickr_url = "http://farm9.staticflickr.com/8558/8702120362_933109e628_c.jpg";
-				}
-				
-				return $flickr_url;
-			}
-			return false;
+			
+			return $flickr_url;
 		}
+		return false;
+		
 	}
 
 	public function addAction(Request $request) {

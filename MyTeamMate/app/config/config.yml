@@ -81,6 +81,10 @@ fos_message:
     thread_class:  MTM\MessageBundle\Entity\Thread
     message_class: MTM\MessageBundle\Entity\Message
 fos_user:
+#email pour reinitialisation du mdp pour l'utilisateur
+    resetting:
+        email:
+            template: RegistrationBundle:Mail:resetting.email.twig
     db_driver: orm 
     firewall_name: main
     user_class: MTM\LoginBundle\Entity\TeamMate

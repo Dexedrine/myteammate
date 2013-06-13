@@ -5,10 +5,10 @@
         {% if invalid_username is defined %}
             <p>{{  invalid_username  }}</p>
         {% endif %}
-        <label for="username">{{ 'resetting.request.username'|trans }}</label>
+        <label for="username">{{ 'Adresse mail ou login'|trans }}</label>
         <input type="text" id="username" name="username" required="required" />
     </div>
     <div>
-        <input type="submit" value="{{ 'resetting.request.submit'|trans }}" />
+        <input type="submit" value="{{ 'Valider'|trans }}" />
     </div>
 </form>

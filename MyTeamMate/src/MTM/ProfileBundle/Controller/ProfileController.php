@@ -87,11 +87,11 @@ class ProfileController extends Controller {
 		$form = $this->createFormBuilder($profile)
 				->add('name', 'text', array('label' => 'Nom'))
 				->add('firstname', 'text', array('label' => 'Prénom'))
-				->add('sexe', 'choice', array('choices' => array('h' =>'Homme', 'f' => 'Femme'),
-						'multiple' => false,
-						'expanded' => true))
-						->getForm();
-
+				->add('username', 'text',
+						array('label' => 'Nom d\'utilisateur'))
+				->add('sexe', 'text', array('label' => 'Sexe(H/F)'))
+				//->add('attachment', 'file')
+				->getForm();
 
 		/* TODO champ upload d'image */
 

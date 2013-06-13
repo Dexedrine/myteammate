@@ -27,7 +27,7 @@ class MessageMetadata extends BaseMessageMetadata
     protected $message;
 
     /**
-     * @ORM\ManyToOne(targetEntity="MTM\LoginBundle\Entity\TeamMate")
+     * @ORM\ManyToOne(targetEntity="MTM\CoreBundle\Entity\TeamMate")
      *  @ORM\JoinColumn(name="participant", referencedColumnName="id")
      */
     protected $participant;

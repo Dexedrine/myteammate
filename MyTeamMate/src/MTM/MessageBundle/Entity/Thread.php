@@ -22,7 +22,7 @@ class Thread extends BaseThread
     protected $id;
 
      /**
-     * @ORM\ManyToOne(targetEntity="MTM\LoginBundle\Entity\TeamMate")
+     * @ORM\ManyToOne(targetEntity="MTM\CoreBundle\Entity\TeamMate")
      * @ORM\JoinColumn(name="createdBy", referencedColumnName="id")
      */
     protected $createdBy;

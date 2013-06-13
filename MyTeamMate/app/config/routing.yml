@@ -1,17 +1,30 @@
+fos_user_security:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+
+fos_user_profile:
+    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
+    prefix: /profile
+
+fos_user_register:
+    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+    prefix: /register
+
+fos_user_resetting:
+    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
+    prefix: /
+
+fos_user_change_password:
+    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
+    prefix: /profile 
 
 fos_comment_api:
     type: rest
     resource: "@FOSCommentBundle/Resources/config/routing.yml"
-    prefix: /comment
-    defaults: { _format: html }
-    
+    prefix: /api
+    defaults: { _format: html } 
 
 mtm_design:
     resource: "@MTMDesignBundle/Resources/config/routing.yml"
-    prefix:   /
-
-mtm_registration:
-    resource: "@MTMRegistrationBundle/Resources/config/routing.yml"
     prefix:   /
 
 mtm_sport:
@@ -22,38 +35,11 @@ mtm_message:
     resource: "@MTMMessageBundle/Resources/config/routing.yml"
     prefix:   /
 
-mtm_comment:
-    resource: "@MTMCommentBundle/Resources/config/routing.yml"
-    prefix:   /
-
 mtm_profile:
     resource: "@MTMProfileBundle/Resources/config/routing.yml"
     prefix:   /
 
-mtm_login:
-    resource: "@MTMLoginBundle/Resources/config/routing.yml"
+mtm_core:
+    resource: "@MTMCoreBundle/Resources/config/routing.yml"
     prefix:   /
-fos_message:
-    resource: "@FOSMessageBundle/Resources/config/routing.xml"
-    prefix:   /user/message
-
-    
-fos_user_security:
-    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
-    prefix: /
-
-fos_user_profile:
-    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
-    prefix: /user/profile
-
-fos_user_register:
-    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
-    prefix: /registratio
-
-fos_user_resetting:
-    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
-    prefix: /resetting
-
-fos_user_change_password:
-    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
-    prefix: /change
+ 

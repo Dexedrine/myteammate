@@ -1,0 +1,18 @@
+{#
+
+ This file is part of the FOSCommentBundle package.
+
+ (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
+
+ This source file is subject to the MIT license that is bundled
+ with this source code in the file LICENSE.
+
+#}
+{% extends 'MTMCoreBundle::connect.html.twig' %}
+
+{% block page_name %}Commentaire{% endblock %}
+
+{% set view = view|default('tree') %}
+{% set depth = depth|default(0) %}
+
+{% include "FOSCommentBundle:Thread:comment_content.html.twig" %}

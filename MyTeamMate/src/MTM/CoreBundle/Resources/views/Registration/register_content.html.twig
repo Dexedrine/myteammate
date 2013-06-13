@@ -1,0 +1,33 @@
+<div class="registrationForm">
+	<form name="reg_form" action="{{ path('fos_user_registration_register') }}" method="post" {{ form_enctype(form) }}>
+	  <ul class="inputs">
+	   <li>
+	   		<span class="icon" data-icon="&#xe000;" aria-hidden="true" title="email"></span>
+		    {{ form_widget(form.email, {'attr': {'placeholder': 'Email'}}) }}
+	    </li>
+	    <li>
+	   		<span class="icon" data-icon="&#xe003;" aria-hidden="true" title="username"></span>
+		    {{ form_widget(form.username, {'attr': {'placeholder': 'Pseudo'}}) }}
+	    </li>
+	    <li>
+			<span class="icon" data-icon="&#xe002;" aria-hidden="true" title="password"></span>	
+	 	 	{{ form_widget(form.plainPassword.first, {'attr': {'placeholder': 'Mot de passe'}}) }}
+	 	 </li>
+	 	 <li>
+	 		 <span class="icon" data-icon="&#xe002;" aria-hidden="true" title="password"></span>	
+	 		 {{ form_widget(form.plainPassword.second, {'attr': {'placeholder': 'Vérification'}}) }}
+	 	 </li>
+	 	 
+	    </ul>
+	    <div class="registrationSubmit" onclick="document.forms['reg_form'].submit()">
+		 	   <div class="registrationSubmitInner">
+		 	   	<span class="icon">
+		 	   		<span class="icon" data-icon="&#xe001;" aria-hidden="true" title="password"></span>
+		 	   		 <input value="Valider" type="submit" />
+		 	   	</span>
+		</div>
+		</div>
+		{{ form_rest(form) }}
+	</form>
+</div>
+

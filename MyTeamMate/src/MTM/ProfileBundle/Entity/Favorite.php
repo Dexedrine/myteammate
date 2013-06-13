@@ -4,7 +4,7 @@ namespace MTM\ProfileBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
-use MTM\LoginBundle\Entity\TeamMate ;
+use MTM\CoreBundle\Entity\TeamMate ;
 
 /**
  * Favorite
@@ -34,7 +34,7 @@ class Favorite
     /**
      * @var \TeamMate
      *
-     * @ORM\ManyToOne(targetEntity="MTM\LoginBundle\Entity\TeamMate")
+     * @ORM\ManyToOne(targetEntity="MTM\CoreBundle\Entity\TeamMate")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="idmaker", referencedColumnName="id")
      * })
@@ -44,7 +44,7 @@ class Favorite
     /**
      * @var \TeamMate
      *
-     * @ORM\ManyToOne(targetEntity="MTM\LoginBundle\Entity\TeamMate")
+     * @ORM\ManyToOne(targetEntity="MTM\CoreBundle\Entity\TeamMate")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="idtarget", referencedColumnName="id")
      * })
@@ -94,10 +94,10 @@ class Favorite
     /**
      * Set idmaker
      *
-     * @param \MTM\LoginBundle\Entity\TeamMate $idmaker
+     * @param \MTM\CoreBundle\Entity\TeamMate $idmaker
      * @return Favorite
      */
-    public function setIdmaker(\MTM\LoginBundle\Entity\TeamMate $idmaker = null)
+    public function setIdmaker(\MTM\CoreBundle\Entity\TeamMate $idmaker = null)
     {
         $this->idmaker = $idmaker;
     
@@ -107,7 +107,7 @@ class Favorite
     /**
      * Get idmaker
      *
-     * @return \MTM\LoginBundle\Entity\TeamMate 
+     * @return \MTM\CoreBundle\Entity\TeamMate 
      */
     public function getIdmaker()
     {
@@ -117,10 +117,10 @@ class Favorite
     /**
      * Set idtarget
      *
-     * @param \MTM\LoginBundle\Entity\TeamMate $idtarget
+     * @param \MTM\CoreBundle\Entity\TeamMate $idtarget
      * @return Favorite
      */
-    public function setIdtarget(\MTM\LoginBundle\Entity\TeamMate $idtarget = null)
+    public function setIdtarget(\MTM\CoreBundle\Entity\TeamMate $idtarget = null)
     {
         $this->idtarget = $idtarget;
     
@@ -130,7 +130,7 @@ class Favorite
     /**
      * Get idtarget
      *
-     * @return \MTM\LoginBundle\Entity\TeamMate 
+     * @return \MTM\CoreBundle\Entity\TeamMate 
      */
     public function getIdtarget()
     {

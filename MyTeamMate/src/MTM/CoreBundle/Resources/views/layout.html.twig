@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}My Team Mate{% endblock %}</title>
+        <link href="http://fonts.googleapis.com/css?family=Pontano+Sans" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('bundles/mtmdesign/css/style.css') }}" type="text/css" rel="stylesheet" />
+        <link href="{{ asset('bundles/mtmdesign/css/icon.css') }}" type="text/css" rel="stylesheet" />
+        {% stylesheets '@FOSCommentBundle/Resources/assets/css/comments.css' %}
+			<link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+		{% endstylesheets %}
+        <!--[if lte IE 7]><script src="{{ asset('bundles/mtmdesign/css/lte-ie7.js') }}"></script><![endif]-->
+       	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <!-- <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.min.js"></script> -->
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+    	<script type="text/javascript">
+	    	$(document).ready(function(){
+	   		    $("nav").hide();
+	    	});
+    	</script>
+    	<div class="top">
+    	{% block header %}
+    	
+    		<div class="left_head">
+				{% block left_button %}{% endblock %}
+    		</div>
+    		<div class="page_name">
+    			{% block page_name %}Header{% endblock %}
+	    	</div>
+    		<div class="right_head">
+    				{% block right_button %}{% endblock %}
+    		</div>    	
+    	{% endblock %}
+    	</div>
+    	
+    	{% block nav %}
+  
+    	{% endblock  %}
+    	
+    	<div class="middle">
+	    	{% block body %}
+		        {% block div %}{% endblock %}
+		        {% javascripts %}{% endjavascripts %}
+		    {% endblock %}
+	    </div>
+	    
+		    
+    </body>
+</html>

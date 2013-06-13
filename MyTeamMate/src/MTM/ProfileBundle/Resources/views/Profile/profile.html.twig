@@ -8,7 +8,11 @@
 		<span> {{ name }} </span>
 	
 		<div class="picture">
+		{% if picture %}
 			<img alt="photo" src="{{ picture }}">
+		{% else %}
+			<img alt="photo" src="{{ asset('bundles/mtmdesign/img/anonymous.jpg') }}">
+		{% endif %}
 		</div>
 		
 	</div>
@@ -21,15 +25,16 @@
 			</a>
 		</div>
 		<div class="tile">
-			<a href="{{ path('message') }}"  >
+			<a href="{{ path('fos_message_inbox') }}"  >
 				<img alt="Messages" src="{{ asset('bundles/mtmdesign/img/msg.png') }}">
 			</a>
 		</div>
 		<div class="clear"></div>
 		<div class="tile">
-			<a>
+			<a href="{{ path('fos_comment_new_threads') }}" >
 				<img alt="Commentaires" src="{{ asset('bundles/mtmdesign/img/comm.png') }}">
 			</a>
+			{% include 'FOSCommentBundle:Thread:async.html.twig' with {'id': id} %}
 		</div>
 		<div class="tile">
 			<a>

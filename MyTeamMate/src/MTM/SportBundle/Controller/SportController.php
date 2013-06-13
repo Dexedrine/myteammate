@@ -14,7 +14,7 @@ use MTM\SportBundle\Entity\Place;
 class SportController extends Controller {
 	public function viewAction() {
 		$idTeamMate = $this->get('security.context')->getToken()->getUser()
-				->getIdTeamMate();
+				->getId();
 
 		$em = $this->getDoctrine()->getManager();
 		$repository = $em->getRepository('MTMSportBundle:Practice');

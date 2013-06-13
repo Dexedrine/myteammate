@@ -10,7 +10,7 @@ use MTM\ProfileBundle\Entity\Profile;
 class ProfileController extends Controller {
 	public function profileAction() {
 		$idTeamMate = $this->get('security.context')->getToken()->getUser()
-				->getIdTeamMate();
+				->getId();
 
 		$em = $this->getDoctrine()->getManager();
 		$repository = $em->getRepository('MTMProfileBundle:Profile');

@@ -1,14 +1,7 @@
 {% block subject %}Inscription sur My Team Mate{% endblock %}
 
 {% block body_text %}
-{% autoescape false %}
-Hello {{ user.username }} !
 
-You can reset your email by accessing {{ confirmationUrl }}
-
-Greetings,
-the Acme team
-{% endautoescape %}
 {% endblock %}
 
 {% block body_html %}

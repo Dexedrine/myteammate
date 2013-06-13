@@ -1,3 +1,10 @@
+{% block subject %}Réinitialisation du mot de passe MyTeamMate{% endblock %}
+
+{% block body_text %}
+
+{% endblock %}
+
+{% block body_html %}
 <!DOCTYPE html>
 <html>
     <head>
@@ -9,8 +16,8 @@
     <body>
     	<h1>Modification de votre mot de passe sur My Team Mate !</h1>
     	<div class="corps">
-    	<h2>Bonjour {{ login }} ! </h2>
-    	<p>Vous venez de demander la récupération de votre mot de passe sur My Team Mate. Pour cela, merci de cliquer ici </p>
+    	<h2>Bonjour {{ user.username }} ! </h2>
+    	<p>Vous venez de demander la récupération de votre mot de passe sur My Team Mate. Pour cela, merci de cliquer <a href="{{confirmationUrl}}">ici</a> </p>
     	
     	<p>A bientôt !</p>   	
     	</div>
@@ -18,3 +25,7 @@
 		    
     </body>
 </html>
+
+
+
+{% endblock %}

@@ -21,11 +21,13 @@ class ProfileController extends Controller {
 					->render('MTMProfileBundle:Profile:no_profile.html.twig');
 		}
 
+		
+		
 		return $this
 				->render('MTMProfileBundle:Profile:profile.html.twig',
 						array('name' => ucwords($profile->getName()),
 								'firstname' => ucwords($profile->getFirstName()),
-								'picture' => ''));
+								'picture' => $this->getPhotoUrl('lootss')));
 	}
 
 	public function getPhotoUrl($id_photo) {
@@ -50,18 +52,20 @@ class ProfileController extends Controller {
 				. $photoset_id;
 
 		//parse result and build picture url
-		$json_response = file_get_contents($url_photo);
-		$json_response = substr($json_response, strpos($json_response, '(') + 1);
-		$json_response = substr($json_response, 0, strlen($json_response) - 1);
-		$json_response = json_decode($json_response);
-
-		$photos = $json_response->photoset->photo;
-		foreach ($photos as $p) {
-			if ($p->id == $id_photo) {
-				$photo = $p;
-				break;
+		$photo = "";
+		if(	$json_response = @file_get_contents($url_photo)){
+			$json_response = substr($json_response,strpos($json_response,'(')+1);
+			$json_response = substr($json_response, 0, strlen($json_response)-1);
+			$json_response = json_decode($json_response);
+		
+			$photos = $json_response->photoset->photo;
+			foreach ($photos as $p){
+				if($p->title == $username){
+					$photo = $p;
+					break;
+				}
 			}
-		}
+		}	
 
 		if ($photo) {
 			$farm = $photo->farm;

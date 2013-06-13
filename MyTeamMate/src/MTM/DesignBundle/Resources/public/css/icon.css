@@ -27,7 +27,7 @@ Instead of a list of all class selectors,
 you can use the generic selector below, but it's slower:
 [class*="icon-"] {
 */
-.icon-mail, .icon-key, .icon-locked, .icon-user, .icon-home, .icon-checkmark, .icon-camera, .icon-location, .icon-trashcan, .icon-list, .icon-trophy, .icon-star, .icon-star-2, .icon-cog, .icon-enter, .icon-accessibility, .icon-heart, .icon-heart-2 {
+.icon-mail, .icon-key, .icon-locked, .icon-user, .icon-home, .icon-checkmark, .icon-camera, .icon-location, .icon-trashcan, .icon-list, .icon-trophy, .icon-star, .icon-star-2, .icon-cog, .icon-enter, .icon-accessibility, .icon-heart, .icon-heart-2, .icon-pencil, .icon-box-add, .icon-box-remove {
 	font-family: 'icomoon';
 	speak: none;
 	font-style: normal;
@@ -90,4 +90,13 @@ you can use the generic selector below, but it's slower:
 }
 .icon-heart-2:before {
 	content: "\e011";
+}
+.icon-pencil:before {
+	content: "\e012";
+}
+.icon-box-add:before {
+	content: "\e013";
+}
+.icon-box-remove:before {
+	content: "\e014";
 }

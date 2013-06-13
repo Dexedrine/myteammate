@@ -88,6 +88,7 @@ class ProfileController extends Controller {
 				->add('name', 'text', array('label' => 'Nom'))
 				->add('firstname', 'text', array('label' => 'Prénom'))
 				->add('sexe', 'text', array('label' => 'Sexe(H/F)'))
+				->add('description', 'text',  array('label' => 'Description'))
 				->getForm();
 
 		/* TODO champ upload d'image */

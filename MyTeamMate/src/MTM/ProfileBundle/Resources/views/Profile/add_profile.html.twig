@@ -17,9 +17,14 @@
 	    </li>
 
  		<li>
+ 			<span class="icon" title="firstname">Sexe (M/F)</span>
 		    {{ form_widget(form.sexe) }}		    
 	    </li>
 
+	    <li>
+ 			<span class="icon" title="firstname">Description</span>
+		    {{ form_widget(form.description) }}		    
+	    </li>
 </ul>
 	{{ form_rest(form) }}
 	<input value="Valider" type="submit" />

@@ -113,6 +113,13 @@ nav div a{
 	height: 50px;
 	margin-top: 20px;
 }
+.footerMessage{
+	text-align: left;
+	margin: 0;
+	display: block;
+	height: 100px;
+	margin-top: 20px;
+}
 .footerLogin ul{
 	margin: 0;
 	padding: 0;
@@ -135,8 +142,12 @@ nav div a{
 	background-color: #E1E1E1;
 	margin: 0 0 10px 200px;
 }
+.newMessageSubmit{
+	background-color: #E1E1E1;
+	margin: 0 0 10px 0;
+}
 
-.loginSubmit input, .registrationSubmit input{
+.newMessageSubmit input, .loginSubmit input, .registrationSubmit input{
 	background-color: #E1E1E1;
 	border: 0px;
 	font-size: 16px;
@@ -144,7 +155,7 @@ nav div a{
 	cursor: pointer;
 }
 
-.loginSubmit .loginSubmitInner, .registrationSubmit .registrationSubmitInner {
+.newMessageSubmit, .loginSubmit .loginSubmitInner, .registrationSubmit .registrationSubmitInner {
 	padding: 12px 15px;	
 }
 .loginSubmitInner, .registrationSubmitInner {

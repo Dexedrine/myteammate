@@ -3,10 +3,10 @@
 {% block page_name %}Messagerie{% endblock %}
 
 {% block right_button %}
-		<a href="{{ url('fos_message_thread_new')}}" class="icon" data-icon="&#xe012;" aria-hidden="true" title="Nouveau message"></a>
+		<span class="icon" data-icon="&#xe012;" aria-hidden="true" title="Nouveau message"><a href="{{ url('fos_message_thread_new')}}"</a></span>
 		<a href="{{ url('fos_message_inbox') }}" class="icon" data-icon="&#xe014;" aria-hidden="true" title="Boite de réception"></a>
         <a href="{{ url('fos_message_sent') }}" class="icon" data-icon="&#xe015;" aria-hidden="true" title="Messages envoyés"></a>
-	
+        	
 {% endblock %}
 
 {% block body %}

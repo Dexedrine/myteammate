@@ -23,7 +23,10 @@ window.onload = function() {
 			'icon-enter' : '&#xe00e;',
 			'icon-accessibility' : '&#xe00f;',
 			'icon-heart' : '&#xe010;',
-			'icon-heart-2' : '&#xe011;'
+			'icon-heart-2' : '&#xe011;',
+			'icon-pencil' : '&#xe012;',
+			'icon-box-add' : '&#xe013;',
+			'icon-box-remove' : '&#xe014;'
 		},
 		els = document.getElementsByTagName('*'),
 		i, attr, html, c, el;

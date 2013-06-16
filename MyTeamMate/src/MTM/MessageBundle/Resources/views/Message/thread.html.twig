@@ -1,14 +1,10 @@
 {% extends 'FOSMessageBundle::layout.html.twig' %}
-
+{% trans_default_domain 'FOSMessageBundle' %}
 {% block fos_message_content %}
-
-<h2>{{ thread.subject }}</h2>
 
 {% for message in thread.messages %}
     <div class="messenger_thread_message">
-        <div class="messenger_thread_message_info">
-            {% trans with {'%sender%': message.sender|e, '%date%': message.createdAt|date} from 'FOSMessageBundle' %}by{% endtrans %}
-        </div>
+
 
         <div class="messenger_thread_message_body" id="message_{{ message.id }}">
             {{ message.body }}

@@ -1,13 +1,35 @@
 {% extends 'FOSMessageBundle::layout.html.twig' %}
+{% block page_name %}Nouveau message{% endblock %}
 
 {% block fos_message_content %}
-
-<h2>{% trans from 'FOSMessageBundle' %}send_new{% endtrans %}</h2>
-
+<div class="loginForm">
 <form action="{{ url('fos_message_thread_new') }}" method="post">
-    {{ form_widget(form) }}
-
-    <input type="submit" />
-</form>
-
+	  <ul class="inputs">
+	   <li>
+	   		<span class="icon" data-icon="&#xe003;" aria-hidden="true" title="recipient"></span>
+		    {{ form_widget(form.recipient, {'attr': {'placeholder': 'Destinataire'}}) }}
+	    </li>
+	    <li>
+	   		<span class="icon" data-icon="&#xe000;" aria-hidden="true" title="subject"></span>
+		    {{ form_widget(form.subject, {'attr': {'placeholder': 'Sujet'}}) }}
+	    </li>
+	    <li>
+		    {{ form_widget(form.body, {'attr': {'placeholder': 'Corps du message','cols': '50','rows': '15'}}) }}
+	    </li>
+	    </ul>
+	    <div >
+	 	   
+	 	   <div class="newMessageSubmit" onclick="document.forms['loginForm'].submit()">
+		 	   
+		 	   <div class="loginSubmitInner">
+		 	   		<input type="submit" />
+		 	   </div>   
+	 	   </div>
+		</div>
+	    
+		{{ form_rest(form) }}
+	</form>
+	</div>
 {% endblock %}
+
+

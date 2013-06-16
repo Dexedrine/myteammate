@@ -27,12 +27,39 @@ class ProfileController extends Controller {
 				->render('MTMProfileBundle:Profile:profile.html.twig',
 						array('name' => ucwords($profile->getName()),
 								'firstname' => ucwords($profile->getFirstName()),
-								'picture' => $this->getPhotoUrl('lootss')));
+								'description' => ucwords($profile->getDescription()),
+								'picture' => ucwords($profile->getUrlphoto())));
+	}
+	
+	public function pictureAction(Request $request) {		
+		if ($request->isMethod('POST')) {
+			if ($_POST['photos']) {
+				//get user profile to update
+				$idTeamMate = $this->get('security.context')->getToken()->getUser()
+				->getId();
+				$em = $this->getDoctrine()->getManager();
+				$repository = $em->getRepository('MTMProfileBundle:Profile');
+				$profile = $repository->findOneBy(array('idteammate' => $idTeamMate));
+				
+				//set profile picture
+				$profile->setUrlphoto($_POST['photos']);
+				
+				//save to database
+				$em->persist($profile);
+				$em->flush();
+				return $this->redirect($this->generateUrl('profile'));
+			}
+		}
+		
+		$a_photos = $this->getPhotosUrl();
+		
+		return $this
+			->render('MTMProfileBundle:Profile:picture.html.twig',
+					array('pictures' => $a_photos)
+				);
 	}
 
-	public function getPhotoUrl($id_photo) {
-		//appeler cette photo lors de l'upload pour récupérer l'url à stocker en base
-
+	public function getPhotosUrl() {
 		//get flickr parameters from parameters.yml	
 		$api_key = $this->container->getParameter('flickr_api.api_key');
 		$user_id = $this->container->getParameter('flickr_api.user_id');
@@ -52,7 +79,7 @@ class ProfileController extends Controller {
 				. $photoset_id;
 
 		//parse result and build picture url
-		$photo = "";
+		$a_photos = array();
 		if(	$json_response = @file_get_contents($url_photo)){
 			$json_response = substr($json_response,strpos($json_response,'(')+1);
 			$json_response = substr($json_response, 0, strlen($json_response)-1);
@@ -60,27 +87,20 @@ class ProfileController extends Controller {
 		
 			$photos = $json_response->photoset->photo;
 			foreach ($photos as $p){
-				if($p->title == $username){
-					$photo = $p;
-					break;
-				}
+				$farm = $p->farm;
+				$server = $p->server;
+				$photo_id = $p->id;
+				$photo_secret = $p->secret;
+				
+				$flickr_url = sprintf(
+						"http://farm%s.staticflickr.com/%s/%s_%s_c.jpg", $farm,
+						$server, $photo_id, $photo_secret);
+				
+				$a_photos[] = $flickr_url;
 			}
 		}	
 
-		if ($photo) {
-			$farm = $photo->farm;
-			$server = $photo->server;
-			$photo_id = $photo->id;
-			$photo_secret = $photo->secret;
-
-			$flickr_url = sprintf(
-					"http://farm%s.staticflickr.com/%s/%s_%s_c.jpg", $farm,
-					$server, $photo_id, $photo_secret);
-		} else {
-			$flickr_url = "http://farm9.staticflickr.com/8558/8702120362_933109e628_c.jpg";
-		}
-
-		return $flickr_url;
+		return $a_photos;
 	}
 
 	public function addAction(Request $request) {
@@ -95,8 +115,6 @@ class ProfileController extends Controller {
 				->add('description', 'text',  array('label' => 'Description'))
 				->getForm();
 
-		/* TODO champ upload d'image */
-
 		if ($request->isMethod('POST')) {
 			$form->bind($request);
 
@@ -104,9 +122,6 @@ class ProfileController extends Controller {
 				$em = $this->getDoctrine()->getManager();
 				$em->persist($profile->setIdteammate($teamate));
 				$em->flush();
-
-				/* TODO  upload photo to flickr, get url and store to database */ 
-
 				return $this->redirect($this->generateUrl('profile'));
 			}
 		}

@@ -1,0 +1,21 @@
+{% extends "MTMCoreBundle::connect.html.twig" %}
+
+{% block page_name %}Photo de profil{% endblock %}
+
+{% block body %}
+
+<div class="instruction">Choisissez la photo que vous souhaitez utiliser:</div>
+<div class="flickr_pictures">
+	<form name="picture_form" action="{{ path('choose_picture') }}" method="post">
+		<div class="photo_list">
+			{% for p in pictures %}
+		    	<input type="radio" name="photos" value="{{ p }}">
+		    		<img src="{{ p }}" alt="X"/>
+		    	</input>
+		    {% endfor %}
+	    </div>
+	    <input type="submit" value="Valider">
+    </form>
+</div>
+
+{% endblock %}

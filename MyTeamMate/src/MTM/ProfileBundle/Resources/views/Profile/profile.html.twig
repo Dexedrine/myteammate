@@ -6,12 +6,14 @@
 	<div class="personnal_info">
 		<span> {{ firstname }} </span>
 		<span> {{ name }} </span>
+		<span class="description"> {{ description }}</span>
 	
 		<div class="picture">
 		{% if picture %}
-			<img alt="photo" src="{{ picture }}">
+			<a href="{{ path('choose_picture') }}"><img alt="photo" src="{{ picture }}"/></a>
 		{% else %}
 			<img alt="photo" src="{{ asset('bundles/mtmdesign/img/anonymous.jpg') }}">
+			<div><a href="{{ path('choose_picture') }}">Vous n'avez pas encore d'image de profil, en choisir une?</a></div>
 		{% endif %}
 		</div>
 		

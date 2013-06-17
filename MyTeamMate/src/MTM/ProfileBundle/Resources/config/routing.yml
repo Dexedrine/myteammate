@@ -9,3 +9,7 @@ others_profile:
 add_profile:
     pattern: /user/add_profile
     defaults: { _controller: "MTMProfileBundle:Profile:add" }
+    
+choose_picture:
+    pattern: /user/choose_picture
+    defaults: { _controller: "MTMProfileBundle:Profile:picture" }

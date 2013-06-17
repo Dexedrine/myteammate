@@ -7,6 +7,7 @@ body{
 }
 
 .middle{
+	margin: 5px;
 	margin-top: 10px;
 }
 label
@@ -196,10 +197,14 @@ nav div a{
 	text-align: left;
 	margin: 0 1%;
 }
+.personnal_info .description{
+	display: block;
+	font-weight: normal;
+}
 .picture img{
-	max-width: 33%;
+	max-width: 150px;
 	float: right;
-	margin-top: -1em;
+	margin-top: -2em;
 }
 .tiles{
 	height: 100%;	
@@ -221,6 +226,13 @@ nav div a{
 	max-width: 90%;
 	max-height:90%;	
 }
+
+/* picture choice */
+.flickr_pictures img{
+	max-width: 150px;
+	max-height: 150px;	
+}
+
 
 /* practice */
 

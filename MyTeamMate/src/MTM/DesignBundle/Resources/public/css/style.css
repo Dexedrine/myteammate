@@ -2,13 +2,14 @@
 body{
 	font-family: 'Pontano Sans', arial, serif;
 	background-color: #F0F0F0;
-	margin: 0;
 	z-index : 0;
+	margin: 0;
 }
 
 .middle{
-	margin: 5px;
-	margin-top: 10px;
+	text-align: center;
+	margin: 10px auto;
+	max-width: 400px;
 }
 label
 {
@@ -74,6 +75,7 @@ nav div a{
 .loginForm {
 	margin: 0 20px;
 }
+<<<<<<< HEAD
 
 .messagesTable table{
 	text-align: center;
@@ -97,6 +99,8 @@ nav div a{
 	max-width: 400px;
 }
 
+=======
+>>>>>>> branch 'master' of https://github.com/Dexedrine/myteammate.git
 .inputs li{
 	list-style: none;
 	background: #FFFFFF;
@@ -220,23 +224,30 @@ nav div a{
 .picture img{
 	max-width: 150px;
 	float: right;
-	margin-top: -2em;
+	margin-top: -3em;
 }
 .tiles{
 	height: 100%;	
 }
 .tile{
 	float:left;
-	margin: 1%;
-	width:48%;
-	height: 120px;
-	background-color: #13648C;
+	margin: 3% 10%;
+	width: 29%;
+	height: 30%;
+	background-color: white;
 	color: white;
 }
 .tile a{
 	display:block;
 	width: 100%;
 	height:100%;	
+	font-size: 75px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #13648C;
+    -moz-box-shadow: 3px 3px 2px #888;
+	-webkit-box-shadow: 3px 3px 2px #888;
+	box-shadow: 3px 3px 2px #888;
 }
 .tile img{
 	max-width: 90%;

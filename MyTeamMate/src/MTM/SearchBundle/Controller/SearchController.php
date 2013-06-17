@@ -9,56 +9,60 @@ use MTM\CoreBundle\Entity\TeamMate;
 
 class SearchController extends Controller
 {
-    public function searchAction(Request $request)
-    {	
-    	$form = $this->createForm(new SearchType());
-    	
-
+	public function searchAction(Request $request)
+		{	
+		$form = $this->createForm(new SearchType());
+		
+		
 		if ($request->isMethod('POST')) {
 			$form->bind($request);
-
+			
 			if ($form->isValid()) {
 				$em = $this->getDoctrine()->getEntityManager();
-				$query = $em->createQuery(
-				    'SELECT t , pro, pra, spo FROM MTMCoreBundle:TeamMate t,' .
-				    ' MTMProfileBundle:Profile pro, MTMSportBundle:Practice pra,  ' .
-				    'MTMSportBundle:Sport spo ' .
-				    'WHERE t.id = pro.idteammate AND t.id = pra.idteammate AND ' .
-				    'pra.idsport = spo.idsport AND ' .
-				    't.username = :username AND t.email = :email AND ' .
-				    'pro.name = :name AND pro.firstname = :firstname AND ' .
-				    'spo.nomsport = :sport '
-				)->setParameter('username', $form['teammate']['username']->getData())
-				->setParameter('email', $form['teammate']['email']->getData())
-				->setParameter('name', $form['profile']['name']->getData())
-				->setParameter('firstname', $form['profile']['firstname']->getData())
-				->setParameter('sport', $form['practice']['idsport']->getData()->getNomsport());
+				
+				if($form['practice']['idsport']->getData())
+					$string_query = 'SELECT t , pro, pra ,spo FROM MTMCoreBundle:TeamMate t,' .
+						' MTMProfileBundle:Profile pro, MTMSportBundle:Practice pra,  ' .
+						' MTMSportBundle:Sport spo '.
+						'WHERE t.id = pro.idteammate AND t.id = pra.idteammate AND ' .
+						'pra.idsport = spo.idsport AND spo.nomsport = \''.$form['practice']['idsport']->getData()->getNomsport().'\' ';
+				else
+					$string_query = 'SELECT t , pro FROM MTMCoreBundle:TeamMate t,' .
+						' MTMProfileBundle:Profile pro ' .
+						'WHERE t.id = pro.idteammate ';
+				
+				if($form['teammate']['username']->getData())
+					$string_query .= 'AND t.username = \''.$form['teammate']['username']->getData().'\' '; 
+				if($form['teammate']['email']->getData())
+					$string_query .= 'AND t.email = \''.$form['teammate']['email']->getData().'\' '; 
+				if($form['profile']['name']->getData())
+					$string_query .= 'AND pro.name = \''.$form['profile']['name']->getData().'\' ';
+				if($form['profile']['firstname']->getData())
+					$string_query .= 'AND pro.firstname = \''.$form['profile']['firstname']->getData().'\' ';
+				
+				$query = $em->createQuery($string_query);
 				
 				$result = $query->getResult();
 				if($result)
 					return $this->render('MTMSearchBundle:Search:show_result.html.twig',
-				 		array('username' => $result[0]->getUsername()	 ,
-				 	'email' => $result[0]->getEmail() ,
-				 	'id' => $result[0]->getId(),
-				 	'name' => $result[1]->getName()	 ,
-				 	'firstname' => $result[1]->getFirstname()	 ,
-				 	'sport' => $result[2]->getIdsport() ,
-				 	'found' => 'found', 
-				 	));
-				else
-					return $this->render('MTMSearchBundle:Search:show_result.html.twig',
-				 		array('found'=> '',));
+						array('result'=> $result,
+							'string_query' => $string_query));
+				else{
+					$error = 'Aucun résultat';
+				}
 			}
 			else{
-				return $this->render('MTMSearchBundle:Search:search.html.twig',
-				 array('form' => $form->createView(),
-				 		'error' => $form->getErrorsAsString()));
+				$error = $form->getErrorsAsString();
 			}
+			return $this->render('MTMSearchBundle:Search:search.html.twig',
+				array('form' => $form->createView(),
+					'error' => $error));
+			
 		}
-
+		
 		return $this->render('MTMSearchBundle:Search:search.html.twig',
-				 array('form' => $form->createView(),
-				 		'error' => ''));
-
-    }
+			array('form' => $form->createView(),
+				'error' => ''));
+		
+		}
 }

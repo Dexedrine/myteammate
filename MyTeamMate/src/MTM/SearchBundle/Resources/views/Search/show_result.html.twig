@@ -2,15 +2,18 @@
 {% block page_name %}Search{% endblock %}
 
 {% block body %}
-	{% if found %}
-		<a href="{{ path('others_profile',{"id" : id}) }}">Accéder au profil </a>
-		{{ username }}
-		{{ email }}
-		{{ name }}
-		{{ firstname }}	
-		{{ sport.nomsport }}
-	{% else %}
-		Personne trouvé.
-	{% endif %}
+	{{ string_query }}
+		{%  for line in  result %}			
+				<div class="practice" id="{{ result[0].id }}" draggable="true">
+					{{ result[0].username }} <br>
+					{{ result[0].email() }} <br>
+					{{ result[1].name}} <br>
+					{{ result[1].firstname }} <br>	
+					{% if result[3] %}		
+						{{ result[3].nomsport }} <br>
+					{% endif %}
+					<a href="{{ path('others_profile',{"id" : result[0].id}) }}">Accéder au profil </a>
+				</div>
+		{% endfor %}
 		
 {% endblock %}

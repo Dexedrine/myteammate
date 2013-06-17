@@ -141,6 +141,9 @@ class ProfileController extends Controller {
 				$em = $this->getDoctrine()->getManager();
 				$em->persist($profile->setIdteammate($teamate));
 				$em->flush();
+				$em = $this->getDoctrine()->getManager();
+				$em->persist($teamate->setIdprofile($profile));
+				$em->flush();
 				return $this->redirect($this->generateUrl('profile'));
 			}
 		}

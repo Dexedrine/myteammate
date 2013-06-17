@@ -75,6 +75,22 @@ nav div a{
 	margin: 0 20px;
 }
 
+.messagesTable table{
+	text-align: center;
+	margin: 0 auto;
+	width: 400px;
+}
+.messagesTable th{
+	background-color: #E1E1E1;
+	margin: 0 0 10px 200px;
+}
+
+.messagesTable tr{
+	background-color: #FFFFFF;
+	margin: 0 0 10px 200px;
+}
+
+
 .loginForm form{
 	text-align: center;
 	margin: 0 auto;

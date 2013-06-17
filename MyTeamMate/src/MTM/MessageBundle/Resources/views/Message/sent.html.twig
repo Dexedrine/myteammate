@@ -2,6 +2,6 @@
 {% block page_name %}Messages envoyés{% endblock %}
 {% block fos_message_content %}
 
-{% include 'FOSMessageBundle:Message:threads_list.html.twig' with {'threads': threads} %}
+{% include 'FOSMessageBundle:Message:threads_list_sent.html.twig' with {'threads': threads} %}
 
 {% endblock %}

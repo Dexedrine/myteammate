@@ -22,7 +22,16 @@ class TeamMate extends BaseUser  implements ParticipantInterface{
 	 * @ORM\GeneratedValue(strategy="AUTO")
 	 */
 	protected $id;
+	/**
+	 * @var \Profile
+	 *
+	 * @ORM\OneToOne(targetEntity="MTM\ProfileBundle\Entity\Profile")
+	 * @ORM\JoinColumns({
+	 *   @ORM\JoinColumn(name="idprofile", referencedColumnName="idprofile")
+	 * })
+	 */
 	
+	private $idprofile;
 	public function __construct()
 		{
 		parent::__construct();
@@ -60,5 +69,26 @@ class TeamMate extends BaseUser  implements ParticipantInterface{
 	public function getId(){
 		return $this->id;
 	}
+	/**
+	 * Set idteammate
+	 *
+	 * @param \MTM\ProfileBundle\Entity\Profile $idprofile
+	 * @return Profile
+	 */
+	public function setIdprofile(\MTM\ProfileBundle\Entity\Profile $idprofile = null)
+	{
+		$this->idprofile = $idprofile;
 	
+		return $this;
+	}
+	/**
+	 * Get idteammate
+	 *
+	 * @return \MTM\ProfileBundle\Entity\Profile $idprofile
+	 */
+	public function getIdprofile()
+	{
+		return $this->idprofile;
+	}
+
 }

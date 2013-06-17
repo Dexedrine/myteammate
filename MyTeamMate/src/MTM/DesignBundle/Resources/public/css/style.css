@@ -210,7 +210,6 @@ nav div a{
 	height: 30%;
 	background-color: white;
 	color: white;
-	border-radius: 15px 15px 0 15px;
 }
 .tile a{
 	display:block;
@@ -220,9 +219,9 @@ nav div a{
     font-weight: bold;
     text-decoration: none;
     color: #13648C;
-    -moz-box-shadow: 10px 10px 5px #888;
-	-webkit-box-shadow: 10px 10px 5px #888;
-	box-shadow: 10px 10px 5px #888;
+    -moz-box-shadow: 3px 3px 2px #888;
+	-webkit-box-shadow: 3px 3px 2px #888;
+	box-shadow: 3px 3px 2px #888;
 }
 .tile img{
 	max-width: 90%;

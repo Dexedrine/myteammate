@@ -1,6 +1,10 @@
 profile:
     pattern: /user/profile
     defaults: { _controller: "MTMProfileBundle:Profile:profile" }
+    
+others_profile:
+    pattern: /user/others_profile/{id}
+    defaults: { _controller: "MTMProfileBundle:Profile:othersProfile" }
 
 add_profile:
     pattern: /user/add_profile

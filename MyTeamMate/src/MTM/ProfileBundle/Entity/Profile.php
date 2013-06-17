@@ -58,7 +58,7 @@ class Profile
      *
      * @ORM\OneToOne(targetEntity="MTM\CoreBundle\Entity\TeamMate")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="idteammate", referencedColumnName="id")
      * })
      */
     private $idteammate;

@@ -28,6 +28,25 @@ class ProfileController extends Controller {
 								'picture' => ''));
 	}
 
+	public function othersProfileAction($id) {
+		
+
+		$em = $this->getDoctrine()->getManager();
+		$repository = $em->getRepository('MTMProfileBundle:Profile');
+
+		$profile = $repository->findOneBy(array('idteammate' => $id));
+		if (!$profile) {
+			return $this
+					->render('MTMProfileBundle:Profile:no_profile.html.twig');
+		}
+
+		return $this
+				->render('MTMProfileBundle:Profile:profile.html.twig',
+						array('name' => ucwords($profile->getName()),
+								'firstname' => ucwords($profile->getFirstName()),
+								'picture' => ''));
+	}
+
 	public function getPhotoUrl($id_photo) {
 		//appeler cette photo lors de l'upload pour récupérer l'url à stocker en base
 

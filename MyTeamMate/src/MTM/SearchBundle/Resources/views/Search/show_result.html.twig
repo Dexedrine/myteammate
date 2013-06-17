@@ -1,0 +1,16 @@
+{% extends 'MTMCoreBundle::connect.html.twig' %}
+{% block page_name %}Search{% endblock %}
+
+{% block body %}
+	{% if found %}
+		<a href="{{ path('others_profile',{"id" : id}) }}">Accéder au profil </a>
+		{{ username }}
+		{{ email }}
+		{{ name }}
+		{{ firstname }}	
+		{{ sport.nomsport }}
+	{% else %}
+		Personne trouvé.
+	{% endif %}
+		
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'MTMCoreBundle::connect.html.twig' %}
+{% block page_name %}Search{% endblock %}
+
+{% block body %}
+
+<div class="profileForm">
+	<form name="pro_form" action="{{ path('search') }}" method="post" {{ form_enctype(form) }}>
+			<ul class="inputs">	    
+		<li>
+			<span class="icon" title="username">Username</span>
+		    {{ form_widget(form.teammate.username) }}
+	    </li>
+	    <li>
+			<span class="icon" title="email">Email</span>
+		    {{ form_widget(form.teammate.email) }}
+	    </li>
+	    <li>
+			<span class="icon" title="name">Nom</span>
+		    {{ form_widget(form.profile.name) }}
+	    </li>
+	    <li>
+			<span class="icon" title="firstname">Prénom</span>
+		    {{ form_widget(form.profile.firstname) }}
+	    </li>
+	    <li>
+			<span class="icon" title="sport">Sport</span>
+		    {{ form_widget(form.practice.idsport) }}
+	    </li>
+	    
+	    
+	</ul>
+	{% if error %}
+	    <div>{{ error }}</div>
+	{% endif %}
+	{{ form_rest(form) }}
+	<input value="Valider" type="submit" />
+	   <div class="profileSubmit" onclick="document.forms['pro_form'].submit()">
+		 	   <div class="profileSubmitInner">
+		 	   	<span class="icon">
+		 	   		<span class="icon" data-icon="&#xe005;" aria-hidden="true" title="password"></span>
+		 	   		 
+		 	   	</span>
+		</div>
+				
+		
+</div>
+				
+		
+
+{% endblock %}

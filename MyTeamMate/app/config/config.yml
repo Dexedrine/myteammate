@@ -92,7 +92,7 @@ fos_user:
         mailer: fos_user.mailer.twig_swift
     registration:
         confirmation:
-            enabled:    true
+            enabled:  false
             template: "MTMCoreBundle:Registration:registrationConfirmation.email.twig"
         
    

@@ -1,0 +1,3 @@
+search:
+    pattern:  /user/search
+    defaults: { _controller: "MTMSearchBundle:Search:search" }

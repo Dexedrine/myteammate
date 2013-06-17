@@ -20,7 +20,8 @@
 		"friendsofsymfony/message-bundle": "dev-master",
         "friendsofsymfony/comment-bundle": "dev-master",
         "friendsofsymfony/user-bundle": "dev-master",
-        "friendsofsymfony/rest-bundle": ">=0.11,<0.13-dev"
+        "friendsofsymfony/rest-bundle": ">=0.11,<0.13-dev",
+        "symfony/monolog-bundle": "2.3.*"
     },
     "scripts": {
         "post-install-cmd": [

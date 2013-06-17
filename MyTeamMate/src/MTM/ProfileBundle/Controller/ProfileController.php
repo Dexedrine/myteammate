@@ -72,9 +72,10 @@ class ProfileController extends Controller {
 		}
 
 		return $this
-				->render('MTMProfileBundle:Profile:profile.html.twig',
+				->render('MTMProfileBundle:Profile:others_profile.html.twig',
 						array('name' => ucwords($profile->getName()),
 								'firstname' => ucwords($profile->getFirstName()),
+								'description' => ucwords($profile->getDescription()),
 								'picture' => ''));
 	}
 

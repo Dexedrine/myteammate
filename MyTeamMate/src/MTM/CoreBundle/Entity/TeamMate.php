@@ -29,6 +29,7 @@ class TeamMate extends BaseUser  implements ParticipantInterface{
 		{
 		parent::__construct();
 		$this->practices = new \Doctrine\Common\Collections\ArrayCollection();
+		$this->comments = new \Doctrine\Common\Collections\ArrayCollection();
 		}
 	
 	/**
@@ -62,6 +63,21 @@ class TeamMate extends BaseUser  implements ParticipantInterface{
 	 * )
 	 */
 	private $practices;
+	
+	/**
+	 * @var \Doctrine\Common\Collections\Collection
+	 *
+	 * @ORM\ManyToMany(targetEntity="MTM\CommentBundle\Entity\Comment")
+	 * @ORM\JoinTable(name="teammatecomments",
+	 *   joinColumns={
+	 *     @ORM\JoinColumn(name="idteammate", referencedColumnName="id" )
+	 *   },
+	 *   inverseJoinColumns={
+	 *     @ORM\JoinColumn(name="idcomment", referencedColumnName="idcomment")
+	 *   }
+	 * )
+	 */
+	private $comments;
 	
 	/**
 	 * Set acceptusemail
@@ -144,4 +160,37 @@ class TeamMate extends BaseUser  implements ParticipantInterface{
 		{
 		return $this->practices;
 		}
+
+    /**
+     * Add comments
+     *
+     * @param \MTM\CommentBundle\Entity\Comment $comments
+     * @return TeamMate
+     */
+    public function addComment(\MTM\CommentBundle\Entity\Comment $comments)
+    {
+        $this->comments[] = $comments;
+
+        return $this;
+    }
+
+    /**
+     * Remove comments
+     *
+     * @param \MTM\CommentBundle\Entity\Comment $comments
+     */
+    public function removeComment(\MTM\CommentBundle\Entity\Comment $comments)
+    {
+        $this->comments->removeElement($comments);
+    }
+
+    /**
+     * Get comments
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getComments()
+    {
+        return $this->comments;
+    }
 }

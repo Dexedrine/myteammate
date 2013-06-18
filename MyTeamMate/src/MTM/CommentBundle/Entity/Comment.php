@@ -3,95 +3,125 @@
 namespace MTM\CommentBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use FOS\CommentBundle\Model\SignedCommentInterface;
-use FOS\CommentBundle\Model\VotableCommentInterface;
-use FOS\CommentBundle\Entity\Comment as BaseComment;
-use Symfony\Component\Security\Core\User\UserInterface;
+use MTM\CoreBundle\Entity\TeamMate;
 
 /**
- * @ORM\Entity
- * @ORM\ChangeTrackingPolicy("DEFERRED_EXPLICIT") 	                         	
+ * @ORM\Entity	                         	
  */
-class Comment extends BaseComment implements SignedCommentInterface,VotableCommentInterface 	
+class Comment	
 {
     /**
-     * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
+	 * @ORM\Id
+	 * @ORM\Column(name="idcomment", type="integer")
+	 * @ORM\GeneratedValue(strategy="AUTO")
+	 */
+	protected $idcomment;
+	
+	/**
+	 * 
+     * @var string
+     *
+     * @ORM\Column(name="body", type="text", length=4000, nullable=true)
      */
-    protected $id;
+	private $body;
+	
+	/**
+     * @var \TeamMate
+     *
+     * @ORM\OneToOne(targetEntity="MTM\CoreBundle\Entity\TeamMate")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idsender", referencedColumnName="id")
+     * })
+     */
+    private $idsender;
+	 
+	/**
+     * @var \TeamMate
+     *
+     * @ORM\OneToOne(targetEntity="MTM\CoreBundle\Entity\TeamMate")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idreceiver", referencedColumnName="id")
+     * })
+     */
+    private $idreceiver;
+	
 
     /**
-     * Thread of this comment
+     * Get idcomment
      *
-     * @var Thread
-     * @ORM\ManyToOne(targetEntity="MTM\CommentBundle\Entity\Thread")
+     * @return integer 
      */
-    protected $thread;
-    
-    /**
-     * Author of the comment
-     *
-     * @ORM\ManyToOne(targetEntity="MTM\CoreBundle\Entity\TeamMate")
-     * @var TeamMate
-     */
-    protected $author;
-
-    public function setAuthor(UserInterface $author)
-    {  
-        $this->author = $author;
-    }
-
-    public function getAuthor()
+    public function getIdcomment()
     {
-        return $this->author;
-    }
-
-    public function getAuthorName()
-    {
-        if (null === $this->getAuthor()) {
-            return 'Anonymous';
-        }
-
-        return $this->getAuthor()->getUsername();
-    }
-    
-     /**
-     * @ORM\Column(type="integer")
-     * @var int
-     */
-    protected $score = 0;
-
-    /**
-     * Sets the score of the comment.
-     *
-     * @param integer $score
-     */
-    public function setScore($score)
-    {
-        $this->score = $score;
+        return $this->idcomment;
     }
 
     /**
-     * Returns the current score of the comment.
+     * Set body
      *
-     * @return integer
+     * @param string $body
+     * @return Comment
      */
-    public function getScore()
+    public function setBody($body)
     {
-        return $this->score;
+        $this->body = $body;
+
+        return $this;
     }
 
     /**
-     * Increments the comment score by the provided
-     * value.
+     * Get body
      *
-     * @param integer value
-     *
-     * @return integer The new comment score
+     * @return string 
      */
-    public function incrementScore($by = 1)
+    public function getBody()
     {
-        $this->score += $by;
+        return $this->body;
+    }
+
+    /**
+     * Set idsender
+     *
+     * @param \MTM\CoreBundle\Entity\TeamMate $idsender
+     * @return Comment
+     */
+    public function setIdsender(\MTM\CoreBundle\Entity\TeamMate $idsender = null)
+    {
+        $this->idsender = $idsender;
+
+        return $this;
+    }
+
+    /**
+     * Get idsender
+     *
+     * @return \MTM\CoreBundle\Entity\TeamMate 
+     */
+    public function getIdsender()
+    {
+        return $this->idsender;
+    }
+
+    /**
+     * Set idreceiver
+     *
+     * @param \MTM\CoreBundle\Entity\TeamMate $idreceiver
+     * @return Comment
+     */
+    public function setIdreceiver(\MTM\CoreBundle\Entity\TeamMate $idreceiver = null)
+    {
+        $this->idreceiver = $idreceiver;
+
+        return $this;
+    }
+
+    /**
+     * Get idreceiver
+     *
+     * @return \MTM\CoreBundle\Entity\TeamMate 
+     */
+    public function getIdreceiver()
+    {
+        return $this->idreceiver;
     }
 }

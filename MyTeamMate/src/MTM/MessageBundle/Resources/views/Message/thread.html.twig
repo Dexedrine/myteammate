@@ -1,14 +1,54 @@
 {% extends 'FOSMessageBundle::layout.html.twig' %}
 {% block fos_message_content %}
+<div class="messagesTable">
 
+<table>
+
+    <thead>
+        <tr>
+            <th colspan="2"> {{ thread.subject }} </th>
+        </tr>
+    </thead>
+</table>
 {% for message in thread.messages %}
-    <div class="messenger_thread_message">
+	<table>
+     <tbody>
+	{% if message.sender == thread.createdBy  %}
+	<tr>
+                <td class ="profilImg">
+                    <img src="{{ message.getSender().getIdprofile().getUrlphoto()}}" alt="{{thread.getParticipants()[0]  }}"/>
+                </td>
+                <td>
+                	{{ message.getSender().getIdprofile().getFirstname()}}
+                    {{ message.getSender().getIdprofile().getName()}}
+                    <br>
+					{{ message.body }}
 
+                    <br>{% if not fos_message_is_read(thread) %}
+                        ({% trans from 'FOSMessageBundle' %}new{% endtrans %})
+                    {% endif %}
+                </td>
+            </tr>
+    {% else %}
+		<tr>
+                <td>
+                	{{ message.getSender().getIdprofile().getFirstname()}}
+                    {{ message.getSender().getIdprofile().getName()}}
+                    <br>
+					{{ message.body }}
 
-        <div class="messenger_thread_message_body" id="message_{{ message.id }}">
-            {{ message.body }}
-        </div>
-    </div>
+                    <br>{% if not fos_message_is_read(thread) %}
+                        ({% trans from 'FOSMessageBundle' %}new{% endtrans %})
+                    {% endif %}
+                </td>
+                <td class ="profilImg">
+                    <img src="{{ message.getSender().getIdprofile().getUrlphoto()}}" alt="{{thread.getParticipants()[0]  }}"/>
+                </td>
+            </tr>
+    {% endif %}
+            </tbody>
+
+</table>
 {% endfor %}
 
 <h3>{% trans from 'FOSMessageBundle' %}reply{% endtrans %}</h3>
@@ -18,5 +58,7 @@
 
     <input type="submit" />
 </form>
+
+</div>
 
 {% endblock %}

@@ -1,39 +1,45 @@
 <div class="messagesTable">
+
 <table>
 
     <thead>
         <tr>
-            <th>Sujet</th>
-            <th>Destinataire</th>
-            <th>Date</th>
-            <th>Action</th>
+            <th colspan="3"> <br> </th>
         </tr>
     </thead>
 
-    <tbody>
+     <tbody>
 
     {% if threads %}
         {% for thread in threads %}
             <tr>
                 <td>
-                    <a href="{{ url('fos_message_thread_view', {'threadId': thread.id}) }}">
-                        {{ thread.subject }}
+                    <img src="{{ thread.getParticipants()[0].getIdprofile().getUrlphoto()}}" alt="{{thread.getParticipants()[0]  }}"/>
+                </td>
+                <td>
+                	{{ thread.getParticipants()[0].getIdprofile().getFirstname()}}
+                    {{ thread.getParticipants()[0].getIdprofile().getName()}}
+                    <br><a href="{{ url('fos_message_thread_view', {'threadId': thread.id}) }}">
+                    {{ thread.subject }}
                     </a>
 
-                    {% if not fos_message_is_read(thread) %}
+                    <br>{% if not fos_message_is_read(thread) %}
                         ({% trans from 'FOSMessageBundle' %}new{% endtrans %})
                     {% endif %}
+                    le {{ thread.createdAt|date }}
                 </td>
                 <td>
-                    {{ thread.getParticipants()[0].getUrlphoto()}}
-                </td>
-                <td>
-                    {{ thread.createdAt|date }}
-                </td>
-                <td>
+                	<div class="messageForm">
                     <form action="{{ url('fos_message_thread_delete', {'threadId': thread.id}) }}" method="post">
-                        <input type="submit" value="{% trans from 'FOSMessageBundle' %}delete{% endtrans %}" />
+                    	<div >	 	   
+	 	   					<div class="deleteMessageSubmit" onclick="document.forms['messageForm'].submit()">
+		 	   					
+		 	   						<input type="submit" value="Supprimer"/>
+		 	   						<br><span class="icon" data-icon="&#xe008;" aria-hidden="true" title="supprimer"></span> 
+	 	   					</div>
+						</div>
                     </form>
+                    </div>
                 </td>
             </tr>
         {% endfor %}

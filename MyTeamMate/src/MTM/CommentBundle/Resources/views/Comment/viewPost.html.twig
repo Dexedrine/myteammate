@@ -1,0 +1,31 @@
+{% extends 'MTMCommentBundle::base_comment.html.twig' %}
+
+{% block body %}
+<div class="loginForm">
+<form action="{{ url('view_post',{"id" : teammate.id}) }}" method="post">
+	  <ul class="inputs">
+	    <li>
+		    {{ form_widget(form.body, {'attr': {'placeholder': 'Corps du message','cols': '50','rows': '15'}}) }}
+	    </li>
+	    </ul>
+	    <div >
+	 	   
+	 	   <div class="newMessageSubmit" onclick="document.forms['loginForm'].submit()">
+		 	   
+		 	   <div class="loginSubmitInner">
+		 	   		<input type="submit" />
+		 	   </div>   
+	 	   </div>
+		</div>
+	    
+		{{ form_rest(form) }}
+	</form>
+	</div>
+
+
+
+	{% for comment in teammate.comments %}
+		{{ comment.body }}
+		by {{ comment.idsender.username }}
+	{% endfor %}	
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends 'MTMCommentBundle::base_comment.html.twig' %}
+
+
+{% block body %}
+	{% for comment in comments %}
+		{{ comment.body }}
+		by {{ comment.idsender.username }}
+	{% endfor %}	
+{% endblock %}

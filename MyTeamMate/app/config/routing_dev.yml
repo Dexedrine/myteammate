@@ -28,16 +28,15 @@ mtm_message:
 mtm_profile:
     resource: "@MTMProfileBundle/Resources/config/routing.yml"
     prefix:   /
+    
+mtm_comment:
+    resource: "@MTMCommentBundle/Resources/config/routing.yml"
+    prefix:   /
 
 mtm_core:
     resource: "@MTMCoreBundle/Resources/config/routing.yml"
     prefix:   /
-    
-fos_comment_api:
-    type: rest
-    resource: "@FOSCommentBundle/Resources/config/routing.yml"
-    prefix: /api
-    defaults: { _format: html } 
+ 
     
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"

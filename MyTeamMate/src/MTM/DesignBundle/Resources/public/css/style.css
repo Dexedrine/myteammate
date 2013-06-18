@@ -23,7 +23,7 @@ label
 }
 
 /* header */
-.top{
+.top, .bottom{
 	background-color: #13648C;
 	color: white;
 	width: 100%;
@@ -69,6 +69,13 @@ nav div a{
 	text-decoration: none;
 	display: block;
 	height: 100%;
+}
+/* footer */
+.bottom{
+	position: absolute;
+	bottom: 0;
+	text-align: center;
+	font-size: 11px;
 }
 
 /* login */
@@ -189,7 +196,7 @@ nav div a{
 	font-weight: bold;
 	font-size: 14px;
 	text-align: left;
-	margin: 0 1%;
+	margin: 0 10px;
 }
 .personnal_info .description{
 	display: block;
@@ -204,13 +211,13 @@ nav div a{
 	height: 100%;	
 }
 .tile{
-	float:left;
-	margin: 3% 10%;
-	width: 29%;
-	height: 30%;
+	margin: 3% 10px;
+	width: 45%;
+	height: 110px;
 	background-color: white;
-	color: white;
 }
+.tile.left{float: left}
+.tile.right{float: right}
 .tile a{
 	display:block;
 	width: 100%;

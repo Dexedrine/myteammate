@@ -126,7 +126,7 @@ class ProfileController extends Controller {
 	public function addAction(Request $request) {
 		$profile = new Profile();
 
-		$teamate = $this->get('security.context')->getToken()->getUser();
+		$teammate = $this->get('security.context')->getToken()->getUser();
 
 		$form = $this->createFormBuilder($profile)
 				->add('name', 'text', array('label' => 'Nom'))
@@ -140,7 +140,8 @@ class ProfileController extends Controller {
 
 			if ($form->isValid()) {
 				$em = $this->getDoctrine()->getManager();
-				$em->persist($profile->setIdteammate($teamate));
+				$teammate->setProfile($profile);
+				$em->persist($profile->setIdteammate($teammate));
 				$em->flush();
 				return $this->redirect($this->generateUrl('profile'));
 			}

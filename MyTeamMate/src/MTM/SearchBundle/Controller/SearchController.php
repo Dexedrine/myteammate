@@ -21,7 +21,7 @@ class SearchController extends Controller
 				$em = $this->getDoctrine()->getEntityManager();
 				
 				if($form['practice']['idsport']->getData())
-					$string_query = 'SELECT t , pro, pra ,spo FROM MTMCoreBundle:TeamMate t,' .
+					$string_query = 'SELECT t FROM MTMCoreBundle:TeamMate t,' .
 						' MTMProfileBundle:Profile pro, MTMSportBundle:Practice pra,  ' .
 						' MTMSportBundle:Sport spo '.
 						'WHERE t.id = pro.idteammate AND t.id = pra.idteammate AND ' .

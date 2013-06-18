@@ -1,0 +1,7 @@
+view:
+    pattern: /user/comment
+    defaults: { _controller: "MTMCommentBundle:Comment:view" }
+
+view_post:
+    pattern: /user/postcomment/{id}
+    defaults: { _controller: "MTMCommentBundle:Comment:viewPost" }

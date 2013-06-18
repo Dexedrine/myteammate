@@ -5,6 +5,8 @@ use Doctrine\ORM\Mapping as ORM;
 use FOS\MessageBundle\Model\ParticipantInterface;
 use MTM\CommentBundle\Entity\Comment;
 use MTM\MessageBundle\Entity\Message;
+use MTM\ProfileBundle\Entity\Profile;
+use MTM\SportBundle\Entity\Practice;
 
 use FOS\UserBundle\Model\User as BaseUser;
 /**
@@ -22,20 +24,12 @@ class TeamMate extends BaseUser  implements ParticipantInterface{
 	 * @ORM\GeneratedValue(strategy="AUTO")
 	 */
 	protected $id;
-	/**
-	 * @var \Profile
-	 *
-	 * @ORM\OneToOne(targetEntity="MTM\ProfileBundle\Entity\Profile")
-	 * @ORM\JoinColumns({
-	 *   @ORM\JoinColumn(name="idprofile", referencedColumnName="idprofile")
-	 * })
-	 */
 	
-	private $idprofile;
 	public function __construct()
 		{
 		parent::__construct();
-		// your own logic
+		$this->practices = new \Doctrine\Common\Collections\ArrayCollection();
+		$this->comments = new \Doctrine\Common\Collections\ArrayCollection();
 		}
 	
 	/**
@@ -44,6 +38,46 @@ class TeamMate extends BaseUser  implements ParticipantInterface{
 	 * @ORM\Column(name="acceptusemail", type="boolean", nullable=true)
 	 */
 	private $acceptusemail;
+	
+	/**
+	 * @var Profile
+	 * 
+	 @ORM\OneToOne(targetEntity="MTM\ProfileBundle\Entity\Profile",cascade={"remove"})
+	 * @ORM\JoinColumns({
+	 *   @ORM\JoinColumn(name="idprofile", referencedColumnName="idprofile")
+	 * })
+	 */
+	private $profile;
+	
+	/**
+	 * @var \Doctrine\Common\Collections\Collection
+	 *
+	 * @ORM\ManyToMany(targetEntity="MTM\SportBundle\Entity\Practice",cascade={"remove"})
+	 * @ORM\JoinTable(name="teammatepractices",
+	 *   joinColumns={
+	 *     @ORM\JoinColumn(name="idteammate", referencedColumnName="id")
+	 *   },
+	 *   inverseJoinColumns={
+	 *     @ORM\JoinColumn(name="idpractice", referencedColumnName="idpractice")
+	 *   }
+	 * )
+	 */
+	private $practices;
+	
+	/**
+	 * @var \Doctrine\Common\Collections\Collection
+	 *
+	 * @ORM\ManyToMany(targetEntity="MTM\CommentBundle\Entity\Comment")
+	 * @ORM\JoinTable(name="teammatecomments",
+	 *   joinColumns={
+	 *     @ORM\JoinColumn(name="idteammate", referencedColumnName="id" )
+	 *   },
+	 *   inverseJoinColumns={
+	 *     @ORM\JoinColumn(name="idcomment", referencedColumnName="idcomment")
+	 *   }
+	 * )
+	 */
+	private $comments;
 	
 	/**
 	 * Set acceptusemail
@@ -69,26 +103,96 @@ class TeamMate extends BaseUser  implements ParticipantInterface{
 	public function getId(){
 		return $this->id;
 	}
-	/**
-	 * Set idteammate
-	 *
-	 * @param \MTM\ProfileBundle\Entity\Profile $idprofile
-	 * @return Profile
-	 */
-	public function setIdprofile(\MTM\ProfileBundle\Entity\Profile $idprofile = null)
-	{
-		$this->idprofile = $idprofile;
-	
-		return $this;
-	}
-	/**
-	 * Get idteammate
-	 *
-	 * @return \MTM\ProfileBundle\Entity\Profile $idprofile
-	 */
-	public function getIdprofile()
-	{
-		return $this->idprofile;
-	}
 
+		
+
+	
+	/**
+	 * Set profile
+	 *
+	 * @param \MTM\ProfileBundle\Entity\Profile $profile
+	 * @return TeamMate
+	 */
+	public function setProfile(\MTM\ProfileBundle\Entity\Profile $profile = null)
+		{
+		$this->profile = $profile;
+		
+		return $this;
+		}
+	
+	/**
+	 * Get profile
+	 *
+	 * @return \MTM\ProfileBundle\Entity\Profile 
+	 */
+	public function getProfile()
+		{
+		return $this->profile;
+		}
+	
+	/**
+	 * Add practices
+	 *
+	 * @param \MTM\SportBundle\Entity\Practice $practices
+	 * @return TeamMate
+	 */
+	public function addPractice(\MTM\SportBundle\Entity\Practice $practices)
+		{
+		$this->practices[] = $practices;
+		
+		return $this;
+		}
+	
+	/**
+	 * Remove practices
+	 *
+	 * @param \MTM\SportBundle\Entity\Practice $practices
+	 */
+	public function removePractice(\MTM\SportBundle\Entity\Practice $practices)
+		{
+		$this->practices->removeElement($practices);
+		}
+	
+	/**
+	 * Get practices
+	 *
+	 * @return \Doctrine\Common\Collections\Collection 
+	 */
+	public function getPractices()
+		{
+		return $this->practices;
+		}
+
+    /**
+     * Add comments
+     *
+     * @param \MTM\CommentBundle\Entity\Comment $comments
+     * @return TeamMate
+     */
+    public function addComment(\MTM\CommentBundle\Entity\Comment $comments)
+    {
+        $this->comments[] = $comments;
+
+        return $this;
+    }
+
+    /**
+     * Remove comments
+     *
+     * @param \MTM\CommentBundle\Entity\Comment $comments
+     */
+    public function removeComment(\MTM\CommentBundle\Entity\Comment $comments)
+    {
+        $this->comments->removeElement($comments);
+    }
+
+    /**
+     * Get comments
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getComments()
+    {
+        return $this->comments;
+    }
 }

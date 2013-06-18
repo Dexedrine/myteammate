@@ -73,7 +73,8 @@ class ProfileController extends Controller {
 
 		return $this
 				->render('MTMProfileBundle:Profile:others_profile.html.twig',
-						array('name' => ucwords($profile->getName()),
+						array('id' => $id,
+								'name' => ucwords($profile->getName()),
 								'firstname' => ucwords($profile->getFirstName()),
 								'description' => ucwords($profile->getDescription()),
 								'picture' => ''));
@@ -126,7 +127,7 @@ class ProfileController extends Controller {
 	public function addAction(Request $request) {
 		$profile = new Profile();
 
-		$teamate = $this->get('security.context')->getToken()->getUser();
+		$teammate = $this->get('security.context')->getToken()->getUser();
 
 		$form = $this->createFormBuilder($profile)
 				->add('name', 'text', array('label' => 'Nom'))
@@ -140,7 +141,8 @@ class ProfileController extends Controller {
 
 			if ($form->isValid()) {
 				$em = $this->getDoctrine()->getManager();
-				$em->persist($profile->setIdteammate($teamate));
+				$teammate->setProfile($profile);
+				$em->persist($profile->setIdteammate($teammate));
 				$em->flush();
 				$em = $this->getDoctrine()->getManager();
 				$em->persist($teamate->setIdprofile($profile));

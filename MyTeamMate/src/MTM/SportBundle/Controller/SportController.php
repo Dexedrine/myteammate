@@ -51,6 +51,7 @@ class SportController extends Controller {
 				$em->persist($place);
 				
 				$practice->setIdteammate($teammate);
+				$teammate->addPractice($practice);
 
 				$em->persist($practice);
 				$em->flush();
@@ -115,15 +116,21 @@ class SportController extends Controller {
 	
 	public function deleteAction(Request $request, $idpractice) {
 				
+		$teammate = $this->get('security.context')->getToken()->getUser();
+		
 		//Aller chercher en base :
+		
 		$em = $this->getDoctrine()->getManager();
 		$repository = $em->getRepository('MTMSportBundle:Practice');
 		$practice = $repository->findOneBy(array('idpractice' => $idpractice));
-	
+		
+		
+		
 		$em->remove($practice);
 		foreach ($practice->getIdslots() as $slot) {
 			$em->remove($slot);
 		}
+		$teammate->removePractice($practice);
 		$em->flush();
 
 		return $this->redirect($this->generateUrl('sport'));

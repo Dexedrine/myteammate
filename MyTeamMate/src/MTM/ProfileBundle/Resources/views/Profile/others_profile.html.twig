@@ -20,15 +20,15 @@
 	<div class="clear"></div>
 	
 	<div class="tiles">
-		<div class="tile">
+		<div class="tile left">
 			<a href="{{ path('sport') }}">S</a>
 		</div>
-		<div class="tile">
+		<div class="tile right">
 			<a href="{{ path('fos_message_inbox') }}">M</a>
 		</div>
 		<div class="clear"></div>
-		<div class="tile">
-			<a href="{{ path('fos_comment_new_threads') }}">C</a>
+		<div class="tile left">
+			<a href="{{ path('view_post',{"id" : id}) }}">C</a>
 		</div>
 	</div>
 {% endblock %}

@@ -125,7 +125,7 @@ class ProfileController extends Controller {
 			if ($form->isValid()) {
 				$em = $this->getDoctrine()->getManager();
 				$teammate->setProfile($profile);
-				$em->persist($profile->setIdteammate($teammate));
+				$em->persist($profile);
 				$em->flush();
 				return $this->redirect($this->generateUrl('profile'));
 			}

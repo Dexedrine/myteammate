@@ -1,0 +1,18 @@
+{% extends 'MTMCoreBundle::connect.html.twig' %}
+{% block page_name %}Favoris{% endblock %}
+
+{% block body %}
+		{%  for favorite in  favorites %}			
+				<div class="practice" id="{{ favorite.id }}" draggable="true">
+					{{ favorite.username }} <br>
+					{{ favorite.email }} <br>
+					{{ favorite.profile.name}} <br>
+					{{ favorite.profile.firstname }} <br>	
+					{% for practice in favorite.practices %}		
+						{{ practice.idsport.nomsport }} <br>
+					{% endfor %}
+					<a href="{{ path('others_profile',{"id" : favorite.id}) }}">Accéder au profil </a>
+				</div>
+		{% endfor %}
+		
+{% endblock %}

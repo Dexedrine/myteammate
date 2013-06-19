@@ -19,34 +19,53 @@ class SearchController extends Controller
 			
 			if ($form->isValid()) {
 				$em = $this->getDoctrine()->getEntityManager();
+				$qb = $em->createQueryBuilder();
 				
+				$already_one_where = false;
+				
+				$qb->select('t')
+					->from('MTMCoreBundle:TeamMate','t')
+					->innerjoin('t.profile','pro');
 				if($form['practice']['idsport']->getData())
-					$string_query = 'SELECT t FROM MTMCoreBundle:TeamMate t,' .
-						' MTMProfileBundle:Profile pro, MTMSportBundle:Practice pra,  ' .
-						' MTMSportBundle:Sport spo '.
-						'WHERE t.id = pro.idteammate AND t.id = pra.idteammate AND ' .
-						'pra.idsport = spo.idsport AND spo.nomsport = \''.$form['practice']['idsport']->getData()->getNomsport().'\' ';
-				else
-					$string_query = 'SELECT t , pro FROM MTMCoreBundle:TeamMate t,' .
-						' MTMProfileBundle:Profile pro ' .
-						'WHERE t.id = pro.idteammate ';
-				
-				if($form['teammate']['username']->getData())
-					$string_query .= 'AND t.username = \''.$form['teammate']['username']->getData().'\' '; 
+					$qb->innerjoin('t.practices','pra')
+						->innerjoin('pra.idsport','spo','WITH',
+							'spo.nomsport = \''.$form['practice']['idsport']->getData()->getNomsport().'\' ');
+									
+				if($form['teammate']['username']->getData()){
+					$qb->where('t.username = \''.$form['teammate']['username']->getData().'\' '); 
+					$already_one_where = true;
+				}
 				if($form['teammate']['email']->getData())
-					$string_query .= 'AND t.email = \''.$form['teammate']['email']->getData().'\' '; 
+					if($already_one_where)
+						$qb->andWhere(' t.email = \''.$form['teammate']['email']->getData().'\' '); 
+					else{
+						$qb->where(' t.email = \''.$form['teammate']['email']->getData().'\' '); 
+						$already_one_where = true;
+					}
+					
 				if($form['profile']['name']->getData())
-					$string_query .= 'AND pro.name = \''.$form['profile']['name']->getData().'\' ';
+					if($already_one_where)
+						$qb->andWhere(' pro.name = \''.$form['profile']['name']->getData().'\' ');
+					else{
+						$qb->where(' pro.name = \''.$form['profile']['name']->getData().'\' ');
+						$already_one_where = true;
+					}
 				if($form['profile']['firstname']->getData())
-					$string_query .= 'AND pro.firstname = \''.$form['profile']['firstname']->getData().'\' ';
+					if($already_one_where)
+						$qb->andWhere(' pro.firstname = \''.$form['profile']['firstname']->getData().'\' ');
+					else
+						$qb->where(' pro.firstname = \''.$form['profile']['firstname']->getData().'\' ');
+					
 				
-				$query = $em->createQuery($string_query);
+			
+				
+				
+				$query = $qb->getQuery();
 				
 				$result = $query->getResult();
 				if($result)
 					return $this->render('MTMSearchBundle:Search:show_result.html.twig',
-						array('result'=> $result,
-							'string_query' => $string_query));
+						array('result'=> $result));
 				else{
 					$error = 'Aucun résultat';
 				}

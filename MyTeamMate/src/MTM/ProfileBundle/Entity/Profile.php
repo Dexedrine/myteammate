@@ -54,16 +54,6 @@ class Profile
     private $urlphoto;
 
     /**
-     * @var \TeamMate
-     *
-     * @ORM\OneToOne(targetEntity="MTM\CoreBundle\Entity\TeamMate")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idteammate", referencedColumnName="id")
-     * })
-     */
-    private $idteammate;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="description", type="text", length=4000, nullable=true)
@@ -171,29 +161,6 @@ class Profile
     public function getUrlphoto()
     {
         return $this->urlphoto;
-    }
-
-    /**
-     * Set idteammate
-     *
-     * @param \MTM\CoreBundle\Entity\TeamMate $id
-     * @return Profile
-     */
-    public function setIdteammate(\MTM\CoreBundle\Entity\TeamMate $idteammate = null)
-    {
-        $this->idteammate = $idteammate;
-    
-        return $this;
-    }
-
-    /**
-     * Get idteammate
-     *
-     * @return \MTM\CoreBundle\Entity\TeamMate 
-     */
-    public function getIdteammate()
-    {
-        return $this->idteammate;
     }
     
 

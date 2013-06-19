@@ -13,32 +13,29 @@ use MTM\SportBundle\Entity\Place;
 
 class SportController extends Controller {
 	public function viewAction() {
-		$idTeamMate = $this->get('security.context')->getToken()->getUser()
-				->getId();
-
-		$em = $this->getDoctrine()->getManager();
-		$repository = $em->getRepository('MTMSportBundle:Practice');
-
-		$practices = $repository->findBy(array('idteammate' => $idTeamMate));
-		if (!$practices) {
+		$teammate = $this->get('security.context')->getToken()->getUser();
+		if($teammate) return $this->redirect($this->generateUrl('login'));
+		
+		if (!$teammate->getPractices()) {
 			return $this->render('MTMSportBundle:Sport:no_sport.html.twig');
 		}
 
 				
 		
 		return $this->render('MTMSportBundle:Sport:sport.html.twig',
-				array( 'practices' => $practices )	);
+				array( 'practices' => $teammate->getPractices() )	);
 	}
 
 	public function addAction(Request $request) {
+		$teammate = $this->get('security.context')->getToken()->getUser();
+		if($teammate) return $this->redirect($this->generateUrl('login'));
+		
 		$practice = new Practice();
 		$place = new Place();
 		$slot = new Slot();
 
 		$practice->setIdplace($place)->addIdslot($slot);
-
-		$teammate = $this->get('security.context')->getToken()->getUser();
-
+		
 		$form = $this->createForm(new PracticeType(), $practice);
 
 		if ($request->isMethod('POST')) {
@@ -49,8 +46,6 @@ class SportController extends Controller {
 				$em = $this->getDoctrine()->getManager();
 				
 				$em->persist($place);
-				
-				$practice->setIdteammate($teammate);
 				$teammate->addPractice($practice);
 
 				$em->persist($practice);
@@ -68,6 +63,9 @@ class SportController extends Controller {
 
 	// avec peut être un paramètre
 	public function editAction(Request $request, $idpractice) {
+		$teammate = $this->get('security.context')->getToken()->getUser();
+		if($teammate) return $this->redirect($this->generateUrl('login'));
+		
 				
 		//Aller chercher en base :
 		$em = $this->getDoctrine()->getManager();
@@ -115,8 +113,8 @@ class SportController extends Controller {
 	}
 	
 	public function deleteAction(Request $request, $idpractice) {
-				
 		$teammate = $this->get('security.context')->getToken()->getUser();
+		if($teammate) return $this->redirect($this->generateUrl('login'));
 		
 		//Aller chercher en base :
 		
@@ -124,13 +122,13 @@ class SportController extends Controller {
 		$repository = $em->getRepository('MTMSportBundle:Practice');
 		$practice = $repository->findOneBy(array('idpractice' => $idpractice));
 		
-		
+		$teammate->removePractice($practice);
 		
 		$em->remove($practice);
 		foreach ($practice->getIdslots() as $slot) {
 			$em->remove($slot);
 		}
-		$teammate->removePractice($practice);
+		
 		$em->flush();
 
 		return $this->redirect($this->generateUrl('sport'));

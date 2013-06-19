@@ -30,6 +30,7 @@ class TeamMate extends BaseUser  implements ParticipantInterface{
 		parent::__construct();
 		$this->practices = new \Doctrine\Common\Collections\ArrayCollection();
 		$this->comments = new \Doctrine\Common\Collections\ArrayCollection();
+		$this->favorites = new \Doctrine\Common\Collections\ArrayCollection();	
 		}
 	
 	/**
@@ -78,6 +79,21 @@ class TeamMate extends BaseUser  implements ParticipantInterface{
 	 * )
 	 */
 	private $comments;
+	
+	/**
+	 * @var \Doctrine\Common\Collections\Collection
+	 *
+	 * @ORM\ManyToMany(targetEntity="TeamMate")
+	 * @ORM\JoinTable(name="favorites",
+	 *   joinColumns={
+	 *     @ORM\JoinColumn(name="idteammate", referencedColumnName="id" )
+	 *   },
+	 *   inverseJoinColumns={
+	 *     @ORM\JoinColumn(name="idfavorite", referencedColumnName="id")
+	 *   }
+	 * )
+	 */
+	private $favorites;
 	
 	/**
 	 * Set acceptusemail
@@ -194,5 +210,38 @@ class TeamMate extends BaseUser  implements ParticipantInterface{
     public function getComments()
     {
         return $this->comments;
+    }
+
+    /**
+     * Add favorites
+     *
+     * @param \MTM\CoreBundle\Entity\TeamMate $favorites
+     * @return TeamMate
+     */
+    public function addFavorite(\MTM\CoreBundle\Entity\TeamMate $favorites)
+    {
+        $this->favorites[] = $favorites;
+
+        return $this;
+    }
+
+    /**
+     * Remove favorites
+     *
+     * @param \MTM\CoreBundle\Entity\TeamMate $favorites
+     */
+    public function removeFavorite(\MTM\CoreBundle\Entity\TeamMate $favorites)
+    {
+        $this->favorites->removeElement($favorites);
+    }
+
+    /**
+     * Get favorites
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getFavorites()
+    {
+        return $this->favorites;
     }
 }

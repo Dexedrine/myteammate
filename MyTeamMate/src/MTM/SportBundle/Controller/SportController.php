@@ -14,7 +14,8 @@ use MTM\SportBundle\Entity\Place;
 class SportController extends Controller {
 	public function viewAction() {
 		$teammate = $this->get('security.context')->getToken()->getUser();
-
+		if($teammate) return $this->redirect($this->generateUrl('login'));
+		
 		if (!$teammate->getPractices()) {
 			return $this->render('MTMSportBundle:Sport:no_sport.html.twig');
 		}
@@ -26,14 +27,15 @@ class SportController extends Controller {
 	}
 
 	public function addAction(Request $request) {
+		$teammate = $this->get('security.context')->getToken()->getUser();
+		if($teammate) return $this->redirect($this->generateUrl('login'));
+		
 		$practice = new Practice();
 		$place = new Place();
 		$slot = new Slot();
 
 		$practice->setIdplace($place)->addIdslot($slot);
-
-		$teammate = $this->get('security.context')->getToken()->getUser();
-
+		
 		$form = $this->createForm(new PracticeType(), $practice);
 
 		if ($request->isMethod('POST')) {
@@ -61,6 +63,9 @@ class SportController extends Controller {
 
 	// avec peut être un paramètre
 	public function editAction(Request $request, $idpractice) {
+		$teammate = $this->get('security.context')->getToken()->getUser();
+		if($teammate) return $this->redirect($this->generateUrl('login'));
+		
 				
 		//Aller chercher en base :
 		$em = $this->getDoctrine()->getManager();
@@ -108,8 +113,8 @@ class SportController extends Controller {
 	}
 	
 	public function deleteAction(Request $request, $idpractice) {
-				
 		$teammate = $this->get('security.context')->getToken()->getUser();
+		if($teammate) return $this->redirect($this->generateUrl('login'));
 		
 		//Aller chercher en base :
 		
@@ -117,13 +122,13 @@ class SportController extends Controller {
 		$repository = $em->getRepository('MTMSportBundle:Practice');
 		$practice = $repository->findOneBy(array('idpractice' => $idpractice));
 		
-		
+		$teammate->removePractice($practice);
 		
 		$em->remove($practice);
 		foreach ($practice->getIdslots() as $slot) {
 			$em->remove($slot);
 		}
-		$teammate->removePractice($practice);
+		
 		$em->flush();
 
 		return $this->redirect($this->generateUrl('sport'));

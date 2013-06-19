@@ -10,6 +10,7 @@ use MTM\ProfileBundle\Entity\Profile;
 class ProfileController extends Controller {
 	public function profileAction() {
 		$teammate = $this->get('security.context')->getToken()->getUser();
+		if($teammate) return $this->redirect($this->generateUrl('login'));
 
 		if (!$teammate->getProfile()) {
 			return $this
@@ -50,7 +51,8 @@ class ProfileController extends Controller {
 	}
 
 	public function othersProfileAction($id) {
-		$teammate = $this->get('security.context')->getToken()->getUser();		
+		$teammate = $this->get('security.context')->getToken()->getUser();
+		if($teammate) return $this->redirect($this->generateUrl('login'));		
 		
 		$em = $this->getDoctrine()->getManager();
 		$repository = $em->getRepository('MTMCoreBundle:TeamMate');
@@ -108,9 +110,11 @@ class ProfileController extends Controller {
 	}
 
 	public function addAction(Request $request) {
+		$teammate = $this->get('security.context')->getToken()->getUser();
+		if($teammate) return $this->redirect($this->generateUrl('login'));
+		
 		$profile = new Profile();
 
-		$teammate = $this->get('security.context')->getToken()->getUser();
 
 		$form = $this->createFormBuilder($profile)
 				->add('name', 'text', array('label' => 'Nom'))

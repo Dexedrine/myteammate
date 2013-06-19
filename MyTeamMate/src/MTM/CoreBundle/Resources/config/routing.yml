@@ -8,3 +8,14 @@ login_check:
 logout:
     path:   /logout
     
+view_favorite:
+   pattern: /user/favorite
+   defaults:  { _controller: "MTMCoreBundle:Favorite:view" }
+   
+add_favorite:
+   pattern: /user/add_favorite/{id}
+   defaults:  { _controller: "MTMCoreBundle:Favorite:add" }
+
+remove_favorite:
+   pattern: /user/remove_favorite/{id}
+   defaults:  { _controller: "MTMCoreBundle:Favorite:remove" }

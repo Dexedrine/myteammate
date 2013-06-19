@@ -9,26 +9,16 @@ use MTM\ProfileBundle\Entity\Profile;
 
 class ProfileController extends Controller {
 	public function profileAction() {
-		$idTeamMate = $this->get('security.context')->getToken()->getUser()
-				->getId();
+		$teammate = $this->get('security.context')->getToken()->getUser();
 
-		$em = $this->getDoctrine()->getManager();
-		$repository = $em->getRepository('MTMProfileBundle:Profile');
-
-		$profile = $repository->findOneBy(array('idteammate' => $idTeamMate));
-		if (!$profile) {
+		if (!$teammate->getProfile()) {
 			return $this
 					->render('MTMProfileBundle:Profile:no_profile.html.twig');
 		}
 
-		
-		
 		return $this
 				->render('MTMProfileBundle:Profile:profile.html.twig',
-						array('name' => ucwords($profile->getName()),
-								'firstname' => ucwords($profile->getFirstName()),
-								'description' => ucwords($profile->getDescription()),
-								'picture' => ucwords($profile->getUrlphoto())));
+						array( 'teammate' => $teammate));
 	}
 	
 	public function pictureAction(Request $request) {		
@@ -60,24 +50,17 @@ class ProfileController extends Controller {
 	}
 
 	public function othersProfileAction($id) {
+		$teammate = $this->get('security.context')->getToken()->getUser();		
 		
-
 		$em = $this->getDoctrine()->getManager();
-		$repository = $em->getRepository('MTMProfileBundle:Profile');
+		$repository = $em->getRepository('MTMCoreBundle:TeamMate');
 
-		$profile = $repository->findOneBy(array('idteammate' => $id));
-		if (!$profile) {
-			return $this
-					->render('MTMProfileBundle:Profile:no_profile.html.twig');
-		}
+		$profile_teammate = $repository->findOneById($id);
 
 		return $this
 				->render('MTMProfileBundle:Profile:others_profile.html.twig',
-						array('id' => $id,
-								'name' => ucwords($profile->getName()),
-								'firstname' => ucwords($profile->getFirstName()),
-								'description' => ucwords($profile->getDescription()),
-								'picture' => ''));
+						array('teammate' => $teammate,
+							'profile_teammate' => $profile_teammate));
 	}
 
 	public function getPhotosUrl() {

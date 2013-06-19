@@ -4,18 +4,23 @@
 {% block body %}
 
 	<div class="personnal_info">
-		<span> {{ firstname }} </span>
-		<span> {{ name }} </span>
-		<span class="description"> {{ description }}</span>
+		<span> {{ profile_teammate.profile.firstname|title }} </span>
+		<span> {{ profile_teammate.profile.name|title }} </span>
+		<span class="description"> {{ profile_teammate.profile.description|title }}</span>
 	
 		<div class="picture">
-		{% if picture %}
-			<img alt="photo" src="{{ picture }}"/>
+		{% if profile_teammate.profile.urlphoto %}
+			<img alt="photo" src="{{ profile_teammate.profile.urlphoto }}"/>
 		{% else %}
 			<img alt="photo" src="{{ asset('bundles/mtmdesign/img/anonymous.jpg') }}">
 		{% endif %}
 		</div>
 		
+		{% if profile_teammate in teammate.favorites %}
+			<a href="{{ path('remove_favorite',{"id" : profile_teammate.id}) }}">Enlever des favoris</a>
+		{% else %}
+			<a href="{{ path('add_favorite',{"id" : profile_teammate.id}) }}">Mettre en favoris</a>		
+		{% endif %}
 	</div>
 	<div class="clear"></div>
 	
@@ -28,7 +33,7 @@
 		</div>
 		<div class="clear"></div>
 		<div class="tile left">
-			<a href="{{ path('view_post',{"id" : id}) }}">C</a>
+			<a href="{{ path('view_post',{"id" : profile_teammate.id}) }}">C</a>
 		</div>
 	</div>
 {% endblock %}

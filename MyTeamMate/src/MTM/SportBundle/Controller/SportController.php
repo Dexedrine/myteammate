@@ -13,21 +13,16 @@ use MTM\SportBundle\Entity\Place;
 
 class SportController extends Controller {
 	public function viewAction() {
-		$idTeamMate = $this->get('security.context')->getToken()->getUser()
-				->getId();
+		$teammate = $this->get('security.context')->getToken()->getUser();
 
-		$em = $this->getDoctrine()->getManager();
-		$repository = $em->getRepository('MTMSportBundle:Practice');
-
-		$practices = $repository->findBy(array('idteammate' => $idTeamMate));
-		if (!$practices) {
+		if (!$teammate->getPractices()) {
 			return $this->render('MTMSportBundle:Sport:no_sport.html.twig');
 		}
 
 				
 		
 		return $this->render('MTMSportBundle:Sport:sport.html.twig',
-				array( 'practices' => $practices )	);
+				array( 'practices' => $teammate->getPractices() )	);
 	}
 
 	public function addAction(Request $request) {
@@ -49,8 +44,6 @@ class SportController extends Controller {
 				$em = $this->getDoctrine()->getManager();
 				
 				$em->persist($place);
-				
-				$practice->setIdteammate($teammate);
 				$teammate->addPractice($practice);
 
 				$em->persist($practice);

@@ -89,7 +89,7 @@ class TeamMate extends BaseUser  implements ParticipantInterface{
 	 *     @ORM\JoinColumn(name="idteammate", referencedColumnName="id" )
 	 *   },
 	 *   inverseJoinColumns={
-	 *     @ORM\JoinColumn(name="idteammate", referencedColumnName="id")
+	 *     @ORM\JoinColumn(name="idfavorite", referencedColumnName="id")
 	 *   }
 	 * )
 	 */

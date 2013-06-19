@@ -4,13 +4,13 @@
 {% block body %}
 
 	<div class="personnal_info">
-		<span> {{ firstname }} </span>
-		<span> {{ name }} </span>
-		<span class="description"> {{ description }}</span>
+		<span> {{ teammate.profile.firstname|title }} </span>
+		<span> {{ teammate.profile.name|title }} </span>
+		<span class="description"> {{ teammate.profile.description|title }}</span>
 	
 		<div class="picture">
-		{% if picture %}
-			<a href="{{ path('choose_picture') }}"><img alt="photo" src="{{ picture }}"/></a>
+		{% if teammate.profile.urlphoto %}
+			<a href="{{ path('choose_picture') }}"><img alt="photo" src="{{ teammate.profile.urlphoto }}"/></a>
 		{% else %}
 			<img alt="photo" src="{{ asset('bundles/mtmdesign/img/anonymous.jpg') }}">
 			<div><a href="{{ path('choose_picture') }}">Vous n'avez pas encore d'image de profil, en choisir une?</a></div>
@@ -32,7 +32,7 @@
 			<a href="{{ path('view') }}">C</a>
 		</div>
 		<div class="tile right">
-			<a>F</a>
+			<a href="{{ path('view_favorite') }}">F</a>
 		</div>
 		<div class="tile left">
 			<a href="{{ path('search') }}" >R</a>

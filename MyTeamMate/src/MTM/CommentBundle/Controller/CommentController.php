@@ -9,17 +9,11 @@ use MTM\CommentBundle\Entity\Comment;
 class CommentController extends Controller {
 	
 	public function viewAction() {
-		$idTeamMate = $this->get('security.context')->getToken()->getUser()
-				->getId();
-
-		$em = $this->getDoctrine()->getManager();
-		$repository = $em->getRepository('MTMCommentBundle:Comment');
-
-		$comments = $repository->findBy(array('idreceiver' => $idTeamMate));
+		$teammate = $this->get('security.context')->getToken()->getUser();
 		
 		
 		return $this->render('MTMCommentBundle:Comment:view.html.twig',
-				array( 'comments' => $comments )	);
+				array( 'comments' => $teammate->getComments() )	);
 	}
 	
 	public function viewPostAction($id,Request $request) {

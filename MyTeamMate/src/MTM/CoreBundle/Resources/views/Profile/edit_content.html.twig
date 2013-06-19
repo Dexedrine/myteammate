@@ -1,8 +1,27 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
 <form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST" class="fos_user_profile_edit">
-    {{ form_widget(form) }}
+   <ul class="inputs">
+    <li>
+    	<span class="icon" data-icon="&#xe003;" aria-hidden="true" title="username"></span>
+    {{ form_widget(form.username) }}
+    </li>
+    <li>
+    <span class="icon" data-icon="&#xe000;" aria-hidden="true" title="email"></span>
+    {{ form_widget(form.email) }}
+    </li>
+    <li>
+    <span class="icon" data-icon="&#xe002;" aria-hidden="true" title="password"></span>
+    {{ form_widget(form.current_password) }}
+    </li>
+    </ul>
     <div>
-        <input type="submit" value="{{ 'profile.edit.submit'|trans }}" />
-    </div>
+ <div class="registrationSubmit" onclick="document.forms['reg_form'].submit()">
+		 	   <div class="registrationSubmitInner">
+		 	   	<span class="icon">
+		 	   		<span class="icon" data-icon="&#xe001;" aria-hidden="true" title="password"></span>
+		 	   		 <input value="Valider" type="submit" />
+		 	   	</span>
+		</div>    </div>
+    {{ form_rest(form) }}
 </form>

@@ -54,15 +54,15 @@
 			<div class="practice" id="{{ practice.getIdpractice() }}" draggable="true">
 				{{ practice.getIdSport().getNomsport() }} <br>
 				{{ practice.getIdPlace().getAddress() }} <br>
-				{{ practice.getIdLevel().getLevel() }} <br>
+				Niveau : {{ practice.getIdLevel().getLevel() }} <br>
 				{% for slot in practice.getIdslots %}
-							{{ slot.getDay() }}	  
-							{{ slot.getStarthour()|date('H:i') }} 
-							{{ slot.getEndhour()|date('H:i') }}
+							Le {{ slot.getDay() }}	  
+							de : {{ slot.getStarthour()|date('H:i') }} 
+							à {{ slot.getEndhour()|date('H:i') }}
 							<br>
 				{% endfor %}
-				<a href="{{ path('edit_sport',{"idpractice" : practice.getIdpractice()}) }}" >Modifier</a>
-				<a href="{{ path('delete_sport',{"idpractice" : practice.getIdpractice()}) }}" >Supprimer</a>
+				<a href="{{ path('edit_sport',{"idpractice" : practice.getIdpractice()}) }}" ><button>Modifier</button></a>
+				<a href="{{ path('delete_sport',{"idpractice" : practice.getIdpractice()}) }}" ><button>Supprimer</button></a>
 			</div>
 		
 	{% endfor %}

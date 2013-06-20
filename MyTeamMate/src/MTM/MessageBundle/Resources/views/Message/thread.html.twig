@@ -1,64 +1,76 @@
 {% extends 'FOSMessageBundle::layout.html.twig' %}
 {% block fos_message_content %}
+
 <div class="messagesTable">
-
-<table>
-
-    <thead>
-        <tr>
-            <th colspan="2"> {{ thread.subject }} </th>
-        </tr>
-    </thead>
-</table>
-{% for message in thread.messages %}
+	<div class="loginForm">
 	<table>
-     <tbody>
-	{% if message.sender == thread.createdBy  %}
-	<tr>
-                <td class ="profilImg">
-                    <img src="{{ message.getSender().getProfile().getUrlphoto()}}" alt="{{thread.getParticipants()[0]  }}"/>
-                </td>
-                <td>
-                	{{ message.getSender().getProfile().getFirstname()}}
-                    {{ message.getSender().getProfile().getName()}}
-                    <br>
-					{{ message.body }}
-
-                    <br>{% if not fos_message_is_read(thread) %}
-                        ({% trans from 'FOSMessageBundle' %}new{% endtrans %})
-                    {% endif %}
-                </td>
-            </tr>
-    {% else %}
+	    <thead>
+	        <tr>
+	            <th colspan="2"> {{ thread.subject }} </th>
+	        </tr>
+	    </thead>
+	</table>
+	{% for message in thread.messages %}
+		<table>
+	     <tbody>
+		{% if message.sender == thread.createdBy  %}
 		<tr>
-                <td>
-                	{{ message.getSender().getProfile().getFirstname()}}
-                    {{ message.getSender().getProfile().getName()}}
-                    <br>
-					{{ message.body }}
-
-                    <br>{% if not fos_message_is_read(thread) %}
-                        ({% trans from 'FOSMessageBundle' %}new{% endtrans %})
-                    {% endif %}
-                </td>
+	                <td class ="profilImg">
+	                    <img src="{{ message.getSender().getProfile().getUrlphoto()}}" alt="{{thread.getParticipants()[0]  }}"/>
+	                </td>
+	                <td>
+	                	{{ message.getSender().getProfile().getFirstname()}}
+	                    {{ message.getSender().getProfile().getName()}}
+	                    <br>
+						{{ message.body }}
+	
+	                    <br>{% if not fos_message_is_read(thread) %}
+	                        ({% trans from 'FOSMessageBundle' %}new{% endtrans %})
+	                    {% endif %}
+	                </td>
+	            </tr>
+	    {% else %}
+			<tr>
+	                <td>
+	                	{{ message.getSender().getProfile().getFirstname()}}
+	                    {{ message.getSender().getProfile().getName()}}
+	                    <br>
+						{{ message.body }}
+	
+	                    <br>{% if not fos_message_is_read(thread) %}
+	                        ({% trans from 'FOSMessageBundle' %}new{% endtrans %})
+	                    {% endif %}
+	                </td>
+	                <td class ="profilImg">
+	                    <img src="{{ message.getSender().getProfile().getUrlphoto()}}" alt="{{thread.getParticipants()[0]  }}"/>
+	                </td>
+	            </tr>
+	    {% endif %}
+        </tbody>
+		</table>
+	{% endfor %}
+	<form action="{{ url('fos_message_thread_view', {'threadId': thread.id}) }}" method="post">
+		<table>
+     	<tbody>
+			<tr>
                 <td class ="profilImg">
-                    <img src="{{ message.getSender().getProfile().getUrlphoto()}}" alt="{{thread.getParticipants()[0]  }}"/>
+                	<img src="{{ thread.createdBy.getProfile().getUrlphoto()}}" alt="{{thread.getParticipants()[0]  }}"/>
+                </td>
+                <td>
+					{{ form_widget(form.body, {'attr': {'placeholder': 'Réponse','cols': '35','rows': '3'}}) }}
                 </td>
             </tr>
-    {% endif %}
-            </tbody>
-
-</table>
-{% endfor %}
-
-<h3>{% trans from 'FOSMessageBundle' %}reply{% endtrans %}</h3>
-
-<form action="{{ url('fos_message_thread_view', {'threadId': thread.id}) }}" method="post">
-    {{ form_widget(form) }}
-
-    <input type="submit" />
-</form>
-
+        </tbody>
+		</table>
+		<div >
+	 	   <div class="newMessageSubmit" onclick="document.forms['loginForm'].submit()"> 
+		 	   <div class="loginSubmitInner">
+		 	   		<input type="submit" />
+		 	   </div>   
+	 	   </div>
+		</div>
+	</form>
+	</div>
 </div>
 
 {% endblock %}

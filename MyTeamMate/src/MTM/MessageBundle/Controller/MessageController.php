@@ -15,17 +15,17 @@ class MessageController extends BaseController
 {
 	public function messageAction()
 	{
-// 		$idTeammate = $this->get('security.context')->getToken()->getUser()->getIdteammate() ;
-	
-// 		$em = $this->getDoctrine()->getManager();
-// 		$repository = $em->getRepository('MTMMessageBundle:Message');
-	
-// 		$messages = null ;//= $repository->findByIdreceivers($idTeammate);
-// 		if (!$messages) {
-// 			return $this->render('MTMMessageBundle:Message:no_message.html.twig');
-// 		}
-		//return $this->render('FOSMessageBundle::layout.html.twig');
-		return $this->container->get('templating')->renderResponse('MTMMessageBundle::layout.html.twig');
+		$teammate = $this->get('security.context')->getToken()->getUser();
+		if(!$teammate) return $this->redirect($this->generateUrl('login'));
+
+		if (!$teammate->getProfile()) {
+			return $this
+					->render('MTMProfileBundle:Profile:no_profile.html.twig');
+		}
+		return $this
+		->render('MTMMessageBundle:Message:layout.html.twig',
+				array( 'teammate' => $teammate));
+		
 	}
 //      /**
 //      * Displays the authenticated participant inbox

@@ -1,22 +1,44 @@
 <div class="registrationForm">
 	<form name="reg_form" action="{{ path('fos_user_registration_register') }}" method="post" {{ form_enctype(form) }}>
 	  <ul class="inputs">
+	  	
 	   <li>
 	   		<span class="icon" data-icon="&#xe000;" aria-hidden="true" title="email"></span>
 		    {{ form_widget(form.email, {'attr': {'placeholder': 'Email'}}) }}
 	    </li>
+	    {% if form_errors(form.email) %}
+	   		<div class="error">
+	   			 <p>Veuillez saisir une adresse mail valide ou non utilisée<p>
+	   	{% endif %}
 	    <li>
 	   		<span class="icon" data-icon="&#xe003;" aria-hidden="true" title="username"></span>
 		    {{ form_widget(form.username, {'attr': {'placeholder': 'Pseudo'}}) }}
 	    </li>
+	    {% if form_errors(form.username) %}
+	   		<div class="error">
+	   			 <p>Veuillez saisir un login<p>
+	   		</div>
+	   	{% endif %}
 	    <li>
 			<span class="icon" data-icon="&#xe002;" aria-hidden="true" title="password"></span>	
 	 	 	{{ form_widget(form.plainPassword.first, {'attr': {'placeholder': 'Mot de passe'}}) }}
 	 	 </li>
+	 	 {% if form_errors(form.plainPassword.first) %}
+	   		<div class="error">
+	   			 <p>Veuillez saisir un mot de passe<p>
+	   		</div>
+	   	{% endif %}
+	   	
 	 	 <li>
 	 		 <span class="icon" data-icon="&#xe002;" aria-hidden="true" title="password"></span>	
 	 		 {{ form_widget(form.plainPassword.second, {'attr': {'placeholder': 'Vérification'}}) }}
 	 	 </li>
+	 	 
+	 	  {% if form_errors(form.plainPassword.first)=="<ul><li>fos_user.password.mismatch</li></ul>" %}
+	   		<div class="error">
+	   			 <p>Les deux champs ne sont pas identiques<p>
+	   		</div>
+	   	{% endif %}
 	 	 
 	    </ul>
 	    <div class="registrationSubmit" onclick="document.forms['reg_form'].submit()">

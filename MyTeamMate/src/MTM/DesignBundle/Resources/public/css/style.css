@@ -1,15 +1,15 @@
 /* common */
 body{
-	font-family: 'Pontano Sans', arial, serif;
-	background-color: #F0F0F0;
-	z-index : 0;
-	margin: 0;
+font-family: 'Pontano Sans', arial, serif;
+background-color: #F0F0F0;
+z-index : 0;
+margin: 0;
 }
 
 .middle{
-	text-align: center;
-	margin: 10px auto;
-	max-width: 400px;
+text-align: center;
+margin: 10px auto;
+max-width: 400px;
 }
 label
 {
@@ -24,260 +24,267 @@ label
 
 /* header */
 .top, .bottom{
-	background-color: #13648C;
-	color: white;
-	width: 100%;
-	height: 35px;
-	line-height: 35px;	
+background-color: #13648C;
+color: white;
+width: 100%;
+height: 35px;
+line-height: 35px;	
 }
 .left_head{
-	position: absolute;
-	float:left;
-	top: 0px;
-	left: 5px;
+position: absolute;
+float:left;
+top: 0px;
+left: 5px;
 }
 .page_name{
-	text-align: center;
-	font-weight: bold;
-	font-size: 20px;
-	width: 100%;
+text-align: center;
+font-weight: bold;
+font-size: 20px;
+width: 100%;
 }
 .right_head{
-	position: absolute;
-	float:right;
-	top: 0px;
-	right: 5px;
+position: absolute;
+float:right;
+top: 0px;
+right: 5px;
 }
 
 .button img{
-	cursor:pointer; 
-	margin: 7px 10px;
+cursor:pointer;
+margin: 7px 10px;
 }
 
 nav{
-	background-color : #13648C;
-	border: 2px solid white;
-	top: 35px;
-	width : 250px;
-	position: absolute;
-	z-index: 1;
+background-color : #13648C;
+border: 2px solid white;
+top: 35px;
+width : 250px;
+position: absolute;
+z-index: 1;
 }
 nav div a{
-	padding: 3px 10px;
-	border: 2px solid white;	
-	color: white;	
-	text-decoration: none;
-	display: block;
-	height: 100%;
+padding: 3px 10px;
+border: 2px solid white;	
+color: white;	
+text-decoration: none;
+display: block;
+height: 100%;
 }
 /* footer */
 .bottom{
-	position: absolute;
-	bottom: 0;
-	text-align: center;
-	font-size: 11px;
+position: absolute;
+bottom: 0;
+text-align: center;
+font-size: 11px;
 }
 
 /* login */
 .loginForm {
-	margin: 0 20px;
+margin: 0 20px;
 }
-<<<<<<< HEAD
-
-.messagesTable table{
-	text-align: center;
-	margin: 0 auto;
-	width: 400px;
-}
-.messagesTable th{
-	background-color: #E1E1E1;
-	margin: 0 0 10px 200px;
-}
-
-.messagesTable tr{
-	background-color: #FFFFFF;
-	margin: 0 0 10px 200px;
-}
-
-
-.loginForm form{
-	text-align: center;
-	margin: 0 auto;
-	max-width: 400px;
-}
-
-=======
->>>>>>> branch 'master' of https://github.com/Dexedrine/myteammate.git
 .inputs li{
-	list-style: none;
-	background: #FFFFFF;
-	padding: 12px 15px;
-	margin: 0 0 10px 0;
+list-style: none;
+background: #FFFFFF;
+padding: 12px 15px;
+margin: 0 0 10px 0;
 }
 
 .inputs{
-	margin: 0;
-	padding: 0;
+margin: 0;
+padding: 0;
 }
 
 .inputs li input{
-	border: none;
-	font-size: 18px;
-	outline: none;
+border: none;
+font-size: 18px;
+outline: none;
 }
 
 .inputs li label{
-	color: #A9A9A9;
-	margin-left: 89px;
+color: #A9A9A9;
+margin-left: 89px;
 }
 .icon{
-	margin-right: 5px;
-	color: #A8A8A8;
+margin-right: 5px;
+color: #A8A8A8;
 }
 .footerLogin{
-	text-align: left;
-	margin: 0;
-	display: block;
-	height: 50px;
-	margin-top: 20px;
+text-align: left;
+margin: 0;
+display: block;
+height: 50px;
+margin-top: 20px;
 }
 .footerMessage{
-	text-align: left;
-	margin: 0;
-	display: block;
-	height: 100px;
-	margin-top: 20px;
+text-align: left;
+margin: 0;
+display: block;
+height: 100px;
+margin-top: 20px;
 }
 .footerLogin ul{
-	margin: 0;
-	padding: 0;
-	float: left;
-	max-width: 195px;
-	margin-top: 7px;
+margin: 0;
+padding: 0;
+float: left;
+max-width: 195px;
+margin-top: 7px;
 }
 
 .footerLogin ul li{
-	list-style: none;
-	font-size: 14px;
-	
+list-style: none;
+font-size: 14px;
+
 }
 
 .loginLink,
 .loginSubmit {
-	height: 51px;
+height: 51px;
 }
 .loginSubmit{
-	background-color: #E1E1E1;
-	margin: 0 0 10px 200px;
+background-color: #E1E1E1;
+margin: 0 0 10px 200px;
 }
 .newMessageSubmit{
-	background-color: #E1E1E1;
-	margin: 0 0 10px 0;
+background-color: #E1E1E1;
+margin: 0 0 10px 0;
 }
+.deleteMessageSubmit{
+background-color: #FFFFFF;
+margin: 0 0 0 0px;
+width : 70px;
+text-align : center;
 
-.newMessageSubmit input, .loginSubmit input, .registrationSubmit input{
-	background-color: #E1E1E1;
-	border: 0px;
-	font-size: 16px;
+}
+.deleteMessageSubmit span{
 	position: relative;
-	cursor: pointer;
+	margin: 0 0 0 20px;
+}
+.deleteMessageSubmit input{
+background-color: #FFFFFF;
+border: 0px;
+font-size: 16px;
+position: relative;
+cursor: pointer;
+}
+.newMessageSubmit input, .loginSubmit input, .registrationSubmit input{
+background-color: #E1E1E1;
+border: 0px;
+font-size: 16px;
+position: relative;
+cursor: pointer;
 }
 
 .newMessageSubmit, .loginSubmit .loginSubmitInner, .registrationSubmit .registrationSubmitInner {
-	padding: 12px 15px;	
+padding: 12px 15px;	
 }
 .loginSubmitInner, .registrationSubmitInner {
-	margin: 0 auto;
-	width: 100px;
+margin: 0 auto;
+width: 100px;
 }
 
 .rememberMe label {
-	font-weight: bold;
+font-weight: bold;
 }
 
 /*registration*/
 .registrationForm {
-	margin: 0 20px;
+margin: 0 20px;
 }
 
 .registrationForm form{
-	text-align: center;
-	margin: 0 auto;
-	max-width: 400px;
+text-align: center;
+margin: 0 auto;
+max-width: 400px;
 }
 .registrationSubmit{
-	background-color: #E1E1E1;
+background-color: #E1E1E1;
 }
 
 .acceptusemail{	
-	line-height: 2em;	
+line-height: 2em;	
 }
 
 .acceptusemail label{
-	line-height: 1em;
+line-height: 1em;
 }
 
 /* profile */
 .personnal_info{
-	font-weight: bold;
-	font-size: 14px;
-	text-align: left;
-	margin: 0 10px;
+font-weight: bold;
+font-size: 14px;
+text-align: left;
+margin: 0 10px;
 }
 .personnal_info .description{
-	display: block;
-	font-weight: normal;
+display: block;
+font-weight: normal;
 }
 .picture img{
-	max-width: 150px;
-	float: right;
-	margin-top: -3em;
+max-width: 150px;
+float: right;
+margin-top: -3em;
 }
 .tiles{
-	height: 100%;	
+height: 100%;	
 }
 .tile{
-	margin: 3% 10px;
-	width: 45%;
-	height: 110px;
-	background-color: white;
+margin: 3% 10px;
+width: 45%;
+height: 110px;
+background-color: white;
 }
 .tile.left{float: left}
 .tile.right{float: right}
 .tile a{
-	display:block;
-	width: 100%;
-	height:100%;	
-	font-size: 75px;
+display:block;
+width: 100%;
+height:100%;	
+font-size: 75px;
     font-weight: bold;
     text-decoration: none;
     color: #13648C;
     -moz-box-shadow: 3px 3px 2px #888;
-	-webkit-box-shadow: 3px 3px 2px #888;
-	box-shadow: 3px 3px 2px #888;
+-webkit-box-shadow: 3px 3px 2px #888;
+box-shadow: 3px 3px 2px #888;
 }
 .tile img{
-	max-width: 90%;
-	max-height:90%;	
+max-width: 90%;
+max-height:90%;	
 }
 
 /* picture choice */
 .flickr_pictures img{
-	max-width: 150px;
-	max-height: 150px;	
+max-width: 150px;
+max-height: 150px;	
 }
 
 
 /* practice */
 
 .practice{
-	background-color: #FFFFFF;
-	margin: 20px 10px;
-	padding: 4px ;
+background-color: #FFFFFF;
+margin: 20px 10px;
+padding: 4px ;
 }
 
+/* Messages */
+.messagesTable table{
+	text-align: center;
+	margin: 0 auto;
+	width: 100%;
+	border : 0px;
+}
+.messagesTable th{
+	background-color: #E1E1E1;
+	margin: 0 0 10px 200px;
+	
+}
 
-
-
-
-
+.messagesTable tr{
+	background-color: #FFFFFF;
+	margin: 0 0 10px 200px;
+}
+.messagesTable img{
+	width : 50px;
+	height: 50px;
+}

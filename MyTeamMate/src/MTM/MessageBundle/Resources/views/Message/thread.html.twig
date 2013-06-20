@@ -16,11 +16,11 @@
 	{% if message.sender == thread.createdBy  %}
 	<tr>
                 <td class ="profilImg">
-                    <img src="{{ message.getSender().getIdprofile().getUrlphoto()}}" alt="{{thread.getParticipants()[0]  }}"/>
+                    <img src="{{ message.getSender().getProfile().getUrlphoto()}}" alt="{{thread.getParticipants()[0]  }}"/>
                 </td>
                 <td>
-                	{{ message.getSender().getIdprofile().getFirstname()}}
-                    {{ message.getSender().getIdprofile().getName()}}
+                	{{ message.getSender().getProfile().getFirstname()}}
+                    {{ message.getSender().getProfile().getName()}}
                     <br>
 					{{ message.body }}
 
@@ -32,8 +32,8 @@
     {% else %}
 		<tr>
                 <td>
-                	{{ message.getSender().getIdprofile().getFirstname()}}
-                    {{ message.getSender().getIdprofile().getName()}}
+                	{{ message.getSender().getProfile().getFirstname()}}
+                    {{ message.getSender().getProfile().getName()}}
                     <br>
 					{{ message.body }}
 
@@ -42,7 +42,7 @@
                     {% endif %}
                 </td>
                 <td class ="profilImg">
-                    <img src="{{ message.getSender().getIdprofile().getUrlphoto()}}" alt="{{thread.getParticipants()[0]  }}"/>
+                    <img src="{{ message.getSender().getProfile().getUrlphoto()}}" alt="{{thread.getParticipants()[0]  }}"/>
                 </td>
             </tr>
     {% endif %}

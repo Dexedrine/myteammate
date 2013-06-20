@@ -14,11 +14,11 @@
         {% for thread in threads %}
             <tr>
                 <td>
-                    <img src="{{ thread.getParticipants()[0].getIdprofile().getUrlphoto()}}" alt="{{thread.getParticipants()[0]  }}"/>
+                    <img src="{{ thread.getParticipants()[0].getProfile().getUrlphoto()}}" alt="{{thread.getParticipants()[0]  }}"/>
                 </td>
                 <td>
-                	{{ thread.createdBy.getIdprofile().getFirstname()}}
-                    {{ thread.createdBy.getIdprofile().getName()}}
+                	{{ thread.createdBy.getProfile().getFirstname()}}
+                    {{ thread.createdBy.getProfile().getName()}}
                     <br><a href="{{ url('fos_message_thread_view', {'threadId': thread.id}) }}">
                     {{ thread.subject }}
                     </a>

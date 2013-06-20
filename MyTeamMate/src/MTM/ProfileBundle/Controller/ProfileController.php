@@ -10,7 +10,7 @@ use MTM\ProfileBundle\Entity\Profile;
 class ProfileController extends Controller {
 	public function profileAction() {
 		$teammate = $this->get('security.context')->getToken()->getUser();
-		if($teammate) return $this->redirect($this->generateUrl('login'));
+		if(!$teammate) return $this->redirect($this->generateUrl('login'));
 
 		if (!$teammate->getProfile()) {
 			return $this
@@ -26,17 +26,14 @@ class ProfileController extends Controller {
 		if ($request->isMethod('POST')) {
 			if ($_POST['photos']) {
 				//get user profile to update
-				$idTeamMate = $this->get('security.context')->getToken()->getUser()
-				->getId();
-				$em = $this->getDoctrine()->getManager();
-				$repository = $em->getRepository('MTMProfileBundle:Profile');
-				$profile = $repository->findOneBy(array('idteammate' => $idTeamMate));
+				$teammate = $this->get('security.context')->getToken()->getUser();
 				
+				$em = $this->getDoctrine()->getManager();
+				$profile = $teammate->getProfile();
 				//set profile picture
 				$profile->setUrlphoto($_POST['photos']);
 				
 				//save to database
-				$em->persist($profile);
 				$em->flush();
 				return $this->redirect($this->generateUrl('profile'));
 			}
@@ -52,7 +49,7 @@ class ProfileController extends Controller {
 
 	public function othersProfileAction($id) {
 		$teammate = $this->get('security.context')->getToken()->getUser();
-		if($teammate) return $this->redirect($this->generateUrl('login'));		
+		if(!$teammate) return $this->redirect($this->generateUrl('login'));		
 		
 		$em = $this->getDoctrine()->getManager();
 		$repository = $em->getRepository('MTMCoreBundle:TeamMate');
@@ -111,7 +108,7 @@ class ProfileController extends Controller {
 
 	public function addAction(Request $request) {
 		$teammate = $this->get('security.context')->getToken()->getUser();
-		if($teammate) return $this->redirect($this->generateUrl('login'));
+		if(!$teammate) return $this->redirect($this->generateUrl('login'));
 		
 		$profile = new Profile();
 
@@ -130,9 +127,6 @@ class ProfileController extends Controller {
 				$em = $this->getDoctrine()->getManager();
 				$teammate->setProfile($profile);
 				$em->persist($profile);
-				$em->flush();
-				$em = $this->getDoctrine()->getManager();
-				$em->persist($teamate->setIdprofile($profile));
 				$em->flush();
 				return $this->redirect($this->generateUrl('profile'));
 			}

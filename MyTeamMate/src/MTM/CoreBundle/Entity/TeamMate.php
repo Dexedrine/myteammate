@@ -244,4 +244,5 @@ class TeamMate extends BaseUser  implements ParticipantInterface{
     {
         return $this->favorites;
     }
+    
 }

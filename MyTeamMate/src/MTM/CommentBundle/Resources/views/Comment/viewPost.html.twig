@@ -27,5 +27,6 @@
 	{% for comment in teammate.comments %}
 		{{ comment.body }}
 		by {{ comment.idsender.username }}
+		at {{ comment.createdAt|date('H:i d/m/y',"Europe/Paris") }}
 	{% endfor %}	
 {% endblock %}

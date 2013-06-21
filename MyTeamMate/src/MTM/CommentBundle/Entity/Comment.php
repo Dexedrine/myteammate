@@ -6,7 +6,9 @@ use Doctrine\ORM\Mapping as ORM;
 use MTM\CoreBundle\Entity\TeamMate;
 
 /**
- * @ORM\Entity	                         	
+ * 
+ * @ORM\Table(name="comment")
+ * @ORM\Entity                         	
  */
 class Comment	
 {
@@ -28,7 +30,7 @@ class Comment
 	/**
      * @var \TeamMate
      *
-     * @ORM\OneToOne(targetEntity="MTM\CoreBundle\Entity\TeamMate")
+     * @ORM\ManyToOne(targetEntity="MTM\CoreBundle\Entity\TeamMate" )
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="idsender", referencedColumnName="id")
      * })
@@ -38,14 +40,28 @@ class Comment
 	/**
      * @var \TeamMate
      *
-     * @ORM\OneToOne(targetEntity="MTM\CoreBundle\Entity\TeamMate")
+     * @ORM\ManyToOne(targetEntity="MTM\CoreBundle\Entity\TeamMate")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="idreceiver", referencedColumnName="id")
      * })
      */
     private $idreceiver;
+    
+    /**
+     * @var DateTime
+     * 
+     * @ORM\Column(name="createAt", type="datetime", nullable=false)
+     */
+    protected $createdAt;
 	
-
+    /**
+     * Constructor.
+     */
+    public function __construct()
+    {
+    	$this->createdAt = new \DateTime();
+    }
+    
     /**
      * Get idcomment
      *
@@ -123,5 +139,16 @@ class Comment
     public function getIdreceiver()
     {
         return $this->idreceiver;
+    }
+
+   
+    /**
+     * Get createdAt
+     *
+     * @return DateTime
+     */
+    public function getCreatedAt()
+    {
+    	return $this->createdAt;
     }
 }

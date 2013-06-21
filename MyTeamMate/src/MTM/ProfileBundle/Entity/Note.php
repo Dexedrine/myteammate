@@ -15,15 +15,7 @@ use MTM\CoreBundle\Entity\TeamMate;
  */
 class Note
 {
-    /**
-     * @var integer
-     *
-     * @ORM\Column( type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $idnote;
-
+    
     /**
      * @var integer
      *
@@ -36,11 +28,12 @@ class Note
      *
      * @ORM\Column( type="datetime", nullable=true)
      */
-    private $datenote;
+    private $createdAt;
 
     /**
      * @var \TeamMate
-     *
+     * 
+     * @ORM\Id
      * @ORM\ManyToOne(targetEntity="MTM\CoreBundle\Entity\TeamMate")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="idrater", referencedColumnName="id")
@@ -49,8 +42,9 @@ class Note
     private $idrater;
 
     /**
-     * @var \User
+     * @var \TeamMate
      *
+     * @ORM\Id
      * @ORM\ManyToOne(targetEntity="MTM\CoreBundle\Entity\TeamMate")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="idnoted", referencedColumnName="id")
@@ -100,26 +94,26 @@ class Note
     }
 
     /**
-     * Set datenote
+     * Set createdAt
      *
-     * @param \DateTime $datenote
+     * @param \DateTime $createdAt
      * @return Note
      */
-    public function setDatenote($datenote)
+    public function setCreatedAt($createdAt)
     {
-        $this->datenote = $datenote;
+        $this->createdAt = $createdAt;
     
         return $this;
     }
 
     /**
-     * Get datenote
+     * Get createdAt
      *
      * @return \DateTime 
      */
-    public function getDatenote()
+    public function getCreatedAt()
     {
-        return $this->datenote;
+        return $this->createdAt;
     }
 
     /**

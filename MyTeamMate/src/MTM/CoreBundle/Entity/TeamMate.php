@@ -96,6 +96,22 @@ class TeamMate extends BaseUser  implements ParticipantInterface{
 	private $favorites;
 	
 	/**
+	 * @var \Doctrine\Common\Collections\Collection
+	 *
+	 * @ORM\ManyToMany(targetEntity="MTM\ProfileBundle\Entity\Note")
+	 * @ORM\JoinTable(name="notes",
+	 *   joinColumns={
+	 *     @ORM\JoinColumn(name="idteammate", referencedColumnName="id" )
+	 *   },
+	 *   inverseJoinColumns={
+	 *     @ORM\JoinColumn(name="idrater", referencedColumnName="idrater"),
+	 *     @ORM\JoinColumn(name="idnoted", referencedColumnName="idnoted")
+	 *   }
+	 * )
+	 */
+	private $notes;
+	
+	/**
 	 * Set acceptusemail
 	 *
 	 * @param boolean $acceptusemail
@@ -245,4 +261,37 @@ class TeamMate extends BaseUser  implements ParticipantInterface{
         return $this->favorites;
     }
     
+
+    /**
+     * Add notes
+     *
+     * @param \MTM\ProfileBundle\Entity\Note $notes
+     * @return TeamMate
+     */
+    public function addNote(\MTM\ProfileBundle\Entity\Note $notes)
+    {
+        $this->notes[] = $notes;
+
+        return $this;
+    }
+
+    /**
+     * Remove notes
+     *
+     * @param \MTM\ProfileBundle\Entity\Note $notes
+     */
+    public function removeNote(\MTM\ProfileBundle\Entity\Note $notes)
+    {
+        $this->notes->removeElement($notes);
+    }
+
+    /**
+     * Get notes
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getNotes()
+    {
+        return $this->notes;
+    }
 }

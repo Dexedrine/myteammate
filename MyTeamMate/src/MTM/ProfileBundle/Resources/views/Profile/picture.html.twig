@@ -3,18 +3,39 @@
 {% block page_name %}Photo de profil{% endblock %}
 
 {% block body %}
+<script type="text/javascript">
+	function setImage(input){
+		$(document).find('input').prop("checked",false);
+		$(document).find('input').parent().removeClass('checked');
+		input.prop("checked",true);
+		input.parent().addClass('checked');
+		input.change();
+	}
+</script>
 
 <div class="instruction">Choisissez la photo que vous souhaitez utiliser:</div>
 <div class="flickr_pictures">
 	<form name="picture_form" action="{{ path('choose_picture') }}" method="post">
 		<div class="photo_list">
 			{% for p in pictures %}
-		    	<input type="radio" name="photos" value="{{ p }}">
-		    		<img src="{{ p }}" alt="X"/>
-		    	</input>
+				<div class="flickr_picture" 
+					onclick="javascript:setImage($(this).find('input'));">
+			    	<input type="radio" name="photos" value="{{ p }}">
+			    		<img src="{{ p }}" alt="X"/>
+			    	</input>
+		    	</div>
 		    {% endfor %}
 	    </div>
-	    <input type="submit" value="Valider">
+	    <div class="clear"></div>
+	    
+	 	<div class="registrationSubmit" onclick="document.forms['picture_form'].submit()">
+			<div class="registrationSubmitInner">
+				<span class="icon">
+					<span class="icon" title="password" aria-hidden="true" data-icon=""></span>
+					<input type="submit" value="Valider">
+				</span>
+			</div>
+		</div>
     </form>
 </div>
 

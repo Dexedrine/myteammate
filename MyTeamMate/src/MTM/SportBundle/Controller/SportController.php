@@ -15,15 +15,15 @@ class SportController extends Controller {
 	public function viewAction() {
 		$teammate = $this->get('security.context')->getToken()->getUser();
 		if(!$teammate) return $this->redirect($this->generateUrl('login'));
+
+		$practices = $teammate->getPractices();
 		
-		if (!$teammate->getPractices()) {
+		if (!$practices || count($practices) == 0 ) {
 			return $this->render('MTMSportBundle:Sport:no_sport.html.twig');
 		}
-
-				
-		
+	
 		return $this->render('MTMSportBundle:Sport:sport.html.twig',
-				array( 'practices' => $teammate->getPractices() )	);
+				array( 'practices' => $practices));
 	}
 
 	public function addAction(Request $request) {

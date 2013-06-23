@@ -21,6 +21,12 @@ label {
 .clear {
 	clear: both;
 }
+.registrationSubmit{
+	margin-top: 7px;
+}
+.registrationSubmit a{
+	text-decoration: none;
+}
 
 /* header */
 .top,.bottom {
@@ -281,9 +287,42 @@ nav div a {
 }
 
 /* picture choice */
+.flickr_pictures {
+	margin-left: 36px;
+}
+
 .flickr_pictures img {
-	max-width: 150px;
-	max-height: 150px;
+	max-width: 140px;
+	max-height: 140px;
+}
+.flickr_pictures .registrationSubmit {
+	margin-top:7px;
+	width:330px;
+}
+.flickr_picture{
+	background-color: white;
+	margin-top:7px;
+	margin-right:7px;
+	width:150px;
+	height:150px;
+	float: left;
+	padding: 5px;
+}
+.flickr_picture input{
+	display: none;
+}
+.flickr_picture.checked{
+	border: 2px solid black;
+	width:146px;
+	height:146px;
+}
+
+/* add sport */
+.add_sport{
+	text-align: left;	
+}
+.add_sport ul{
+	list-style: none;
 }
 
 /* practice */

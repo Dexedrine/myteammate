@@ -1,9 +1,21 @@
 {% extends 'MTMCoreBundle::connect.html.twig' %}
 
-{% block page_name %}Inscription{% endblock %}
+{% block page_name %}Confirmation d'inscription{% endblock %}
 
 {% block body %}
-    Vous avez &eacute;t&eacute; enregistr&eacute;. <a href="{{ path("profile") }}" > OK </a>
+    Vous avez &eacute;t&eacute; enregistr&eacute;.
+    
+    <br>
+    <br>
+      <div class="registrationSubmit">
+		 	   <div class="registrationSubmitInner">
+		 	   	<span class="icon">
+		 	   		<span class="icon" data-icon="&#xe001;" aria-hidden="true" title="password"></span>
+		 	   		<a href="{{ path("profile") }}"> <input value="Valider" type="submit" /></a>
+		 	   	</span>
+		</div>
+    
+    
     {% if app.session is not empty %}
         {% set targetUrl = app.session.get('_security.' ~ app.security.token.providerKey ~ '.target_path') %}
         {% if targetUrl is not empty %}<p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>{% endif %}

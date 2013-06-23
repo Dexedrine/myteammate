@@ -5,10 +5,21 @@
         {% if invalid_username is defined %}
             <p>{{  invalid_username  }}</p>
         {% endif %}
-        <label for="username">{{ 'Adresse mail ou login'|trans }}</label>
-        <input type="text" id="username" name="username" required="required" />
+        <ul class="inputs">
+        <li>
+        <input type="text" id="username" name="username" required="required" placeholder="Email ou login"/>
+        </li>
+        </ul>
     </div>
-    <div>
-        <input type="submit" value="{{ 'Valider'|trans }}" />
-    </div>
+     <div class="registrationSubmit">
+		 	   <div class="registrationSubmitInner">
+		 	   	<span class="icon">
+		 	   		<span class="icon" data-icon="&#xe001;" aria-hidden="true" title="password"></span>
+		 	   		 <input value="{{ 'Valider'|trans }}" type="submit" />
+		 	   	</span>
+		</div>
 </form>
+
+
+
+

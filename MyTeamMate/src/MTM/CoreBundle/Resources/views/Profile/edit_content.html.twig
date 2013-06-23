@@ -6,15 +6,27 @@
     	<span class="icon" data-icon="&#xe003;" aria-hidden="true" title="username"></span>
     {{ form_widget(form.username) }}
     </li>
+    {% if form_errors(form.username) %}
+	   		<div class="error">
+	   			 <p>Veuillez saisir un login<p>
+	   	{% endif %}
     <li>
     <span class="icon" data-icon="&#xe000;" aria-hidden="true" title="email"></span>
     {{ form_widget(form.email) }}
     </li>
+    {% if form_errors(form.email) %}
+	   		<div class="error">
+	   			 <p>Veuillez saisir une adresse mail<p>
+	   	{% endif %}
     <li>
     <span class="icon" data-icon="&#xe002;" aria-hidden="true" title="password"></span>
     {{ form_widget(form.current_password, {'attr': {'placeholder': 'Mot de passe actuel'}}) }}
     
     </li>
+    {% if form_errors(form.current_password) %}
+	   		<div class="error">
+	   			 <p>Veuillez saisir votre mot de passe actuel<p>
+	   	{% endif %}
     </ul>
     <div>
  <div class="registrationSubmit" onclick="document.forms['reg_form'].submit()">

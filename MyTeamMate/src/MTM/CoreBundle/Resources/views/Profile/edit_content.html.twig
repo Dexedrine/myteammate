@@ -12,7 +12,8 @@
     </li>
     <li>
     <span class="icon" data-icon="&#xe002;" aria-hidden="true" title="password"></span>
-    {{ form_widget(form.current_password) }}
+    {{ form_widget(form.current_password, {'attr': {'placeholder': 'Mot de passe actuel'}}) }}
+    
     </li>
     </ul>
     <div>

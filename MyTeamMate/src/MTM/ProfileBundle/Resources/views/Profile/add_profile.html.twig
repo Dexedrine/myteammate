@@ -27,16 +27,18 @@
 	    </li>
 </ul>
 	{{ form_rest(form) }}
-	<input value="Valider" type="submit" />
-	   <div class="profileSubmit" onclick="document.forms['pro_form'].submit()">
-		 	   <div class="profileSubmitInner">
+	   <div class="registrationSubmit" onclick="document.forms['pro_form'].submit()">
+		 	   <div class="registrationSubmitInner">
 		 	   	<span class="icon">
-		 	   		<span class="icon" data-icon="&#xe005;" aria-hidden="true" title="password"></span>
+		 	   		<span class="icon" data-icon="&#xe005;" aria-hidden="true" title="password"></span>	
+		 	   		<input value="Valider" type="submit" />
 		 	   		 
 		 	   	</span>
+				</div>
 		</div>
-				
-		
+</form>
 </div>
+
+
 
 {% endblock %}

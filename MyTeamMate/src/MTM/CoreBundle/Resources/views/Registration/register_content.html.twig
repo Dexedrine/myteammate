@@ -8,7 +8,8 @@
 	    </li>
 	    {% if form_errors(form.email) %}
 	   		<div class="error">
-	   			 <p>Veuillez saisir une adresse mail valide ou non utilisée<p>
+	   			 <p>Veuillez saisir une adresse mail valide ou non utilisée </p>
+	   			 </div>
 	   	{% endif %}
 	    <li>
 	   		<span class="icon" data-icon="&#xe003;" aria-hidden="true" title="username"></span>
@@ -16,7 +17,7 @@
 	    </li>
 	    {% if form_errors(form.username) %}
 	   		<div class="error">
-	   			 <p>Veuillez saisir un login<p>
+	   			 <p>Veuillez saisir un login</p>
 	   		</div>
 	   	{% endif %}
 	    <li>
@@ -25,7 +26,7 @@
 	 	 </li>
 	 	 {% if form_errors(form.plainPassword.first) %}
 	   		<div class="error">
-	   			 <p>Veuillez saisir un mot de passe<p>
+	   			 <p>Veuillez saisir un mot de passe</p>
 	   		</div>
 	   	{% endif %}
 	   	
@@ -36,7 +37,7 @@
 	 	 
 	 	  {% if form_errors(form.plainPassword.first)=="<ul><li>fos_user.password.mismatch</li></ul>" %}
 	   		<div class="error">
-	   			 <p>Les deux champs ne sont pas identiques<p>
+	   			 <p>Les deux champs ne sont pas identiques</p>
 	   		</div>
 	   	{% endif %}
 	 	 

@@ -22,12 +22,14 @@ label {
 }
 
 .button_cancel {
+	margin-top: 7px;
 	margin: 0 0 10px 0;
 	background-color: #E1E1E1;
 	vertical-align:middle;
 }
 
 .button_cancel a {
+	font-size: 16px;
 	padding : 10px ;
 	display: block;
 	color: #000000;
@@ -40,7 +42,9 @@ label {
 
 .registrationSubmit{
 	margin-top: 7px;
+	background-color: #E1E1E1;
 }
+
 .registrationSubmit a{
 	text-decoration: none;
 }
@@ -235,10 +239,6 @@ nav div a {
 	text-align: center;
 	margin: 0 auto;
 	max-width: 400px;
-}
-
-.registrationSubmit {
-	background-color: #E1E1E1;
 }
 
 .acceptusemail {

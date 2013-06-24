@@ -1,7 +1,7 @@
 {% extends 'FOSMessageBundle::layout.html.twig' %}
 {% block fos_message_content %}
 
-<div class="messagesTable">
+<div class="messageForm">
 	<div class="message_subject">
 	     "{{thread.subject }}"
 	     de {{thread.createdBy.getProfile().getFirstname()}}
@@ -48,10 +48,9 @@
 		<form action="{{ url('fos_message_thread_view', {'threadId': thread.id}) }}" method="post">
 		<div class="thread">
 	    	<div class="button_thread_new">
-	            	{{ form_widget(form.body, {'attr': {'placeholder': 'Réponse','cols': '53','rows': '3'}}) }}
-	            </div>
-	    	</div>
-		</div>
+	            	{{ form_widget(form.body, {'attr': {'placeholder': 'Réponse','cols': '47.5','rows': '3'}}) }}
+	        </div>
+	    </div>
 		<div class="message_footer">
 	 	   <div class="button_message_cancel">
             		<a  value="Retour" href="{{ url('fos_message_inbox')}}" }}">

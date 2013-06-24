@@ -37,6 +37,9 @@ mtm_core:
     resource: "@MTMCoreBundle/Resources/config/routing.yml"
     prefix:   /
  
+mtm_search:
+    resource: "@MTMSearchBundle/Resources/config/routing.yml"
+    prefix:   /
     
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"

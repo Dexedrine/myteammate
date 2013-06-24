@@ -2,15 +2,27 @@
 
 <form action="{{ path('fos_user_resetting_reset', {'token': token}) }}" {{ form_enctype(form) }} method="POST" class="fos_user_resetting_reset">
      <ul class="inputs">
-     <li>
+    	 <li>
 			<span class="icon" data-icon="&#xe002;" aria-hidden="true" title="password"></span>	
 	 	 	{{ form_widget(form.plainPassword.first, {'attr': {'placeholder': 'Mot de passe'}}) }}
 	 	 </li>
+	 	 {% if form_errors(form.plainPassword.first) %}
+	   		<div class="error">
+	   			 <p>Veuillez saisir un mot de passe
+	   			 </p>
+	   			 </div>
+	   	{% endif %}
 	 	 <li>
 	 		 <span class="icon" data-icon="&#xe002;" aria-hidden="true" title="password"></span>	
 	 		 {{ form_widget(form.plainPassword.second, {'attr': {'placeholder': 'Vérification'}}) }}
 	 	 
 	 	 </li>
+	 	 {% if form_errors(form.plainPassword.second) %}
+	   		<div class="error">
+	   			 <p>Veuillez saisir un mot de passe identique
+	   			 </p>
+	   			 </div>
+	   	{% endif %}
 	 	 </ul>
 	 	 
   		<div class="registrationSubmit" onclick="document.forms['reg_form'].submit()">
@@ -19,6 +31,7 @@
 		 	   		<span class="icon" data-icon="&#xe001;" aria-hidden="true" title="password"></span>
 		 	   		 <input value="Valider" type="submit" />
 		 	   	</span>
+		</div>
 		</div>
 	 {{ form_rest(form) }}
 		

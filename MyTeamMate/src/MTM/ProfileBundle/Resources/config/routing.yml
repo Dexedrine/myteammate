@@ -13,3 +13,7 @@ add_profile:
 choose_picture:
     pattern: /user/choose_picture
     defaults: { _controller: "MTMProfileBundle:Profile:picture" }
+    
+note_profile:
+    pattern: /user/note_profile/{id}
+    defaults: { _controller: "MTMProfileBundle:Note:noteProfile" }

@@ -1,5 +1,19 @@
 {% extends 'MTMProfileBundle:Profile:base_profile.html.twig' %}	
 
 {% block body %}
-	Vous n'avez pas encore de profil : <a href="{{ path('add_profile') }}"> Ajouter </a>
+	Vous n'avez pas encore de profil ! 
+	
+<br>
+<br>
+	
+	
+	 <div class="registrationSubmit">
+		 	   <div class="registrationSubmitInner">
+		 	   	<span class="icon">
+		 	   		<span class="icon" data-icon="&#xe003;" aria-hidden="true" title="password"></span>
+		 	   		<a href="{{ path('add_profile') }}"> <input value="Ajouter" type="submit" /></a>
+		 	   	</span>
+		 	   	</div>
+		</div>
+
 {% endblock %}

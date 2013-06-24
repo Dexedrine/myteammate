@@ -1,5 +1,5 @@
 login:
-    pattern:   /login
+    pattern:   /
     defaults:  { _controller: "FOSUserBundle:Security:login" }
     
 login_check:

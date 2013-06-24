@@ -3,12 +3,12 @@
 {% block body %}
 
 	{% block div %}
-		
-		{% if action == 'edit_sport' %}
-			<form action="{{ path(action,{"idpractice" : idpractice}) }}" method="post" >
-		{% else %}
-			<form action="{{ path(action) }}" method="post" >
-		{% endif %}
+		<div class="add_sport">
+			{% if action == 'edit_sport' %}
+				<form action="{{ path(action,{"idpractice" : idpractice}) }}" method="post" name="sport_form">
+			{% else %}
+				<form action="{{ path(action) }}" method="post" name="sport_form" >
+			{% endif %}
 			<h3>Sport</h3>
 		   	{{ form_widget(form.idsport) }}
 		   	<h3>Lieu</h3>
@@ -22,15 +22,21 @@
 		    	{% endfor %}
 			</ul>
 			{{ form_rest(form) }}
-			{% if action == 'edit_sport' %}
-		    <input value="Modifier" type="submit" />
+			<div class="registrationSubmit" onclick="document.forms['sport_form'].submit()">
+				<div class="registrationSubmitInner"  style="text-align: center">
+			 	   	<span class="icon">
+			 	   		{% if action == 'edit_sport' %}
+			    			<input value="Modifier" type="submit" />			
+						{% else %}
+						    <input value="Ajouter" type="submit" />
+						{% endif %}
+					</span>
+				</div>
+			</div>
 			
-		{% else %}
-		    <input value="Ajouter" type="submit" />
-				{% endif %}
-		</form>		
-		<div id="map-canvas" ></div>
-		
+			</form>		
+			<div id="map-canvas" ></div>
+		</div>
 	{% endblock %}
 		<script src="{{ asset('bundles/mtmsport/js/addSlot.js') }}" type="text/javascript" ></script>
 		<script type="text/javascript">

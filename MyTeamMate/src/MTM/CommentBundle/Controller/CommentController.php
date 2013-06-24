@@ -41,7 +41,7 @@ class CommentController extends Controller {
 				$em->flush();
 				
 				
-				return $this->redirect($this->generateUrl('profile'));
+				return $this->redirect($this->generateUrl('view_post',array('id' => $id)));
 			}
 		}
 		

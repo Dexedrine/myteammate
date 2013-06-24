@@ -1,11 +1,37 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
 <div class="fos_user_user_show">
-    <p> Login utilis&eacute; : {{ user.username }}</p>
-    <p> Adresse mail : {{ user.email }}</p>
-    <a href="{{ path("fos_user_profile_edit") }}" ><button>Editer</button></a>
-    <a href="{{ path("fos_user_change_password") }}" ><button>Changer de mot de passe </button></a>
-    
- 
-    
+       <ul class="inputs">
+	  	
+	   <li>
+		   	 <span class="icon" data-icon="&#xe003;" aria-hidden="true" title="username" ></span>
+		   	<input value={{ user.username }} type="text" readonly />
+	   </li>
+	   
+	   <li>
+	   		<span class="icon" data-icon="&#xe000;" aria-hidden="true" title="email" </span>
+	   		<input value={{ user.email }} type="text" readonly/>
+	   	 </li>
+	   </ul> 
+       
+     <div class="registrationSubmit">
+		 <div class="registrationSubmitInner">
+		 	 <span class="icon">
+		 	   	<span class="icon" data-icon="&#xe012;" aria-hidden="true" title="editer"></span>
+		 	   	<a href="{{ path("fos_user_profile_edit") }}"> <input value="Editer" type="submit" /></a>
+			</span>
+		</div>
+	</div>
+	
+	<p></p>
+		
+		
+    <div class="registrationSubmit">
+		 <div class="registrationSubmitInner">
+		 	 <span class="icon">
+		 	   	<span class="icon" data-icon="&#xe001;" aria-hidden="true" title="change_password"></span>
+		 	   	<a href="{{ path("fos_user_change_password") }}"> <input value="Changer mot de passe" type="submit" /></a>
+			</span>
+		</div>
+	</div>
 </div>

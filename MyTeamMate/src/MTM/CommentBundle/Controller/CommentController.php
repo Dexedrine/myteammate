@@ -28,7 +28,7 @@ class CommentController extends Controller {
 		$comment = new Comment();
 		
 		$form = $this->createFormBuilder($comment)
-				->add('body', 'text', array('label' => 'Commentaire'))
+				->add('body', 'textarea', array('label' => 'Commentaire'))
 				->getForm();
 				
 		if ($request->isMethod('POST')) {

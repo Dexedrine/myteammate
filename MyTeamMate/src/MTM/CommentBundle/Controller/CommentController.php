@@ -23,6 +23,7 @@ class CommentController extends Controller {
 		$repository = $em->getRepository('MTMCoreBundle:TeamMate');
 
 		$teammate = $repository->findOneById($id);
+		if($teammate == $connect_teammate) return $this->redirect($this->generateUrl('profile'));
 		
 		$comment = new Comment();
 		

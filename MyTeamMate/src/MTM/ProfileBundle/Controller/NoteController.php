@@ -20,6 +20,7 @@ class NoteController extends Controller {
 		$repository = $em->getRepository('MTMCoreBundle:TeamMate');
 		
 		$profile_teammate = $repository->findOneById($id);
+		if($teammate == $profile_teammate) return $this->redirect($this->generateUrl('profile'));
 		
 		$note = 0;
 		$teammate_note = 0;
@@ -69,6 +70,7 @@ class NoteController extends Controller {
 		$repository = $em->getRepository('MTMCoreBundle:TeamMate');
 		
 		$profile_teammate = $repository->findOneById($id);
+		if($teammate == $profile_teammate) return $this->redirect($this->generateUrl('profile'));
 		
 		$repository = $em->getRepository('MTMProfileBundle:Note');
 		

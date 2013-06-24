@@ -13,6 +13,9 @@ class PracticeType extends AbstractType
 			array( 'class' => 'MTMSportBundle:Sport',
 					'property' => 'nomsport',
 					'empty_value' => 'Choisissez un sport'));
+			$builder->add('idlevel' , 'entity' ,
+			array( 'class' => 'MTMSportBundle:Level',
+					'property' => 'level'));
 		}
 	
 	public function setDefaultOptions(OptionsResolverInterface $resolver)

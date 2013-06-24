@@ -17,13 +17,26 @@ class SportController extends Controller {
 		if(!$teammate) return $this->redirect($this->generateUrl('login'));
 
 		$practices = $teammate->getPractices();
-		
-		if (!$practices || count($practices) == 0 ) {
-			return $this->render('MTMSportBundle:Sport:no_sport.html.twig');
-		}
 	
 		return $this->render('MTMSportBundle:Sport:sport.html.twig',
 				array( 'practices' => $practices));
+	}
+	
+	public function viewOtherAction($id) {
+		$teammate = $this->get('security.context')->getToken()->getUser();
+		if(!$teammate) return $this->redirect($this->generateUrl('login'));
+
+		$em = $this->getDoctrine()->getManager();
+		$repository = $em->getRepository('MTMCoreBundle:TeamMate');
+		
+		$profile_teammate = $repository->findOneById($id);
+		if($teammate == $profile_teammate) return $this->redirect($this->generateUrl('profile'));
+		
+		$practices = $profile_teammate->getPractices();
+		
+		return $this->render('MTMSportBundle:Sport:others_sport.html.twig',
+				array( 'practices' => $practices,
+				'id' => $id));
 	}
 
 	public function addAction(Request $request) {

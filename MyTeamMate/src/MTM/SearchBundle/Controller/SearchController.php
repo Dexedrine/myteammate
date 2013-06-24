@@ -29,20 +29,14 @@ class SearchController extends Controller
 				if($form['practice']['idsport']->getData())
 					$qb->innerjoin('t.practices','pra')
 						->innerjoin('pra.idsport','spo','WITH',
-							'spo.nomsport = \''.$form['practice']['idsport']->getData()->getNomsport().'\' ');
+							'spo.nomsport = \''.$form['practice']['idsport']->getData()->getNomsport().'\' ')
+						->innerjoin('pra.idlevel','lev','WITH',
+							'lev.level = \''.$form['practice']['idlevel']->getData()->getNomsport().'\' ');
 									
 				if($form['teammate']['username']->getData()){
 					$qb->where('t.username = \''.$form['teammate']['username']->getData().'\' '); 
 					$already_one_where = true;
-				}
-				if($form['teammate']['email']->getData())
-					if($already_one_where)
-						$qb->andWhere(' t.email = \''.$form['teammate']['email']->getData().'\' '); 
-					else{
-						$qb->where(' t.email = \''.$form['teammate']['email']->getData().'\' '); 
-						$already_one_where = true;
-					}
-					
+				}					
 				if($form['profile']['name']->getData())
 					if($already_one_where)
 						$qb->andWhere(' pro.name = \''.$form['profile']['name']->getData().'\' ');

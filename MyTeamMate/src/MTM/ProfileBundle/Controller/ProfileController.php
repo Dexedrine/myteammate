@@ -55,6 +55,7 @@ class ProfileController extends Controller {
 		$repository = $em->getRepository('MTMCoreBundle:TeamMate');
 
 		$profile_teammate = $repository->findOneById($id);
+		if($teammate == $profile_teammate) return $this->redirect($this->generateUrl('profile'));
 
 		return $this
 				->render('MTMProfileBundle:Profile:others_profile.html.twig',

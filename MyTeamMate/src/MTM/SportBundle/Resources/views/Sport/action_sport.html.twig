@@ -9,18 +9,26 @@
 			{% else %}
 				<form action="{{ path(action) }}" method="post" name="sport_form" >
 			{% endif %}
-			<h3>Sport</h3>
-		   	{{ form_widget(form.idsport) }}
-		   	<h3>Lieu</h3>
-			{{ form_widget(form.idplace) }}
-			<h3>Niveau</h3>
-			{{ form_widget(form.idlevel) }}
-			<h3>Créneaux</h3>
-			<ul class="slots" data-prototype="{{ form_widget(form.idslots.vars.prototype)|e }}" >
-	    		{% for slot in form.idslots  %}	
-		         	<li id="slot" >{{ form_widget(slot) }}</li>
-		    	{% endfor %}
-			</ul>
+			<div>
+				<h3>Sport</h3>
+				{{ form_widget(form.idsport) }}
+			</div>
+			<div>
+		   		<h3>Lieu</h3>
+		   		{{ form_widget(form.idplace) }}
+	   		</div>
+	   		<div>
+				<h3>Niveau</h3>
+				{{ form_widget(form.idlevel) }}
+			</div>
+			<div>
+				<h3>Créneaux</h3>
+				<ul class="slots" data-prototype="{{ form_widget(form.idslots.vars.prototype)|e }}" >
+		    		{% for slot in form.idslots  %}	
+			         	<li id="slot" >{{ form_widget(slot) }}</li>
+			    	{% endfor %}
+				</ul>
+			</div>
 			{{ form_rest(form) }}
 			<div class="registrationSubmit" onclick="document.forms['sport_form'].submit()">
 				<div class="registrationSubmitInner"  style="text-align: center">

@@ -4,47 +4,45 @@
 {% block body %}
 
 <div class="profileForm">
-	<form name="pro_form" action="{{ path('search') }}" method="post" {{ form_enctype(form) }}>
+	<form name="search_form" action="{{ path('search') }}" method="post" {{ form_enctype(form) }}>
 			<ul class="inputs">	    
 		<li>
-			<span class="icon" title="username">Username</span>
-		    {{ form_widget(form.teammate.username) }}
+			<span class="icon" title="username"></span>
+		    {{ form_widget(form.teammate.username, {'attr': {'placeholder': 'Login'}}) }}
 	    </li>
 	    <li>
-			<span class="icon" title="email">Email</span>
-		    {{ form_widget(form.teammate.email) }}
+			<span class="icon" title="name"></span>
+		    {{ form_widget(form.profile.name, {'attr': {'placeholder': 'Nom'}}) }}
 	    </li>
 	    <li>
-			<span class="icon" title="name">Nom</span>
-		    {{ form_widget(form.profile.name) }}
-	    </li>
-	    <li>
-			<span class="icon" title="firstname">Prénom</span>
-		    {{ form_widget(form.profile.firstname) }}
+			<span class="icon" title="firstname"></span>
+		    {{ form_widget(form.profile.firstname, {'attr': {'placeholder': 'Prénom'}}) }}
 	    </li>
 	    <li>
 			<span class="icon" title="sport">Sport</span>
-		    {{ form_widget(form.practice.idsport) }}
+		    {{ form_widget(form.practice.idsport, {'attr': {'placeholder': 'Sport'}}) }}
 	    </li>
-	    
+	    <li>
+			<span class="icon" title="sport">Niveau</span>
+		    {{ form_widget(form.practice.idlevel, {'attr': {'placeholder': 'Niveau'}}) }}
+	    </li>
 	    
 	</ul>
 	{% if error %}
 	    <div>{{ error }}</div>
 	{% endif %}
 	{{ form_rest(form) }}
-	<input value="Valider" type="submit" />
-	   <div class="profileSubmit" onclick="document.forms['pro_form'].submit()">
-		 	   <div class="profileSubmitInner">
-		 	   	<span class="icon">
-		 	   		<span class="icon" data-icon="&#xe005;" aria-hidden="true" title="password"></span>
-		 	   		 
-		 	   	</span>
+	<div class="registrationSubmit" onclick="document.forms['search_form'].submit()">
+		<div class="registrationSubmitInner"  style="text-align: center">
+			<span class="icon" data-icon="&#xe005;" aria-hidden="true" >
+				<input value="Valider" type="submit" />						
+			</span>
 		</div>
-				
-		
+	</div>			
 </div>
-				
-		
 
+<div class="button_cancel">
+	<a  href="{{ path('profile') }}" value="Retour"> Retour </a>
+</div>	
+		
 {% endblock %}

@@ -21,4 +21,8 @@ fos_message_thread_view:
 fos_message_thread_delete:
     pattern: /user/message/delete/{threadId}
     defaults: { _controller: "FOSMessageBundle:Message:delete" }
+    
+new_message:
+    pattern: /user/message/{teammate}
+    defaults: { _controller: "MTMMessageBundle:Message:newMessage" }
  

@@ -10,7 +10,6 @@ class TeamMateType extends AbstractType
 	public function buildForm(FormBuilderInterface $builder, array $options)
 		{
 			$builder->add('username','text');
-			$builder->add('email','email');
 		}
 	
 	public function setDefaultOptions(OptionsResolverInterface $resolver)

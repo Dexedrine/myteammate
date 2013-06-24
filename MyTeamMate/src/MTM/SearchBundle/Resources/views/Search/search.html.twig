@@ -11,10 +11,6 @@
 		    {{ form_widget(form.teammate.username) }}
 	    </li>
 	    <li>
-			<span class="icon" title="email">Email</span>
-		    {{ form_widget(form.teammate.email) }}
-	    </li>
-	    <li>
 			<span class="icon" title="name">Nom</span>
 		    {{ form_widget(form.profile.name) }}
 	    </li>
@@ -26,7 +22,10 @@
 			<span class="icon" title="sport">Sport</span>
 		    {{ form_widget(form.practice.idsport) }}
 	    </li>
-	    
+	    <li>
+			<span class="icon" title="sport">Niveau</span>
+		    {{ form_widget(form.practice.idlevel) }}
+	    </li>
 	    
 	</ul>
 	{% if error %}

@@ -53,7 +53,7 @@ class NoteController extends Controller {
 			foreach ( $teammate->getNotes() as $n ) {
 				$note += $n->getValue();       
 			}
-			$note = round($note / count($profile_teammate->getNotes()), 2);
+			$note = round($note / count($teammate->getNotes()), 2);
 		}
 		
 		return $this

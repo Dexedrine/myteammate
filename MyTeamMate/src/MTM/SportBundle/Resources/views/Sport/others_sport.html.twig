@@ -1,24 +1,91 @@
 {% extends 'MTMSportBundle::base_sport.html.twig' %}
 
 {% block div %}
-	{% if practices|length > 0 %}
-		{%  for practice in practices %}		
-			<div class="practice" id="{{ practice.getIdpractice() }}" draggable="true">
-				{{ practice.getIdSport().getNomsport() }} <br>
-				{{ practice.getIdPlace().getAddress() }} <br>
-				Niveau : {{ practice.getIdLevel().getLevel() }} <br>
-				{% for slot in practice.getIdslots %}
-							Le {{ slot.getDay() }}	  
-							de : {{ slot.getStarthour()|date('H:i') }} 
-							à {{ slot.getEndhour()|date('H:i') }}
-							<br>
-				{% endfor %}
+	
+	<script>
+	$(document).ready(function(){
+		
+		$.event.props.push('dataTransfer');
+		
+	    // cacher la div #menu
+	    $(".delete").hide();
+	    var $this ; 	 
+	    	    
+	    $(".delete").on({
+			
+	    	dragover: function(e) {
+				e.preventDefault();
+	    	},
+
+	    	drop: function(e) {
+	    		e.preventDefault();
+				var data= e.dataTransfer.getData('text/html');
+				var route = "{{ path('delete_sport', { 'idpractice': "PLACEHOLDER" }) }}";
+				window.location = route.replace("PLACEHOLDER", data);
+				
+				e.target.appendChild(document.getElementById(data));
+		    }
+    		
+		})
+
+		 $(".practice").on({
+			 
+			dragend: function(e){
+				$(".delete").slideToggle();
+			},
+			
+			dragstart: function(e) {
+				$this = $(this);
+	            i = $(this).index();
+	            $(this).css('opacity', '1');
+	 
+	            e.dataTransfer.setData('text/html', e.target.id);
+				$(".delete").slideToggle();
+			},
+
+		})
+	     
+	});
+	</script>
+	<div class="delete" >
+		<img src="{{ asset('bundles/mtmdesign/img/trash.png') }}" width="48px" height="48px" >
+	</div>
+	{% if practices %}
+		{%  for practice in  practices %}			
+			<div class="box" id="{{ practice.getIdpractice() }}" draggable="true">
+				<a class="edit" href="{{ path('edit_sport',{"idpractice" : practice.getIdpractice()}) }}">
+					<div class="box_data">
+						<span class="bold">{{ practice.getIdSport().getNomsport() }} </span><br>
+						<span>{{ practice.getIdPlace().getAddress() }} </span><br>
+						<span>Niveau : {{ practice.getIdLevel().getLevel() }}</span> <br>
+						{% for slot in practice.getIdslots %}
+									<span>Le {{ slot.getDay() }}	  
+									de  {{ slot.getStarthour()|date('H:i') }} 
+									à {{ slot.getEndhour()|date('H:i') }}</span>
+									<br>
+						{% endfor %}
+					</div>
+				</a>		
+				<a href="{{ path('delete_sport',{"idpractice" : practice.getIdpractice()}) }}" >
+					<div class="box_button">
+						<img style="margin-top: 19px;" src="{{ asset('bundles/mtmdesign/img/trash.png') }}" width="48px" height="48px" />
+				
+					</div>	
+				</a>		
+				<div class="clear"></div>
 			</div>		
 		{% endfor %}
 	{% else %}
-		<h3>Cette personne n'a pas encore de sport !</h3>
+		Vous n'avez pas encore de sport !
+		<div class="registrationSubmit">
+		 	   <div class="registrationSubmitInner">
+			 	   	<span class="icon">
+			 	   		<a href="{{ path('add_sport') }}"> <input value="Ajouter un sport" type="submit" /></a>
+			 	   	</span>
+		 	   	</div>
+		</div>
 	{% endif %}
 	<div class="button_cancel">
-		<a  href="{{ path('others_profile',{"id" : id}) }}" value="Retour"> Retour </a>
+		<a  href="{{ path('profile') }}" value="Retour"> Retour </a>
 	</div>
 {% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'MTMCoreBundle::connect.html.twig' %}
+
+{% block page_name %}Note{% endblock %}
+
+{% block body %}
+<div class="note" >
+	<span class="current-note" > {{ note }} </span>
+	<ul class="star-rating">
+		<li class="current-rating" style="width:{{ note * 100 / 5 }}%;">Currently {{ note }}/5 Stars.</li>
+	</ul>
+</div>
+
+<div class="button_cancel">
+	<a  href="{{ path('profile') }}" value="Retour"> Retour </a>
+</div>
+		
+{% endblock %}
+
+		
+	
+

@@ -23,11 +23,12 @@ class CommentController extends Controller {
 		$repository = $em->getRepository('MTMCoreBundle:TeamMate');
 
 		$teammate = $repository->findOneById($id);
+		if($teammate == $connect_teammate) return $this->redirect($this->generateUrl('profile'));
 		
 		$comment = new Comment();
 		
 		$form = $this->createFormBuilder($comment)
-				->add('body', 'text', array('label' => 'Commentaire'))
+				->add('body', 'textarea', array('label' => 'Commentaire'))
 				->getForm();
 				
 		if ($request->isMethod('POST')) {

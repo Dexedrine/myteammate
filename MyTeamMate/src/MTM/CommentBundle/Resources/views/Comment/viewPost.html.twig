@@ -1,32 +1,62 @@
 {% extends 'MTMCommentBundle::base_comment.html.twig' %}
 
 {% block body %}
-<div class="loginForm">
-<form action="{{ url('view_post',{"id" : teammate.id}) }}" method="post">
-	  <ul class="inputs">
-	    <li>
-		    {{ form_widget(form.body, {'attr': {'placeholder': 'Corps du message','cols': '50','rows': '15'}}) }}
-	    </li>
-	    </ul>
-	    <div >
-	 	   
-	 	   <div class="newMessageSubmit" onclick="document.forms['loginForm'].submit()">
-		 	   
-		 	   <div class="loginSubmitInner">
+
+
+<div class="messageForm">
+	<form action="{{ url('view_post',{"id" : teammate.id}) }}" method="post">
+		<div class="thread">
+			<div class="button_thread_new">
+	            {{ form_widget(form.body, {'attr': {'placeholder': 'Corps du message','cols': '47.5','rows': '3'}}) }}
+	        </div>
+	    </div>
+		<div class="message_footer">
+			<div class="button_comment_new" onclick="document.forms['loginForm'].submit()">
+		 	   		{{ form_widget(form) }}
 		 	   		<input type="submit" />
-		 	   </div>   
 	 	   </div>
+
 		</div>
-	    
-		{{ form_rest(form) }}
-	</form>
-	</div>
-
-
+		</form>
 
 	{% for comment in teammate.comments %}
-		{{ comment.body }}
-		by {{ comment.idsender.username }}
-		at {{ comment.createdAt|date('H:i d/m/y',"Europe/Paris") }}
-	{% endfor %}	
+		{% if comment.idsender != teammate  %}
+			<div class="thread">
+	        	<div class="button_profil">
+	            	<a href="{{ path('others_profile',{"id" : comment.idsender.id}) }}">
+	                	<img src="{{ comment.idsender.getProfile().getUrlphoto()}}" alt="{{comment.idsender.username  }}"/>
+	            	</a>
+	            </div>
+	            <div class="button_thread_body">
+	            		<div class="message_body">
+	            			{{ comment.body }}
+	            		</div>
+
+                    	<div class="date_right">
+                    		<br>
+							{{ comment.createdAt|date('H:i d/m/y',"Europe/Paris") }}
+                    	</div>
+	            </div>
+	    	</div>
+	    {% else %}
+			<div class="thread">
+	            <div class="button_thread_body">
+	                   	<div class="date_left">
+                    		<br>
+							{{ comment.createdAt|date('H:i d/m/y',"Europe/Paris") }}
+                    	</div>
+	            		<div class="message_body">
+	            			{{ comment.body }}
+	            		</div>
+	            </div>
+	        	<div class="button_profil">
+	            	<a href="{{ path('others_profile',{"id" : comment.idsender.id}) }}">
+	                	<img src="{{ comment.idsender.getProfile().getUrlphoto()}}" alt="{{comment.idsender.username  }}"/>
+	            	</a>
+	            </div>
+	    	</div>
+	    {% endif %}
+
+	{% endfor %}
+</div>	
 {% endblock %}

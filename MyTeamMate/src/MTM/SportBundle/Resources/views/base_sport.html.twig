@@ -2,6 +2,11 @@
 
 {% block page_name %}Mes sports{% endblock %}
 
+{% block right_button %}
+	<a class="button add_sport" value="Ajouter" href="{{ path('add_sport') }}">
+		<img src="{{ asset('bundles/mtmdesign/img/add.png') }}" alt="Ajouter" />
+	</a>	
+{% endblock %}
 	
 {% block body %}
 	{% block div %}{% endblock %}

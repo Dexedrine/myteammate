@@ -51,19 +51,27 @@
 		<img src="{{ asset('bundles/mtmdesign/img/trash.png') }}" width="48px" height="48px" >
 	</div>
 	{%  for practice in  practices %}			
-			<div class="practice" id="{{ practice.getIdpractice() }}" draggable="true">
-				{{ practice.getIdSport().getNomsport() }} <br>
-				{{ practice.getIdPlace().getAddress() }} <br>
-				Niveau : {{ practice.getIdLevel().getLevel() }} <br>
-				{% for slot in practice.getIdslots %}
-							Le {{ slot.getDay() }}	  
-							de : {{ slot.getStarthour()|date('H:i') }} 
-							à {{ slot.getEndhour()|date('H:i') }}
-							<br>
-				{% endfor %}
-				<a href="{{ path('edit_sport',{"idpractice" : practice.getIdpractice()}) }}" ><button>Modifier</button></a>
-				<a href="{{ path('delete_sport',{"idpractice" : practice.getIdpractice()}) }}" ><button>Supprimer</button></a>
-			</div>
-		
+		<div class="box" id="{{ practice.getIdpractice() }}" draggable="true">
+			<a class="edit" href="{{ path('edit_sport',{"idpractice" : practice.getIdpractice()}) }}">
+				<div class="box_data">
+					<span class="bold">{{ practice.getIdSport().getNomsport() }} </span><br>
+					<span>{{ practice.getIdPlace().getAddress() }} </span><br>
+					<span>Niveau : {{ practice.getIdLevel().getLevel() }}</span> <br>
+					{% for slot in practice.getIdslots %}
+								<span>Le {{ slot.getDay() }}	  
+								de  {{ slot.getStarthour()|date('H:i') }} 
+								à {{ slot.getEndhour()|date('H:i') }}</span>
+								<br>
+					{% endfor %}
+				</div>
+			</a>		
+			<a href="{{ path('delete_sport',{"idpractice" : practice.getIdpractice()}) }}" >
+				<div class="box_button">
+					<img style="margin-top: 19px;" src="{{ asset('bundles/mtmdesign/img/trash.png') }}" width="48px" height="48px" />
+			
+				</div>	
+			</a>		
+			<div class="clear"></div>
+		</div>		
 	{% endfor %}
 {% endblock %}

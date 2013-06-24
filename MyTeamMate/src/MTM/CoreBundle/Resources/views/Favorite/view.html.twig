@@ -2,17 +2,23 @@
 {% block page_name %}Favoris{% endblock %}
 
 {% block body %}
-		{%  for favorite in  favorites %}			
-				<div class="practice" id="{{ favorite.id }}" draggable="true">
-					{{ favorite.username }} <br>
+		{%  for favorite in  favorites %}	
+			<div class="box" id="{{ favorite.id }}" draggable="true">
+				<a class="edit" href="{{ path('others_profile',{"id" : favorite.id}) }}" >
+					<span class="bold">	{{ favorite.username }}</span> <br>
 					{{ favorite.email }} <br>
 					{{ favorite.profile.name}} <br>
 					{{ favorite.profile.firstname }} <br>	
 					{% for practice in favorite.practices %}		
 						{{ practice.idsport.nomsport }} <br>
 					{% endfor %}
-					<a href="{{ path('others_profile',{"id" : favorite.id}) }}">Accéder au profil </a>
-				</div>
+				</a>
+				<a href="{{ path('others_profile',{"id" : favorite.id}) }}" >
+					<div class="box_button">
+						<img src="{{ favorite.profile.urlphoto }}"/>
+					</div>	
+				</a>
+			</div>
 		{% endfor %}
 		
 {% endblock %}

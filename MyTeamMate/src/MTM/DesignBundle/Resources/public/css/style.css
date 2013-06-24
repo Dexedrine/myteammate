@@ -17,6 +17,9 @@ label {
 	width: 153px;
 	float: left;
 }
+.bold{
+	font-weight: bold;
+}
 
 .clear {
 	clear: both;
@@ -323,15 +326,48 @@ nav div a {
 .add_sport{
 	text-align: left;	
 }
+.add_sport h3{
+	display: inline;	
+}
+.add_sport input{
+	right: 0;	
+}
 .add_sport ul{
 	list-style: none;
 }
 
-/* practice */
-.practice {
-	background-color: #FFFFFF;
-	margin: 20px 10px;
+/* box for sports and search results */
+.box{
+	margin: 7px 0;
+	height:88px;
+	width: 100%;
+	-moz-box-shadow: 3px 3px 2px #888;
+	-webkit-box-shadow: 3px 3px 2px #888;
+	box-shadow: 3px 3px 2px #888;
+	overflow: hidden;
+}
+.box .edit{
+	display: block;
+	float: left;
+	height:88px;
+	width:320px;
+	background-color: #FFFFFF;	
+	color: black;
+	text-decoration: none;
+}
+.box .box_data{
 	padding: 4px;
+}
+.box_button{
+	background-color: #E1E1E1;
+	height:88px;
+	width:80px;
+	float:left;
+}
+.box_button img{	
+	margin: 2px;
+	max-width: 80px;
+	max-height: 88px;
 }
 
 /* Messages */

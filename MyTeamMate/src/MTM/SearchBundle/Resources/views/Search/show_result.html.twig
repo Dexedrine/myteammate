@@ -3,16 +3,21 @@
 
 {% block body %}
 		{%  for line in  result %}			
-				<div class="practice" id="{{ line.id }}" draggable="true">
-					{{ line.username }} <br>
-					{{ line.email }} <br>
-					{{ line.profile.name}} <br>
-					{{ line.profile.firstname }} <br>	
+			<div class="box" id="{{ line.id }}" draggable="true">
+				<a class="edit" href="{{ path('others_profile',{"id" : line.id}) }}" >
+					<span class="bold">{{ line.username }}</span> <br>					
+					{{ line.profile.firstname }} {{ line.profile.name}}  <br>	
 					{% for practice in line.practices %}		
 						{{ practice.idsport.nomsport }} <br>
 					{% endfor %}
-					<a href="{{ path('others_profile',{"id" : line.id}) }}">Accéder au profil </a>
-				</div>
+					
+				</a>
+				<a href="{{ path('others_profile',{"id" : line.id}) }}" >
+					<div class="box_button">
+						<img src="{{ line.profile.urlphoto }}"/>
+					</div>	
+				</a>
+			</div>
 		{% endfor %}
 		
 {% endblock %}

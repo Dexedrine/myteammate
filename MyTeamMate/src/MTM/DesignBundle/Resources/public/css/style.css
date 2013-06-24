@@ -562,11 +562,29 @@ nav div a {
 /* Note */
 
 .note {
-	background-color: #E1E1E1;
-	z-index:1;
-	width:125px;
-	height:25px;
+	list-style: none;
+	background: #FFFFFF;
+	padding: 12px 15px;
+	margin: 0 0 10px 0;
 }
+.current-note{
+	color: #A8A8A8;
+	margin-left: 10px: 
+}
+
+.button_note_cancel {
+	margin: 0 0 10px 0;
+	background-color: #E1E1E1;
+	vertical-align:middle;
+}
+
+.button_note_cancel a {
+	padding : 10px ;
+	display: block;
+	color: #000000;
+	text-decoration: none;
+}
+
 
 .star-rating,
 .star-rating a:hover,
@@ -581,7 +599,7 @@ nav div a {
 	height:25px;
 	overflow:hidden;
 	list-style:none;
-	margin:0;
+	margin:5px auto 0px auto;
 	padding:0;
 	background-position: left top;
 }

@@ -17,3 +17,11 @@ choose_picture:
 note_profile:
     pattern: /user/note_profile/{id}
     defaults: { _controller: "MTMProfileBundle:Note:noteProfile" }
+
+view_note:
+    pattern: /user/note
+    defaults: { _controller: "MTMProfileBundle:Note:viewNote" } 
+
+note:
+    pattern: /user/note/{id}/{value}
+    defaults: { _controller: "MTMProfileBundle:Note:note" }    

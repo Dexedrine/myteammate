@@ -32,8 +32,11 @@ class SportController extends Controller {
 		$profile_teammate = $repository->findOneById($id);
 		if($teammate == $profile_teammate) return $this->redirect($this->generateUrl('profile'));
 		
+		$practices = $profile_teammate->getPractices();
+		
 		return $this->render('MTMSportBundle:Sport:others_sport.html.twig',
-				array( 'profile_teammate', $profile_teammate));
+				array( 'practices' => $practices,
+				'id' => $id));
 	}
 
 	public function addAction(Request $request) {

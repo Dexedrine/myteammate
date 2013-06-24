@@ -9,6 +9,11 @@
 	   		<span class="icon" data-icon="&#xe003;" aria-hidden="true" title="recipient"></span>
 		    {{ form_widget(form.recipient, {'attr': {'placeholder': 'Destinataire'}}) }}
 	    </li>
+	    {% if form_errors(form.recipient) %}
+	    	<div class="error">
+	   			 <p>Vous ne pouvez pas être le destinataire du message.</p>
+	   		</div>
+	    {% endif %}
 	    <li>
 	   		<span class="icon" data-icon="&#xe000;" aria-hidden="true" title="subject"></span>
 		    {{ form_widget(form.subject, {'attr': {'placeholder': 'Sujet'}}) }}
@@ -17,13 +22,14 @@
 		    {{ form_widget(form.body, {'attr': {'placeholder': 'Corps du message','cols': '44','rows': '15'}}) }}
 	    </li>
 	    </ul>
-	    <div >
-	 	   
-	 	   <div class="newMessageSubmit" onclick="document.forms['loginForm'].submit()">
-		 	   
-		 	   <div class="loginSubmitInner">
+	    <div class="message_footer">
+	 	   <div class="button_message_cancel">
+            		<a  value="Annuler" href="{{ url('fos_message_inbox')}}" }}">
+						Annuler
+					</a>
+			</div>
+	 	   <div class="button_message_new" onclick="document.forms['loginForm'].submit()">
 		 	   		<input type="submit" />
-		 	   </div>   
 	 	   </div>
 		</div>
 	    
@@ -33,5 +39,3 @@
 	</form>
 	</div>
 {% endblock %}
-
-

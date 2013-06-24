@@ -155,6 +155,8 @@ nav div a {
 }
 
 .newMessageSubmit {
+	width : 93%;
+	float : left;
 	background-color: #E1E1E1;
 	margin: 0 0 10px 0;
 }
@@ -179,7 +181,7 @@ nav div a {
 	cursor: pointer;
 }
 
-.newMessageSubmit input,.loginSubmit input,.registrationSubmit input {
+.newMessageSubmit input,.button_message_new input,.loginSubmit input,.registrationSubmit input {
 	background-color: #E1E1E1;
 	border: 0px;
 	font-size: 16px;
@@ -299,16 +301,13 @@ nav div a {
 	margin: 0 auto;
 	width: 100%;
 	border: 0px;
+	
 }
 
-.messagesTable th {
-	background-color: #E1E1E1;
-	margin: 0 0 10px 200px;
-}
 
 .messagesTable tr {
 	background-color: #FFFFFF;
-	margin: 0 0 10px 200px;
+	margin: 0 0 0px 200px;
 }
 
 .messagesTable img {
@@ -316,7 +315,200 @@ nav div a {
 	height: 50px;
 
 }
-.profilImg{
-	width : 70px;
+.thread{
+	max-width: 100%;
+	height: 70px;
+	display: block;
+	margin: 4px 0 4px 0;
+}
+.button_message_delete {
+	float : left;
+	display: block;
+	height: 70px;
+	width: 18.8%;
+	background-color: #FFFFFF;
+	margin: 0 0 0 2px;
+}
+.button_message_body {
+	float : left;
+	display: block;
+	height: 70px;
+	width : 60%;
+	background-color: #FFFFFF;
+	margin: 0 2px 0 2px;
+}
+.button_thread_new {
+	float : left;
+	display: block;
+	height: 66px;
+	width : 99%;
+	background-color: #FFFFFF;
+	margin: 0 2px 0 2px;
+}
+.button_thread_body {
+	float : left;
+	display: block;
+	height: 70px;
+	width : 79.2%;
+	background-color: #FFFFFF;
+	margin: 0 2px 0 2px;
+}
+.message_no {
+	float : left;
+	display: block;
+	height: 70px;
+	width : 100%;
+	background-color: #FFFFFF;
+	margin: 0 0 0 0;
+}
+.button_message_body a, .button_message_delete a,.button_profil a {
+	display: block;
+	width: 100%;
+	height: 100%;
+	color: #13648C;
+	margin: 0 0 0 0;
+	text-decoration: none;
+}
+.username {
+	color: #000000;
+	text-align : left;
+	margin: 0 2px 0 2px;
+}
+.date {
+	display: block;
+	color: #000000;
+	text-align : right;
+	margin: 0 2px 0 0;
+}
+.date_right {
+	display: block;
+	float : left;
+	color: #000000;
+	text-align : right;
+	vertical-align:bottom;
+	width : 24%;
+	height : 70px;
+	margin: 0 2px 0 0;
+}
+.date_left {
+	display: block;
+	float : left;
+	color: #000000;
+	text-align : left;
+	vertical-align:bottom;
+	width : 24%;
+	height : 70px;
+	margin: 0 0 0 2px;
+}
+.message_body {
+	
+	float : left;
+	display: block;
+	width: 75%;
+	vertical-align:middle;
+	padding: 2px 0;
+	line-height: 70px;
+	text-decoration: none;
+}
+
+.button_profil {
+	display: block;
+	float : left;
+	width: 18.7%;
+	height: 70px;
+	background-color: #FFFFFF;
+	margin: 0 2px 0 2px;
+}
+.button_profil img{
+	margin: 2px 2px 2px 2px;
+	width : 66px;
+	height : 66px;
+}
+.button_profil left{
+	float : left;
+}
+
+.message_subject {
+	display: block;
+	width: 100%;
+	height: 40px;
+	color: #13648C;
+	background-color: #E1E1E1;
+	margin: 0 0 0px 0;
+	vertical-align:middle;
+	padding: 2px 0;
+	line-height: 33px;
+}
+.message_footer{
+	max-width: 100%;
+	height: 40px;
+	display: block;
+	margin: 4px 0 4px 0;
+}
+.button_new_message {
+	width : 150px;
+	float : left;
+	background-color: #E1E1E1;
+	margin: 0 0 10px 0;
+}
+.button_message_cancel {
+	width : 28.8%;
+	height:100%;
+	float : left;
+	background-color: #E1E1E1;
+	margin: 0px 4px 0 0 ;
+	vertical-align:middle;
+	line-height: 33px;
+}
+.button_message_new {
+	width : 70%;
+	float : left;
+	height:100%;
+	background-color: #E1E1E1;
+	margin: 0 0 0 0;
+}
+.button_new_message{
+	display: block;
+	width: 40%;
+	height: 50px;
+	background-color: #E1E1E1;
+	margin: 0 0 10px 0;
+	padding: 2px 0;
+}
+.button_message_new input{
+	border: 0px;
+	font-size: 16px;
+	position: relative;
+	cursor: pointer;
+	width :100%;
+	height:100%;
+}
+.button_new_message a,.button_message_cancel a {
+	
+	display: block;
+	width: 100%;
+	height: 40px;
+	color: #000000;
+	vertical-align:middle;
+	line-height: 33px;
+	text-decoration: none;
+}
+.button_new_message img,.button_message_cancel img{
+	margin-top : 4px;
+	max-width: 30px;
+	max-height: 30px;
+}
+
+.button_add_message a {
+	display: block;
+	width: 100%;
+	height: 40px;
+	color: #13648C;
+	background-color: #E1E1E1;
+	margin: 0 0 10px 0;
+	vertical-align:middle;
+	padding: 2px 0;
+	line-height: 33px;
+	text-decoration: none;
 }
 

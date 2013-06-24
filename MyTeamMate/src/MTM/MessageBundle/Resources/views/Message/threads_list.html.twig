@@ -1,57 +1,48 @@
 <div class="messagesTable">
 
-<table>
+	<div class="button_add_message">
+    	<a  value="Nouveau Message" href="{{ url('fos_message_thread_new')}}" }}">
+			Composer un nouveau message
+		</a>
+	</div>
 
-    <thead>
-        <tr>
-            <th colspan="3"> <br> </th>
-        </tr>
-    </thead>
 
-     <tbody>
 
     {% if threads %}
-        {% for thread in threads %}
-            <tr>
-                <td>
-                    <img src="{{ thread.getParticipants()[0].getProfile().getUrlphoto()}}" alt="{{thread.getParticipants()[0]  }}"/>
-                </td>
-                <td>
-                	{{ thread.createdBy.getProfile().getFirstname()}}
-                    {{ thread.createdBy.getProfile().getName()}}
-                    <br><a href="{{ url('fos_message_thread_view', {'threadId': thread.id}) }}">
-                    {{ thread.subject }}
+        {% for thread in threads %} 
+        	<div class="thread">
+	        	<div class="button_profil"> 
+	        		<a href="{{ path('others_profile',{"id" : thread.createdBy.id}) }}">
+	                    <img src="{{ thread.createdBy.getProfile().getUrlphoto()}}" alt="{{thread.getParticipants()[0]  }}"/>
+	            	</a>
+	            </div>
+	            <div class="button_message_body">
+	            	<a href="{{ url('fos_message_thread_view', {'threadId': thread.id}) }}">
+	            		<div class="username">
+	        				{{ thread.createdBy.getProfile().getFirstname()}}
+                    		{{ thread.createdBy.getProfile().getName()}}
+                    	</div>
+                    	{{ thread.subject }}
+                    	{% if not fos_message_is_read(thread) %}
+                        	(nouveau)
+                    		{% endif %}
+                    	<div class="date">
+                    		{{ thread.createdAt|date('d/m/Y') }}
+                    	</div>
                     </a>
-
-                    <br>{% if not fos_message_is_read(thread) %}
-                        ({% trans from 'FOSMessageBundle' %}new{% endtrans %})
-                    {% endif %}
-                    le {{ thread.createdAt|date }}
-                </td>
-                <td>
-                	<div class="messageForm">
-                    <form action="{{ url('fos_message_thread_delete', {'threadId': thread.id}) }}" method="post">
-                    	<div >	 	   
-	 	   					<div class="deleteMessageSubmit" onclick="document.forms['messageForm'].submit()">
-		 	   					
-		 	   						<input type="submit" value="Supprimer"/>
-		 	   						<br><span class="icon" data-icon="&#xe008;" aria-hidden="true" title="supprimer"></span> 
-	 	   					</div>
-						</div>
-                    </form>
-                    </div>
-                </td>
-            </tr>
+	            </div>
+	        	<div class="button_message_delete">
+	        		<a href="{{ url('fos_message_thread_delete', {'threadId': thread.id}) }}">
+		 	   			<br><span class="icon" data-icon="&#xe008;" aria-hidden="true" title="supprimer"></span> 
+                    </a>
+            	</div>
+        	</div>
         {% endfor %}
     {% else %}
-        <tr>
-            <td colspan="6">
-		 	   	Pas de message
-            </td>
-        </tr>
+		<div class="message_no">
+			<br>Pas de message
+		</div>
     {% endif %}
 
-    </tbody>
 
-</table>
 </div>

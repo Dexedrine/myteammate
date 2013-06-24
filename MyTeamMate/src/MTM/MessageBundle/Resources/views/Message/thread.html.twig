@@ -2,75 +2,68 @@
 {% block fos_message_content %}
 
 <div class="messagesTable">
-	<div class="loginForm">
-	<table>
-	    <thead>
-	        <tr>
-	            <th colspan="2"> {{ thread.subject }} </th>
-	        </tr>
-	    </thead>
-	</table>
+	<div class="message_subject">
+	     "{{thread.subject }}"
+	     de {{thread.createdBy.getProfile().getFirstname()}}
+	     {{thread.createdBy.getProfile().getName()}}
+	</div>
 	{% for message in thread.messages %}
-		<table>
-	     <tbody>
 		{% if message.sender == thread.createdBy  %}
-		<tr>
-	                <td class ="profilImg">
-	                    <img src="{{ message.getSender().getProfile().getUrlphoto()}}" alt="{{thread.getParticipants()[0]  }}"/>
-	                </td>
-	                <td>
-	                	{{ message.getSender().getProfile().getFirstname()}}
-	                    {{ message.getSender().getProfile().getName()}}
-	                    <br>
-						{{ message.body }}
-	
-	                    <br>{% if not fos_message_is_read(thread) %}
-	                        ({% trans from 'FOSMessageBundle' %}new{% endtrans %})
-	                    {% endif %}
-	                </td>
-	            </tr>
+			<div class="thread">
+	        	<div class="button_profil">
+	            	<a href="{{ path('others_profile',{"id" : message.getSender().id}) }}">
+	                	<img src="{{ message.getSender().getProfile().getUrlphoto()}}" alt="{{thread.getParticipants()[0]  }}"/>
+	            	</a>
+	            </div>
+	            <div class="button_thread_body">
+	            		<div class="message_body">
+	            			{{ message.body }}
+	            		</div>
+
+                    	<div class="date_right">
+                    		<br>
+							{{ message.createdAt|date('H:i d/m/Y',"Europe/Paris") }}
+                    	</div>
+	            </div>
+	    	</div>
 	    {% else %}
-			<tr>
-	                <td>
-	                	{{ message.getSender().getProfile().getFirstname()}}
-	                    {{ message.getSender().getProfile().getName()}}
-	                    <br>
-						{{ message.body }}
-	
-	                    <br>{% if not fos_message_is_read(thread) %}
-	                        ({% trans from 'FOSMessageBundle' %}new{% endtrans %})
-	                    {% endif %}
-	                </td>
-	                <td class ="profilImg">
-	                    <img src="{{ message.getSender().getProfile().getUrlphoto()}}" alt="{{thread.getParticipants()[0]  }}"/>
-	                </td>
-	            </tr>
+			<div class="thread">
+	            <div class="button_thread_body">
+	                   	<div class="date_left">
+                    		<br>
+							{{ message.createdAt|date('H:i d/m/Y',"Europe/Paris") }}
+                    	</div>
+	            		<div class="message_body">
+	            			{{ message.body }}
+	            		</div>
+	            </div>
+	            <div class="button_profil">
+	            	<a href="{{ path('others_profile',{"id" : message.getSender().id}) }}">
+	                	<img src="{{ message.getSender().getProfile().getUrlphoto()}}" alt="{{thread.getParticipants()[0]  }}"/>
+	            	</a>
+	            </div>
+	    	</div>
 	    {% endif %}
-        </tbody>
-		</table>
 	{% endfor %}
-	<form action="{{ url('fos_message_thread_view', {'threadId': thread.id}) }}" method="post">
-		<table>
-     	<tbody>
-			<tr>
-                <td class ="profilImg">
-                	<img src="{{ thread.createdBy.getProfile().getUrlphoto()}}" alt="{{thread.getParticipants()[0]  }}"/>
-                </td>
-                <td>
-					{{ form_widget(form.body, {'attr': {'placeholder': 'Réponse','cols': '35','rows': '3'}}) }}
-                </td>
-            </tr>
-        </tbody>
-		</table>
-		<div >
-	 	   <div class="newMessageSubmit" onclick="document.forms['loginForm'].submit()"> 
-		 	   <div class="loginSubmitInner">
+		<form action="{{ url('fos_message_thread_view', {'threadId': thread.id}) }}" method="post">
+		<div class="thread">
+	    	<div class="button_thread_new">
+	            	{{ form_widget(form.body, {'attr': {'placeholder': 'Réponse','cols': '53','rows': '3'}}) }}
+	            </div>
+	    	</div>
+		</div>
+		<div class="message_footer">
+	 	   <div class="button_message_cancel">
+            		<a  value="Retour" href="{{ url('fos_message_inbox')}}" }}">
+						Retour
+					</a>
+			</div>
+	 	   <div class="button_message_new" onclick="document.forms['loginForm'].submit()">
+		 	   		{{ form_widget(form) }}
 		 	   		<input type="submit" />
-		 	   </div>   
 	 	   </div>
 		</div>
-	</form>
-	</div>
+		</form>
 </div>
 
 {% endblock %}

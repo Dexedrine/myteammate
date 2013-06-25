@@ -23,7 +23,7 @@ label {
 
 .button_cancel {
 	margin-top: 7px;
-	margin: 0 0 10px 0;
+	margin: 10px 0;
 	background-color: #E1E1E1;
 	vertical-align:middle;
 }
@@ -114,7 +114,9 @@ nav div a {
 	margin: 0 20px;
 }
 
-.inputs li {
+.inputs li , 
+.add_sport .sport_info,
+.add_sport .sport_slots{
 	list-style: none;
 	background: #FFFFFF;
 	padding: 12px 15px;
@@ -333,6 +335,19 @@ nav div a {
 .add_sport{
 	text-align: left;	
 }
+.add_sport label{
+	display: none;	
+}
+.add_sport #practice_idplace{
+	margin-top: -25px;	
+}
+.add_sport .lieu{
+	padding-bottom: 34px;
+}
+.add_sport .slots div div{
+	display: inline;
+	margin-right: 10px;
+}
 .add_sport h3{
 	display: inline;	
 }
@@ -341,6 +356,11 @@ nav div a {
 }
 .add_sport ul{
 	list-style: none;
+}
+.add_sport .sport_info select,
+.add_sport .sport_info input{
+	float: right;
+	margin-right:100px;
 }
 
 /* box for sports and search results */

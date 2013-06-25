@@ -19,7 +19,7 @@
 		{% if profile_teammate in teammate.favorites %}
 			<a href="{{ path('remove_favorite',{"id" : profile_teammate.id}) }}">Enlever des favoris</a>
 		{% else %}
-			<a href="{{ path('add_favorite',{"id" : profile_teammate.id}) }}">Mettre en favoris</a>		
+			<a href="{{ path('add_favorite',{"id" : profile_teammate.id}) }}">Ajouter aux favoris</a>		
 		{% endif %}
 	</div>
 	<div class="clear"></div>

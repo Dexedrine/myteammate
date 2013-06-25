@@ -394,6 +394,9 @@ nav div a {
 	height: 70px;
 	display: block;
 	margin: 4px 0 4px 0;
+	-moz-box-shadow: 3px 3px 2px #888;
+	-webkit-box-shadow: 3px 3px 2px #888;
+	box-shadow: 3px 3px 2px #888;
 }
 .button_message_delete {
 	float : left;
@@ -402,6 +405,7 @@ nav div a {
 	width: 18.8%;
 	background-color: #FFFFFF;
 	margin: 0 0 0 2px;
+	
 }
 .button_message_body {
 	float : left;
@@ -426,6 +430,9 @@ nav div a {
 	width : 79.05%;
 	background-color: #FFFFFF;
 	margin: 0 2px 0 2px;
+		-moz-box-shadow: 3px 3px 2px #888;
+	-webkit-box-shadow: 3px 3px 2px #888;
+	box-shadow: 3px 3px 2px #888;
 }
 .message_no {
 	float : left;
@@ -483,6 +490,7 @@ nav div a {
 	padding: 2px 0;
 	line-height: 70px;
 	text-decoration: none;
+
 }
 
 .button_profil {
@@ -492,6 +500,9 @@ nav div a {
 	height: 70px;
 	background-color: #FFFFFF;
 	margin: 0 2px 0 2px;
+	-moz-box-shadow: 3px 3px 2px #888;
+	-webkit-box-shadow: 3px 3px 2px #888;
+	box-shadow: 3px 3px 2px #888;
 }
 .button_profil img{
 	margin: 2px 2px 2px 2px;
@@ -518,12 +529,18 @@ nav div a {
 	height: 40px;
 	display: block;
 	margin: 4px 0 4px 0;
+	-moz-box-shadow: 3px 3px 2px #888;
+	-webkit-box-shadow: 3px 3px 2px #888;
+	box-shadow: 3px 3px 2px #888;
 }
 .button_new_message {
 	width : 150px;
 	float : left;
 	background-color: #E1E1E1;
 	margin: 0 0 10px 0;
+		-moz-box-shadow: 3px 3px 2px #888;
+	-webkit-box-shadow: 3px 3px 2px #888;
+	box-shadow: 3px 3px 2px #888;
 }
 .button_message_cancel {
 	width : 28.8%;
@@ -533,6 +550,9 @@ nav div a {
 	margin: 0px 4px 0 0 ;
 	vertical-align:middle;
 	line-height: 33px;
+		-moz-box-shadow: 3px 3px 2px #888;
+	-webkit-box-shadow: 3px 3px 2px #888;
+	box-shadow: 3px 3px 2px #888;
 }
 .button_message_new {
 	width : 70%;
@@ -540,6 +560,9 @@ nav div a {
 	height:100%;
 	background-color: #E1E1E1;
 	margin: 0 0 0 0;
+		-moz-box-shadow: 3px 3px 2px #888;
+	-webkit-box-shadow: 3px 3px 2px #888;
+	box-shadow: 3px 3px 2px #888;
 }
 .button_new_message{
 	display: block;

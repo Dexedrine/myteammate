@@ -24,7 +24,7 @@
 
                     	<div class="date_right">
                     		<br>
-							{{ message.createdAt|date('H:i d/m/Y',"Europe/Paris") }}
+							{{ message.createdAt|date('H:i d/m/y',"Europe/Paris") }}
                     	</div>
 	            </div>
 	    	</div>
@@ -33,7 +33,7 @@
 	            <div class="button_thread_body">
 	                   	<div class="date_left">
                     		<br>
-							{{ message.createdAt|date('H:i d/m/Y',"Europe/Paris") }}
+							{{ message.createdAt|date('H:i d/m/y',"Europe/Paris") }}
                     	</div>
 	            		<div class="message_body">
 	            			{{ message.body }}

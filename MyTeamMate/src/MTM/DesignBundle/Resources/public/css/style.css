@@ -107,7 +107,7 @@ nav div a {
 /* footer */
 .bottom {
 	bottom : 0;
-	position : absolute;
+	position : relative;
 	text-align: center;
 	font-size: 11px;
 }
@@ -519,7 +519,7 @@ nav div a {
 	color: #000000;
 	text-align : right;
 	vertical-align:bottom;
-	width : 26%;
+	width : 27%;
 	height : 70px;
 	margin: 0 2px 0 0;
 }

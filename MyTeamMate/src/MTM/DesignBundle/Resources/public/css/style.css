@@ -418,13 +418,16 @@ nav div a {
 	width: 70px;
 	background-color: #FFFFFF;
 	margin: 0 0 0 0px;
+			-moz-box-shadow: 3px 3px 2px #888;
+	-webkit-box-shadow: 3px 3px 2px #888;
+	box-shadow: 3px 3px 2px #888;
 	
 }
 .button_message_body {
 	float : left;
 	display: block;
 	height: 70px;
-	width : 58.3%;
+	width : 58%;
 	background-color: #FFFFFF;
 	margin: 0 0px 0 0px;
 		-moz-box-shadow: 3px 3px 2px #888;
@@ -454,7 +457,7 @@ nav div a {
 	float : left;
 	display: block;
 	height: 70px;
-	width : 5px;
+	width : 1.5%;
 	margin: 0 0px 0 0px;
 }
 

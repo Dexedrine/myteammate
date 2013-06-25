@@ -444,7 +444,7 @@ nav div a {
 	float : left;
 	display: block;
 	height: 70px;
-	width : 79.05%;
+	width : 79%;
 	background-color: #FFFFFF;
 	margin: 0 0px 0 0px;
 		-moz-box-shadow: 3px 3px 2px #888;
@@ -518,7 +518,7 @@ nav div a {
 .button_profil {
 	display: block;
 	float : left;
-	width: 70px;
+	width: 20%;
 	height: 70px;
 	background-color: #FFFFFF;
 	margin: 0 0px 0 0px;

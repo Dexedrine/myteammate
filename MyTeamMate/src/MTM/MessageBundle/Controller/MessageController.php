@@ -3,6 +3,8 @@
 namespace MTM\MessageBundle\Controller;
 
 
+use JMS\SecurityExtraBundle\Security\Util\String;
+
 use MTM\CoreBundle\Entity\TeamMate;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -34,21 +36,31 @@ class MessageController extends BaseController
      *
      * @return Response
      */
-    public function newMessageAction($teammate){
+    public function newMessageAction($id,$teammate,$action=null){
     	
         $form = $this->container->get('fos_message.new_thread_form.factory')->create();
-        $formHandler = $this->container->get('fos_message.new_thread_form.handler');
 
-        if ($message = $formHandler->process($form)) {
-            return new RedirectResponse($this->container->get('router')->generate('new_message', array(
-                'threadId' => $message->getThread()->getId()
-            )));
-        }
-
+		if($action=="retour"){
+			return new RedirectResponse($this->container->get('router')->generate('message_sent', array(
+					'id' => $id
+			)));
+		}
         return $this->container->get('templating')->renderResponse('MTMMessageBundle:Message:newMessage.html.twig', array(
             'teammate' => $teammate,
+        	'id' => $id,
         	'form' => $form->createView(),
             'data' => $form->getData()
         ));
     }
-}
+    /**
+     * Create a new message thread
+     *
+     * @return Response
+     */
+    public function messageSentAction($id){
+    	return $this->container->get('templating')->renderResponse('MTMMessageBundle:Message:messageSent.html.twig', array(
+    			'id' => $id
+    	));
+    	 
+    }
+    }

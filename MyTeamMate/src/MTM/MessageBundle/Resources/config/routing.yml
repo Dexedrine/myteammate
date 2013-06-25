@@ -23,6 +23,9 @@ fos_message_thread_delete:
     defaults: { _controller: "FOSMessageBundle:Message:delete" }
     
 new_message:
-    pattern: /user/message/{teammate}
+    pattern: /user/message/new/{teammate}:{id}:{action}
     defaults: { _controller: "MTMMessageBundle:Message:newMessage" }
+message_sent:
+    pattern: /user/message/messageSent/{id}
+    defaults: { _controller: "MTMMessageBundle:Message:messageSent" }
  

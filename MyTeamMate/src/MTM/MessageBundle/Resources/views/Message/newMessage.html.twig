@@ -3,7 +3,7 @@
 
 {% block fos_message_content %}
 <div class="loginForm">
-<form action="{{ url('fos_message_thread_new') }}" method="post">
+<form action="{{ url('new_message',{"id" : id,"teammate":teammate,"action":"retour"}) }}" method="post">
 	  <ul class="inputs">
 	   <li>
 	   		<span class="icon" data-icon="&#xe003;" aria-hidden="true" title="recipient"></span>
@@ -25,7 +25,7 @@
 	    </ul>
 	    <div class="message_footer">
 	 	   <div class="button_message_cancel">
-            		<a  value="Annuler" href="{{ url('fos_message_inbox')}}" }}">
+	 	   			<a value="Annuler" href="{{ path('others_profile',{"id" : id}) }}">
 						Annuler
 					</a>
 			</div>

@@ -29,7 +29,7 @@
 			<a href="{{ path('others_sport',{"id" : profile_teammate.id}) }}">S</a>
 		</div>
 		<div class="tile right">
-			<a href="{{ path('new_message',{"teammate" : profile_teammate}) }}">M</a>
+			<a href="{{ path('new_message',{"id" : profile_teammate.id, "teammate" : profile_teammate,"action" : " "}) }}">M</a>
 		</div>
 		<div class="clear"></div>
 		<div class="tile left">

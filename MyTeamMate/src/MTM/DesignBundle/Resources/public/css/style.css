@@ -430,9 +430,6 @@ nav div a {
 	width : 79.05%;
 	background-color: #FFFFFF;
 	margin: 0 2px 0 2px;
-		-moz-box-shadow: 3px 3px 2px #888;
-	-webkit-box-shadow: 3px 3px 2px #888;
-	box-shadow: 3px 3px 2px #888;
 }
 .message_no {
 	float : left;

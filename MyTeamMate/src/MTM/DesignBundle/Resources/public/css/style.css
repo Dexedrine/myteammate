@@ -439,6 +439,9 @@ nav div a {
 	width : 100%;
 	background-color: #FFFFFF;
 	margin: 0 0px 0 0px;
+			-moz-box-shadow: 3px 3px 2px #888;
+	-webkit-box-shadow: 3px 3px 2px #888;
+	box-shadow: 3px 3px 2px #888;
 }
 .button_thread_new textarea{
 	height: 90%;
@@ -513,7 +516,7 @@ nav div a {
 	color: #000000;
 	text-align : right;
 	vertical-align:bottom;
-	width : 24%;
+	width : 26%;
 	height : 70px;
 	margin: 0 2px 0 0;
 }
@@ -531,7 +534,7 @@ nav div a {
 	
 	float : left;
 	display: block;
-	width: 73%;
+	width: 72%;
 	vertical-align:middle;
 	padding: 2px 0;
 }

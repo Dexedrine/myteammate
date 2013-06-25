@@ -274,17 +274,10 @@ nav div a {
 
 .tile {
 	margin: 3% 10px;
-	width: 45%;
+	width: 43%;
 	height: 110px;
 	background-color: white;
-}
-
-.tile.left {
-	float: left
-}
-
-.tile.right {
-	float: right
+	float: left;
 }
 
 .tile a {

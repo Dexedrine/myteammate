@@ -103,8 +103,8 @@ nav div a {
 }
 /* footer */
 .bottom {
-	position: absolute;
-	bottom: 0;
+	bottom : 0;
+	position : absolute;
 	text-align: center;
 	font-size: 11px;
 }

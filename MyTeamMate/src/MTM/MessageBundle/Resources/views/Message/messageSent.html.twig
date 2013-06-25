@@ -1,0 +1,12 @@
+{% extends 'FOSMessageBundle::layout.html.twig' %}
+{% block page_name %}Message envoyé{% endblock %}
+
+{% block fos_message_content %}
+	    <div class="messageForm">
+	 	   <div class="button_add_message">
+	 	   			<a value="Retour" href="{{ path('others_profile',{"id" : id}) }}">
+						Retour
+					</a>
+			</div>
+		</div>
+{% endblock %}

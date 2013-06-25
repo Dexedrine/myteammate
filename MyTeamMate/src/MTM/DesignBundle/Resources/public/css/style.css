@@ -407,9 +407,7 @@ nav div a {
 	height: 70px;
 	display: block;
 	margin: 4px 0 4px 0;
-	-moz-box-shadow: 3px 3px 2px #888;
-	-webkit-box-shadow: 3px 3px 2px #888;
-	box-shadow: 3px 3px 2px #888;
+
 }
 .button_message_delete {
 	float : left;
@@ -457,7 +455,7 @@ nav div a {
 	float : left;
 	display: block;
 	height: 70px;
-	width : 1.5%;
+	width : 1.2%;
 	margin: 0 0px 0 0px;
 }
 

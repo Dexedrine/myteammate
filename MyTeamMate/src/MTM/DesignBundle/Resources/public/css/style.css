@@ -440,6 +440,11 @@ nav div a {
 	background-color: #FFFFFF;
 	margin: 0 0px 0 0px;
 }
+.button_thread_new textarea{
+	height: 90%;
+	width : 98%;
+
+}
 .button_thread_body {
 	float : left;
 	display: block;

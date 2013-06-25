@@ -32,17 +32,16 @@
 	    <div>{{ error }}</div>
 	{% endif %}
 	{{ form_rest(form) }}
-	<div class="registrationSubmit" onclick="document.forms['search_form'].submit()">
-		<div class="registrationSubmitInner"  style="text-align: center">
-			<span class="icon" data-icon="&#xe005;" aria-hidden="true" >
-				<input value="Valider" type="submit" />						
-			</span>
-		</div>
+	<div class="message_footer">
+		<div class="button_cancel button_cancel_search">
+			<a  href="{{ path('profile') }}" value="Retour"> Retour </a>
+		</div>	
+	 	<div class="button_valide_search" onclick="document.forms['search_form'].submit()">
+	 		<span class="icon" data-icon="&#xe005;" aria-hidden="true" ></span>
+			<input value="Valider" type="submit" />	
+	 	</div>
 	</div>			
 </div>
 
-<div class="button_cancel">
-	<a  href="{{ path('profile') }}" value="Retour"> Retour </a>
-</div>	
-		
+
 {% endblock %}

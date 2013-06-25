@@ -26,6 +26,9 @@ label {
 	margin: 10px 0;
 	background-color: #E1E1E1;
 	vertical-align:middle;
+	-moz-box-shadow: 3px 3px 2px #888;
+	-webkit-box-shadow: 3px 3px 2px #888;
+	box-shadow: 3px 3px 2px #888;
 }
 
 .button_cancel a {

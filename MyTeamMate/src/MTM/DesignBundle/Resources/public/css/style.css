@@ -415,26 +415,29 @@ nav div a {
 	float : left;
 	display: block;
 	height: 70px;
-	width: 18.8%;
+	width: 70px;
 	background-color: #FFFFFF;
-	margin: 0 0 0 2px;
+	margin: 0 0 0 0px;
 	
 }
 .button_message_body {
 	float : left;
 	display: block;
 	height: 70px;
-	width : 59.7%;
+	width : 58.3%;
 	background-color: #FFFFFF;
-	margin: 0 2px 0 2px;
+	margin: 0 0px 0 0px;
+		-moz-box-shadow: 3px 3px 2px #888;
+	-webkit-box-shadow: 3px 3px 2px #888;
+	box-shadow: 3px 3px 2px #888;
 }
 .button_thread_new {
 	float : left;
 	display: block;
 	height: 70px;
-	width : 99%;
+	width : 100%;
 	background-color: #FFFFFF;
-	margin: 0 2px 0 2px;
+	margin: 0 0px 0 0px;
 }
 .button_thread_body {
 	float : left;
@@ -442,8 +445,19 @@ nav div a {
 	height: 70px;
 	width : 79.05%;
 	background-color: #FFFFFF;
-	margin: 0 2px 0 2px;
+	margin: 0 0px 0 0px;
+		-moz-box-shadow: 3px 3px 2px #888;
+	-webkit-box-shadow: 3px 3px 2px #888;
+	box-shadow: 3px 3px 2px #888;
 }
+.thread_space {
+	float : left;
+	display: block;
+	height: 70px;
+	width : 5px;
+	margin: 0 0px 0 0px;
+}
+
 .message_no {
 	float : left;
 	display: block;
@@ -498,26 +512,23 @@ nav div a {
 	width: 73%;
 	vertical-align:middle;
 	padding: 2px 0;
-	line-height: 70px;
-	text-decoration: none;
-
 }
 
 .button_profil {
 	display: block;
 	float : left;
-	width: 18.7%;
+	width: 70px;
 	height: 70px;
 	background-color: #FFFFFF;
-	margin: 0 2px 0 2px;
+	margin: 0 0px 0 0px;
 	-moz-box-shadow: 3px 3px 2px #888;
 	-webkit-box-shadow: 3px 3px 2px #888;
 	box-shadow: 3px 3px 2px #888;
 }
 .button_profil img{
-	margin: 2px 2px 2px 2px;
-	width : 66px;
-	height : 66px;
+	margin: 5px 5px 5px 5px;
+	width : 60px;
+	height : 60px;
 }
 .button_profil left{
 	float : left;
@@ -626,11 +637,11 @@ nav div a {
 }
 /*Comment*/
 .button_comment_new {
-	width : 99%;
+	width : 100%;
 	float : left;
 	height:100%;
 	background-color: #E1E1E1;
-		margin: 0 2px 0 2px ;
+		margin: 0 0px 0 0px ;
 }
 .button_comment_new input{
 	border: 0px;

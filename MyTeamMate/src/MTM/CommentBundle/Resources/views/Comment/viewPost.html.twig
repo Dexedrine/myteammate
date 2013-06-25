@@ -27,6 +27,8 @@
 	                	<img src="{{ comment.idsender.getProfile().getUrlphoto()}}" alt="{{comment.idsender.username  }}"/>
 	            	</a>
 	            </div>
+	            <div class="thread_space">
+	            </div>
 	            <div class="button_thread_body">
 	            		<div class="message_body">
 	            			{{ comment.body }}
@@ -48,6 +50,8 @@
 	            		<div class="message_body">
 	            			{{ comment.body }}
 	            		</div>
+	            </div>
+	            	            <div class="thread_space">
 	            </div>
 	        	<div class="button_profil">
 	            	<a href="{{ path('others_profile',{"id" : comment.idsender.id}) }}">

@@ -15,6 +15,8 @@
 	                	<img src="{{ message.getSender().getProfile().getUrlphoto()}}" alt="{{thread.getParticipants()[0]  }}"/>
 	            	</a>
 	            </div>
+	           	<div class="thread_space">
+	            </div>
 	            <div class="button_thread_body">
 	            		<div class="message_body">
 	            			{{ message.body }}
@@ -36,6 +38,8 @@
 	            		<div class="message_body">
 	            			{{ message.body }}
 	            		</div>
+	            </div>
+	         	<div class="thread_space">
 	            </div>
 	            <div class="button_profil">
 	            	<a href="{{ path('others_profile',{"id" : message.getSender().id}) }}">

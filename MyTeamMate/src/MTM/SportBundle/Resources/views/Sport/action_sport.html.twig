@@ -9,19 +9,19 @@
 			{% else %}
 				<form action="{{ path(action) }}" method="post" name="sport_form" >
 			{% endif %}
-			<div>
+			<div class="sport_info">
 				<h3>Sport</h3>
 				{{ form_widget(form.idsport) }}
 			</div>
-			<div>
+			<div class="sport_info lieu">
 		   		<h3>Lieu</h3>
 		   		{{ form_widget(form.idplace) }}
 	   		</div>
-	   		<div>
+	   		<div class="sport_info">
 				<h3>Niveau</h3>
 				{{ form_widget(form.idlevel) }}
 			</div>
-			<div>
+			<div class="sport_slots">
 				<h3>Créneaux</h3>
 				<ul class="slots" data-prototype="{{ form_widget(form.idslots.vars.prototype)|e }}" >
 		    		{% for slot in form.idslots  %}	

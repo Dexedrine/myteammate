@@ -50,7 +50,7 @@
 	<div class="delete" >
 		<img src="{{ asset('bundles/mtmdesign/img/trash.png') }}" width="48px" height="48px" >
 	</div>
-	{% if practices %}
+	{% if practices | length > 0 %}
 		{%  for practice in  practices %}			
 			<div class="box" id="{{ practice.getIdpractice() }}" draggable="true">
 				<a class="edit" href="{{ path('edit_sport',{"idpractice" : practice.getIdpractice()}) }}">

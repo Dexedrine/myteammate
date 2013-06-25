@@ -1,5 +1,9 @@
 login:
     pattern:   /
+    defaults:  { _controller: "FOSUserBundle:Login:preLogin" }
+    
+postlogin:
+    pattern: /login
     defaults:  { _controller: "FOSUserBundle:Security:login" }
     
 login_check:

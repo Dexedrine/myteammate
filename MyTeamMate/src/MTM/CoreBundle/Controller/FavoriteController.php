@@ -10,6 +10,7 @@ class FavoriteController extends Controller {
 	
 	public function viewAction() {
 		$teammate = $this->get('security.context')->getToken()->getUser();
+		if(!$teammate) return $this->redirect($this->generateUrl('login'));
 
 		return $this->render('MTMCoreBundle:Favorite:view.html.twig',
 				array( 'favorites' => $teammate->getFavorites() )	);
@@ -17,6 +18,7 @@ class FavoriteController extends Controller {
 	
 	public function addAction($id){
 		$teammate = $this->get('security.context')->getToken()->getUser();
+		if(!$teammate) return $this->redirect($this->generateUrl('login'));
 
 		$em = $this->getDoctrine()->getManager();
 		$repository = $em->getRepository('MTMCoreBundle:TeamMate');
@@ -34,6 +36,7 @@ class FavoriteController extends Controller {
 	
 	public function removeAction($id){
 		$teammate = $this->get('security.context')->getToken()->getUser();
+		if(!$teammate) return $this->redirect($this->generateUrl('login'));
 		
 		$em = $this->getDoctrine()->getManager();
 		$repository = $em->getRepository('MTMCoreBundle:TeamMate');

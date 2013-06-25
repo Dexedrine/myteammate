@@ -11,6 +11,8 @@ class SearchController extends Controller
 {
 	public function searchAction(Request $request)
 		{	
+		$teammate = $this->get('security.context')->getToken()->getUser();
+		if(!$teammate) return $this->redirect($this->generateUrl('login'));
 		$form = $this->createForm(new SearchType());
 		
 		

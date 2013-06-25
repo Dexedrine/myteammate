@@ -413,7 +413,7 @@ nav div a {
 	float : left;
 	display: block;
 	height: 70px;
-	width: 70px;
+	width: 20%;
 	background-color: #FFFFFF;
 	margin: 0 0 0 0px;
 			-moz-box-shadow: 3px 3px 2px #888;
@@ -527,8 +527,8 @@ nav div a {
 	box-shadow: 3px 3px 2px #888;
 }
 .button_profil img{
-	margin: 5px 5px 5px 5px;
-	width : 60px;
+	margin: 5% 5% 5% 5%;
+	width : 90%;
 	height : 60px;
 }
 .button_profil left{

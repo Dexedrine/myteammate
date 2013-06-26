@@ -1,3 +1,7 @@
 search:
     pattern:  /user/search
     defaults: { _controller: "MTMSearchBundle:Search:search" }
+    
+research:
+    pattern:  /user/research/{form}
+    defaults: { _controller: "MTMSearchBundle:Search:research" }

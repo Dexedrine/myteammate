@@ -13,6 +13,8 @@ class SearchController extends Controller
 		{	
 		$teammate = $this->get('security.context')->getToken()->getUser();
 		if(!$teammate) return $this->redirect($this->generateUrl('login'));
+		
+		
 		$form = $this->createForm(new SearchType());
 		
 		
@@ -20,40 +22,38 @@ class SearchController extends Controller
 			$form->bind($request);
 			
 			if ($form->isValid()) {
+				
 				$em = $this->getDoctrine()->getEntityManager();
 				$qb = $em->createQueryBuilder();
 				
 				$already_one_where = false;
 				
 				$qb->select('t')
-					->from('MTMCoreBundle:TeamMate','t')
-					->innerjoin('t.profile','pro');
-				if($form['practice']['idsport']->getData())
-					$qb->innerjoin('t.practices','pra')
-						->innerjoin('pra.idsport','spo','WITH',
-							'spo.nomsport = \''.$form['practice']['idsport']->getData()->getNomsport().'\' ')
-						->innerjoin('pra.idlevel','lev','WITH',
-							'lev.level = \''.$form['practice']['idlevel']->getData()->getNomsport().'\' ');
-									
-				if($form['teammate']['username']->getData()){
+				->from('MTMCoreBundle:TeamMate','t')
+				->innerjoin('t.profile','pro');
+				if($form['practice']['idsport']->getData() || $form['practice']['idlevel']->getData())
+					$qb->innerjoin('t.practices','pra');
+				if($form['practice']['idsport']->getData()){
+					$qb->innerjoin('pra.idsport','spo','WITH',
+						'spo.nomsport = \''.$form['practice']['idsport']->getData()->getNomsport().'\' ');
+				}
+				if($form['practice']['idlevel']->getData()){
+					$qb->innerjoin('pra.idlevel','lev','WITH',
+						'lev.level = \''.$form['practice']['idlevel']->getData()->getLevel().'\' ');
+				}
+				
+				$qb->where('t.id != \''.$teammate->getId().'\' '); 
+				
+				if($form['teammate']['username']->getData())
 					$qb->where('t.username = \''.$form['teammate']['username']->getData().'\' '); 
-					$already_one_where = true;
-				}					
+									
 				if($form['profile']['name']->getData())
-					if($already_one_where)
-						$qb->andWhere(' pro.name = \''.$form['profile']['name']->getData().'\' ');
-					else{
-						$qb->where(' pro.name = \''.$form['profile']['name']->getData().'\' ');
-						$already_one_where = true;
-					}
-				if($form['profile']['firstname']->getData())
-					if($already_one_where)
-						$qb->andWhere(' pro.firstname = \''.$form['profile']['firstname']->getData().'\' ');
-					else
-						$qb->where(' pro.firstname = \''.$form['profile']['firstname']->getData().'\' ');
+					$qb->andWhere(' pro.name = \''.$form['profile']['name']->getData().'\' ');
 					
 				
-			
+				if($form['profile']['firstname']->getData())
+					$qb->andWhere(' pro.firstname = \''.$form['profile']['firstname']->getData().'\' ');
+					
 				
 				
 				$query = $qb->getQuery();
@@ -61,7 +61,9 @@ class SearchController extends Controller
 				$result = $query->getResult();
 				if($result)
 					return $this->render('MTMSearchBundle:Search:show_result.html.twig',
-						array('result'=> $result));
+						array('result'=> $result,
+							'form' => $form)
+					);
 				else{
 					$error = 'Aucun résultat';
 				}
@@ -80,4 +82,6 @@ class SearchController extends Controller
 				'error' => ''));
 		
 		}
+	
+	
 }

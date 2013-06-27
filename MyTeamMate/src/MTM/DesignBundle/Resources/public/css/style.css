@@ -271,6 +271,7 @@ nav div a {
 	max-width: 150px;
 	float: right;
 	margin-top: -3em;
+	height : 20%;
 }
 
 .tiles {
@@ -278,9 +279,9 @@ nav div a {
 }
 
 .tile {
-	margin: 3% 3%;
+	margin: 3% 3% 3% 3%;
 	width: 44%;
-	height: 110px;
+	height:24%;
 	background-color: white;
 	float: left;
 }

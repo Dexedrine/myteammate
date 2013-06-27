@@ -352,6 +352,9 @@ nav div a {
 	display: inline;
 	margin-right: 10px;
 }
+.add_sport .slots{
+	padding-left :39px;
+}
 .add_sport h3{
 	display: inline;	
 }
@@ -364,7 +367,7 @@ nav div a {
 .add_sport .sport_info select,
 .add_sport .sport_info input{
 	float: right;
-	margin-right:100px;
+	margin-right:40px;
 }
 
 /* box for sports and search results */

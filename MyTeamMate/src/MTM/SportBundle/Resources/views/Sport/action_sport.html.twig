@@ -30,17 +30,16 @@
 				</ul>
 			</div>
 			{{ form_rest(form) }}
-			<div class="registrationSubmit" onclick="document.forms['sport_form'].submit()">
-				<div class="registrationSubmitInner"  style="text-align: center">
-			 	   	<span class="icon">
-			 	   		{% if action == 'edit_sport' %}
-			    			<input value="Modifier" type="submit" />			
-						{% else %}
-						    <input value="Ajouter" type="submit" />
-						{% endif %}
-					</span>
-				</div>
-			</div>
+			<div class="button_cancel button_cancel_search">
+				<a  href="{{ path('sport') }}" value="Retour"> Annuler </a>
+			</div>	
+		 	<div class="button_cancel button_valide_search" onclick="document.forms['sport_form'].submit()">
+				{% if action == 'edit_sport' %}
+			    		Modifier		
+				{% else %}
+						Ajouter
+				{% endif %}
+		 	</div>	
 			
 			</form>		
 			<div id="map-canvas" ></div>

@@ -53,8 +53,8 @@
 	{% if practices %}
 		{%  for practice in  practices %}			
 			<div class="box" id="{{ practice.getIdpractice() }}" draggable="true">
-				<a class="edit" href="{{ path('edit_sport',{"idpractice" : practice.getIdpractice()}) }}">
-					<div class="box_data">
+				
+					<div class="other box_data">
 						<span class="bold">{{ practice.getIdSport().getNomsport() }} </span><br>
 						<span>{{ practice.getIdPlace().getAddress() }} </span><br>
 						<span>Niveau : {{ practice.getIdLevel().getLevel() }}</span> <br>
@@ -65,13 +65,7 @@
 									<br>
 						{% endfor %}
 					</div>
-				</a>		
-				<a href="{{ path('delete_sport',{"idpractice" : practice.getIdpractice()}) }}" >
-					<div class="box_button">
-						<img style="margin-top: 19px;" src="{{ asset('bundles/mtmdesign/img/trash.png') }}" width="48px" height="48px" />
-				
-					</div>	
-				</a>		
+								
 				<div class="clear"></div>
 			</div>		
 		{% endfor %}

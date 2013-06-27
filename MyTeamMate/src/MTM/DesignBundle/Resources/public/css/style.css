@@ -22,7 +22,6 @@ select{
 	border:none;
 	overflow:hidden;
 	background-color: #FFF;
-	/*background:#fff url(../img/fleche.png) no-repeat right ;*/
 }
 
 .bold{
@@ -30,6 +29,8 @@ select{
 }
 
 .button_cancel {
+	text-align: center;
+	cursor : pointer;
 	margin-top: 7px;
 	margin: 10px 0;
 	background-color: #E1E1E1;
@@ -361,6 +362,7 @@ nav div a {
 }
 .add_sport .slots{
 	padding-left :30px;
+	margin:auto;
 }
 
 .add_sport h3{
@@ -382,22 +384,32 @@ nav div a {
 /* box for sports and search results */
 .box{
 	margin: 7px 0;
-	height:88px;
 	width: 100%;
 	-moz-box-shadow: 3px 3px 2px #888;
 	-webkit-box-shadow: 3px 3px 2px #888;
 	box-shadow: 3px 3px 2px #888;
 	overflow: hidden;
+	background-color: #E1E1E1;
 }
-.box .edit{
+.other{
 	display: block;
 	float: left;
-	height:88px;
-	width:320px;
+	width:400px;
 	background-color: #FFFFFF;	
 	color: black;
 	text-decoration: none;
 }
+.box .edit{
+	display: block;
+	float: left;
+	width:312px;
+	background-color: #FFFFFF;	
+	color: black;
+	text-decoration: none;
+}
+
+
+
 .box .box_data{
 	padding: 4px;
 }
@@ -408,9 +420,9 @@ nav div a {
 	float:left;
 }
 .box_button img{	
-	margin: 2px;
 	max-width: 80px;
 	max-height: 88px;
+	margin-top: 12px;
 }
 
 /* search */

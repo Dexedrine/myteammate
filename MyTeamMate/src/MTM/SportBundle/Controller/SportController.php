@@ -103,13 +103,14 @@ class SportController extends Controller {
 				
 				foreach ($practice->getIdslots() as $slot) {
 					foreach ($originalSlots as $key => $toDel) {
-						if ($toDel->getIdSlot() === $slot->getIdSlot()) {
+						if ($toDel->getIdSlot() == $slot->getIdSlot()) {
 							unset($originalSlots[$key]);
 						}
-						else{
-							$em->remove($slot);
-						}
 					}
+				}
+				foreach ($originalSlots as $slot) {
+					$practice->removeIdslot($slot);
+					$em->remove($slot);
 				}
 				
 				$em->flush();
@@ -139,6 +140,7 @@ class SportController extends Controller {
 		
 		$em->remove($practice);
 		foreach ($practice->getIdslots() as $slot) {
+			$practice->removeIdslot($slot);
 			$em->remove($slot);
 		}
 		

@@ -53,8 +53,8 @@
 	{% if practices | length > 0 %}
 		{%  for practice in  practices %}			
 			<div class="box" id="{{ practice.getIdpractice() }}" draggable="true">
-				<a class="edit" href="{{ path('edit_sport',{"idpractice" : practice.getIdpractice()}) }}">
-					<div class="box_data">
+				<a class="edit box_data" class="box_data" href="{{ path('edit_sport',{"idpractice" : practice.getIdpractice()}) }}">
+					
 						<span class="bold">{{ practice.getIdSport().getNomsport() }} </span><br>
 						<span>{{ practice.getIdPlace().getAddress() }} </span><br>
 						<span>Niveau : {{ practice.getIdLevel().getLevel() }}</span> <br>
@@ -64,13 +64,10 @@
 									à {{ slot.getEndhour()|date('H:i') }}</span>
 									<br>
 						{% endfor %}
-					</div>
+					
 				</a>		
-				<a href="{{ path('delete_sport',{"idpractice" : practice.getIdpractice()}) }}" >
-					<div class="box_button">
-						<img style="margin-top: 19px;" src="{{ asset('bundles/mtmdesign/img/trash.png') }}" width="48px" height="48px" />
-				
-					</div>	
+				<a class="box_button" href="{{ path('delete_sport',{"idpractice" : practice.getIdpractice()}) }}" >
+					<img src="{{ asset('bundles/mtmdesign/img/trash.png') }}" width="48px" height="48px" />	
 				</a>		
 				<div class="clear"></div>
 			</div>		

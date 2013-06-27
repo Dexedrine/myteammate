@@ -17,6 +17,14 @@ label {
 	width: 153px;
 	float: left;
 }
+
+select{
+	border:none;
+	overflow:hidden;
+	background-color: #FFF;
+	/*background:#fff url(../img/fleche.png) no-repeat right ;*/
+}
+
 .bold{
 	font-weight: bold;
 }
@@ -352,13 +360,15 @@ nav div a {
 	margin-right: 10px;
 }
 .add_sport .slots{
-	padding-left :39px;
+	padding-left :30px;
 }
+
 .add_sport h3{
 	display: inline;	
 }
 .add_sport input{
 	right: 0;	
+	border:none;
 }
 .add_sport ul{
 	list-style: none;

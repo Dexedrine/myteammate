@@ -21,8 +21,11 @@ class SlotType extends AbstractType
 			),
 			'multiple'  => false,
 		));
-		$builder->add('starthour','time');
-		$builder->add('endhour','time');
+		$minutes =  array(0,15,30,45);
+		$builder->add('starthour','time',array(
+				'minutes' => $minutes));
+		$builder->add('endhour','time',array(
+				'minutes' => $minutes));
 		}
 	
 	public function setDefaultOptions(OptionsResolverInterface $resolver)

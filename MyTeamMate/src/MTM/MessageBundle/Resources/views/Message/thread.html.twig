@@ -12,7 +12,7 @@
 			<div class="thread">
 	        	<div class="button_profil">
 	            	<a href="{{ path('others_profile',{"id" : message.getSender().id}) }}">
-	                	<img src="{{ message.getSender().getProfile().getUrlphoto()}}" alt="{{thread.getParticipants()[0]  }}"/>
+	                	<img src="{{ message.getSender().getProfile().getUrlphoto()}}" alt="{{message.getSender()  }}"/>
 	            	</a>
 	            </div>
 	           	<div class="thread_space">
@@ -43,7 +43,7 @@
 	            </div>
 	            <div class="button_profil">
 	            	<a href="{{ path('others_profile',{"id" : message.getSender().id}) }}">
-	                	<img src="{{ message.getSender().getProfile().getUrlphoto()}}" alt="{{thread.getParticipants()[0]  }}"/>
+	                	<img src="{{ message.getSender().getProfile().getUrlphoto()}}" alt="{{message.getSender() }}"/>
 	            	</a>
 	            </div>
 	    	</div>

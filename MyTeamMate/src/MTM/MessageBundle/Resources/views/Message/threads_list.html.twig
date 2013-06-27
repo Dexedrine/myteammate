@@ -25,9 +25,9 @@
                     		{{ thread.createdBy.getProfile().getName()}}
                     	</div>
                     	{{ thread.subject }}
-                    	{% if not fos_message_is_read(thread) %}
+             <!--       	{% if not fos_message_is_read(thread) %}
                         	(nouveau)
-                    		{% endif %}
+                    		{% endif %} -->
                     	<div class="date">
                     		{{ thread.createdAt|date('d/m/Y') }}
                     	</div>

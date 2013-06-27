@@ -392,14 +392,13 @@ nav div a {
 /* box for sports and search results */
 .box{
 	margin: 7px 0;
-	width: 100%;
 	-moz-box-shadow: 3px 3px 2px #888;
 	-webkit-box-shadow: 3px 3px 2px #888;
 	box-shadow: 3px 3px 2px #888;
 	overflow: hidden;
 	background-color: #E1E1E1;
 }
-.other{
+.box .other{
 	display: block;
 	float: left;
 	width:400px;
@@ -410,12 +409,19 @@ nav div a {
 .box .edit{
 	display: block;
 	float: left;
-	width:312px;
+	width:320px;
 	background-color: #FFFFFF;	
 	color: black;
 	text-decoration: none;
 }
-
+.box .result{
+	display: block;
+	float: left;
+	width:327px;
+	background-color: #FFFFFF;	
+	color: black;
+	text-decoration: none;
+}
 
 
 .box .box_data{
@@ -423,17 +429,25 @@ nav div a {
 }
 .box_button{
 	background-color: #E1E1E1;
-	height:88px;
-	width:80px;
+	width:72px;
 	float:left;
 }
 .box_button img{	
-	max-width: 80px;
-	max-height: 88px;
-	margin-top: 12px;
+	max-width: 72px;
 }
-
+.box_button img .trash{	
+	margin-top: 20px;
+}
 /* search */
+
+.inputs li select{ 
+	border: medium none;
+    font-family: 'Pontano Sans',arial,serif;
+    font-size: 18px;
+    outline: medium none;
+    color: #73777B;
+    width: 240px;
+}
 
 .button_cancel_search{
 	width : 28.8%;

@@ -12,11 +12,11 @@ class PracticeType extends AbstractType
 			$builder->add('idsport', 'entity' ,
 			array( 'class' => 'MTMSportBundle:Sport',
 					'property' => 'nomsport',
-					'empty_value' => 'Choisissez un sport'));
+					'empty_value' => 'Sport '));
 			$builder->add('idlevel' , 'entity' ,
 			array( 'class' => 'MTMSportBundle:Level',
 					'property' => 'level',
-					'empty_value' => 'Choisissez un niveau'));
+					'empty_value' => 'Niveau'));
 		}
 	
 	public function setDefaultOptions(OptionsResolverInterface $resolver)

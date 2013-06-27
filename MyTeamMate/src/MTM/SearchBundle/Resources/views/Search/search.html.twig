@@ -32,14 +32,13 @@
 	    <div>{{ error }}</div>
 	{% endif %}
 	{{ form_rest(form) }}
-	<div class="message_footer">
+	
 		<div class="button_cancel button_cancel_search">
 			<a  href="{{ path('profile') }}" value="Retour"> Retour </a>
 		</div>	
-	 	<div class="button_valide_search" onclick="document.forms['search_form'].submit()">
-			<input value="Valider" type="submit" />	
-	 	</div>
-	</div>			
+	 	<div class="button_cancel button_valide_search" onclick="document.forms['search_form'].submit()">
+			Valider
+	 	</div>	
 </div>
 
 

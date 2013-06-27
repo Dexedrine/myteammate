@@ -349,18 +349,14 @@ nav div a {
 }
 
 /* add sport */
-.add_sport{
-	text-align: left;	
-}
+
 .add_sport label{
 	display: none;	
 }
 .add_sport #practice_idplace{
 	margin-top: -25px;	
 }
-.add_sport #practice_idplace_address{
-	text-align: right;
-}
+
 .add_sport .lieu{
 	padding-bottom: 34px;
 }
@@ -371,6 +367,25 @@ nav div a {
 .add_sport .slots{
 	padding-left :30px;
 	margin:auto;
+}
+.add_sport .sport_slots{
+	list-style: none;
+	background: #FFFFFF;
+	text-align: left;
+}
+
+.add_sport .sport_slots span{
+	margin-left: 68px;
+	padding-bottom: 10px;
+	color: #73777B;
+    font-size: 18px;
+}
+.add_sport .slots li select {
+    border: medium none;
+    color: #73777B;
+    font-family: 'Pontano Sans',arial,serif;
+    font-size: 18px;
+    outline: medium none;
 }
 
 .add_sport h3{

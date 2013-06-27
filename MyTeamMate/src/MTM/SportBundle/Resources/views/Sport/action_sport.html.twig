@@ -9,20 +9,22 @@
 			{% else %}
 				<form action="{{ path(action) }}" method="post" name="sport_form" >
 			{% endif %}
-			<div class="sport_info">
-				<h3>Sport</h3>
-				{{ form_widget(form.idsport) }}
-			</div>
-			<div class="sport_info lieu">
-		   		<h3>Lieu</h3>
-		   		{{ form_widget(form.idplace) }}
-	   		</div>
-	   		<div class="sport_info">
-				<h3>Niveau</h3>
-				{{ form_widget(form.idlevel) }}
-			</div>
+			<ul class="inputs">
+				<li>
+					<span title="sport"></span>
+					{{ form_widget(form.idsport, {'attr': {'placeholder': 'Sport'}}) }}
+				</li>
+				<li>
+					<span title="place"></span>
+			   		{{ form_widget(form.idplace.address, {'attr': {'placeholder': 'Lieu'}}) }}
+		   		</li>
+		   		<li>
+		   			<span title="level"></span>
+					{{ form_widget(form.idlevel, {'attr': {'placeholder': 'Niveau'}}) }}
+				</li>
+			</ul>
 			<div class="sport_slots">
-				<h3>Créneaux</h3>
+				<span>Créneaux</span>
 				<ul class="slots" data-prototype="{{ form_widget(form.idslots.vars.prototype)|e }}" >
 		    		{% for slot in form.idslots  %}	
 			         	<li id="slot" >{{ form_widget(slot) }}</li>

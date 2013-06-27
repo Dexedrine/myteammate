@@ -9,7 +9,7 @@ class PlaceType extends AbstractType
 {
 	public function buildForm(FormBuilderInterface $builder, array $options)
 	{
-		$builder->add('address');
+		$builder->add('address','text');
 	}
 
 	public function setDefaultOptions(OptionsResolverInterface $resolver)

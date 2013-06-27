@@ -8,14 +8,16 @@ class PracticeType extends AbstractType {
 	public function buildForm(FormBuilderInterface $builder, array $options) {
 		$builder->add('idsport', 'entity' ,
 			array( 'class' => 'MTMSportBundle:Sport',
-					'property' => 'nomsport'));
+					'property' => 'nomsport',
+					'empty_value' => 'Sport'));
 		$builder->add('idplace', new PlaceType() );
 		/*$builder->add('idplace', 'entity' ,
 			array( 'class' => 'MTMSportBundle:Place',
 					'property' => 'address'));*/
 		$builder->add('idlevel', 'entity' ,
 			array( 'class' => 'MTMSportBundle:Level',
-					'property' => 'level'));
+					'property' => 'level',
+					'empty_value' => 'Niveau'));
 		$builder->add('idslots', 'collection',
 						array('type' => new SlotType(), 
 								'allow_add' => true,

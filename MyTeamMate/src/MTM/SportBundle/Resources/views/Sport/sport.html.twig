@@ -74,15 +74,12 @@
 		{% endfor %}
 	{% else %}
 		Vous n'avez pas encore de sport !
-		<div class="registrationSubmit">
-		 	   <div class="registrationSubmitInner">
-			 	   	<span class="icon">
-			 	   		<a href="{{ path('add_sport') }}"> <input value="Ajouter un sport" type="submit" /></a>
-			 	   	</span>
-		 	   	</div>
-		</div>
+		<div class="clear"></div>
+		<div class="button_cancel button_cancel_search">
+			<a  href="{{ path('profile') }}" value="Retour"> Retour </a>
+		</div>	
+	 	<div class="button_cancel button_valide_droit">
+			<a  href="{{ path('add_sport') }}" value="Ajouter un sport"> Ajouter un sport </a>
+	 	</div>	
 	{% endif %}
-	<div class="button_cancel">
-		<a  href="{{ path('profile') }}" value="Retour"> Retour </a>
-	</div>
 {% endblock %}
